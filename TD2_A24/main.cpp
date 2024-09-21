@@ -51,9 +51,19 @@ gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste)
 }
 #pragma endregion
 
-//TODO: Fonction qui cherche un concepteur par son nom dans une ListeJeux.
-// Cette fonction renvoie le pointeur vers le concepteur si elle le trouve dans
-// un des jeux de la ListeJeux. En cas contraire, elle renvoie un pointeur nul.
+
+Concepteur* findDesigner(string name, const ListeJeux& gameList) {
+	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
+	for (Jeu* game : spanGameList) {
+		gsl::span<Concepteur*> spanDesignerList = spanListeConcepteurs(game->concepteurs);
+		for (Concepteur* designer : spanDesignerList) {
+			if (designer->nom == name) {
+				return designer;
+			}
+		}
+	}
+	return nullptr;
+}
 
 
 Concepteur* lireConcepteur(istream& fichier)

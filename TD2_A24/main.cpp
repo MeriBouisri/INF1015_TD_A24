@@ -85,12 +85,8 @@ Concepteur* lireConcepteur(istream& fichier)
 	return {}; //TODO: Retourner le pointeur vers le concepteur crée.
 }
 
-//TODO: Fonction qui change la taille du tableau de jeux de ListeJeux.
-// Cette fonction doit recevoir en paramètre la nouvelle capacité du nouveau
-// tableau. Il faut allouer un nouveau tableau assez grand, copier ce qu'il y
-// avait dans l'ancien, et éliminer l'ancien trop petit. N'oubliez pas, on copie
-// des pointeurs de jeux. Il n'y a donc aucune nouvelle allocation de jeu ici !
-void increaseGameListCapacity(int newCapacity, ListeJeux& gameList) {
+
+void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
 	Jeu** newGames = new Jeu* [newCapacity];
 	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
 	int i = 0;
@@ -105,11 +101,13 @@ void increaseGameListCapacity(int newCapacity, ListeJeux& gameList) {
 	gameList.capacite = newCapacity;
 }
 
-//TODO: Fonction pour ajouter un Jeu à ListeJeux.
-// Le jeu existant déjà en mémoire, on veut uniquement ajouter le pointeur vers
-// le jeu existant. De plus, en cas de saturation du tableau elements, cette
-// fonction doit doubler la taille du tableau elements de ListeJeux.
-// Utilisez la fonction pour changer la taille du tableau écrite plus haut.
+
+void addGame(Jeu& game, ListeJeux& gameList) {
+	if (gameList.nElements >= gameList.capacite) {
+		increaseGameListCapacity(gameList.capacite*2, gameList);
+	}
+	gameList.elements[gameList.nElements++] = &game;
+}
 
 //TODO: Fonction qui enlève un jeu de ListeJeux.
 // Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le

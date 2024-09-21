@@ -90,6 +90,20 @@ Concepteur* lireConcepteur(istream& fichier)
 // tableau. Il faut allouer un nouveau tableau assez grand, copier ce qu'il y
 // avait dans l'ancien, et éliminer l'ancien trop petit. N'oubliez pas, on copie
 // des pointeurs de jeux. Il n'y a donc aucune nouvelle allocation de jeu ici !
+void increaseGameListCapacity(int newCapacity, ListeJeux& gameList) {
+	Jeu** newGames = new Jeu* [newCapacity];
+	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
+	int i = 0;
+
+	for (Jeu* game : spanGameList) {
+		newGames[i++] = game;
+	}
+
+	delete[] gameList.elements;
+
+	gameList.elements = newGames;
+	gameList.capacite = newCapacity;
+}
 
 //TODO: Fonction pour ajouter un Jeu à ListeJeux.
 // Le jeu existant déjà en mémoire, on veut uniquement ajouter le pointeur vers

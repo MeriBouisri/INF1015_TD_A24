@@ -66,7 +66,7 @@ Concepteur* findDesigner(string name, const ListeJeux& gameList) {
 }
 
 
-Concepteur* lireConcepteur(istream& fichier)
+Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 {
 	Concepteur concepteur = {}; // On initialise une structure vide de type Concepteur.
 	concepteur.nom = lireString(fichier);
@@ -75,14 +75,27 @@ Concepteur* lireConcepteur(istream& fichier)
 	// Rendu ici, les champs précédents de la structure concepteur sont remplis
 	// avec la bonne information.
 
-	//TODO: Ajouter en mémoire le concepteur lu. Il faut revoyer le pointeur créé.
+	//TODO (done): Ajouter en mémoire le concepteur lu. Il faut revoyer le pointeur créé.
 	// Attention, valider si le concepteur existe déjà avant de le créer, sinon
 	// on va avoir des doublons car plusieurs jeux ont des concepteurs en commun
 	// dans le fichier binaire. Pour ce faire, cette fonction aura besoin de
 	// la liste de jeux principale en paramètre.
 	// Afficher un message lorsque l'allocation du concepteur est réussie.
-	cout << concepteur.nom << endl;  //TODO: Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
-	return {}; //TODO: Retourner le pointeur vers le concepteur crée.
+
+	Concepteur* ptrConcepteur = findDesigner(concepteur.nom, gameList);
+
+	if (!ptrConcepteur)
+		ptrConcepteur = new Concepteur(concepteur);
+
+	// TODO (personnel) : Ajout methodes struct Concepteur
+	ptrConcepteur->jeuxConcus = {};
+	ptrConcepteur->jeuxConcus.capacite = 0;
+	ptrConcepteur->jeuxConcus.nElements = 0;
+	ptrConcepteur->jeuxConcus.elements = new Jeu*[ptrConcepteur->jeuxConcus.capacite];
+
+	cout << "Allocated [Concepteur, " << ptrConcepteur->nom << ", " << ptrConcepteur << "]" << endl;
+
+	return ptrConcepteur; //TODO (done): Retourner le pointeur vers le concepteur crée.
 }
 
 
@@ -109,6 +122,8 @@ void addGame(Jeu& game, ListeJeux& gameList) {
 	gameList.elements[gameList.nElements++] = &game;
 }
 
+
+
 //TODO: Fonction qui enlève un jeu de ListeJeux.
 // Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le
 // pointeur de la ListeJeux, mais le jeu pointé existe encore en mémoire.
@@ -116,7 +131,7 @@ void addGame(Jeu& game, ListeJeux& gameList) {
 // jeu à être retiré par celui présent en fin de liste et décrémenter la taille
 // de celle-ci.
 
-Jeu* lireJeu(istream& fichier)
+Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
 {
 	Jeu jeu = {}; // On initialise une structure vide de type Jeu
 	jeu.titre = lireString(fichier);
@@ -126,31 +141,47 @@ Jeu* lireJeu(istream& fichier)
 	// Rendu ici, les champs précédents de la structure jeu sont remplis avec la
 	// bonne information.
 
-	//TODO: Ajouter en mémoire le jeu lu. Il faut revoyer le pointeur créé.
+	//TODO (done): Ajouter en mémoire le jeu lu. Il faut revoyer le pointeur créé.
 	// Attention, il faut aussi créer un tableau dynamique pour les concepteurs
 	// que contient un jeu. Servez-vous de votre fonction d'ajout de jeu car la
 	// liste de jeux participé est une ListeJeu. Afficher un message lorsque
 	// l'allocation du jeu est réussie.
-	cout << jeu.titre << endl;  //TODO: Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
+
+	Jeu* ptrJeu = new Jeu(jeu);
+	ptrJeu->concepteurs.elements = new Concepteur*[jeu.concepteurs.nElements]; 
+
 	for ([[maybe_unused]] size_t i : iter::range(jeu.concepteurs.nElements)) {
-		lireConcepteur(fichier);  //TODO: Mettre le concepteur dans la liste des concepteur du jeu.
-		//TODO: Ajouter le jeu à la liste des jeux auquel a participé le concepteur.
+		//TODO (done): Mettre le concepteur dans la liste des concepteur du jeu.
+		Concepteur* concepteur = lireConcepteur(fichier, gameList);  
+		ptrJeu->concepteurs.elements[i] = concepteur;
+		
+		//TODO (done): Ajouter le jeu à la liste des jeux auquel a participé le concepteur.
+		addGame(*ptrJeu, concepteur->jeuxConcus);
 	}
-	return {}; //TODO: Retourner le pointeur vers le nouveau jeu.
+
+	cout << "Allocated [Jeu, " << ptrJeu->titre << ", " << ptrJeu << "]" << endl;
+
+	return ptrJeu; // TODO (done): Retourner le pointeur vers le nouveau jeu.
 }
 
 ListeJeux creerListeJeux(const string& nomFichier)
 {
 	ifstream fichier(nomFichier, ios::binary);
 	fichier.exceptions(ios::failbit);
-	size_t nElements = lireUintTailleVariable(fichier);
+
 	ListeJeux listeJeux = {};
-	for([[maybe_unused]] size_t n : iter::range(nElements))
+
+	listeJeux.nElements = 0;
+	listeJeux.capacite = lireUintTailleVariable(fichier);
+	listeJeux.elements = new Jeu*[listeJeux.capacite];
+	
+	for([[maybe_unused]] size_t n : iter::range(listeJeux.capacite))
 	{
-		lireJeu(fichier); //TODO: Ajouter le jeu à la ListeJeux.
+		Jeu* jeu = lireJeu(fichier, listeJeux); // (done) TODO: Ajouter le jeu à la ListeJeux.
+		addGame(*jeu, listeJeux);
 	}
 
-	return {}; //TODO: Renvoyer la ListeJeux.
+	return listeJeux; // (done) TODO: Renvoyer la ListeJeux.
 }
 
 //TODO: Fonction pour détruire un concepteur (libération de mémoire allouée).
@@ -193,18 +224,22 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
-	creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
+	ListeJeux gameList = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
 
 	static const string ligneSeparation = "\n\033[35m════════════════════════════════════════\033[0m\n";
 	cout << ligneSeparation << endl;
 	cout << "Premier jeu de la liste :" << endl;
 	//TODO: Afficher le premier jeu de la liste (en utilisant la fonction).  Devrait être Chrono Trigger.
 
+	cout << gameList.elements[0]->titre << endl;
+
 	cout << ligneSeparation << endl;
 
 	//TODO: Appel à votre fonction d'affichage de votre liste de jeux.
 	
 	//TODO: Faire les appels à toutes vos fonctions/méthodes pour voir qu'elles fonctionnent et avoir 0% de lignes non exécutées dans le programme (aucune ligne rouge dans la couverture de code; c'est normal que les lignes de "new" et "delete" soient jaunes).  Vous avez aussi le droit d'effacer les lignes du programmes qui ne sont pas exécutée, si finalement vous pensez qu'elle ne sont pas utiles.
+
+
 
 	//TODO: Détruire tout avant de terminer le programme.  Devrait afficher "Aucune fuite detectee." a la sortie du programme; il affichera "Fuite detectee:" avec la liste des blocs, s'il manque des delete.
 }

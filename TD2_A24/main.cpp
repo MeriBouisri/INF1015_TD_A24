@@ -26,9 +26,9 @@ size_t lireUintTailleVariable(istream& fichier)
 {
 	uint8_t entete = lireType<uint8_t>(fichier);
 	switch (entete) {
-	case enteteTailleVariableDeBase+0: return lireType<uint8_t>(fichier);
-	case enteteTailleVariableDeBase+1: return lireType<uint16_t>(fichier);
-	case enteteTailleVariableDeBase+2: return lireType<uint32_t>(fichier);
+	case enteteTailleVariableDeBase + 0: return lireType<uint8_t>(fichier);
+	case enteteTailleVariableDeBase + 1: return lireType<uint16_t>(fichier);
+	case enteteTailleVariableDeBase + 2: return lireType<uint32_t>(fichier);
 	default:
 		erreurFataleAssert("Tentative de lire un entier de taille variable alors que le fichier contient autre chose à cet emplacement.");
 	}
@@ -87,7 +87,7 @@ Concepteur* lireConcepteur(istream& fichier)
 
 
 void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
-	Jeu** newGames = new Jeu* [newCapacity];
+	Jeu** newGames = new Jeu * [newCapacity];
 	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
 	int i = 0;
 
@@ -104,7 +104,12 @@ void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
 
 void addGame(Jeu& game, ListeJeux& gameList) {
 	if (gameList.nElements >= gameList.capacite) {
-		increaseGameListCapacity(gameList.capacite*2, gameList);
+		if (gameList.capacite <= 0) {
+			increaseGameListCapacity(1, gameList);
+		}
+		else {
+			increaseGameListCapacity(gameList.capacite * 2, gameList);
+		}
 	}
 	gameList.elements[gameList.nElements++] = &game;
 }
@@ -145,7 +150,7 @@ ListeJeux creerListeJeux(const string& nomFichier)
 	fichier.exceptions(ios::failbit);
 	size_t nElements = lireUintTailleVariable(fichier);
 	ListeJeux listeJeux = {};
-	for([[maybe_unused]] size_t n : iter::range(nElements))
+	for ([[maybe_unused]] size_t n : iter::range(nElements))
 	{
 		lireJeu(fichier); //TODO: Ajouter le jeu à la ListeJeux.
 	}
@@ -171,7 +176,7 @@ ListeJeux creerListeJeux(const string& nomFichier)
 void afficherConcepteur(const Concepteur& d)
 {
 	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays
-			  << endl;
+		<< endl;
 }
 
 //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
@@ -184,12 +189,12 @@ void afficherConcepteur(const Concepteur& d)
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
-	#pragma region "Bibliothèque du cours"
+#pragma region "Bibliothèque du cours"
 	// Permet sous Windows les "ANSI escape code" pour changer de couleur
 	// https://en.wikipedia.org/wiki/ANSI_escape_code ; les consoles Linux/Mac
 	// les supportent normalement par défaut.
-	bibliotheque_cours::activerCouleursAnsi(); 
-	#pragma endregion
+	bibliotheque_cours::activerCouleursAnsi();
+#pragma endregion
 
 	int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
@@ -203,7 +208,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 	cout << ligneSeparation << endl;
 
 	//TODO: Appel à votre fonction d'affichage de votre liste de jeux.
-	
+
 	//TODO: Faire les appels à toutes vos fonctions/méthodes pour voir qu'elles fonctionnent et avoir 0% de lignes non exécutées dans le programme (aucune ligne rouge dans la couverture de code; c'est normal que les lignes de "new" et "delete" soient jaunes).  Vous avez aussi le droit d'effacer les lignes du programmes qui ne sont pas exécutée, si finalement vous pensez qu'elle ne sont pas utiles.
 
 	//TODO: Détruire tout avant de terminer le programme.  Devrait afficher "Aucune fuite detectee." a la sortie du programme; il affichera "Fuite detectee:" avec la liste des blocs, s'il manque des delete.

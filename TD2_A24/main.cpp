@@ -22,7 +22,7 @@ T lireType(istream& fichier)
 }
 #define erreurFataleAssert(message) assert(false&&(message)),terminate()
 static const uint8_t enteteTailleVariableDeBase = 0xA0;
-size_t lireUintTailleVariable(istream& fichier)
+static size_t lireUintTailleVariable(istream& fichier)
 {
 	uint8_t entete = lireType<uint8_t>(fichier);
 	switch (entete) {
@@ -34,7 +34,7 @@ size_t lireUintTailleVariable(istream& fichier)
 	}
 }
 
-string lireString(istream& fichier)
+static string lireString(istream& fichier)
 {
 	string texte;
 	texte.resize(lireUintTailleVariable(fichier));
@@ -52,13 +52,13 @@ gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste)
 #pragma endregion
 
 
-Concepteur* findDesigner(string name, const ListeJeux& gameList) {
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
-	for (Jeu* game : spanGameList) {
-		gsl::span<Concepteur*> spanDesignerList = spanListeConcepteurs(game->concepteurs);
-		for (Concepteur* designer : spanDesignerList) {
+static Concepteur* findDesigner(const string& name, const ListeJeux& gameList) {
+	const gsl::span<const Jeu*> spanGameList = spanListeJeux(gameList);
+	for (const Jeu*& game : spanGameList) {
+		const gsl::span<const Concepteur*> spanDesignerList = spanListeConcepteurs(game->concepteurs);
+		for (const Concepteur*& designer : spanDesignerList) {
 			if (designer->nom == name) {
-				return designer;
+				return const_cast<Concepteur*>(designer);
 			}
 		}
 	}
@@ -66,7 +66,7 @@ Concepteur* findDesigner(string name, const ListeJeux& gameList) {
 }
 
 
-Concepteur* lireConcepteur(istream& fichier)
+static Concepteur* lireConcepteur(istream& fichier)
 {
 	Concepteur concepteur = {}; // On initialise une structure vide de type Concepteur.
 	concepteur.nom = lireString(fichier);
@@ -86,13 +86,13 @@ Concepteur* lireConcepteur(istream& fichier)
 }
 
 
-void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
+static void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
 	Jeu** newGames = new Jeu * [newCapacity];
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
+	const gsl::span<const Jeu*> spanGameList = spanListeJeux(gameList);
 	int i = 0;
 
-	for (Jeu* game : spanGameList) {
-		newGames[i++] = game;
+	for (const Jeu*& game : spanGameList) {
+		newGames[i++] = const_cast<Jeu*>(game);
 	}
 
 	delete[] gameList.elements;
@@ -102,7 +102,7 @@ void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
 }
 
 
-void addGame(Jeu& game, ListeJeux& gameList) {
+static void addGame(const Jeu& game, ListeJeux& gameList) {
 	if (gameList.nElements >= gameList.capacite) {
 		if (gameList.capacite <= 0) {
 			increaseGameListCapacity(1, gameList);
@@ -111,7 +111,7 @@ void addGame(Jeu& game, ListeJeux& gameList) {
 			increaseGameListCapacity(gameList.capacite * 2, gameList);
 		}
 	}
-	gameList.elements[gameList.nElements++] = &game;
+	gameList.elements[gameList.nElements++] = &(const_cast<Jeu&>(game));
 }
 
 //TODO: Fonction qui enlève un jeu de ListeJeux.
@@ -120,6 +120,15 @@ void addGame(Jeu& game, ListeJeux& gameList) {
 // Puisque l'ordre de la ListeJeux n'a pas être conservé, on peut remplacer le
 // jeu à être retiré par celui présent en fin de liste et décrémenter la taille
 // de celle-ci.
+static void removeGame(const Jeu*& gameToDelete, ListeJeux& gameList) {
+	const gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
+	for (Jeu*& game : spanGameList) {
+		if (game == gameToDelete) {
+			game = spanGameList[--gameList.nElements];
+		}
+	}
+}
+
 
 Jeu* lireJeu(istream& fichier)
 {

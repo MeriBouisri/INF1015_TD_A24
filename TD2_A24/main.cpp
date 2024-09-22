@@ -22,19 +22,19 @@ T lireType(istream& fichier)
 }
 #define erreurFataleAssert(message) assert(false&&(message)),terminate()
 static const uint8_t enteteTailleVariableDeBase = 0xA0;
-size_t lireUintTailleVariable(istream& fichier)
+static size_t lireUintTailleVariable(istream& fichier)
 {
 	uint8_t entete = lireType<uint8_t>(fichier);
 	switch (entete) {
-	case enteteTailleVariableDeBase+0: return lireType<uint8_t>(fichier);
-	case enteteTailleVariableDeBase+1: return lireType<uint16_t>(fichier);
-	case enteteTailleVariableDeBase+2: return lireType<uint32_t>(fichier);
+	case enteteTailleVariableDeBase + 0: return lireType<uint8_t>(fichier);
+	case enteteTailleVariableDeBase + 1: return lireType<uint16_t>(fichier);
+	case enteteTailleVariableDeBase + 2: return lireType<uint32_t>(fichier);
 	default:
 		erreurFataleAssert("Tentative de lire un entier de taille variable alors que le fichier contient autre chose à cet emplacement.");
 	}
 }
 
-string lireString(istream& fichier)
+static string lireString(istream& fichier)
 {
 	string texte;
 	texte.resize(lireUintTailleVariable(fichier));
@@ -52,13 +52,13 @@ gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste)
 #pragma endregion
 
 
-Concepteur* findDesigner(string name, const ListeJeux& gameList) {
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
-	for (Jeu* game : spanGameList) {
-		gsl::span<Concepteur*> spanDesignerList = spanListeConcepteurs(game->concepteurs);
-		for (Concepteur* designer : spanDesignerList) {
+static Concepteur* findDesigner(const string& name, const ListeJeux& gameList) {
+	const gsl::span<const Jeu*> spanGameList = spanListeJeux(gameList);
+	for (const Jeu*& game : spanGameList) {
+		const gsl::span<const Concepteur*> spanDesignerList = spanListeConcepteurs(game->concepteurs);
+		for (const Concepteur*& designer : spanDesignerList) {
 			if (designer->nom == name) {
-				return designer;
+				return const_cast<Concepteur*>(designer);
 			}
 		}
 	}
@@ -101,13 +101,13 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 }
 
 
-void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
-	Jeu** newGames = new Jeu* [newCapacity];
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
+static void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
+	Jeu** newGames = new Jeu * [newCapacity];
+	const gsl::span<const Jeu*> spanGameList = spanListeJeux(gameList);
 	int i = 0;
 
-	for (Jeu* game : spanGameList) {
-		newGames[i++] = game;
+	for (const Jeu*& game : spanGameList) {
+		newGames[i++] = const_cast<Jeu*>(game);
 	}
 
 	delete[] gameList.elements;
@@ -117,11 +117,16 @@ void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
 }
 
 
-void addGame(Jeu& game, ListeJeux& gameList) {
+static void addGame(const Jeu& game, ListeJeux& gameList) {
 	if (gameList.nElements >= gameList.capacite) {
-		increaseGameListCapacity(gameList.capacite*2, gameList);
+		if (gameList.capacite <= 0) {
+			increaseGameListCapacity(1, gameList);
+		}
+		else {
+			increaseGameListCapacity(gameList.capacite * 2, gameList);
+		}
 	}
-	gameList.elements[gameList.nElements++] = &game;
+	gameList.elements[gameList.nElements++] = &(const_cast<Jeu&>(game));
 }
 
 //TODO: Fonction qui enlève un jeu de ListeJeux.
@@ -130,15 +135,15 @@ void addGame(Jeu& game, ListeJeux& gameList) {
 // Puisque l'ordre de la ListeJeux n'a pas être conservé, on peut remplacer le
 // jeu à être retiré par celui présent en fin de liste et décrémenter la taille
 // de celle-ci.
-void removeGame(Jeu& jeu, ListeJeux& gameList) {
-	for (size_t i : iter::range(gameList.nElements)) {
-		if (gameList.elements[i] == &jeu) {
-			gameList.elements[i] = gameList.elements[gameList.nElements - 1];
-			gameList.nElements--;
-			return;
+static void removeGame(const Jeu*& gameToDelete, ListeJeux& gameList) {
+	const gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
+	for (Jeu*& game : spanGameList) {
+		if (game == gameToDelete) {
+			game = spanGameList[--gameList.nElements];
 		}
 	}
 }
+
 
 Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
 {
@@ -261,7 +266,7 @@ void detruireListeJeux(ListeJeux& listeJeux)
 void afficherConcepteur(const Concepteur& d)
 {
 	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays
-			  << endl;
+		<< endl;
 }
 
 //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
@@ -290,12 +295,12 @@ void afficherListeJeux(const ListeJeux& listeJeux)
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
-	#pragma region "Bibliothèque du cours"
+#pragma region "Bibliothèque du cours"
 	// Permet sous Windows les "ANSI escape code" pour changer de couleur
 	// https://en.wikipedia.org/wiki/ANSI_escape_code ; les consoles Linux/Mac
 	// les supportent normalement par défaut.
-	bibliotheque_cours::activerCouleursAnsi(); 
-	#pragma endregion
+	bibliotheque_cours::activerCouleursAnsi();
+#pragma endregion
 
 	int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 

@@ -207,10 +207,24 @@ void afficherConcepteur(const Concepteur& d)
 
 //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
 // Servez-vous de la fonction afficherConcepteur ci-dessus.
+void afficherJeu(const Jeu& j)
+{
+	cout << j.titre << ", " << j.anneeSortie << ", " << j.developpeur << endl;
+	cout << "Concepteurs:" << endl;
+	for (Concepteur* c : spanListeConcepteurs(j.concepteurs))
+		afficherConcepteur(*c);
+}
 
 //TODO: Fonction pour afficher tous les jeux de ListeJeux, séparés par un ligne.
 // Servez-vous de la fonction d'affichage d'un jeu crée ci-dessus. Votre ligne
 // de séparation doit être différent de celle utilisée dans le main.
+void afficherListeJeux(const ListeJeux& listeJeux)
+{
+	for (Jeu* j : spanListeJeux(listeJeux)) {
+		afficherJeu(*j);
+		cout << "\n";
+	}
+}
 
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
@@ -224,18 +238,23 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
-	ListeJeux gameList = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
+	ListeJeux gameList = creerListeJeux("jeux.bin"); //TODO (done): Appeler correctement votre fonction de création de la liste de jeux.
 
 	static const string ligneSeparation = "\n\033[35m════════════════════════════════════════\033[0m\n";
 	cout << ligneSeparation << endl;
 	cout << "Premier jeu de la liste :" << endl;
-	//TODO: Afficher le premier jeu de la liste (en utilisant la fonction).  Devrait être Chrono Trigger.
+
+	//TODO (done): Afficher le premier jeu de la liste (en utilisant la fonction).  Devrait être Chrono Trigger.
 
 	cout << gameList.elements[0]->titre << endl;
 
 	cout << ligneSeparation << endl;
 
-	//TODO: Appel à votre fonction d'affichage de votre liste de jeux.
+	//TODO (done): Appel à votre fonction d'affichage de votre liste de jeux.
+
+	afficherListeJeux(gameList);
+
+	cout << ligneSeparation << endl;
 	
 	//TODO: Faire les appels à toutes vos fonctions/méthodes pour voir qu'elles fonctionnent et avoir 0% de lignes non exécutées dans le programme (aucune ligne rouge dans la couverture de code; c'est normal que les lignes de "new" et "delete" soient jaunes).  Vous avez aussi le droit d'effacer les lignes du programmes qui ne sont pas exécutée, si finalement vous pensez qu'elle ne sont pas utiles.
 

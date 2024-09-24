@@ -105,51 +105,6 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 	return ptrConcepteur; //TODO (done): Retourner le pointeur vers le concepteur crée.
 }
 
-
-static void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
-	Jeu** newGames = new Jeu * [newCapacity];
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
-	int i = 0;
-
-	for (Jeu* game : spanGameList) {
-		newGames[i++] = game;
-	}
-
-	delete[] gameList.elements;
-
-	gameList.elements = newGames;
-	gameList.capacite = newCapacity;
-}
-
-
-static void addGame(Jeu& game, ListeJeux& gameList) {
-	if (gameList.nElements >= gameList.capacite) {
-		if (gameList.capacite <= 0) {
-			increaseGameListCapacity(1, gameList);
-		}
-		else {
-			increaseGameListCapacity(gameList.capacite * 2, gameList);
-		}
-	}
-	gameList.elements[gameList.nElements++] = &game;
-}
-
-//TODO: Fonction qui enlève un jeu de ListeJeux.
-// Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le
-// pointeur de la ListeJeux, mais le jeu pointé existe encore en mémoire.
-// Puisque l'ordre de la ListeJeux n'a pas être conservé, on peut remplacer le
-// jeu à être retiré par celui présent en fin de liste et décrémenter la taille
-// de celle-ci.
-static void removeGame(Jeu* gameToDelete, ListeJeux& gameList) {
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
-	for (Jeu* game : spanGameList) {
-		if (game == gameToDelete) {
-			game = spanGameList[--gameList.nElements];
-		}
-	}
-}
-
-
 Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
 {
 	Jeu jeu = {}; // On initialise une structure vide de type Jeu

@@ -7,6 +7,7 @@
 #include "bibliotheque_cours.hpp"
 #include "verification_allocation.hpp"
 #include "debogage_memoire.hpp"  //NOTE: Incompatible avec le "placement new", ne pas utiliser cette entête si vous utilisez ce type de "new" dans les lignes qui suivent cette inclusion.
+#include "Developpeur.hpp"
 
 using namespace std;
 using namespace iter;
@@ -174,7 +175,7 @@ Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
 		ptrJeu->concepteurs.elements[i] = concepteur;
 		
 		//TODO (done): Ajouter le jeu à la liste des jeux auquel a participé le concepteur.
-		addGame(*ptrJeu, concepteur->jeuxConcus);
+		ListeJeux::addGame(*ptrJeu, concepteur->jeuxConcus);
 	}
 
 	cout << "Allocated [Jeu, " << ptrJeu->titre << ", " << ptrJeu << "]" << endl;
@@ -196,7 +197,7 @@ ListeJeux creerListeJeux(const string& nomFichier)
 	for([[maybe_unused]] size_t n : iter::range(listeJeux.capacite))
 	{
 		Jeu* jeu = lireJeu(fichier, listeJeux); // (done) TODO: Ajouter le jeu à la ListeJeux.
-		addGame(*jeu, listeJeux);
+		ListeJeux::addGame(*jeu, listeJeux);
 	}
 
 	return listeJeux; // (done) TODO: Renvoyer la ListeJeux.
@@ -211,7 +212,7 @@ void detruireConcepteur(Concepteur* concepteur)
 	cout << "Destroying... [Concepteur, " << concepteur->nom << ", " << concepteur << ", " << *concepteur->jeuxConcus.elements << "]" << endl;
 
 	for (Jeu* j : spanListeJeux(concepteur->jeuxConcus)) 
-		removeGame(j, concepteur->jeuxConcus);
+		ListeJeux::removeGame(j, concepteur->jeuxConcus);
 
 	delete[] concepteur->jeuxConcus.elements; 
 	concepteur->jeuxConcus.elements = nullptr;	
@@ -240,7 +241,7 @@ void detruireJeu(Jeu* jeu)
 	cout << "Destroying... [Jeu, " << jeu->titre << ", " << jeu << "]" << endl;
 
 	for (Concepteur* c : spanListeConcepteurs(jeu->concepteurs)) {
-		removeGame(jeu, c->jeuxConcus);
+		ListeJeux::removeGame(jeu, c->jeuxConcus);
 
 		if (!concepteurParticipeJeu(*c)) 
 			detruireConcepteur(c);
@@ -331,8 +332,13 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 	
 	//TODO: Faire les appels à toutes vos fonctions/méthodes pour voir qu'elles fonctionnent et avoir 0% de lignes non exécutées dans le programme (aucune ligne rouge dans la couverture de code; c'est normal que les lignes de "new" et "delete" soient jaunes).  Vous avez aussi le droit d'effacer les lignes du programmes qui ne sont pas exécutée, si finalement vous pensez qu'elle ne sont pas utiles.
 
+	ListeJeux::test();
+	Developpeur::test();
+
 
 	//TODO: Détruire tout avant de terminer le programme.  Devrait afficher "Aucune fuite detectee." a la sortie du programme; il affichera "Fuite detectee:" avec la liste des blocs, s'il manque des delete.
 
 	detruireListeJeux(gameList);
+
+
 }

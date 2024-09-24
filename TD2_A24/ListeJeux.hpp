@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <cstddef>
 #include <gsl/span>
+#include <iostream>
 #include "verification_allocation.hpp"
 #include "debogage_memoire.hpp"  //NOTE: Incompatible avec le "placement new", ne pas utiliser cette entête si vous utilisez ce type de "new" dans les lignes qui suivent cette inclusion.
 // La déclaration suivante plutôt qu'un #include "Jeu.hpp" est nécessaire sinon il y aurait une boucle d'inclusion (ListeJeux.hpp > Jeu.hpp > ListeConcepteurs.hpp > Concepteur.hpp > ListeJeux.hpp), la boucle serait arrêtée par le "pragma once" mais ListeJeux ne serait alors pas déclaré lors de la compilation de Concepteur.
@@ -55,5 +56,14 @@ struct ListeJeux
 
 	static gsl::span<Jeu*> span(const ListeJeux& gameList) {
 		return gsl::span<Jeu*>(gameList.elements, gameList.nElements);
+	}
+
+	static void test() {
+
+		// ListeJeux::addGame //
+
+		// ListeJeux::removeGame //
+
+		// ListeJeux::increaseCapacity //
 	}
 };

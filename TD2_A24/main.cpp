@@ -84,12 +84,16 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 
 	Concepteur* ptrConcepteur = findDesigner(concepteur.nom, gameList);
 
-	if (ptrConcepteur == nullptr) 
-		ptrConcepteur = new Concepteur(concepteur);
+	if (ptrConcepteur != nullptr) {
+		cout << "Found [Concepteur, " << ptrConcepteur->nom << ", " << ptrConcepteur << "]" << endl;
+		return ptrConcepteur;
+	}
+
+	ptrConcepteur = new Concepteur(concepteur);
 
 	// TODO (personnel) : Ajout methodes struct Concepteur
 	ptrConcepteur->jeuxConcus = {};
-	ptrConcepteur->jeuxConcus.capacite = 1;
+	ptrConcepteur->jeuxConcus.capacite = 0;
 	ptrConcepteur->jeuxConcus.nElements = 0;
 	
 	// TODO (personnel) : Memory leak here ?

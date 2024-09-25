@@ -11,18 +11,18 @@ struct ListeJeux
 {
 	std::size_t nElements, capacite;
 	Jeu** elements;
-	
-    static void addGame(Jeu& game, ListeJeux& gameList) {
-    	if (gameList.nElements >= gameList.capacite) {
-    		if (gameList.capacite <= 0) {
-    			ListeJeux::increaseCapacity(1, gameList);
-    		}
-    		else {
-    			ListeJeux::increaseCapacity(gameList.capacite * 2, gameList);
-    		}
-    	}
-    	gameList.elements[gameList.nElements++] = &game;
-    }
+
+	static void addGame(Jeu& game, ListeJeux& gameList) {
+		if (gameList.nElements >= gameList.capacite) {
+			if (gameList.capacite <= 0) {
+				ListeJeux::increaseCapacity(1, gameList);
+			}
+			else {
+				ListeJeux::increaseCapacity(gameList.capacite * 2, gameList);
+			}
+		}
+		gameList.elements[gameList.nElements++] = &game;
+	}
 
 	//TODO: Fonction qui enlève un jeu de ListeJeux.
 	// Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le
@@ -34,26 +34,27 @@ struct ListeJeux
 		gsl::span<Jeu*> spanGameList = gsl::span<Jeu*>(gameList.elements, gameList.nElements);
 		for (Jeu*& game : spanGameList) {
 			if (game == gameToDelete) {
-				game = spanGameList[gameList.nElements - 1];
+				if (gameList.nElements > 1) {
+					game = spanGameList[gameList.nElements - 1];
+				}
 				gameList.nElements--;
 			}
 		}
 	}
 
-    static void increaseCapacity(size_t newCapacity, ListeJeux& gameList) {
-    	Jeu** newGames = new Jeu * [newCapacity];
-    	gsl::span<Jeu*> spanGameList = gsl::span<Jeu*>(gameList.elements, gameList.nElements);
-    	int i = 0;
+	static void increaseCapacity(size_t newCapacity, ListeJeux& gameList) {
+		Jeu** newGames = new Jeu*[newCapacity];
+		gsl::span<Jeu*> spanGameList = gsl::span<Jeu*>(gameList.elements, gameList.nElements);
 
-    	for (Jeu* game : spanGameList) {
-    		newGames[i++] = game;
-    	}
+		for (size_t i = 0; i < gameList.nElements; i++) {
+			newGames[i] = gameList.elements[i];
+		}
 
-    	delete[] gameList.elements;
+		delete[] gameList.elements;
 
-    	gameList.elements = newGames;
-    	gameList.capacite = newCapacity;
-    }
+		gameList.elements = newGames;
+		gameList.capacite = newCapacity;
+	}
 
 	static gsl::span<Jeu*> span(const ListeJeux& gameList) {
 		return gsl::span<Jeu*>(gameList.elements, gameList.nElements);

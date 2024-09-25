@@ -18,10 +18,10 @@ class Developpeur
 		Developpeur(std::string nom);
 		~Developpeur();
 		std::string getName() const;
-		ListeJeux getGameList();
+		ListeJeux getGameList() const;
 		void clearGameList();
-		int countGames(ListeJeux& gameList);
+		int countGames(ListeJeux& gameList) const;
 		void updateGameList(ListeJeux& gameList);
-		void printGameList();
+		void printGameList() const;
 		static void test();
 };

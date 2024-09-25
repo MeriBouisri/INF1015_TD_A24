@@ -20,26 +20,9 @@ ListeDeveloppeurs::~ListeDeveloppeurs() {
 }
 
 
-void ListeDeveloppeurs::detruireDeveloppeur(Developpeur* developer)
-{
+void ListeDeveloppeurs::detruireDeveloppeur(Developpeur* developer) {
 	std::cout << "Destroying... [Développeur, " << developer->getName() << ", " << developer << "]" << std::endl;
-
 	developer->~Developpeur();
-
-	for (Concepteur* c : spanListeConcepteurs(jeu->concepteurs)) {
-		ListeJeux::removeGame(jeu, c->jeuxConcus);
-
-		if (!concepteurParticipeJeu(*c))
-			detruireConcepteur(c);
-	}
-
-	delete[] jeu->concepteurs.elements;
-	jeu->concepteurs.elements = nullptr;
-
-	delete jeu;
-	jeu = nullptr;
-
-	cout << "Destroyed [ptrJeu=" << jeu << "]" << endl;
 }
 
 
@@ -88,7 +71,9 @@ void ListeDeveloppeurs::removeDeveloper(Developpeur* developerToDelete) {
 	gsl::span<Developpeur*> spanDeveloperList = span();
 	for (Developpeur*& developer : spanDeveloperList) {
 		if (developer == developerToDelete) {
-			developer = spanDeveloperList[nElements_ - 1];
+			if (nElements_ > 1) {
+				developer = spanDeveloperList[nElements_ - 1];
+			}
 			nElements_--;
 		}
 	}

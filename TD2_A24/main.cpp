@@ -7,6 +7,7 @@
 #include "bibliotheque_cours.hpp"
 #include "verification_allocation.hpp"
 #include "debogage_memoire.hpp"  //NOTE: Incompatible avec le "placement new", ne pas utiliser cette entête si vous utilisez ce type de "new" dans les lignes qui suivent cette inclusion.
+#include "Developpeur.hpp"
 
 using namespace std;
 using namespace iter;
@@ -84,12 +85,16 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 
 	Concepteur* ptrConcepteur = findDesigner(concepteur.nom, gameList);
 
-	if (ptrConcepteur == nullptr) 
-		ptrConcepteur = new Concepteur(concepteur);
+	if (ptrConcepteur != nullptr) {
+		cout << "Found [Concepteur, " << ptrConcepteur->nom << ", " << ptrConcepteur << "]" << endl;
+		return ptrConcepteur;
+	}
+
+	ptrConcepteur = new Concepteur(concepteur);
 
 	// TODO (personnel) : Ajout methodes struct Concepteur
 	ptrConcepteur->jeuxConcus = {};
-	ptrConcepteur->jeuxConcus.capacite = 1;
+	ptrConcepteur->jeuxConcus.capacite = 0;
 	ptrConcepteur->jeuxConcus.nElements = 0;
 	
 	// TODO (personnel) : Memory leak here ?
@@ -99,51 +104,6 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 
 	return ptrConcepteur; //TODO (done): Retourner le pointeur vers le concepteur crée.
 }
-
-
-static void increaseGameListCapacity(size_t newCapacity, ListeJeux& gameList) {
-	Jeu** newGames = new Jeu * [newCapacity];
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
-	int i = 0;
-
-	for (Jeu* game : spanGameList) {
-		newGames[i++] = game;
-	}
-
-	delete[] gameList.elements;
-
-	gameList.elements = newGames;
-	gameList.capacite = newCapacity;
-}
-
-
-static void addGame(Jeu& game, ListeJeux& gameList) {
-	if (gameList.nElements >= gameList.capacite) {
-		if (gameList.capacite <= 0) {
-			increaseGameListCapacity(1, gameList);
-		}
-		else {
-			increaseGameListCapacity(gameList.capacite * 2, gameList);
-		}
-	}
-	gameList.elements[gameList.nElements++] = &game;
-}
-
-//TODO: Fonction qui enlève un jeu de ListeJeux.
-// Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le
-// pointeur de la ListeJeux, mais le jeu pointé existe encore en mémoire.
-// Puisque l'ordre de la ListeJeux n'a pas être conservé, on peut remplacer le
-// jeu à être retiré par celui présent en fin de liste et décrémenter la taille
-// de celle-ci.
-static void removeGame(Jeu* gameToDelete, ListeJeux& gameList) {
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
-	for (Jeu* game : spanGameList) {
-		if (game == gameToDelete) {
-			game = spanGameList[--gameList.nElements];
-		}
-	}
-}
-
 
 Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
 {
@@ -170,7 +130,7 @@ Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
 		ptrJeu->concepteurs.elements[i] = concepteur;
 		
 		//TODO (done): Ajouter le jeu à la liste des jeux auquel a participé le concepteur.
-		addGame(*ptrJeu, concepteur->jeuxConcus);
+		ListeJeux::addGame(*ptrJeu, concepteur->jeuxConcus);
 	}
 
 	cout << "Allocated [Jeu, " << ptrJeu->titre << ", " << ptrJeu << "]" << endl;
@@ -192,7 +152,7 @@ ListeJeux creerListeJeux(const string& nomFichier)
 	for([[maybe_unused]] size_t n : iter::range(listeJeux.capacite))
 	{
 		Jeu* jeu = lireJeu(fichier, listeJeux); // (done) TODO: Ajouter le jeu à la ListeJeux.
-		addGame(*jeu, listeJeux);
+		ListeJeux::addGame(*jeu, listeJeux);
 	}
 
 	return listeJeux; // (done) TODO: Renvoyer la ListeJeux.
@@ -207,7 +167,7 @@ void detruireConcepteur(Concepteur* concepteur)
 	cout << "Destroying... [Concepteur, " << concepteur->nom << ", " << concepteur << ", " << *concepteur->jeuxConcus.elements << "]" << endl;
 
 	for (Jeu* j : spanListeJeux(concepteur->jeuxConcus)) 
-		removeGame(j, concepteur->jeuxConcus);
+		ListeJeux::removeGame(j, concepteur->jeuxConcus);
 
 	delete[] concepteur->jeuxConcus.elements; 
 	concepteur->jeuxConcus.elements = nullptr;	
@@ -236,7 +196,7 @@ void detruireJeu(Jeu* jeu)
 	cout << "Destroying... [Jeu, " << jeu->titre << ", " << jeu << "]" << endl;
 
 	for (Concepteur* c : spanListeConcepteurs(jeu->concepteurs)) {
-		removeGame(jeu, c->jeuxConcus);
+		ListeJeux::removeGame(jeu, c->jeuxConcus);
 
 		if (!concepteurParticipeJeu(*c)) 
 			detruireConcepteur(c);
@@ -327,8 +287,13 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 	
 	//TODO: Faire les appels à toutes vos fonctions/méthodes pour voir qu'elles fonctionnent et avoir 0% de lignes non exécutées dans le programme (aucune ligne rouge dans la couverture de code; c'est normal que les lignes de "new" et "delete" soient jaunes).  Vous avez aussi le droit d'effacer les lignes du programmes qui ne sont pas exécutée, si finalement vous pensez qu'elle ne sont pas utiles.
 
+	ListeJeux::test();
+	Developpeur::test();
+
 
 	//TODO: Détruire tout avant de terminer le programme.  Devrait afficher "Aucune fuite detectee." a la sortie du programme; il affichera "Fuite detectee:" avec la liste des blocs, s'il manque des delete.
 
 	detruireListeJeux(gameList);
+
+
 }

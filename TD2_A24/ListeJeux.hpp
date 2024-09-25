@@ -32,9 +32,10 @@ struct ListeJeux
 	//// de celle-ci.
 	static void removeGame(Jeu* gameToDelete, ListeJeux& gameList) {
 		gsl::span<Jeu*> spanGameList = gsl::span<Jeu*>(gameList.elements, gameList.nElements);
-		for (Jeu* game : spanGameList) {
+		for (Jeu*& game : spanGameList) {
 			if (game == gameToDelete) {
-				game = spanGameList[--gameList.nElements];
+				game = spanGameList[gameList.nElements - 1];
+				gameList.nElements--;
 			}
 		}
 	}

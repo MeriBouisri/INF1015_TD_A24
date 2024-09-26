@@ -8,13 +8,13 @@ public:
 	~ListeDeveloppeurs();
 	void afficher();
 	void augmenterCapacite(size_t nouvelleCapacite);
-	void ajouterDeveloppeur(Developpeur& developpeur);
-	void eneleverDeveloppeur(Developpeur* developpeurASupprimer);
+	void ajouterDeveloppeur(Developpeur& developpeurAAjouter);
+	void retirerDeveloppeur(Developpeur* developpeurARetirer);
 
 private:
 	std::size_t nElements_, capacite_;
 
 	Developpeur** developpeurs_;
 	gsl::span<Developpeur*> span();
-	void detruireDeveloppeur(Developpeur* developpeur);
+	void detruireDeveloppeur(Developpeur* developpeurADetruire);
 };

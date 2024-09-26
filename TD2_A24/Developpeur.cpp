@@ -1,3 +1,11 @@
+/**
+* Implémentation de la classe Developpeur, représentant un développeur de jeu vidéo
+* \file   Developpeur.cpp
+* \author Bouisri et Xa
+* \date   29 septembre 2024
+* Créé le 17 septembre 2024
+*/
+
 #include "Developpeur.hpp"
 
 Developpeur::Developpeur(std::string nom) {

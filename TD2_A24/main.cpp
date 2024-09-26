@@ -1,4 +1,12 @@
-﻿#include "Jeu.hpp"
+﻿/**
+* Implémentation de l'allocation dynamique et des classes pour la gestion des listes de jeux vidéo et de développeurs à partir du fichier jeux.bin
+* \file   main.cpp
+* \author Bouisri et Xa
+* \date   29 septembre 2024
+* Créé le 17 septembre 2024
+*/
+
+#include "Jeu.hpp"
 #include <iostream>
 #include <fstream>
 #include <cstdint>
@@ -166,8 +174,8 @@ void detruireConcepteur(Concepteur* concepteur) {
 	ListeJeux jeuxConcus = concepteur->jeuxConcus;
 	cout << "Concepteur en cours de destruction : [Concepteur, " << concepteur->nom << ", " << concepteur << ", " << *concepteur->jeuxConcus.elements << "]" << endl;
 
-	for (Jeu* j : spanListeJeux(concepteur->jeuxConcus))
-		ListeJeux::enleverJeu(j, concepteur->jeuxConcus);
+	for (Jeu* jeu : spanListeJeux(concepteur->jeuxConcus))
+		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
 
 	delete[] concepteur->jeuxConcus.elements;
 	concepteur->jeuxConcus.elements = nullptr;
@@ -178,10 +186,12 @@ void detruireConcepteur(Concepteur* concepteur) {
 	cout << "Concepteur detruit : [concepteurTrouve=" << concepteur << "]" << endl; //", " << *concepteur->jeuxConcus.elements << "]" << endl;
 }
 
+
 //TODO: Fonction qui détermine si un concepteur participe encore à un jeu.
 bool concepteurParticipeJeu(const Concepteur& concepteur) {
 	return concepteur.jeuxConcus.nElements > 0;
 }
+
 
 //TODO: Fonction pour détruire un jeu (libération de mémoire allouée).
 // Attention, ici il faut relâcher toute les cases mémoires occupées par un jeu.
@@ -193,11 +203,11 @@ bool concepteurParticipeJeu(const Concepteur& concepteur) {
 void detruireJeu(Jeu* jeu) {
 	cout << "Jeu en cours de destruction : [Jeu, " << jeu->titre << ", " << jeu << "]" << endl;
 
-	for (Concepteur* c : spanListeConcepteurs(jeu->concepteurs)) {
-		ListeJeux::enleverJeu(jeu, c->jeuxConcus);
+	for (Concepteur* concepteur : spanListeConcepteurs(jeu->concepteurs)) {
+		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
 
-		if (!concepteurParticipeJeu(*c))
-			detruireConcepteur(c);
+		if (!concepteurParticipeJeu(*concepteur))
+			detruireConcepteur(concepteur);
 	}
 
 	delete[] jeu->concepteurs.elements;
@@ -209,10 +219,11 @@ void detruireJeu(Jeu* jeu) {
 	cout << "Jeu detruit : [jeuLu=" << jeu << "]" << endl;
 }
 
+
 //TODO: Fonction pour détruire une ListeJeux et tous ses jeux.
 void detruireListeJeux(ListeJeux listeJeux) {
-	for (Jeu* j : spanListeJeux(listeJeux))
-		detruireJeu(j);
+	for (Jeu* jeu : spanListeJeux(listeJeux))
+		detruireJeu(jeu);
 
 	delete[] listeJeux.elements;
 	listeJeux.elements = nullptr;
@@ -220,9 +231,11 @@ void detruireListeJeux(ListeJeux listeJeux) {
 	cout << "Liste de jeux détruite" << endl;
 }
 
-void afficherConcepteur(const Concepteur& d) {
-	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays << endl;
+
+void afficherConcepteur(const Concepteur& concepteurAAfficher) {
+	cout << "\t" << concepteurAAfficher.nom << ", " << concepteurAAfficher.anneeNaissance << ", " << concepteurAAfficher.pays << endl;
 }
+
 
 //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
 // Servez-vous de la fonction afficherConcepteur ci-dessus.
@@ -234,12 +247,13 @@ void afficherJeu(const Jeu& jeu) {
 		afficherConcepteur(*concepteur);
 }
 
+
 //TODO: Fonction pour afficher tous les jeux de ListeJeux, séparés par un ligne.
 // Servez-vous de la fonction d'affichage d'un jeu crée ci-dessus. Votre ligne
 // de séparation doit être différent de celle utilisée dans le main.
 void afficherListeJeux(const ListeJeux& listeJeux) {
-	for (Jeu* j : spanListeJeux(listeJeux)) {
-		afficherJeu(*j);
+	for (Jeu* jeu : spanListeJeux(listeJeux)) {
+		afficherJeu(*jeu);
 		cout << "\n";
 	}
 }

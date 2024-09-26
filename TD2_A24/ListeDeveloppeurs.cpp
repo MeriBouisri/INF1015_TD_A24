@@ -1,3 +1,11 @@
+/**
+* Implémentation de la classe ListeDeveloppeurs, représentant une liste de développeurs de jeu vidéo
+* \file   ListeDeveloppeurs.cpp
+* \author Bouisri et Xa
+* \date   29 septembre 2024
+* Créé le 17 septembre 2024
+*/
+
 #include "ListeDeveloppeurs.hpp"
 #include "gsl/span"
 
@@ -19,9 +27,9 @@ ListeDeveloppeurs::~ListeDeveloppeurs() {
 }
 
 
-void ListeDeveloppeurs::detruireDeveloppeur(Developpeur* developpeur) {
-	std::cout << "Destroying... [Développeur, " << developpeur->obtenirNom() << ", " << developpeur << "]" << std::endl;
-	developpeur->~Developpeur();
+void ListeDeveloppeurs::detruireDeveloppeur(Developpeur* developpeurADetruire) {
+	std::cout << "Destroying... [Développeur, " << developpeurADetruire->obtenirNom() << ", " << developpeurADetruire << "]" << std::endl;
+	developpeurADetruire->~Developpeur();
 }
 
 
@@ -51,7 +59,7 @@ void ListeDeveloppeurs::augmenterCapacite(size_t nouvelleCapacite) {
 }
 
 
-void ListeDeveloppeurs::ajouterDeveloppeur(Developpeur& developpeur) {
+void ListeDeveloppeurs::ajouterDeveloppeur(Developpeur& developpeurAAjouter) {
 	if (nElements_ >= capacite_) {
 		if (capacite_ <= 0) {
 			augmenterCapacite(1);
@@ -60,14 +68,14 @@ void ListeDeveloppeurs::ajouterDeveloppeur(Developpeur& developpeur) {
 			augmenterCapacite(capacite_ * 2);
 		}
 	}
-	developpeurs_[nElements_++] = &developpeur;
+	developpeurs_[nElements_++] = &developpeurAAjouter;
 }
 
 
-void ListeDeveloppeurs::eneleverDeveloppeur(Developpeur* developpeurASupprimer) {
+void ListeDeveloppeurs::retirerDeveloppeur(Developpeur* developpeurARetirer) {
 	gsl::span<Developpeur*> spanDeveloperList = span();
 	for (Developpeur*& developpeur : spanDeveloperList) {
-		if (developpeur == developpeurASupprimer) {
+		if (developpeur == developpeurARetirer) {
 			if (nElements_ > 1) {
 				developpeur = spanDeveloperList[nElements_ - 1];
 			}

@@ -80,5 +80,6 @@ void Developpeur::test() {
 
 	dev->printGameList();
 
+	delete[] gameList.elements;
 	delete dev;
 }

@@ -46,8 +46,9 @@ struct ListeJeux
 		Jeu** newGames = new Jeu*[newCapacity];
 		gsl::span<Jeu*> spanGameList = gsl::span<Jeu*>(gameList.elements, gameList.nElements);
 
-		for (size_t i = 0; i < gameList.nElements; i++) {
-			newGames[i] = gameList.elements[i];
+		int i = 0;
+		for (Jeu*& jeu : spanGameList) {
+			newGames[i++] = jeu;
 		}
 
 		delete[] gameList.elements;

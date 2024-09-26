@@ -212,7 +212,7 @@ void detruireJeu(Jeu* jeu)
 }
 
 //TODO: Fonction pour détruire une ListeJeux et tous ses jeux.
-void detruireListeJeux(ListeJeux& listeJeux)
+void detruireListeJeux(ListeJeux listeJeux)
 {
 	for (Jeu* j : spanListeJeux(listeJeux)) 
 		detruireJeu(j);

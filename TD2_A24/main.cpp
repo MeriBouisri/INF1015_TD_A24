@@ -267,7 +267,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
 	bibliotheque_cours::activerCouleursAnsi();
 #pragma endregion
 
-	int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
+	
+	//int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
 	ListeJeux jeux = creerListeJeux("jeux.bin"); //TODO (done): Appeler correctement votre fonction de création de la liste de jeux.
 

@@ -53,10 +53,10 @@ gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste)
 #pragma endregion
 
 
-Concepteur* findDesigner(string name, const ListeJeux& gameList) {
-	gsl::span<Jeu*> spanGameList = spanListeJeux(gameList);
-	for (Jeu* game : spanGameList) {
-		gsl::span<Concepteur*> spanDesignerList = spanListeConcepteurs(game->concepteurs);
+Concepteur* findDesigner(string name, const ListeJeux& jeux) {
+	gsl::span<Jeu*> spanJeux = spanListeJeux(jeux);
+	for (Jeu* jeu : spanJeux) {
+		gsl::span<Concepteur*> spanDesignerList = spanListeConcepteurs(jeu->concepteurs);
 		for (Concepteur* designer : spanDesignerList) {
 			if (designer->nom == name) {
 				return designer;
@@ -67,7 +67,7 @@ Concepteur* findDesigner(string name, const ListeJeux& gameList) {
 }
 
 
-Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
+Concepteur* lireConcepteur(istream& fichier, const ListeJeux& jeux)
 {
 	Concepteur concepteur = {}; // On initialise une structure vide de type Concepteur.
 	concepteur.nom = lireString(fichier);
@@ -83,7 +83,7 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 	// la liste de jeux principale en paramètre.
 	// Afficher un message lorsque l'allocation du concepteur est réussie.
 
-	Concepteur* ptrConcepteur = findDesigner(concepteur.nom, gameList);
+	Concepteur* ptrConcepteur = findDesigner(concepteur.nom, jeux);
 
 	if (ptrConcepteur != nullptr) {
 		cout << "Found [Concepteur, " << ptrConcepteur->nom << ", " << ptrConcepteur << "]" << endl;
@@ -105,7 +105,7 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& gameList)
 	return ptrConcepteur; //TODO (done): Retourner le pointeur vers le concepteur crée.
 }
 
-Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
+Jeu* lireJeu(istream& fichier, ListeJeux& jeux)
 {
 	Jeu jeu = {}; // On initialise une structure vide de type Jeu
 	jeu.titre = lireString(fichier);
@@ -126,11 +126,11 @@ Jeu* lireJeu(istream& fichier, ListeJeux& gameList)
 
 	for ([[maybe_unused]] size_t i : iter::range(jeu.concepteurs.nElements)) {
 		//TODO (done): Mettre le concepteur dans la liste des concepteur du jeu.
-		Concepteur* concepteur = lireConcepteur(fichier, gameList);  
+		Concepteur* concepteur = lireConcepteur(fichier, jeux);  
 		ptrJeu->concepteurs.elements[i] = concepteur;
 		
 		//TODO (done): Ajouter le jeu à la liste des jeux auquel a participé le concepteur.
-		ListeJeux::addGame(*ptrJeu, concepteur->jeuxConcus);
+		ListeJeux::ajouterJeu(*ptrJeu, concepteur->jeuxConcus);
 	}
 
 	cout << "Allocated [Jeu, " << ptrJeu->titre << ", " << ptrJeu << "]" << endl;
@@ -152,7 +152,7 @@ ListeJeux creerListeJeux(const string& nomFichier)
 	for([[maybe_unused]] size_t n : iter::range(listeJeux.capacite))
 	{
 		Jeu* jeu = lireJeu(fichier, listeJeux); // (done) TODO: Ajouter le jeu à la ListeJeux.
-		ListeJeux::addGame(*jeu, listeJeux);
+		ListeJeux::ajouterJeu(*jeu, listeJeux);
 	}
 
 	return listeJeux; // (done) TODO: Renvoyer la ListeJeux.
@@ -167,7 +167,7 @@ void detruireConcepteur(Concepteur* concepteur)
 	cout << "Destroying... [Concepteur, " << concepteur->nom << ", " << concepteur << ", " << *concepteur->jeuxConcus.elements << "]" << endl;
 
 	for (Jeu* j : spanListeJeux(concepteur->jeuxConcus)) 
-		ListeJeux::removeGame(j, concepteur->jeuxConcus);
+		ListeJeux::eneleverJeu(j, concepteur->jeuxConcus);
 
 	delete[] concepteur->jeuxConcus.elements; 
 	concepteur->jeuxConcus.elements = nullptr;	
@@ -196,7 +196,7 @@ void detruireJeu(Jeu* jeu)
 	cout << "Destroying... [Jeu, " << jeu->titre << ", " << jeu << "]" << endl;
 
 	for (Concepteur* c : spanListeConcepteurs(jeu->concepteurs)) {
-		ListeJeux::removeGame(jeu, c->jeuxConcus);
+		ListeJeux::eneleverJeu(jeu, c->jeuxConcus);
 
 		if (!concepteurParticipeJeu(*c)) 
 			detruireConcepteur(c);
@@ -264,7 +264,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
-	ListeJeux gameList = creerListeJeux("jeux.bin"); //TODO (done): Appeler correctement votre fonction de création de la liste de jeux.
+	ListeJeux jeux = creerListeJeux("jeux.bin"); //TODO (done): Appeler correctement votre fonction de création de la liste de jeux.
 
 	static const string ligneSeparation = "\n\033[35m════════════════════════════════════════\033[0m\n";
 	cout << ligneSeparation << endl;
@@ -272,13 +272,13 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	//TODO (done): Afficher le premier jeu de la liste (en utilisant la fonction).  Devrait être Chrono Trigger.
 
-	cout << gameList.elements[0]->titre << endl;
+	cout << jeux.elements[0]->titre << endl;
 
 	cout << ligneSeparation << endl;
 
 	//TODO (done): Appel à votre fonction d'affichage de votre liste de jeux.
 
-	afficherListeJeux(gameList);
+	afficherListeJeux(jeux);
 	cout << ligneSeparation << endl;
 
 
@@ -293,7 +293,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	//TODO: Détruire tout avant de terminer le programme.  Devrait afficher "Aucune fuite detectee." a la sortie du programme; il affichera "Fuite detectee:" avec la liste des blocs, s'il manque des delete.
 
-	detruireListeJeux(gameList);
+	detruireListeJeux(jeux);
 
 
 }

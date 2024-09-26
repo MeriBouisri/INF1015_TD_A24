@@ -1,78 +1,83 @@
+/**
+* Implémentation de la classe ListeDeveloppeurs, représentant une liste de développeurs de jeu vidéo
+* \file   ListeDeveloppeurs.cpp
+* \author Bouisri et Xa
+* \date   29 septembre 2024
+* Créé le 17 septembre 2024
+*/
+
 #include "ListeDeveloppeurs.hpp"
 #include "gsl/span"
 
 ListeDeveloppeurs::ListeDeveloppeurs() {
 	nElements_ = 0;
 	capacite_ = 0;
-	elements_ = new Developpeur * [0];
+	developpeurs_ = new Developpeur * [0];
 }
+
 
 ListeDeveloppeurs::~ListeDeveloppeurs() {
-
-	for (Developpeur* developer : span()) {
-		detruireDeveloppeur(developer);
+	for (Developpeur* developpeur : span()) {
+		detruireDeveloppeur(developpeur);
 	}
 
-		delete[] elements_;
-		elements_ = nullptr;
-
-		std::cout << "Destroyed [ListeDeveloppeurs]" << std::endl;
+	delete[] developpeurs_;
+	developpeurs_ = nullptr;
+	std::cout << "Destroyed [ListeDeveloppeurs]" << std::endl;
 }
 
 
-void ListeDeveloppeurs::detruireDeveloppeur(Developpeur* developer) {
-	std::cout << "Destroying... [Développeur, " << developer->getName() << ", " << developer << "]" << std::endl;
-	developer->~Developpeur();
+void ListeDeveloppeurs::detruireDeveloppeur(Developpeur* developpeurADetruire) {
+	std::cout << "Destroying... [Développeur, " << developpeurADetruire->obtenirNom() << ", " << developpeurADetruire << "]" << std::endl;
+	developpeurADetruire->~Developpeur();
 }
 
 
 gsl::span<Developpeur*> ListeDeveloppeurs::span() {
-	return gsl::span<Developpeur*>(elements_, nElements_);
+	return gsl::span<Developpeur*>(developpeurs_, nElements_);
 }
 
 
 void ListeDeveloppeurs::afficher() {
-	for (Developpeur* developer : span()) {
-		developer->printGameList();
+	for (Developpeur* developpeur : span()) {
+		developpeur->afficherJeux();
 	}
 }
 
 
-
-void ListeDeveloppeurs::increaseCapacity(size_t newCapacity) {
-	Developpeur** newDevelopers = new Developpeur * [newCapacity];
+void ListeDeveloppeurs::augmenterCapacite(size_t nouvelleCapacite) {
+	Developpeur** newDevelopers = new Developpeur * [nouvelleCapacite];
 	int i = 0;
 
-	for (Developpeur* developer : span()) {
-		newDevelopers[i++] = developer;
+	for (Developpeur* developpeur : span()) {
+		newDevelopers[i++] = developpeur;
 	}
 
-	delete[] elements_;
-
-	elements_ = newDevelopers;
-	capacite_ = newCapacity;
+	delete[] developpeurs_;
+	developpeurs_ = newDevelopers;
+	capacite_ = nouvelleCapacite;
 }
 
 
-void ListeDeveloppeurs::addDeveloper(Developpeur& developer) {
+void ListeDeveloppeurs::ajouterDeveloppeur(Developpeur& developpeurAAjouter) {
 	if (nElements_ >= capacite_) {
 		if (capacite_ <= 0) {
-			increaseCapacity(1);
+			augmenterCapacite(1);
 		}
 		else {
-			increaseCapacity(capacite_ * 2);
+			augmenterCapacite(capacite_ * 2);
 		}
 	}
-	elements_[nElements_++] = &developer;
+	developpeurs_[nElements_++] = &developpeurAAjouter;
 }
 
 
-void ListeDeveloppeurs::removeDeveloper(Developpeur* developerToDelete) {
+void ListeDeveloppeurs::retirerDeveloppeur(Developpeur* developpeurARetirer) {
 	gsl::span<Developpeur*> spanDeveloperList = span();
-	for (Developpeur*& developer : spanDeveloperList) {
-		if (developer == developerToDelete) {
+	for (Developpeur*& developpeur : spanDeveloperList) {
+		if (developpeur == developpeurARetirer) {
 			if (nElements_ > 1) {
-				developer = spanDeveloperList[nElements_ - 1];
+				developpeur = spanDeveloperList[nElements_ - 1];
 			}
 			nElements_--;
 		}

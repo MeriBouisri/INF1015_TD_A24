@@ -1,12 +1,21 @@
+/**
+* Implémentation de la classe Developpeur, représentant un développeur de jeu vidéo
+* \file   Developpeur.cpp
+* \author Bouisri et Xa
+* \date   29 septembre 2024
+* Créé le 17 septembre 2024
+*/
+
 #include "Developpeur.hpp"
 
 Developpeur::Developpeur(std::string nom) {
 	paireNomJeux_ = std::pair<std::string, ListeJeux>(nom, { 0, 0, new Jeu * [0] });
 }
 
+
 Developpeur::~Developpeur() {
 	for (Jeu* jeu : ListeJeux::span(paireNomJeux_.second))
-		ListeJeux::removeGame(jeu, paireNomJeux_.second);
+		ListeJeux::enleverJeu(jeu, paireNomJeux_.second);
 
 	delete[] paireNomJeux_.second.elements;
 	paireNomJeux_.second.elements = nullptr;
@@ -14,17 +23,20 @@ Developpeur::~Developpeur() {
 	std::cout << "Developpeur detruit : [" << paireNomJeux_.first << ", " << paireNomJeux_.second.elements << "]" << std::endl;
 }
 
-std::string Developpeur::getName() const {
+
+std::string Developpeur::obtenirNom() const {
 	return paireNomJeux_.first;
 }
 
-ListeJeux Developpeur::getGameList() const {
+
+ListeJeux Developpeur::obtenirJeux() const {
 	return paireNomJeux_.second;
 }
 
-void Developpeur::clearGameList() {
+
+void Developpeur::viderJeux() {
 	for (Jeu* jeu : ListeJeux::span(paireNomJeux_.second))
-		ListeJeux::removeGame(jeu, paireNomJeux_.second);
+		ListeJeux::enleverJeu(jeu, paireNomJeux_.second);
 
 	delete[] paireNomJeux_.second.elements;
 	paireNomJeux_.second.elements = new Jeu * [0];
@@ -33,53 +45,53 @@ void Developpeur::clearGameList() {
 }
 
 
-int Developpeur::countGames(ListeJeux& gameList) const {
-	int count = 0;
-	for (Jeu* jeu : ListeJeux::span(gameList))
+int Developpeur::compterJeux(ListeJeux& jeux) const {
+	int compte = 0;
+	for (Jeu* jeu : ListeJeux::span(jeux))
 		if (jeu->developpeur == paireNomJeux_.first)
-			count++;
+			compte++;
 
-	return count;
+	return compte;
 }
 
-void Developpeur::updateGameList(ListeJeux& gameList) {
+
+void Developpeur::mettreAJourJeux(ListeJeux& jeux) {
 	// EViter de dupliquer les jeux
-	this->clearGameList();
+	viderJeux();
 
-	for (Jeu* jeu : ListeJeux::span(gameList))
-		if (jeu->developpeur == this->getName())
-			ListeJeux::addGame(*jeu, paireNomJeux_.second);
+	for (Jeu* jeu : ListeJeux::span(jeux))
+		if (jeu->developpeur == obtenirNom())
+			ListeJeux::ajouterJeu(*jeu, paireNomJeux_.second);
 }
 
-void Developpeur::printGameList() const {
-	std::cout << "Developpeur : " << this->getName() << std::endl;
 
-	for (Jeu* jeu : ListeJeux::span(this->getGameList()))
+void Developpeur::afficherJeux() const {
+	std::cout << "Developpeur : " << obtenirNom() << std::endl;
+
+	for (Jeu* jeu : ListeJeux::span(obtenirJeux()))
 		std::cout << "\t" << jeu->titre << std::endl;
 }
 
 
-
-
 void Developpeur::test() {
-	Developpeur* dev = new Developpeur("dev01");
+	Developpeur* developpeur = new Developpeur("dev01");
 
-	std::cout << "Developpeur created : [dev.nom=" << dev->getName() << ", " << dev << "]" << std::endl;
+	std::cout << "Developpeur cree : [developpeur.nom=" << developpeur->obtenirNom() << ", " << developpeur << "]" << std::endl;
 
-	ListeJeux gameList = { 0, 0, new Jeu * [3] };
+	ListeJeux jeux = { 0, 0, new Jeu * [3] };
 
 	Jeu jeu1 = { "jeu1", 2020, "dev01" };
 	Jeu jeu2 = { "jeu2", 2020, "dev01" };
 	Jeu jeu3 = { "jeu3", 2020, "dev02" };
 
-	ListeJeux::addGame(jeu1, gameList);
-	ListeJeux::addGame(jeu2, gameList);
-	ListeJeux::addGame(jeu3, gameList);
+	ListeJeux::ajouterJeu(jeu1, jeux);
+	ListeJeux::ajouterJeu(jeu2, jeux);
+	ListeJeux::ajouterJeu(jeu3, jeux);
 
-	dev->updateGameList(gameList);
+	developpeur->mettreAJourJeux(jeux);
 
-	dev->printGameList();
+	developpeur->afficherJeux();
 
-	delete[] gameList.elements;
-	delete dev;
+	delete[] jeux.elements;
+	delete developpeur;
 }

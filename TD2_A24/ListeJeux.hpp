@@ -7,22 +7,22 @@
 // La déclaration suivante plutôt qu'un #include "Jeu.hpp" est nécessaire sinon il y aurait une boucle d'inclusion (ListeJeux.hpp > Jeu.hpp > ListeConcepteurs.hpp > Concepteur.hpp > ListeJeux.hpp), la boucle serait arrêtée par le "pragma once" mais ListeJeux ne serait alors pas déclaré lors de la compilation de Concepteur.
 struct Jeu;  // Déclaration avancée ("forward declaration") pour pouvoir utilise le nom du type avant qu'il soit complètement défini.
 
-struct ListeJeux
-{
+struct ListeJeux {
 	std::size_t nElements, capacite;
 	Jeu** elements;
 
-	static void addGame(Jeu& game, ListeJeux& gameList) {
-		if (gameList.nElements >= gameList.capacite) {
-			if (gameList.capacite <= 0) {
-				ListeJeux::increaseCapacity(1, gameList);
+	static void ajouterJeu(Jeu& jeu, ListeJeux& jeux) {
+		if (jeux.nElements >= jeux.capacite) {
+			if (jeux.capacite <= 0) {
+				ListeJeux::augmenterCapacite(1, jeux);
 			}
 			else {
-				ListeJeux::increaseCapacity(gameList.capacite * 2, gameList);
+				ListeJeux::augmenterCapacite(jeux.capacite * 2, jeux);
 			}
 		}
-		gameList.elements[gameList.nElements++] = &game;
+		jeux.elements[jeux.nElements++] = &jeu;
 	}
+
 
 	//TODO: Fonction qui enlève un jeu de ListeJeux.
 	// Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le
@@ -30,43 +30,46 @@ struct ListeJeux
 	//// Puisque l'ordre de la ListeJeux n'a pas être conservé, on peut remplacer le
 	//// jeu à être retiré par celui présent en fin de liste et décrémenter la taille
 	//// de celle-ci.
-	static void removeGame(Jeu* gameToDelete, ListeJeux& gameList) {
-		gsl::span<Jeu*> spanGameList = gsl::span<Jeu*>(gameList.elements, gameList.nElements);
-		for (Jeu*& game : spanGameList) {
-			if (game == gameToDelete) {
-				if (gameList.nElements > 1) {
-					game = spanGameList[gameList.nElements - 1];
+	static void enleverJeu(Jeu* jeuASupprimer, ListeJeux& jeux) {
+		gsl::span<Jeu*> spanJeux = gsl::span<Jeu*>(jeux.elements, jeux.nElements);
+		for (Jeu*& jeu : spanJeux) {
+			if (jeu == jeuASupprimer) {
+				if (jeux.nElements > 1) {
+					jeu = spanJeux[jeux.nElements - 1];
 				}
-				gameList.nElements--;
+				jeux.nElements--;
 			}
 		}
 	}
 
-	static void increaseCapacity(size_t newCapacity, ListeJeux& gameList) {
-		Jeu** newGames = new Jeu*[newCapacity];
-		gsl::span<Jeu*> spanGameList = gsl::span<Jeu*>(gameList.elements, gameList.nElements);
+
+	static void augmenterCapacite(size_t nouvelleCapacite, ListeJeux& jeux) {
+		Jeu** nouveauJeux = new Jeu * [nouvelleCapacite];
+		gsl::span<Jeu*> spanJeux = gsl::span<Jeu*>(jeux.elements, jeux.nElements);
 
 		int i = 0;
-		for (Jeu*& jeu : spanGameList) {
-			newGames[i++] = jeu;
+		for (Jeu*& jeu : spanJeux) {
+			nouveauJeux[i++] = jeu;
 		}
 
-		delete[] gameList.elements;
+		delete[] jeux.elements;
 
-		gameList.elements = newGames;
-		gameList.capacite = newCapacity;
+		jeux.elements = nouveauJeux;
+		jeux.capacite = nouvelleCapacite;
 	}
 
-	static gsl::span<Jeu*> span(const ListeJeux& gameList) {
-		return gsl::span<Jeu*>(gameList.elements, gameList.nElements);
+
+	static gsl::span<Jeu*> span(const ListeJeux& jeux) {
+		return gsl::span<Jeu*>(jeux.elements, jeux.nElements);
 	}
+
 
 	static void test() {
 
-		// ListeJeux::addGame //
+		// ListeJeux::ajouterJeu //
 
-		// ListeJeux::removeGame //
+		// ListeJeux::enleverJeu //
 
-		// ListeJeux::increaseCapacity //
+		// ListeJeux::augmenterCapacite //
 	}
 };

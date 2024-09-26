@@ -2,8 +2,7 @@
 #include <string>
 #include "ListeJeux.hpp"
 
-struct Concepteur
-{
+struct Concepteur {
 	std::string nom;
 	int anneeNaissance;
 	std::string pays;

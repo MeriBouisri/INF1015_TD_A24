@@ -4,9 +4,10 @@ Developpeur::Developpeur(std::string nom) {
 	paireNomJeux_ = std::pair<std::string, ListeJeux>(nom, { 0, 0, new Jeu * [0] });
 }
 
+
 Developpeur::~Developpeur() {
 	for (Jeu* jeu : ListeJeux::span(paireNomJeux_.second))
-		ListeJeux::eneleverJeu(jeu, paireNomJeux_.second);
+		ListeJeux::enleverJeu(jeu, paireNomJeux_.second);
 
 	delete[] paireNomJeux_.second.elements;
 	paireNomJeux_.second.elements = nullptr;
@@ -14,17 +15,20 @@ Developpeur::~Developpeur() {
 	std::cout << "Developpeur detruit : [" << paireNomJeux_.first << ", " << paireNomJeux_.second.elements << "]" << std::endl;
 }
 
+
 std::string Developpeur::obtenirNom() const {
 	return paireNomJeux_.first;
 }
+
 
 ListeJeux Developpeur::obtenirJeux() const {
 	return paireNomJeux_.second;
 }
 
+
 void Developpeur::viderJeux() {
 	for (Jeu* jeu : ListeJeux::span(paireNomJeux_.second))
-		ListeJeux::eneleverJeu(jeu, paireNomJeux_.second);
+		ListeJeux::enleverJeu(jeu, paireNomJeux_.second);
 
 	delete[] paireNomJeux_.second.elements;
 	paireNomJeux_.second.elements = new Jeu * [0];
@@ -34,13 +38,14 @@ void Developpeur::viderJeux() {
 
 
 int Developpeur::compterJeux(ListeJeux& jeux) const {
-	int count = 0;
+	int compte = 0;
 	for (Jeu* jeu : ListeJeux::span(jeux))
 		if (jeu->developpeur == paireNomJeux_.first)
-			count++;
+			compte++;
 
-	return count;
+	return compte;
 }
+
 
 void Developpeur::mettreAJourJeux(ListeJeux& jeux) {
 	// EViter de dupliquer les jeux
@@ -51,6 +56,7 @@ void Developpeur::mettreAJourJeux(ListeJeux& jeux) {
 			ListeJeux::ajouterJeu(*jeu, paireNomJeux_.second);
 }
 
+
 void Developpeur::afficherJeux() const {
 	std::cout << "Developpeur : " << obtenirNom() << std::endl;
 
@@ -59,12 +65,10 @@ void Developpeur::afficherJeux() const {
 }
 
 
-
-
 void Developpeur::test() {
-	Developpeur* dev = new Developpeur("dev01");
+	Developpeur* developpeur = new Developpeur("dev01");
 
-	std::cout << "Developpeur created : [dev.nom=" << dev-> obtenirNom() << ", " << dev << "]" << std::endl;
+	std::cout << "Developpeur cree : [developpeur.nom=" << developpeur->obtenirNom() << ", " << developpeur << "]" << std::endl;
 
 	ListeJeux jeux = { 0, 0, new Jeu * [3] };
 
@@ -76,10 +80,10 @@ void Developpeur::test() {
 	ListeJeux::ajouterJeu(jeu2, jeux);
 	ListeJeux::ajouterJeu(jeu3, jeux);
 
-	dev->mettreAJourJeux(jeux);
+	developpeur->mettreAJourJeux(jeux);
 
-	dev->afficherJeux();
+	developpeur->afficherJeux();
 
 	delete[] jeux.elements;
-	delete dev;
+	delete developpeur;
 }

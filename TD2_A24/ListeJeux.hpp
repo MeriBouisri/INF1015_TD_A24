@@ -7,8 +7,7 @@
 // La déclaration suivante plutôt qu'un #include "Jeu.hpp" est nécessaire sinon il y aurait une boucle d'inclusion (ListeJeux.hpp > Jeu.hpp > ListeConcepteurs.hpp > Concepteur.hpp > ListeJeux.hpp), la boucle serait arrêtée par le "pragma once" mais ListeJeux ne serait alors pas déclaré lors de la compilation de Concepteur.
 struct Jeu;  // Déclaration avancée ("forward declaration") pour pouvoir utilise le nom du type avant qu'il soit complètement défini.
 
-struct ListeJeux
-{
+struct ListeJeux {
 	std::size_t nElements, capacite;
 	Jeu** elements;
 
@@ -24,13 +23,14 @@ struct ListeJeux
 		jeux.elements[jeux.nElements++] = &jeu;
 	}
 
+
 	//TODO: Fonction qui enlève un jeu de ListeJeux.
 	// Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le
 	//// pointeur de la ListeJeux, mais le jeu pointé existe encore en mémoire.
 	//// Puisque l'ordre de la ListeJeux n'a pas être conservé, on peut remplacer le
 	//// jeu à être retiré par celui présent en fin de liste et décrémenter la taille
 	//// de celle-ci.
-	static void eneleverJeu(Jeu* jeuASupprimer, ListeJeux& jeux) {
+	static void enleverJeu(Jeu* jeuASupprimer, ListeJeux& jeux) {
 		gsl::span<Jeu*> spanJeux = gsl::span<Jeu*>(jeux.elements, jeux.nElements);
 		for (Jeu*& jeu : spanJeux) {
 			if (jeu == jeuASupprimer) {
@@ -41,6 +41,7 @@ struct ListeJeux
 			}
 		}
 	}
+
 
 	static void augmenterCapacite(size_t nouvelleCapacite, ListeJeux& jeux) {
 		Jeu** nouveauJeux = new Jeu * [nouvelleCapacite];
@@ -57,15 +58,17 @@ struct ListeJeux
 		jeux.capacite = nouvelleCapacite;
 	}
 
+
 	static gsl::span<Jeu*> span(const ListeJeux& jeux) {
 		return gsl::span<Jeu*>(jeux.elements, jeux.nElements);
 	}
+
 
 	static void test() {
 
 		// ListeJeux::ajouterJeu //
 
-		// ListeJeux::eneleverJeu //
+		// ListeJeux::enleverJeu //
 
 		// ListeJeux::augmenterCapacite //
 	}

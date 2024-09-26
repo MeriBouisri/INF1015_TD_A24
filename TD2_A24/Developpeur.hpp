@@ -6,8 +6,7 @@
 #include "verification_allocation.hpp"
 #include "debogage_memoire.hpp"  //NOTE: Incompatible avec le "placement new", ne pas utiliser cette entête si vous utilisez ce type de "new" dans les lignes qui suivent cette inclusion.
 
-class Developpeur
-{
+class Developpeur {
 public:
 	Developpeur(std::string nom);
 	~Developpeur();

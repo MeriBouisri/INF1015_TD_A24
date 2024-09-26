@@ -7,16 +7,15 @@ ListeDeveloppeurs::ListeDeveloppeurs() {
 	developpeurs_ = new Developpeur * [0];
 }
 
-ListeDeveloppeurs::~ListeDeveloppeurs() {
 
+ListeDeveloppeurs::~ListeDeveloppeurs() {
 	for (Developpeur* developpeur : span()) {
 		detruireDeveloppeur(developpeur);
 	}
 
-		delete[] developpeurs_;
-		developpeurs_ = nullptr;
-
-		std::cout << "Destroyed [ListeDeveloppeurs]" << std::endl;
+	delete[] developpeurs_;
+	developpeurs_ = nullptr;
+	std::cout << "Destroyed [ListeDeveloppeurs]" << std::endl;
 }
 
 
@@ -38,7 +37,6 @@ void ListeDeveloppeurs::afficher() {
 }
 
 
-
 void ListeDeveloppeurs::augmenterCapacite(size_t nouvelleCapacite) {
 	Developpeur** newDevelopers = new Developpeur * [nouvelleCapacite];
 	int i = 0;
@@ -48,7 +46,6 @@ void ListeDeveloppeurs::augmenterCapacite(size_t nouvelleCapacite) {
 	}
 
 	delete[] developpeurs_;
-
 	developpeurs_ = newDevelopers;
 	capacite_ = nouvelleCapacite;
 }
@@ -67,10 +64,10 @@ void ListeDeveloppeurs::ajouterDeveloppeur(Developpeur& developpeur) {
 }
 
 
-void ListeDeveloppeurs::eneleverDeveloppeur(Developpeur* developerToDelete) {
+void ListeDeveloppeurs::eneleverDeveloppeur(Developpeur* developpeurASupprimer) {
 	gsl::span<Developpeur*> spanDeveloperList = span();
 	for (Developpeur*& developpeur : spanDeveloperList) {
-		if (developpeur == developerToDelete) {
+		if (developpeur == developpeurASupprimer) {
 			if (nElements_ > 1) {
 				developpeur = spanDeveloperList[nElements_ - 1];
 			}

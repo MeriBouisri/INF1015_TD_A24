@@ -50,13 +50,6 @@ string lireString(istream& fichier) {
 	fichier.read((char*)&texte[0], streamsize(sizeof(texte[0])) * texte.length());
 	return texte;
 }
-
-
-gsl::span<Jeu*> spanListeJeux(const ListeJeux& liste) {
-	return gsl::span(liste.elements, liste.nElements);
-}
-
-
 gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste) {
 	return gsl::span(liste.elements, liste.nElements);
 }
@@ -64,7 +57,7 @@ gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste) {
 
 
 Concepteur* trouverConcepteur(string nom, const ListeJeux& jeux) {
-	gsl::span<Jeu*> spanJeux = spanListeJeux(jeux);
+	gsl::span<Jeu*> spanJeux = ListeJeux::span(jeux);
 	for (Jeu* jeu : spanJeux) {
 		gsl::span<Concepteur*> spanConcepteurs = spanListeConcepteurs(jeu->concepteurs);
 		for (Concepteur* concepteur : spanConcepteurs) {
@@ -85,33 +78,24 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& jeux) {
 	// Rendu ici, les champs précédents de la structure concepteur sont remplis
 	// avec la bonne information.
 
-	//TODO (done): Ajouter en mémoire le concepteur lu. Il faut revoyer le pointeur créé.
-	// Attention, valider si le concepteur existe déjà avant de le créer, sinon
-	// on va avoir des doublons car plusieurs jeux ont des concepteurs en commun
-	// dans le fichier binaire. Pour ce faire, cette fonction aura besoin de
-	// la liste de jeux principale en paramètre.
-	// Afficher un message lorsque l'allocation du concepteur est réussie.
+	Concepteur* concepteurOptionnel = trouverConcepteur(concepteur.nom, jeux);
 
-	Concepteur* concepteurTrouve = trouverConcepteur(concepteur.nom, jeux);
-
-	if (concepteurTrouve != nullptr) {
-		cout << "Concepteur trouve : [Concepteur, " << concepteurTrouve->nom << ", " << concepteurTrouve << "]" << endl;
-		return concepteurTrouve;
+	if (concepteurOptionnel != nullptr) {
+		cout << "[ABORT][lireConcepteur] Deja en memoire : [concepteurOptionnel->nom=" << concepteurOptionnel->nom << "]" << endl;
+		return concepteurOptionnel;
 	}
 
-	concepteurTrouve = new Concepteur(concepteur);
+	concepteurOptionnel = new Concepteur(concepteur);
 
-	// TODO (personnel) : Ajout methodes struct Concepteur
-	concepteurTrouve->jeuxConcus = {};
-	concepteurTrouve->jeuxConcus.capacite = 0;
-	concepteurTrouve->jeuxConcus.nElements = 0;
+	concepteurOptionnel->jeuxConcus = {};
+	concepteurOptionnel->jeuxConcus.capacite = 0;
+	concepteurOptionnel->jeuxConcus.nElements = 0;
 
-	// TODO (personnel) : Memory leak here ?
-	concepteurTrouve->jeuxConcus.elements = new Jeu * [concepteurTrouve->jeuxConcus.capacite];
+	concepteurOptionnel->jeuxConcus.elements = new Jeu * [concepteurOptionnel->jeuxConcus.capacite];
 
-	cout << "Memoire allouee : [Concepteur, " << concepteurTrouve->nom << ", " << concepteurTrouve << "]" << endl;
+	cout << "[SUCCES][lireConcepteur] Allocation de memoire : [concepteurOptionnel->nom=" << concepteurOptionnel->nom << "]" << endl;
 
-	return concepteurTrouve; //TODO (done): Retourner le pointeur vers le concepteur crée.
+	return concepteurOptionnel; 
 }
 
 
@@ -124,31 +108,25 @@ Jeu* lireJeu(istream& fichier, ListeJeux& jeux) {
 	// Rendu ici, les champs précédents de la structure jeu sont remplis avec la
 	// bonne information.
 
-	//TODO (done): Ajouter en mémoire le jeu lu. Il faut revoyer le pointeur créé.
-	// Attention, il faut aussi créer un tableau dynamique pour les concepteurs
-	// que contient un jeu. Servez-vous de votre fonction d'ajout de jeu car la
-	// liste de jeux participé est une ListeJeu. Afficher un message lorsque
-	// l'allocation du jeu est réussie.
 
 	Jeu* jeuLu = new Jeu(jeu);
 	jeuLu->concepteurs.elements = new Concepteur * [jeu.concepteurs.nElements];
 
 	for ([[maybe_unused]] size_t i : iter::range(jeu.concepteurs.nElements)) {
-		//TODO (done): Mettre le concepteur dans la liste des concepteur du jeu.
 		Concepteur* concepteur = lireConcepteur(fichier, jeux);
 		jeuLu->concepteurs.elements[i] = concepteur;
 
-		//TODO (done): Ajouter le jeu à la liste des jeux auquel a participé le concepteur.
 		ListeJeux::ajouterJeu(*jeuLu, concepteur->jeuxConcus);
 	}
 
-	cout << "Memoire allouee : [Jeu, " << jeuLu->titre << ", " << jeuLu << "]" << endl;
+	cout << "[SUCCES][lireJeu] Allocation de memoire : [jeuLu->titre=" << jeuLu->titre << "]" << endl;
 
-	return jeuLu; // TODO (done): Retourner le pointeur vers le nouveau jeu.
+	return jeuLu; 
 }
 
 
 ListeJeux creerListeJeux(const string& nomFichier) {
+	cout << "[INFO][creerListeJeux] Lecture du fichier : [nomFichier=" << nomFichier << "]" << endl;
 	ifstream fichier(nomFichier, ios::binary);
 	fichier.exceptions(ios::failbit);
 
@@ -160,21 +138,21 @@ ListeJeux creerListeJeux(const string& nomFichier) {
 
 	for ([[maybe_unused]] size_t n : iter::range(listeJeux.capacite))
 	{
-		Jeu* jeu = lireJeu(fichier, listeJeux); // (done) TODO: Ajouter le jeu à la ListeJeux.
+		Jeu* jeu = lireJeu(fichier, listeJeux); 
 		ListeJeux::ajouterJeu(*jeu, listeJeux);
 	}
 
-	return listeJeux; // (done) TODO: Renvoyer la ListeJeux.
+	cout << "[SUCCES][creerListeJeux] Allocation de memoire : [listeJeu.nElements=" << listeJeux.nElements 
+		<< ", listeJeux.capacite=" << listeJeux.capacite << "]" << endl;
+
+	return listeJeux; 
 }
 
 
-//TODO: Fonction pour détruire un concepteur (libération de mémoire allouée).
-// Lorsqu'on détruit un concepteur, on affiche son nom pour fins de débogage.
 void detruireConcepteur(Concepteur* concepteur) {
-	ListeJeux jeuxConcus = concepteur->jeuxConcus;
-	cout << "Concepteur en cours de destruction : [Concepteur, " << concepteur->nom << ", " << concepteur << ", " << *concepteur->jeuxConcus.elements << "]" << endl;
 
-	for (Jeu* jeu : spanListeJeux(concepteur->jeuxConcus))
+	cout << "[INFO][detruireConcepteur] Destruction en cours : [concepteur->nom=" << concepteur->nom << "]" << endl;
+	for (Jeu* jeu : concepteur->jeuxConcus.span())
 		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
 
 	delete[] concepteur->jeuxConcus.elements;
@@ -183,31 +161,25 @@ void detruireConcepteur(Concepteur* concepteur) {
 	delete concepteur;
 	concepteur = nullptr;
 
-	cout << "Concepteur detruit : [concepteurTrouve=" << concepteur << "]" << endl; //", " << *concepteur->jeuxConcus.elements << "]" << endl;
+	cout << "[SUCCES][detruireConcepteur] Liberation de memoire : [concepteur=" << concepteur << "]" << endl;
+	cout << endl;
 }
 
 
-//TODO: Fonction qui détermine si un concepteur participe encore à un jeu.
 bool concepteurParticipeJeu(const Concepteur& concepteur) {
 	return concepteur.jeuxConcus.nElements > 0;
 }
 
-
-//TODO: Fonction pour détruire un jeu (libération de mémoire allouée).
-// Attention, ici il faut relâcher toute les cases mémoires occupées par un jeu.
-// Par conséquent, il va falloir gérer le cas des concepteurs (un jeu contenant
-// une ListeConcepteurs). On doit commencer par enlever le jeu à détruire des jeux
-// qu'un concepteur a participé (jeuxConcus). Si le concepteur n'a plus de
-// jeux présents dans sa liste de jeux participés, il faut le supprimer.  Pour
-// fins de débogage, affichez le nom du jeu lors de sa destruction.
 void detruireJeu(Jeu* jeu) {
-	cout << "Jeu en cours de destruction : [Jeu, " << jeu->titre << ", " << jeu << "]" << endl;
+	cout << "[INFO][detruireJeu] Liberation de memoire en cours... [jeu->titre=" << jeu->titre << "]" << endl;
 
 	for (Concepteur* concepteur : spanListeConcepteurs(jeu->concepteurs)) {
 		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
 
-		if (!concepteurParticipeJeu(*concepteur))
+		if (!concepteurParticipeJeu(*concepteur)) {
+			cout << "[INFO][detruireJeu] Concepteur non-participant : [concepteur->nom=" << concepteur->nom << "]" << endl;
 			detruireConcepteur(concepteur);
+		}
 	}
 
 	delete[] jeu->concepteurs.elements;
@@ -216,19 +188,23 @@ void detruireJeu(Jeu* jeu) {
 	delete jeu;
 	jeu = nullptr;
 
-	cout << "Jeu detruit : [jeuLu=" << jeu << "]" << endl;
+	cout << "[SUCCES][detruireJeu] Liberation de memoire : [jeu=" << jeu << "]" << endl;
+	cout << endl;
 }
 
 
-//TODO: Fonction pour détruire une ListeJeux et tous ses jeux.
 void detruireListeJeux(ListeJeux listeJeux) {
-	for (Jeu* jeu : spanListeJeux(listeJeux))
+
+	cout << "[INFO][detruireListeJeux] Liberation de memoire en cours... [listeJeux=" << listeJeux.elements << "]" << endl;
+
+	for (Jeu* jeu : listeJeux.span()) 
 		detruireJeu(jeu);
 
 	delete[] listeJeux.elements;
 	listeJeux.elements = nullptr;
 
-	cout << "Liste de jeux détruite" << endl;
+	cout << "[SUCCES][detruireListeJeux] Liberation de memoire : [listeJeux=" << listeJeux.elements << "]" << endl;
+	cout << endl;
 }
 
 
@@ -237,8 +213,6 @@ void afficherConcepteur(const Concepteur& concepteurAAfficher) {
 }
 
 
-//TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
-// Servez-vous de la fonction afficherConcepteur ci-dessus.
 void afficherJeu(const Jeu& jeu) {
 	cout << jeu.titre << ", " << jeu.anneeSortie << ", " << jeu.developpeur << endl;
 	cout << "Concepteurs:" << endl;
@@ -248,11 +222,8 @@ void afficherJeu(const Jeu& jeu) {
 }
 
 
-//TODO: Fonction pour afficher tous les jeux de ListeJeux, séparés par un ligne.
-// Servez-vous de la fonction d'affichage d'un jeu crée ci-dessus. Votre ligne
-// de séparation doit être différent de celle utilisée dans le main.
 void afficherListeJeux(const ListeJeux& listeJeux) {
-	for (Jeu* jeu : spanListeJeux(listeJeux)) {
+	for (Jeu* jeu : ListeJeux::span(listeJeux)) {
 		afficherJeu(*jeu);
 		cout << "\n";
 	}
@@ -270,34 +241,27 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
 	
 	//int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
-	ListeJeux jeux = creerListeJeux("jeux.bin"); //TODO (done): Appeler correctement votre fonction de création de la liste de jeux.
+	ListeJeux jeux = creerListeJeux("jeux.bin"); 
 
 	static const string ligneSeparation = "\n\033[35m════════════════════════════════════════\033[0m\n";
 	cout << ligneSeparation << endl;
+
 	cout << "Premier jeu de la liste :" << endl;
-
-	//TODO (done): Afficher le premier jeu de la liste (en utilisant la fonction).  Devrait être Chrono Trigger.
-
 	cout << jeux.elements[0]->titre << endl;
 
 	cout << ligneSeparation << endl;
-
-	//TODO (done): Appel à votre fonction d'affichage de votre liste de jeux.
-
 	afficherListeJeux(jeux);
 	cout << ligneSeparation << endl;
 
 
-
 	cout << ligneSeparation << endl;
 
-	//TODO: Faire les appels à toutes vos fonctions/méthodes pour voir qu'elles fonctionnent et avoir 0% de lignes non exécutées dans le programme (aucune ligne rouge dans la couverture de code; c'est normal que les lignes de "new" et "delete" soient jaunes).  Vous avez aussi le droit d'effacer les lignes du programmes qui ne sont pas exécutée, si finalement vous pensez qu'elle ne sont pas utiles.
+	cout << "===== TESTS =====" << endl;
 
 	ListeJeux::test();
 	Developpeur::test();
 
 
-	//TODO: Détruire tout avant de terminer le programme.  Devrait afficher "Aucune fuite detectee." a la sortie du programme; il affichera "Fuite detectee:" avec la liste des blocs, s'il manque des delete.
-
+	cout << ligneSeparation << endl;
 	detruireListeJeux(jeux);
 }

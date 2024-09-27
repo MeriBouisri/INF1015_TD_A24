@@ -8,6 +8,8 @@
 
 #include "ListeDeveloppeurs.hpp"
 #include "gsl/span"
+#include <iostream>
+#include <cassert>
 
 ListeDeveloppeurs::ListeDeveloppeurs() {
 	nElements_ = 0;
@@ -82,4 +84,42 @@ void ListeDeveloppeurs::retirerDeveloppeur(Developpeur* developpeurARetirer) {
 			nElements_--;
 		}
 	}
+}
+
+
+void ListeDeveloppeurs::testListeDeveloppeurs() {
+	std::cout << "[TEST] Début du testListeDeveloppeurs()" << std::endl;
+
+	ListeDeveloppeurs liste;
+	std::cout << "[INFO] ListeDeveloppeurs vide créée." << std::endl;
+
+	Developpeur dev1("Alice");
+	Developpeur dev2("Bob");
+	Developpeur dev3("Charlie");
+
+	liste.ajouterDeveloppeur(dev1);
+	liste.ajouterDeveloppeur(dev2);
+	liste.ajouterDeveloppeur(dev3);
+	std::cout << "[INFO] Développeurs ajoutés à la ListeDeveloppeurs." << std::endl;
+
+	liste.afficher();
+	std::cout << "[INFO] Affichage de ListeDeveloppeurs" << std::endl;
+	
+	liste.retirerDeveloppeur(&dev2);
+	std::cout << "[INFO] Bob retiré de la ListeDeveloppeurs" << std::endl;
+
+	liste.afficher();
+	std::cout << "[INFO] Affichage de la ListeDeveloppeurs" << std::endl;
+
+	Developpeur dev4("Diana");
+	Developpeur dev5("Eve");
+
+	liste.ajouterDeveloppeur(dev4);
+	liste.ajouterDeveloppeur(dev5);
+	std::cout << "[INFO] 2 Développeurs ajoutés à la ListeDeveloppeurs." << std::endl;
+
+	liste.afficher();
+	std::cout << "[INFO] Affichage de la ListeDeveloppeurs" << std::endl;
+
+	std::cout << "[TEST] Fin du testListeDeveloppeurs()" << std::endl;
 }

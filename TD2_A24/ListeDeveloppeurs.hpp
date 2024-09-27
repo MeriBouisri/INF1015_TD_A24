@@ -10,6 +10,7 @@ public:
 	void augmenterCapacite(size_t nouvelleCapacite);
 	void ajouterDeveloppeur(Developpeur& developpeurAAjouter);
 	void retirerDeveloppeur(Developpeur* developpeurARetirer);
+	static void testListeDeveloppeurs();
 
 private:
 	std::size_t nElements_, capacite_;

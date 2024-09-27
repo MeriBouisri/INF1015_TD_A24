@@ -95,7 +95,7 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& jeux) {
 
 	cout << "[SUCCES][lireConcepteur] Allocation de memoire : [concepteurOptionnel->nom=" << concepteurOptionnel->nom << "]" << endl;
 
-	return concepteurOptionnel; 
+	return concepteurOptionnel;
 }
 
 
@@ -121,7 +121,7 @@ Jeu* lireJeu(istream& fichier, ListeJeux& jeux) {
 
 	cout << "[SUCCES][lireJeu] Allocation de memoire : [jeuLu->titre=" << jeuLu->titre << "]" << endl;
 
-	return jeuLu; 
+	return jeuLu;
 }
 
 
@@ -138,14 +138,14 @@ ListeJeux creerListeJeux(const string& nomFichier) {
 
 	for ([[maybe_unused]] size_t n : iter::range(listeJeux.capacite))
 	{
-		Jeu* jeu = lireJeu(fichier, listeJeux); 
+		Jeu* jeu = lireJeu(fichier, listeJeux);
 		ListeJeux::ajouterJeu(*jeu, listeJeux);
 	}
 
-	cout << "[SUCCES][creerListeJeux] Allocation de memoire : [listeJeu.nElements=" << listeJeux.nElements 
+	cout << "[SUCCES][creerListeJeux] Allocation de memoire : [listeJeu.nElements=" << listeJeux.nElements
 		<< ", listeJeux.capacite=" << listeJeux.capacite << "]" << endl;
 
-	return listeJeux; 
+	return listeJeux;
 }
 
 
@@ -197,7 +197,7 @@ void detruireListeJeux(ListeJeux listeJeux) {
 
 	cout << "[INFO][detruireListeJeux] Liberation de memoire en cours... [listeJeux=" << listeJeux.elements << "]" << endl;
 
-	for (Jeu* jeu : listeJeux.span()) 
+	for (Jeu* jeu : listeJeux.span())
 		detruireJeu(jeu);
 
 	delete[] listeJeux.elements;
@@ -238,10 +238,10 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
 	bibliotheque_cours::activerCouleursAnsi();
 #pragma endregion
 
-	
+
 	//int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
-	ListeJeux jeux = creerListeJeux("jeux.bin"); 
+	ListeJeux jeux = creerListeJeux("jeux.bin");
 
 	static const string ligneSeparation = "\n\033[35m════════════════════════════════════════\033[0m\n";
 	cout << ligneSeparation << endl;

@@ -13,8 +13,8 @@ public:
 
 private:
 	std::size_t nElements_, capacite_;
-
 	Developpeur** developpeurs_;
+
 	gsl::span<Developpeur*> span();
 	void detruireDeveloppeur(Developpeur* developpeurADetruire);
 };

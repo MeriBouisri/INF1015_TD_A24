@@ -23,12 +23,12 @@ ListeDeveloppeurs::~ListeDeveloppeurs() {
 
 	delete[] developpeurs_;
 	developpeurs_ = nullptr;
-	std::cout << "Destroyed [ListeDeveloppeurs]" << std::endl;
+	std::cout << "[SUCCES][~ListeDeveloppeurs()] Liberation de memoire : [developpeurs_ = " << developpeurs_ << std::endl;
 }
 
 
 void ListeDeveloppeurs::detruireDeveloppeur(Developpeur* developpeurADetruire) {
-	std::cout << "Destroying... [Développeur, " << developpeurADetruire->obtenirNom() << ", " << developpeurADetruire << "]" << std::endl;
+	std::cout << "[INFO][detruireDeveloppeur] Destruction en cours : [developpeurADetruire->nom = " << developpeurADetruire->obtenirNom() << "]" << std::endl;
 	developpeurADetruire->~Developpeur();
 }
 
@@ -83,8 +83,3 @@ void ListeDeveloppeurs::retirerDeveloppeur(Developpeur* developpeurARetirer) {
 		}
 	}
 }
-
-
-/**std::size_t nElements_, capacite_;
-	Developpeur** elements_;
-*/

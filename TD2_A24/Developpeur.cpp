@@ -56,7 +56,7 @@ int Developpeur::compterJeux(ListeJeux& jeux) const {
 
 
 void Developpeur::mettreAJourJeux(ListeJeux& jeux) {
-	// EViter de dupliquer les jeux
+	// Éviter de dupliquer les jeux
 	viderJeux();
 	ListeJeux::augmenterCapacite(
 		this->compterJeux(jeux),

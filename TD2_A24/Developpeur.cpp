@@ -1,9 +1,9 @@
 /**
-* Implémentation de la classe Developpeur, représentant un développeur de jeu vidéo
+* Implï¿½mentation de la classe Developpeur, reprï¿½sentant un dï¿½veloppeur de jeu vidï¿½o
 * \file   Developpeur.cpp
 * \author Bouisri et Xa
 * \date   29 septembre 2024
-* Créé le 17 septembre 2024
+* Crï¿½ï¿½ le 17 septembre 2024
 */
 
 #include "Developpeur.hpp"
@@ -58,6 +58,9 @@ int Developpeur::compterJeux(ListeJeux& jeux) const {
 void Developpeur::mettreAJourJeux(ListeJeux& jeux) {
 	// EViter de dupliquer les jeux
 	viderJeux();
+	ListeJeux::augmenterCapacite(
+		this->compterJeux(jeux),
+		paireNomJeux_.second);
 
 	for (Jeu* jeu : ListeJeux::span(jeux))
 		if (jeu->developpeur == obtenirNom())

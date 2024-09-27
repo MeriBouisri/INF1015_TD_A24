@@ -23,13 +23,6 @@ struct ListeJeux {
 		jeux.elements[jeux.nElements++] = &jeu;
 	}
 
-
-	//TODO: Fonction qui enlève un jeu de ListeJeux.
-	// Attention, ici il n'a pas de désallocation de mémoire. Elle enlève le
-	//// pointeur de la ListeJeux, mais le jeu pointé existe encore en mémoire.
-	//// Puisque l'ordre de la ListeJeux n'a pas être conservé, on peut remplacer le
-	//// jeu à être retiré par celui présent en fin de liste et décrémenter la taille
-	//// de celle-ci.
 	static void enleverJeu(Jeu* jeuASupprimer, ListeJeux& jeux) {
 		gsl::span<Jeu*> spanJeux = gsl::span<Jeu*>(jeux.elements, jeux.nElements);
 		for (Jeu*& jeu : spanJeux) {
@@ -61,6 +54,10 @@ struct ListeJeux {
 
 	static gsl::span<Jeu*> span(const ListeJeux& jeux) {
 		return gsl::span<Jeu*>(jeux.elements, jeux.nElements);
+	}
+
+	gsl::span<Jeu*> span() {
+		return ListeJeux::span(*this);
 	}
 
 

@@ -128,6 +128,7 @@ Jeu* lireJeu(istream& fichier, ListeJeux& jeux) {
 
 ListeJeux creerListeJeux(const string& nomFichier) {
 	cout << "[INFO][creerListeJeux] Lecture du fichier : [nomFichier=" << nomFichier << "]" << endl;
+
 	ifstream fichier(nomFichier, ios::binary);
 	fichier.exceptions(ios::failbit);
 
@@ -152,7 +153,6 @@ ListeJeux creerListeJeux(const string& nomFichier) {
 
 void detruireConcepteur(Concepteur* concepteur) {
 
-	cout << "[INFO][detruireConcepteur] Destruction en cours : [concepteur->nom=" << concepteur->nom << "]" << endl;
 	for (Jeu* jeu : concepteur->jeuxConcus.span())
 		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
 
@@ -172,13 +172,12 @@ bool concepteurParticipeJeu(const Concepteur& concepteur) {
 }
 
 void detruireJeu(Jeu* jeu) {
-	cout << "[INFO][detruireJeu] Liberation de memoire en cours... [jeu->titre=" << jeu->titre << "]" << endl;
 
 	for (Concepteur* concepteur : spanListeConcepteurs(jeu->concepteurs)) {
 		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
 
 		if (!concepteurParticipeJeu(*concepteur)) {
-			cout << "[INFO][detruireJeu] Concepteur non-participant : [concepteur->nom=" << concepteur->nom << "]" << endl;
+			cout << "[DEBUG][detruireJeu] Concepteur non-participant : [concepteur->nom=" << concepteur->nom << "]" << endl;
 			detruireConcepteur(concepteur);
 		}
 	}
@@ -196,8 +195,6 @@ void detruireJeu(Jeu* jeu) {
 
 void detruireListeJeux(ListeJeux listeJeux) {
 
-	cout << "[INFO][detruireListeJeux] Liberation de memoire en cours... [listeJeux=" << listeJeux.elements << "]" << endl;
-
 	for (Jeu* jeu : listeJeux.span())
 		detruireJeu(jeu);
 
@@ -206,17 +203,19 @@ void detruireListeJeux(ListeJeux listeJeux) {
 
 	cout << "[SUCCES][detruireListeJeux] Liberation de memoire : [listeJeux=" << listeJeux.elements << "]" << endl;
 	cout << endl;
+
 }
 
 
-void afficherConcepteur(const Concepteur& concepteurAAfficher) {
-	cout << "\t" << concepteurAAfficher.nom << ", " << concepteurAAfficher.anneeNaissance << ", " << concepteurAAfficher.pays << endl;
+void afficherConcepteur(const Concepteur& concepteur) {
+	cout << "\t[concepteur.nom=" << concepteur.nom << ", concepteur.anneeNaissance=" << concepteur.anneeNaissance << ", conceptreur.pays=" << concepteur.pays << "]" << endl;
 }
 
 
 void afficherJeu(const Jeu& jeu) {
-	cout << jeu.titre << ", " << jeu.anneeSortie << ", " << jeu.developpeur << endl;
-	cout << "Concepteurs:" << endl;
+	cout << "[jeu.titre=" << jeu.titre << ", jeu.anneeSortie=" << jeu.anneeSortie << ", jeu.developpeur=" << jeu.developpeur << endl;
+	cout << "[jeu.concepteurs= ...]`" << endl;
+
 
 	for (Concepteur* concepteur : spanListeConcepteurs(jeu.concepteurs))
 		afficherConcepteur(*concepteur);
@@ -257,10 +256,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
 
 	cout << ligneSeparation << endl;
 
-	cout << "===== TESTS =====" << endl;
+	cout << "TESTS" << endl;
 
-	//ListeJeux::test();
-	//Developpeur::test();
+	cout << ligneSeparation << endl;
+
+	Developpeur::testDeveloppeur();
 	ListeDeveloppeurs::testListeDeveloppeurs();
 
 

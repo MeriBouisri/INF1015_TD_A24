@@ -8,9 +8,6 @@
 
 #include "Developpeur.hpp"
 
-#define AFFICHER_DEBUG 1
-#define AFFICHER_INFO 1
-
 using namespace std;
 
 Developpeur::Developpeur(string nom) {
@@ -76,7 +73,7 @@ void Developpeur::actualiserJeux(ListeJeux& jeux) {
 void Developpeur::afficherJeux() const {
 	cout << "[INFO][Developpeur::afficherJeux()] Jeux de [developpeur.nom=" << this->obtenirNom() << "] :" << endl;
 
-	for (int i = 0; i < paireNomJeux_.second.nElements; i++) 
+	for (size_t i = 0; i < paireNomJeux_.second.nElements; i++) 
 		cout << "\t" << this->obtenirNom() << "=[" << i << "][jeu->titre="   << paireNomJeux_.second.elements[i]->titre << "]" << endl;
 }
 
@@ -105,11 +102,11 @@ bool Developpeur::testActualiserJeux() {
 		cout << "[ECHEC][Developpeur::testActualiserJeux] developpeur.obtenirJeux().nElements : [attendu=2, actuel=" << developpeur->obtenirJeux().nElements << "] 1/4" << endl;
 
 	// Test 2/4
-	else if (developpeur->obtenirJeux().capacite != developpeur->compterJeux(jeux))
+	else if (int(developpeur->obtenirJeux().capacite) != developpeur->compterJeux(jeux))
 		cout << "[ECHEC][Developpeur::testActualiserJeux] developpeur.compterJeux(jeux) : [attendu=2, actuel=" << developpeur->compterJeux(jeux) << "] 2/4" << endl;
 	
 	// Test 3/4
-	else if (developpeur->obtenirJeux().elements[0]->titre != "jeu1")
+	else if (developpeur->obtenirJeux().elements[0]->titre != string("jeu1"))
 		cout << "[ECHEC][Developpeur::testActualiserJeux] developpeur.obtenirJeux().elements[0]->titre : [attendu=jeu1, actuel=" << developpeur->obtenirJeux().elements[0]->titre << "] 3/4" << endl;
 
 	// Test 4/4

@@ -33,7 +33,7 @@ T lireType(istream& fichier) {
 
 #define erreurFataleAssert(message) assert(false&&(message)),terminate()
 static const uint8_t enteteTailleVariableDeBase = 0xA0;
-size_t lireUintTailleVariable(istream& fichier) {
+static size_t lireUintTailleVariable(istream& fichier) {
 	uint8_t entete = lireType<uint8_t>(fichier);
 	switch (entete) {
 	case enteteTailleVariableDeBase + 0: return lireType<uint8_t>(fichier);
@@ -45,19 +45,19 @@ size_t lireUintTailleVariable(istream& fichier) {
 }
 
 
-string lireString(istream& fichier) {
+static string lireString(istream& fichier) {
 	string texte;
 	texte.resize(lireUintTailleVariable(fichier));
 	fichier.read((char*)&texte[0], streamsize(sizeof(texte[0])) * texte.length());
 	return texte;
 }
-gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste) {
+static gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste) {
 	return gsl::span(liste.elements, liste.nElements);
 }
 #pragma endregion
 
 
-Concepteur* trouverConcepteur(string nom, const ListeJeux& jeux) {
+static Concepteur* trouverConcepteur(string nom, const ListeJeux& jeux) {
 	gsl::span<Jeu*> spanJeux = ListeJeux::span(jeux);
 	for (Jeu* jeu : spanJeux) {
 		gsl::span<Concepteur*> spanConcepteurs = spanListeConcepteurs(jeu->concepteurs);
@@ -71,7 +71,7 @@ Concepteur* trouverConcepteur(string nom, const ListeJeux& jeux) {
 }
 
 
-Concepteur* lireConcepteur(istream& fichier, const ListeJeux& jeux) {
+static Concepteur* lireConcepteur(istream& fichier, const ListeJeux& jeux) {
 	Concepteur concepteur = {}; // On initialise une structure vide de type Concepteur.
 	concepteur.nom = lireString(fichier);
 	concepteur.anneeNaissance = int(lireUintTailleVariable(fichier));
@@ -100,7 +100,7 @@ Concepteur* lireConcepteur(istream& fichier, const ListeJeux& jeux) {
 }
 
 
-Jeu* lireJeu(istream& fichier, ListeJeux& jeux) {
+static Jeu* lireJeu(istream& fichier, ListeJeux& jeux) {
 	Jeu jeu = {}; // On initialise une structure vide de type Jeu
 	jeu.titre = lireString(fichier);
 	jeu.anneeSortie = int(lireUintTailleVariable(fichier));
@@ -126,7 +126,7 @@ Jeu* lireJeu(istream& fichier, ListeJeux& jeux) {
 }
 
 
-ListeJeux creerListeJeux(const string& nomFichier) {
+static ListeJeux creerListeJeux(const string& nomFichier) {
 	cout << "[INFO][creerListeJeux] Lecture du fichier : [nomFichier=" << nomFichier << "]" << endl;
 
 	ifstream fichier(nomFichier, ios::binary);
@@ -151,7 +151,7 @@ ListeJeux creerListeJeux(const string& nomFichier) {
 }
 
 
-void detruireConcepteur(Concepteur* concepteur) {
+static void detruireConcepteur(Concepteur* concepteur) {
 
 	for (Jeu* jeu : concepteur->jeuxConcus.span())
 		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
@@ -167,11 +167,11 @@ void detruireConcepteur(Concepteur* concepteur) {
 }
 
 
-bool concepteurParticipeJeu(const Concepteur& concepteur) {
+static bool concepteurParticipeJeu(const Concepteur& concepteur) {
 	return concepteur.jeuxConcus.nElements > 0;
 }
 
-void detruireJeu(Jeu* jeu) {
+static void detruireJeu(Jeu* jeu) {
 
 	for (Concepteur* concepteur : spanListeConcepteurs(jeu->concepteurs)) {
 		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
@@ -193,7 +193,7 @@ void detruireJeu(Jeu* jeu) {
 }
 
 
-void detruireListeJeux(ListeJeux listeJeux) {
+static void detruireListeJeux(ListeJeux listeJeux) {
 
 	for (Jeu* jeu : listeJeux.span())
 		detruireJeu(jeu);
@@ -207,12 +207,12 @@ void detruireListeJeux(ListeJeux listeJeux) {
 }
 
 
-void afficherConcepteur(const Concepteur& concepteur) {
+static void afficherConcepteur(const Concepteur& concepteur) {
 	cout << "\t[concepteur.nom=" << concepteur.nom << ", concepteur.anneeNaissance=" << concepteur.anneeNaissance << ", conceptreur.pays=" << concepteur.pays << "]" << endl;
 }
 
 
-void afficherJeu(const Jeu& jeu) {
+static void afficherJeu(const Jeu& jeu) {
 	cout << "[jeu.titre=" << jeu.titre << ", jeu.anneeSortie=" << jeu.anneeSortie << ", jeu.developpeur=" << jeu.developpeur << endl;
 	cout << "[jeu.concepteurs= ...]`" << endl;
 
@@ -222,7 +222,7 @@ void afficherJeu(const Jeu& jeu) {
 }
 
 
-void afficherListeJeux(const ListeJeux& listeJeux) {
+static void afficherListeJeux(const ListeJeux& listeJeux) {
 	for (Jeu* jeu : ListeJeux::span(listeJeux)) {
 		afficherJeu(*jeu);
 		cout << "\n";

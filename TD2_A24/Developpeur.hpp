@@ -14,9 +14,15 @@ public:
 	ListeJeux obtenirJeux() const;
 	void viderJeux();
 	int compterJeux(ListeJeux& jeux) const;
-	void mettreAJourJeux(ListeJeux& jeux);
-	void afficherJeux() const;
-	static void test();
+	void actualiserJeux(ListeJeux& jeux);
+	void afficherJeux();
+	static bool testDeveloppeur();
+	static bool testActualiserJeux();
+	static bool testCompterJeux();
+	static bool testViderJeux();
+	static bool testObtenirNom();
+	static bool testAfficherJeux();
+
 
 private:
 	std::pair<std::string, ListeJeux> paireNomJeux_;

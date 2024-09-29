@@ -69,12 +69,19 @@ void Developpeur::actualiserJeux(ListeJeux& jeux) {
 			ListeJeux::ajouterJeu(*jeu, paireNomJeux_.second);
 }
 
+void Developpeur::afficherJeux() {
 
-void Developpeur::afficherJeux() const {
 	cout << "[INFO][Developpeur::afficherJeux()] Jeux de [developpeur.nom=" << this->obtenirNom() << "] :" << endl;
 
-	for (size_t i = 0; i < paireNomJeux_.second.nElements; i++) 
-		cout << "\t" << this->obtenirNom() << "=[" << i << "][jeu->titre="   << paireNomJeux_.second.elements[i]->titre << "]" << endl;
+	// Iterate over the list of games associated with the developer and display each one
+	for (Jeu* jeu : ListeJeux::span(paireNomJeux_.second)) {
+		cout << "\t[jeu->titre=" << jeu->titre << ", jeu->anneeSortie=" << jeu->anneeSortie<< "]" << endl;
+	}
+
+	if (paireNomJeux_.second.nElements == 0) {
+		cout << "[INFO][Developpeur::afficherJeux] Aucun jeu pour ce developpeur." << endl;
+	}
+	
 }
 
 
@@ -82,7 +89,7 @@ bool Developpeur::testActualiserJeux() {
 	bool success = false;
 
 	Developpeur* developpeur = new Developpeur("dev01");
-
+	 
 
 	cout << "[TEST][Developpeur::testActualiserJeux] Initialisation : [developpeur.nom=" << developpeur->obtenirNom() << ", " << developpeur << "]" << endl;
 	cout << "[TEST][Developpeur::testActualiserJeux] Test pret" << endl;
@@ -98,23 +105,11 @@ bool Developpeur::testActualiserJeux() {
 	developpeur->actualiserJeux(jeux);
 
 	// Test 1/4
-	if (developpeur->obtenirJeux().nElements != 2)
-		cout << "[ECHEC][Developpeur::testActualiserJeux] developpeur.obtenirJeux().nElements : [attendu=2, actuel=" << developpeur->obtenirJeux().nElements << "] 1/4" << endl;
+	success = (developpeur->obtenirJeux().nElements == 2)
+		&& (int(developpeur->obtenirJeux().capacite) == developpeur->compterJeux(jeux))
+		&& (developpeur->obtenirJeux().elements[0]->titre == string("jeu1"))
+		&& (developpeur->obtenirJeux().elements[1]->titre == "jeu2");
 
-	// Test 2/4
-	else if (int(developpeur->obtenirJeux().capacite) != developpeur->compterJeux(jeux))
-		cout << "[ECHEC][Developpeur::testActualiserJeux] developpeur.compterJeux(jeux) : [attendu=2, actuel=" << developpeur->compterJeux(jeux) << "] 2/4" << endl;
-	
-	// Test 3/4
-	else if (developpeur->obtenirJeux().elements[0]->titre != string("jeu1"))
-		cout << "[ECHEC][Developpeur::testActualiserJeux] developpeur.obtenirJeux().elements[0]->titre : [attendu=jeu1, actuel=" << developpeur->obtenirJeux().elements[0]->titre << "] 3/4" << endl;
-
-	// Test 4/4
-	else if (developpeur->obtenirJeux().elements[1]->titre != "jeu2")
-		cout << "[ECHEC][Developpeur::testActualiserJeux] developpeur.obtenirJeux().elements[1]->titre : [attendu=jeu2, actuel=" << developpeur->obtenirJeux().elements[1]->titre << "] 4/4" << endl;
-
-	else
-		success = true;
 
 	cout << "[TEST][Developpeur::testActualiserJeux] Liberation de memoire : [jeux.elements=" << jeux.elements << "]" << endl;
 
@@ -201,32 +196,19 @@ bool Developpeur::testViderJeux() {
 
 	dev01->actualiserJeux(jeux);
 
-	if (dev01->obtenirJeux().nElements != 2)
-		cout << "[ECHEC][Developpeur::testViderJeux] developpeur.obtenirJeux().nElements : [attendu=2, actuel=" << dev01->obtenirJeux().nElements << "] 1/8" << endl;
-
-	else if (dev01->obtenirJeux().capacite != 2)
-		cout << "[ECHEC][Developpeur::testViderJeux] developpeur.obtenirJeux().capacite : [attendu=2, actuel=" << dev01->obtenirJeux().capacite << "] 2/8" << endl;
-
-	else if (dev01->obtenirJeux().elements[0]->titre != "jeu01")
-		cout << "[ECHEC][Developpeur::testViderJeux] developpeur.obtenirJeux()[0]->titre : [attendu=jeu01, actuel=" << dev01->obtenirJeux().elements[0]->titre << "] 3/8" << endl;
-
-	else if (dev01->obtenirJeux().elements[1]->titre != "jeu02")
-		cout << "[ECHEC][Developpeur::testViderJeux] developpeur.obtenirJeux()[1]->titre : [attendu=jeu02, actuel=" << dev01->obtenirJeux().elements[1]->titre << "] 4/8" << endl;
-
-	else
+	success = dev01->obtenirJeux().nElements == 2
+		&& dev01->obtenirJeux().capacite == 2
+		&& dev01->obtenirJeux().elements[0]->titre == "jeu01"
+		&& dev01->obtenirJeux().elements[1]->titre == "jeu02";
+	
+	if (success)
 		dev01->viderJeux();
 
-	if (dev01->obtenirJeux().nElements != 0)
-		cout << "[ECHEC][Developpeur::testViderJeux] developpeur.obtenirJeux().nElements : [attendu=0, actuel=" << dev01->obtenirJeux().nElements << "] 5/8" << endl;
 
-	else if (dev01->obtenirJeux().capacite != 0)
-		cout << "[ECHEC][Developpeur::testViderJeux] developpeur.obtenirJeux().capacite : [attendu=0, actuel=" << dev01->obtenirJeux().capacite << "] 6/8" << endl;
+	success = dev01->obtenirJeux().nElements == 0
+		&& dev01->obtenirJeux().capacite == 0
+		&& dev01->compterJeux(dev01->paireNomJeux_.second) == 0;
 
-	else if (dev01->compterJeux(dev01->paireNomJeux_.second) != 0)
-		cout << "[ECHEC][Developpeur::testViderJeux] developpeur.compterJeux(jeux) : [attendu=0, actuel=" << dev01->compterJeux(jeux) << "] 7/8" << endl;
-
-	else
-		success = true;
 
 
 	cout << "[TEST][Developpeur::testViderJeux] Liberation de memoire : [jeux.elements=" << jeux.elements << "]" << endl;
@@ -248,6 +230,7 @@ bool Developpeur::testViderJeux() {
 bool Developpeur::testObtenirNom() {
 	cout << "\n[TEST][Developpeur::testObtenirNom] Debut du test" << endl;
 	bool success = false;
+
 	string nom = "dev01";
 
 	Developpeur* dev01 = new Developpeur(nom);
@@ -255,11 +238,7 @@ bool Developpeur::testObtenirNom() {
 
 	cout << "[TEST][Developpeur::testObtenirNom] Test pret" << endl;
 
-	if (dev01->obtenirNom() != nom)
-		cout << "[ECHEC][Developpeur::testObtenirNom] developpeur.obtenirNom() : [attendu=dev01, actuel=" << dev01->obtenirNom() << "] 1/1" << endl;
-
-	else
-		success = true;
+	success = dev01->obtenirNom() == nom;
 
 	delete dev01;
 	dev01 = nullptr;
@@ -272,53 +251,44 @@ bool Developpeur::testObtenirNom() {
 	return success;
 }
 
-bool Developpeur::testObtenirJeux() {
-	cout << "\n[TEST][Developpeur::testObtenirJeux] Debut du test" << endl;
+bool Developpeur::testAfficherJeux() {
 	bool success = false;
 
-	Developpeur* dev01 = new Developpeur("dev01");
-	cout << "[TEST][Developpeur::testObtenirJeux] Initialisation : [dev01.nom=" << dev01->obtenirNom() << ", " << dev01 << "]" << endl;
-
-	cout << "[TEST][Developpeur::testObtenirJeux] Test pret" << endl;
 
 	ListeJeux jeux = { 0, 0, new Jeu * [2] };
 
-	Jeu jeu01 = { "jeu01", 2021, "dev01" };
-	Jeu jeu02 = { "jeu02", 2022, "dev01" };
+	Developpeur* dev = new Developpeur("dev");
+
+	Jeu jeu01 = { "jeu01", 2021, "dev" };
+	Jeu jeu02 = { "jeu02", 2022, "dev" };
 
 	ListeJeux::ajouterJeu(jeu01, jeux);
 	ListeJeux::ajouterJeu(jeu02, jeux);
 
-	dev01->actualiserJeux(jeux);
+	
+	dev->actualiserJeux(jeux);
 
-	if (dev01->obtenirJeux().nElements != 2)
-		cout << "[ECHEC][Developpeur::testObtenirJeux] developpeur.obtenirJeux().nElements : [attendu=2, actuel=" << dev01->obtenirJeux().nElements << "] 1/4" << endl;
 
-	else if (dev01->obtenirJeux().capacite != 2)
-		cout << "[ECHEC][Developpeur::testObtenirJeux] developpeur.obtenirJeux().capacite : [attendu=2, actuel=" << dev01->obtenirJeux().capacite << "] 2/4" << endl;
+	cout << "[TEST][Developpeur::testAfficherJeux] Initialisation : [dev01.nom=" << dev->obtenirNom() << ", " << dev << "]" << endl;
 
-	else if (dev01->obtenirJeux().elements[0]->titre != "jeu01")
-		cout << "[ECHEC][Developpeur::testObtenirJeux] developpeur.obtenirJeux()[0]->titre : [attendu=jeu01, actuel=" << dev01->obtenirJeux().elements[0]->titre << "] 3/4" << endl;
+	cout << "[TEST][Developpeur::testAfficherJeux] Test pret" << endl;
 
-	else if (dev01->obtenirJeux().elements[1]->titre != "jeu02")
-		cout << "[ECHEC][Developpeur::testObtenirJeux] developpeur.obtenirJeux()[1]->titre : [attendu=jeu02, actuel=" << dev01->obtenirJeux().elements[1]->titre << "] 4/4" << endl;
+	dev->afficherJeux();
 
-	else
-		success = true;
 
-	cout << "[TEST][Developpeur::testObtenirJeux] Liberation de memoire : [jeux.elements=" << jeux.elements << "]" << endl;
+	delete dev;
+	dev = nullptr;
 
 	delete[] jeux.elements;
 	jeux.elements = nullptr;
 
-	delete dev01;
-	dev01 = nullptr;
+	cout << "[TEST][Developpeur::testObtenirNom] 1/1 tests finis\n\n";
 
-	cout << "[TEST][Developpeur::testObtenirJeux] 5/5 tests finis\n\n";
+	success = true;
 
 	if (success)
-		cout << "[SUCCES][Developpeur::testObtenirJeux] developpeur.obtenirJeux()" << endl;
-	
+		cout << "[SUCCES][Developpeur::testObtenirNom] Tests reussis " << endl;
+
 	return success;
 }
 
@@ -326,30 +296,15 @@ bool Developpeur::testObtenirJeux() {
 
 
 bool Developpeur::testDeveloppeur() {
-	bool success = false;
 
-	if (!Developpeur::testActualiserJeux())
-		cout << "[ECHEC][Developpeur::testDeveloppeur] developpeur.testActualiserJeux()\n\n" << endl;
-
-	else if (!Developpeur::testCompterJeux())
-		cout << "[ECHEC][Developpeur::testDeveloppeur] developpeur.testCompterJeux()\n\n" << endl;
-
-	else if (!Developpeur::testViderJeux())
-		cout << "[ECHEC][Developpeur::testDeveloppeur] developpeur.testViderJeux()\n\n" << endl;
-
-	else if (!Developpeur::testObtenirNom())
-		cout << "[ECHEC][Developpeur::testDeveloppeur] developpeur.testObtenirNom()\n\n" << endl;
-
-	else if (!Developpeur::testObtenirJeux())
-		cout << "[ECHEC][Developpeur::testDeveloppeur] developpeur.testObtenirJeux()\n\n" << endl;
-
-	else
-		success = true;
+	bool success = Developpeur::testActualiserJeux()
+		&& Developpeur::testCompterJeux()
+		&& Developpeur::testViderJeux()
+		&& Developpeur::testObtenirNom()
+		&& Developpeur::testAfficherJeux();
 
 	if (success)
 		cout << "\n[SUCCES][Developpeur::testDeveloppeur] Classe Developpeur passe tous les tests\n" << endl;
-
-
 
 	return success;
 }

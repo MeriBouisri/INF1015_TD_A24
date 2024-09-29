@@ -1,0 +1,123 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.41.34120.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/listedeveloppeurs.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "5db60a5a7c05d27a0102161f58fa06a87522faf1008b67bab53d3a53c23f0b46"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/listedeveloppeurs.hpp"
+          },
+          "hashes": {
+            "sha-256": "46decf523b920994be4b373a7b922287cd4cd7bf2b2f4d2623d6f13c9aaba423"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/developpeur.hpp"
+          },
+          "hashes": {
+            "sha-256": "631dbe944036b1a5eca60451211ca94aecc6a430640d486a79a4f4cedfddd712"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/listejeux.hpp"
+          },
+          "hashes": {
+            "sha-256": "025d62875dcffa44d7142b261ead828c28bfe3b1291c5326cc7238be3e7fa828"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/include/gsl/span"
+          },
+          "hashes": {
+            "sha-256": "b65794ef3b56c62bb1510ebfa85b636b38e43279b7788cb688def79c93e7778e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/include/gsl/gsl_assert"
+          },
+          "hashes": {
+            "sha-256": "ce012c50c7f8ef8134a59a7e8206bdeba3a6b931ef50b4e104658d2633f3368e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/include/gsl/gsl_byte"
+          },
+          "hashes": {
+            "sha-256": "fc01e24d85ce6abda33692730120d0e5267c46d810858f78389d0fec2d314a02"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/include/verification_allocation.hpp"
+          },
+          "hashes": {
+            "sha-256": "302ef1c04bf0a6b8c5f3689ea099bf9dbcccec7050dc3d2824829a212bfe0472"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/include/debogage_memoire.hpp"
+          },
+          "hashes": {
+            "sha-256": "4568e18c71a9756b82d040dc7ee2f95b8010c51220ae7db9e62e744aba9dfce9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/jeu.hpp"
+          },
+          "hashes": {
+            "sha-256": "7e2c03ffe0e5b93289957c062f5165beeac57be24ed72b1aa1f81e1d00c0f7b7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/listeconcepteurs.hpp"
+          },
+          "hashes": {
+            "sha-256": "210fc4af3ecd9c89b8b3509717438c9e567e3a08a609f5774bd5bdb6de24fc4a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/merie/source/repos/inf1015_td_a24/td2_a24/concepteur.hpp"
+          },
+          "hashes": {
+            "sha-256": "e4cd8d560830101a5b93875e20a7ea09f6852d759bf4afd61048ddb4f93bdba1"
+          }
+        }
+      ]
+    }
+  ]
+}

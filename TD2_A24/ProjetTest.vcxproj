@@ -175,7 +175,6 @@
   <ItemGroup>
     <ClInclude Include="Concepteur.hpp" />
     <ClInclude Include="Developpeur.hpp" />
-    <ClInclude Include="include\CodeCoverage_bugfix.h" />
     <ClInclude Include="Jeu.hpp" />
     <ClInclude Include="ListeConcepteurs.hpp" />
     <ClInclude Include="ListeDeveloppeurs.hpp" />

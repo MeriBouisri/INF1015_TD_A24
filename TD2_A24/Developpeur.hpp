@@ -15,13 +15,13 @@ public:
 	void viderJeux();
 	int compterJeux(ListeJeux& jeux) const;
 	void actualiserJeux(ListeJeux& jeux);
-	void afficherJeux();
+	void afficherJeux() const;
 	static bool testDeveloppeur();
 	static bool testActualiserJeux();
 	static bool testCompterJeux();
 	static bool testViderJeux();
 	static bool testObtenirNom();
-	static bool testAfficherJeux();
+	static bool testObtenirJeux();
 
 
 private:

@@ -8,14 +8,14 @@
 
 class Developpeur {
 public:
-	Developpeur(std::string nom);
+	Developpeur(const std::string& nom);
 	~Developpeur();
 	std::string obtenirNom() const;
 	ListeJeux obtenirJeux() const;
 	void viderJeux();
-	int compterJeux(ListeJeux& jeux) const;
+	int compterJeux(const ListeJeux& jeux) const;
 	void actualiserJeux(ListeJeux& jeux);
-	void afficherJeux();
+	void afficherJeux() const;
 	static bool testDeveloppeur();
 	static bool testActualiserJeux();
 	static bool testCompterJeux();

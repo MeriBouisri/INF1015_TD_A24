@@ -74,7 +74,7 @@ void ListeDeveloppeurs::ajouterDeveloppeur(Developpeur& developpeurAAjouter) {
 }
 
 
-void ListeDeveloppeurs::retirerDeveloppeur(Developpeur* developpeurARetirer) {
+void ListeDeveloppeurs::retirerDeveloppeur(const Developpeur* developpeurARetirer) {
 	gsl::span<Developpeur*> spanDeveloperList = span();
 	for (Developpeur*& developpeur : spanDeveloperList) {
 		if (developpeur == developpeurARetirer) {
@@ -104,7 +104,7 @@ void ListeDeveloppeurs::testListeDeveloppeurs() {
 
 	liste.afficher();
 	std::cout << "[INFO] Affichage de ListeDeveloppeurs" << std::endl;
-	
+
 	liste.retirerDeveloppeur(&dev2);
 	std::cout << "[INFO] Bob retiré de la ListeDeveloppeurs" << std::endl;
 

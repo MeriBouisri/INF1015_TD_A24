@@ -23,7 +23,8 @@ struct ListeJeux {
 		jeux.elements[jeux.nElements++] = &jeu;
 	}
 
-	static void enleverJeu(Jeu* jeuASupprimer, ListeJeux& jeux) {
+
+	static void enleverJeu(const Jeu* jeuASupprimer, ListeJeux& jeux) {
 		gsl::span<Jeu*> spanJeux = gsl::span<Jeu*>(jeux.elements, jeux.nElements);
 		for (Jeu*& jeu : spanJeux) {
 			if (jeu == jeuASupprimer) {
@@ -56,7 +57,8 @@ struct ListeJeux {
 		return gsl::span<Jeu*>(jeux.elements, jeux.nElements);
 	}
 
-	gsl::span<Jeu*> span() {
+
+	gsl::span<Jeu*> span() const {
 		return ListeJeux::span(*this);
 	}
 

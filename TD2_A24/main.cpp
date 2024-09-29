@@ -51,13 +51,15 @@ static string lireString(istream& fichier) {
 	fichier.read((char*)&texte[0], streamsize(sizeof(texte[0])) * texte.length());
 	return texte;
 }
+
+
 static gsl::span<Concepteur*> spanListeConcepteurs(const ListeConcepteurs& liste) {
 	return gsl::span(liste.elements, liste.nElements);
 }
 #pragma endregion
 
 
-static Concepteur* trouverConcepteur(string nom, const ListeJeux& jeux) {
+static Concepteur* trouverConcepteur(const string& nom, const ListeJeux& jeux) {
 	gsl::span<Jeu*> spanJeux = ListeJeux::span(jeux);
 	for (Jeu* jeu : spanJeux) {
 		gsl::span<Concepteur*> spanConcepteurs = spanListeConcepteurs(jeu->concepteurs);
@@ -138,7 +140,7 @@ static ListeJeux creerListeJeux(const string& nomFichier) {
 	listeJeux.capacite = lireUintTailleVariable(fichier);
 	listeJeux.elements = new Jeu * [listeJeux.capacite];
 
-	for ([[maybe_unused]] size_t n : iter::range(listeJeux.capacite))
+	for ([[maybe_unused]] size_t i : iter::range(listeJeux.capacite))
 	{
 		Jeu* jeu = lireJeu(fichier, listeJeux);
 		ListeJeux::ajouterJeu(*jeu, listeJeux);
@@ -170,6 +172,7 @@ static void detruireConcepteur(Concepteur* concepteur) {
 static bool concepteurParticipeJeu(const Concepteur& concepteur) {
 	return concepteur.jeuxConcus.nElements > 0;
 }
+
 
 static void detruireJeu(Jeu* jeu) {
 

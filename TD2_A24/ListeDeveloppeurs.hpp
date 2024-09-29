@@ -11,7 +11,7 @@ public:
 	void afficher();
 	void augmenterCapacite(size_t nouvelleCapacite);
 	void ajouterDeveloppeur(Developpeur& developpeurAAjouter);
-	void retirerDeveloppeur(Developpeur* developpeurARetirer);
+	void retirerDeveloppeur(const Developpeur* developpeurARetirer);
 	static void testListeDeveloppeurs();
 
 private:

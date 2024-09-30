@@ -6,17 +6,17 @@
 * Créé le 17 septembre 2024
 */
 
-#include "Jeu.hpp"
-#include <iostream>
-#include <fstream>
-#include <cstdint>
-#include "cppitertools/range.hpp"
-#include "gsl/span"
 #include "bibliotheque_cours.hpp"
-#include "verification_allocation.hpp"
+#include "cppitertools/range.hpp"
 #include "debogage_memoire.hpp"  //NOTE: Incompatible avec le "placement new", ne pas utiliser cette entête si vous utilisez ce type de "new" dans les lignes qui suivent cette inclusion.
 #include "Developpeur.hpp"
+#include "gsl/span"
+#include "Jeu.hpp"
 #include "ListeDeveloppeurs.hpp"
+#include "verification_allocation.hpp"
+#include <cstdint>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 using namespace iter;
@@ -154,9 +154,7 @@ static ListeJeux creerListeJeux(const string& nomFichier) {
 
 
 static void detruireConcepteur(Concepteur* concepteur) {
-
-	for (Jeu* jeu : concepteur->jeuxConcus.span())
-		ListeJeux::enleverJeu(jeu, concepteur->jeuxConcus);
+	cout << "[DEBUG][detruireConcepteur] Libération de mémoire en cours : [concepteur=" << concepteur->nom << "]" << endl;
 
 	delete[] concepteur->jeuxConcus.elements;
 	concepteur->jeuxConcus.elements = nullptr;
@@ -164,7 +162,7 @@ static void detruireConcepteur(Concepteur* concepteur) {
 	delete concepteur;
 	concepteur = nullptr;
 
-	cout << "[SUCCES][detruireConcepteur] Liberation de memoire : [concepteur=" << concepteur << "]" << endl;
+	cout << "[SUCCES][detruireConcepteur] Mémoire libérée : [concepteur=" << concepteur << "]" << endl;
 	cout << endl;
 }
 

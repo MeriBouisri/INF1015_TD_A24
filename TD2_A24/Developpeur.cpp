@@ -150,12 +150,11 @@ bool Developpeur::testCompterJeux() {
 
 	// Test 1/2
 	if (dev01->compterJeux(jeux) != 1)
-		cout << "[ECHEC][Developpeur::testCompterJeux] developpeur.compterJeux(jeux) : [attendu=1, actuel=" << dev01->compterJeux(jeux) << "] 1/2" << endl;
+		cout << "[ECHEC][Developpeur::testCompterJeux] developpeur.compterJeux(jeux) : [attendu=1, actuel=" << dev01->compterJeux(jeux) << "] 1/2" << endl; // NOTE : Non couvert par la couverture de code
 
 	// Test 2/2
 	else if (dev02->compterJeux(jeux) != 2)
-		cout << "[ECHEC][Developpeur::testCompterJeux] developpeur.compterJeux(jeux) : [attendu=2, actuel=" << dev02->compterJeux(jeux) << "] 2/2" << endl;
-
+		cout << "[ECHEC][Developpeur::testCompterJeux] developpeur.compterJeux(jeux) : [attendu=2, actuel=" << dev02->compterJeux(jeux) << "] 2/2" << endl; // NOTE : Non couvert par la couverture de code
 	else
 		estReussi = true;
 

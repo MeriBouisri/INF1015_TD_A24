@@ -1,0 +1,756 @@
+2024-09-29 20:35:36.229 -04:00 [INF] Starting collection for session id: f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3
+2024-09-29 20:35:36.268 -04:00 [INF] ReportGenerator.LoadGenerators. OutputType: default
+2024-09-29 20:35:36.270 -04:00 [ERR] ReportGeneratorFactory.CreateGenerator: Invalid outputType: default found. Using DefaultReportGenerator.
+2024-09-29 20:35:36.274 -04:00 [VRB] PrivilegeChecker.IsPrivilegeEnabled number of privileges: 5
+2024-09-29 20:35:36.275 -04:00 [VRB] PrivilegeChecker.IsPrivilegeEnabled number of privileges: 5
+2024-09-29 20:35:36.275 -04:00 [VRB] PrivilegeChecker.IsPrivilegeEnabled number of privileges: 5
+2024-09-29 20:35:36.307 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-09-29 20:35:36.320 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-09-29 20:35:36.326 -04:00 [VRB] Configuring environment variable key: CODE_COVERAGE_SESSION_NAME, value: f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3
+2024-09-29 20:35:36.326 -04:00 [VRB] Configuring environment variable key: CODE_COVERAGE_PIPE_COUNT, value: 1
+2024-09-29 20:35:36.326 -04:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_DisableCodeSignatureValidation, value: 1
+2024-09-29 20:35:36.326 -04:00 [VRB] Configuring environment variable key: CODE_COVERAGE_FLAGS, value: 5
+2024-09-29 20:35:36.326 -04:00 [VRB] Configuring environment variable key: CODE_COVERAGE_DATA_PREFIX, value: CodeCoverage.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3.
+2024-09-29 20:35:36.327 -04:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_ConfigPath64_VanguardInstrumentationProfiler, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\amd64\VanguardInstrumentationProfiler_x64.config
+2024-09-29 20:35:36.327 -04:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_ConfigPath32_VanguardInstrumentationProfiler, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\VanguardInstrumentationProfiler_x86.config
+2024-09-29 20:35:36.327 -04:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_ConfigPathARM64_VanguardInstrumentationProfiler, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\arm64\VanguardInstrumentationProfiler_arm64.config
+2024-09-29 20:35:36.331 -04:00 [VRB] Configuring environment variable key: PATH, value: C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\jason\AppData\Local\Microsoft\WindowsApps;C:\Users\jason\AppData\Local\gitkraken\bin;C:\Users\jason\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jason\AppData\Roaming\npm;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\amd64;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\arm64
+2024-09-29 20:35:36.332 -04:00 [VRB] Configuring environment variable key: CORECLR_ENABLE_PROFILING, value: 1
+2024-09-29 20:35:36.333 -04:00 [VRB] Configuring environment variable key: CORECLR_PROFILER_PATH_64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x64\MicrosoftInstrumentationEngine_x64.dll
+2024-09-29 20:35:36.333 -04:00 [VRB] Configuring environment variable key: CORECLR_PROFILER, value: {324F817A-7420-4E6D-B3C1-143FBED6D855}
+2024-09-29 20:35:36.333 -04:00 [VRB] Configuring environment variable key: CORECLR_PROFILER_PATH_32, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x86\MicrosoftInstrumentationEngine_x86.dll
+2024-09-29 20:35:36.333 -04:00 [VRB] Configuring environment variable key: CORECLR_PROFILER_PATH_ARM64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\arm64\MicrosoftInstrumentationEngine_arm64.dll
+2024-09-29 20:35:36.335 -04:00 [VRB] Configuring environment variable key: COR_ENABLE_PROFILING, value: 1
+2024-09-29 20:35:36.335 -04:00 [VRB] Configuring environment variable key: COR_PROFILER_PATH_32, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x86\MicrosoftInstrumentationEngine_x86.dll
+2024-09-29 20:35:36.335 -04:00 [VRB] Configuring environment variable key: COR_PROFILER_PATH_64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x64\MicrosoftInstrumentationEngine_x64.dll
+2024-09-29 20:35:36.335 -04:00 [VRB] Configuring environment variable key: COR_PROFILER_PATH_ARM64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\arm64\MicrosoftInstrumentationEngine_arm64.dll
+2024-09-29 20:35:36.335 -04:00 [VRB] Configuring environment variable key: COR_PROFILER, value: {324F817A-7420-4E6D-B3C1-143FBED6D855}
+2024-09-29 20:35:36.338 -04:00 [VRB] ProcessFactoryWithCovrunInjection.Create injecting covrun into new process for session: f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3
+2024-09-29 20:35:36.338 -04:00 [VRB] ProcessFactory: Starting process: fileName: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\amd64\CodeCoverage.exe, arguments: connect /session:f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3 /wait C:\Users\jason\git\INF1015_TD_A24\TD2_A24\x64\Debug\ProjetTest.exe 
+2024-09-29 20:35:36.353 -04:00 [INF] Started process id: 23884
+2024-09-29 20:35:36.370 -04:00 [INF] PipeConnection.OnClientConnected: 2dc35939-a7fd-4049-811f-70c75c5e11ac connected: CodeCoverage.pipe.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3
+2024-09-29 20:35:36.370 -04:00 [INF] PipeConnectionsManager.OnClientConnectedEvent: Client connect with pipe: CodeCoverage.pipe.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3
+2024-09-29 20:35:36.370 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-09-29 20:35:36.370 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 1
+2024-09-29 20:35:36.378 -04:00 [VRB] PipeConnection.OnClientConnected: 2dc35939-a7fd-4049-811f-70c75c5e11ac finished
+2024-09-29 20:35:36.398 -04:00 [INF] LoggerBase.OnClientConnected: processId:23884
+2024-09-29 20:35:36.400 -04:00 [INF] CoveragePipeClient.SendConfiguration[23884]: Sending RegisterClientResponseMessage to client.
+2024-09-29 20:35:36.406 -04:00 [VRB] PipeConnection.ReadMessagesAsync: 2dc35939-a7fd-4049-811f-70c75c5e11ac finished
+2024-09-29 20:35:36.423 -04:00 [INF] PipeConnection.OnClientConnected: e36443a8-5efb-4625-9f4c-65cf5c38c8ee connected: CodeCoverage.pipe.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3
+2024-09-29 20:35:36.424 -04:00 [INF] PipeConnectionsManager.OnClientConnectedEvent: Client connect with pipe: CodeCoverage.pipe.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3
+2024-09-29 20:35:36.424 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-09-29 20:35:36.424 -04:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 2
+2024-09-29 20:35:36.424 -04:00 [VRB] PipeConnection.OnClientConnected: e36443a8-5efb-4625-9f4c-65cf5c38c8ee finished
+2024-09-29 20:35:36.424 -04:00 [INF] LoggerBase.OnClientConnected: processId:5260
+2024-09-29 20:35:36.424 -04:00 [INF] CoveragePipeClient.SendConfiguration[5260]: Sending RegisterClientResponseMessage to client.
+2024-09-29 20:35:36.432 -04:00 [INF] LoggerBase.CreateStream[5260]: k:StreamKey { Id = 6114da68-eabe-46b0-8a11-2f69c4643590, Prefix = entrypoint:\ } type:b157a3a4-9542-4546-859b-abd1367a08ed path:C:\Users\jason\git\INF1015_TD_A24\TD2_A24\x64\Debug\ProjetTest.exe
+2024-09-29 20:35:36.436 -04:00 [INF] StaticStreamCreator.CreateStream: Creating LocalMemoryStream. streamId:0, identifier:00000000-0000-0000-0000-000000000000
+2024-09-29 20:35:36.439 -04:00 [INF] LoggerBase.OnCreateStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:0, bufferHeader:, bufferName:, prefix:entrypoint:\
+2024-09-29 20:35:36.440 -04:00 [INF] CoveragePipeClient.SendCreateStreamResponse[5260]: streamId:0, bufferName:
+2024-09-29 20:35:36.451 -04:00 [INF] LoggerBase.CreateStream[5260]: k:StreamKey { Id = 6114da68-eabe-46b0-8a11-2f69c4643590, Prefix = unmanaged:\ } type:2a4f0f81-6809-4480-87ce-0d772568cfb6 path:C:\Users\jason\git\INF1015_TD_A24\TD2_A24\x64\Debug\ProjetTest.exe
+2024-09-29 20:35:36.451 -04:00 [INF] StaticStreamCreator.CreateStream: Creating LocalMemoryStream. streamId:1, identifier:00000000-0000-0000-0000-000000000000
+2024-09-29 20:35:36.460 -04:00 [INF] LoggerBase.OnCreateStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:0, bufferHeader:, bufferName:, prefix:unmanaged:\
+2024-09-29 20:35:36.460 -04:00 [INF] CoveragePipeClient.SendCreateStreamResponse[5260]: streamId:1, bufferName:
+2024-09-29 20:35:36.467 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:182
+2024-09-29 20:35:36.477 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:172
+2024-09-29 20:35:36.477 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:578
+2024-09-29 20:35:36.477 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-09-29 20:35:36.478 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:304
+2024-09-29 20:35:36.478 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:160
+2024-09-29 20:35:36.478 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:482
+2024-09-29 20:35:36.478 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-09-29 20:35:36.478 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:72
+2024-09-29 20:35:36.478 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:170
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:170
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:416
+2024-09-29 20:35:36.479 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:142
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:212
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:64
+2024-09-29 20:35:36.480 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-09-29 20:35:36.481 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.481 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:86
+2024-09-29 20:35:36.481 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:76
+2024-09-29 20:35:36.481 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:146
+2024-09-29 20:35:36.481 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:512
+2024-09-29 20:35:36.482 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:160
+2024-09-29 20:35:36.482 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:206
+2024-09-29 20:35:36.482 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:998
+2024-09-29 20:35:36.482 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-09-29 20:35:36.483 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:244
+2024-09-29 20:35:36.483 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.483 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.483 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:626
+2024-09-29 20:35:36.483 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:220
+2024-09-29 20:35:36.483 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:100
+2024-09-29 20:35:36.483 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:608
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:606
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:156
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:76
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:414
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:144
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:86
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:652
+2024-09-29 20:35:36.484 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:230
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:604
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:156
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:308
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:76
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:562
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-09-29 20:35:36.485 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-09-29 20:35:36.486 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-09-29 20:35:36.486 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-09-29 20:35:36.486 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:34
+2024-09-29 20:35:36.486 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:526
+2024-09-29 20:35:36.486 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-09-29 20:35:36.486 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-09-29 20:35:36.486 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-09-29 20:35:36.487 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-09-29 20:35:36.487 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-09-29 20:35:36.487 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:168
+2024-09-29 20:35:36.487 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:556
+2024-09-29 20:35:36.487 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:100
+2024-09-29 20:35:36.487 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-09-29 20:35:36.488 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:524
+2024-09-29 20:35:36.488 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:680
+2024-09-29 20:35:36.488 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:600
+2024-09-29 20:35:36.488 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-09-29 20:35:36.488 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-09-29 20:35:36.489 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:80
+2024-09-29 20:35:36.489 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:190
+2024-09-29 20:35:36.489 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:70
+2024-09-29 20:35:36.489 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:246
+2024-09-29 20:35:36.489 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:36
+2024-09-29 20:35:36.489 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:72
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:110
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:172
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:586
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:110
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-09-29 20:35:36.490 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-09-29 20:35:36.491 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-09-29 20:35:36.491 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-09-29 20:35:36.491 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-09-29 20:35:36.491 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:132
+2024-09-29 20:35:36.491 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-09-29 20:35:36.491 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:140
+2024-09-29 20:35:36.492 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1618
+2024-09-29 20:35:36.492 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:50
+2024-09-29 20:35:36.492 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:290
+2024-09-29 20:35:36.492 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-09-29 20:35:36.492 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:94
+2024-09-29 20:35:36.492 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-09-29 20:35:36.493 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1452
+2024-09-29 20:35:36.493 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.493 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.493 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:108
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:366
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:80
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:682
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:202
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:44
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:320
+2024-09-29 20:35:36.494 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:336
+2024-09-29 20:35:36.495 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-09-29 20:35:36.495 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-09-29 20:35:36.495 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:88
+2024-09-29 20:35:36.495 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-09-29 20:35:36.495 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1464
+2024-09-29 20:35:36.495 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-09-29 20:35:36.496 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-09-29 20:35:36.496 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-09-29 20:35:36.496 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-09-29 20:35:36.496 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:110
+2024-09-29 20:35:36.496 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:168
+2024-09-29 20:35:36.497 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:84
+2024-09-29 20:35:36.498 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:636
+2024-09-29 20:35:36.498 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:84
+2024-09-29 20:35:36.498 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-09-29 20:35:36.498 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:90
+2024-09-29 20:35:36.498 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:106
+2024-09-29 20:35:36.499 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1136
+2024-09-29 20:35:36.499 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:90
+2024-09-29 20:35:36.499 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:104
+2024-09-29 20:35:36.499 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-09-29 20:35:36.499 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:64
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:80
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:394
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:104
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:126
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:228
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:126
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:70
+2024-09-29 20:35:36.500 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:422
+2024-09-29 20:35:36.501 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-09-29 20:35:36.501 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:366
+2024-09-29 20:35:36.501 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-09-29 20:35:36.501 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-09-29 20:35:36.501 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-09-29 20:35:36.501 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:110
+2024-09-29 20:35:36.502 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:420
+2024-09-29 20:35:36.502 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:114
+2024-09-29 20:35:36.502 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-09-29 20:35:36.502 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:122
+2024-09-29 20:35:36.502 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:242
+2024-09-29 20:35:36.502 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:64
+2024-09-29 20:35:36.503 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.503 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:84
+2024-09-29 20:35:36.503 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-09-29 20:35:36.503 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:190
+2024-09-29 20:35:36.503 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:240
+2024-09-29 20:35:36.503 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:340
+2024-09-29 20:35:36.503 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-09-29 20:35:36.504 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:796
+2024-09-29 20:35:36.504 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-09-29 20:35:36.504 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:706
+2024-09-29 20:35:36.504 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:116
+2024-09-29 20:35:36.504 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:134
+2024-09-29 20:35:36.505 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-09-29 20:35:36.505 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1384
+2024-09-29 20:35:36.505 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-09-29 20:35:36.505 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:168
+2024-09-29 20:35:36.505 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:132
+2024-09-29 20:35:36.506 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.506 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:968
+2024-09-29 20:35:36.506 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-09-29 20:35:36.506 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-09-29 20:35:36.506 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:156
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:174
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:588
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:242
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:100
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:44
+2024-09-29 20:35:36.507 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-09-29 20:35:36.508 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-09-29 20:35:36.508 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-09-29 20:35:36.508 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-09-29 20:35:36.508 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-09-29 20:35:36.508 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:398
+2024-09-29 20:35:36.508 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:478
+2024-09-29 20:35:36.508 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:290
+2024-09-29 20:35:36.509 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1034
+2024-09-29 20:35:36.510 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:2190
+2024-09-29 20:35:36.510 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-09-29 20:35:36.510 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-09-29 20:35:36.510 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-09-29 20:35:36.510 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1294
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:234
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:108
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:108
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-09-29 20:35:36.511 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:188
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:240
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:84
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:364
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.512 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.514 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:1912
+2024-09-29 20:35:36.514 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-09-29 20:35:36.514 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-09-29 20:35:36.514 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-09-29 20:35:36.514 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.514 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:72
+2024-09-29 20:35:36.515 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-09-29 20:35:36.515 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-09-29 20:35:36.515 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-09-29 20:35:36.515 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:108
+2024-09-29 20:35:36.515 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-09-29 20:35:36.515 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:308
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:114
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:80
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:116
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:146
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:258
+2024-09-29 20:35:36.516 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-09-29 20:35:36.517 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:652
+2024-09-29 20:35:36.517 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:110
+2024-09-29 20:35:36.517 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-09-29 20:35:36.517 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-09-29 20:35:36.517 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-09-29 20:35:36.517 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:64
+2024-09-29 20:35:36.519 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:2626
+2024-09-29 20:35:36.519 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:106
+2024-09-29 20:35:36.519 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:152
+2024-09-29 20:35:36.519 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:152
+2024-09-29 20:35:36.519 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:136
+2024-09-29 20:35:36.519 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:136
+2024-09-29 20:35:36.519 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-09-29 20:35:36.523 -04:00 [INF] LoggerBase.OnInstrumentation: path:C:\Users\jason\git\INF1015_TD_A24\TD2_A24\x64\Debug\ProjetTest.exe, id:6114da68-eabe-46b0-8a11-2f69c4643590, coverageBufferId:982fecc4-c0f3-4528-9b25-ee083a4c10a1, isDynamic:True isManaged:False, isMixed:False, isPortablePdb:False, imageSize: 258048, imageLinkTime:1727656526, numberOfMethodsInstrumented:46, numberOfMethodsSkipped: 217, numberOfMethodsFailed:0, elapsed:58ms
+2024-09-29 20:35:36.524 -04:00 [INF] LoggerBase.CreateStream[5260]: k:StreamKey { Id = 6114da68-eabe-46b0-8a11-2f69c4643590, Prefix = unmanaged:\ } type:cb689549-d63e-4a55-b8fa-2a214725cf39 path:C:\Users\jason\git\INF1015_TD_A24\TD2_A24\x64\Debug\ProjetTest.exe
+2024-09-29 20:35:36.525 -04:00 [INF] StaticStreamCreator.CreateStream: Creating SharedMemoryStream. streamId:2, identifier:982fecc4-c0f3-4528-9b25-ee083a4c10a1, bufferName:CodeCoverage.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3.b982fecc4-c0f3-4528-9b25-ee083a4c10a1, bufferSize:1074
+2024-09-29 20:35:36.532 -04:00 [INF] ReportGenerator.CreateUnmanagedStream[5260]: (StreamKey { Id = 6114da68-eabe-46b0-8a11-2f69c4643590, Prefix = unmanaged:\ }) created new buffer stream with size: 1074
+2024-09-29 20:35:36.532 -04:00 [INF] LoggerBase.OnCreateStream: processId:5260, streamId:2, streamType:cb689549-d63e-4a55-b8fa-2a214725cf39, bufferSize:1074, bufferHeader:00-00-00-00, bufferName:CodeCoverage.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3.b982fecc4-c0f3-4528-9b25-ee083a4c10a1, prefix:unmanaged:\
+2024-09-29 20:35:36.532 -04:00 [INF] CoveragePipeClient.SendCreateStreamResponse[5260]: streamId:2, bufferName:CodeCoverage.f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3.b982fecc4-c0f3-4528-9b25-ee083a4c10a1
+2024-09-29 20:35:36.538 -04:00 [INF] LoggerBase.HandleCacheMessage[5260]: started prefix:unmanaged:\C:\Users\jason\git\INF1015_TD_A24\TD2_A24\x64\Debug\ProjetTest.exe, key:6114da68-eabe-46b0-8a11-2f69c4643590, buffers count:2
+2024-09-29 20:35:36.540 -04:00 [INF] CoveragePipeClient.SendSuccessMessage[5260]
+2024-09-29 20:35:36.570 -04:00 [INF] LoggerBase.OnCloseStream: processId:5260, streamId:1, streamSize:59254
+2024-09-29 20:35:36.571 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-09-29 20:35:36.572 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-09-29 20:35:36.578 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:78
+2024-09-29 20:35:36.578 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-09-29 20:35:36.581 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:88
+2024-09-29 20:35:36.586 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:84
+2024-09-29 20:35:36.588 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-09-29 20:35:36.592 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-09-29 20:35:36.592 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-09-29 20:35:36.593 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-09-29 20:35:36.595 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-09-29 20:35:36.600 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-09-29 20:35:36.600 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-09-29 20:35:36.600 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-09-29 20:35:36.603 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-09-29 20:35:36.605 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-09-29 20:35:36.608 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-09-29 20:35:36.610 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-09-29 20:35:36.612 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-09-29 20:35:36.615 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-09-29 20:35:36.617 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-09-29 20:35:36.619 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-09-29 20:35:36.621 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-09-29 20:35:36.622 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-09-29 20:35:36.625 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-09-29 20:35:36.626 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-09-29 20:35:36.626 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-09-29 20:35:36.626 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:90
+2024-09-29 20:35:36.629 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-09-29 20:35:37.580 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:86
+2024-09-29 20:35:37.582 -04:00 [VRB] LoggerBase.OnWriteStream: processId:5260, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:130
+2024-09-29 20:35:37.588 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: ntdll.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: kernel32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: kernelbase.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: msvcp140d.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: vcruntime140_1d.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: vcruntime140d.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: rpcrt4.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: advapi32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: ucrtbased.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: msvcrt.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: sechost.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: ole32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: mscoree.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: msvcp_win.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: ucrtbase.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: gdi32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: win32u.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: gdi32full.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: user32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: combase.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: oleaut32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: crypt32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: version.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: powrprof.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: imm32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: umpdc.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: cryptbase.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: bcryptprimitives.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: msxml6.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: kernel.appcore.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.589 -04:00 [VRB] CoverageMessagesReader.ReadSkippedModules: path: mscoreei.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.595 -04:00 [INF] Process ID 23884 exited.
+2024-09-29 20:35:37.595 -04:00 [INF] LoggerBase.OnCloseStream: processId:5260, streamId:0, streamSize:0
+2024-09-29 20:35:37.596 -04:00 [VRB] PipeConnection.ReadMessagesAsync: e36443a8-5efb-4625-9f4c-65cf5c38c8ee finished
+2024-09-29 20:35:37.607 -04:00 [VRB] PipeConnection.WaitForDisconnection: 2dc35939-a7fd-4049-811f-70c75c5e11ac finished
+2024-09-29 20:35:37.607 -04:00 [VRB] PipeConnection.WaitForDisconnection: e36443a8-5efb-4625-9f4c-65cf5c38c8ee finished
+2024-09-29 20:35:37.607 -04:00 [VRB] PipeConnection.WaitForDisconnection: 37b1f068-ee16-4db0-90a2-5d5d91481920 finished
+2024-09-29 20:35:37.607 -04:00 [VRB] PipeConnection.WaitForDisconnection: 4064a7ee-115b-451c-b6c0-a4e3972b87a2 finished
+2024-09-29 20:35:37.607 -04:00 [VRB] PipeConnection.WaitForDisconnection: c64bfb24-0003-4fd1-938a-f6d062026426 finished
+2024-09-29 20:35:37.607 -04:00 [VRB] PipeConnection.WaitForDisconnection: 595a2786-5672-4680-92b8-6da48223f372 finished
+2024-09-29 20:35:37.607 -04:00 [VRB] PipeConnection.WaitForDisconnection: 1ad033f9-a4c6-4002-ab25-9daddfcf5c68 finished
+2024-09-29 20:35:37.608 -04:00 [VRB] PipeConnection.Stop: 2dc35939-a7fd-4049-811f-70c75c5e11ac finished
+2024-09-29 20:35:37.608 -04:00 [VRB] PipeConnection.Stop: e36443a8-5efb-4625-9f4c-65cf5c38c8ee finished
+2024-09-29 20:35:37.608 -04:00 [VRB] PipeConnection.Stop: 37b1f068-ee16-4db0-90a2-5d5d91481920 finished
+2024-09-29 20:35:37.608 -04:00 [VRB] PipeConnection.Stop: 4064a7ee-115b-451c-b6c0-a4e3972b87a2 finished
+2024-09-29 20:35:37.608 -04:00 [VRB] PipeConnection.Stop: c64bfb24-0003-4fd1-938a-f6d062026426 finished
+2024-09-29 20:35:37.608 -04:00 [VRB] PipeConnection.Stop: 595a2786-5672-4680-92b8-6da48223f372 finished
+2024-09-29 20:35:37.608 -04:00 [VRB] PipeConnection.Stop: 1ad033f9-a4c6-4002-ab25-9daddfcf5c68 finished
+2024-09-29 20:35:37.618 -04:00 [VRB] LoggerBase.OnBufferClose: id:982fecc4-c0f3-4528-9b25-ee083a4c10a1, 911/1074 covered
+2024-09-29 20:35:37.640 -04:00 [INF] CoverageFileWriter.WriteAsync: path: couveture2024-09-29_20_35_35.58.coverage, schemaVersion: 1.
+2024-09-29 20:35:37.654 -04:00 [INF] CoverageFileWriter.WriteModules: modules.Count: 1.
+2024-09-29 20:35:37.657 -04:00 [VRB] CoverageFileWriter.WriteModuleCoverageData: coverageBufferId: 982fecc4-c0f3-4528-9b25-ee083a4c10a1, coverageBuffer.Length: 1074.
+2024-09-29 20:35:37.658 -04:00 [INF] CoverageFileWriter.WriteModule: moduleId: 68-DA-14-61-BE-EA-B0-46-8A-11-2F-69-C4-64-35-90-1B-00-00-00, skippedFunctions.Count: 217, functions.Count: 46, sourceFiles.Count: 4, coverageBufferId: 982fecc4-c0f3-4528-9b25-ee083a4c10a1
+2024-09-29 20:35:37.660 -04:00 [INF] CoverageFileWriter.WriteSkippedModuleData: skippedModules.Count: 31
+2024-09-29 20:35:37.661 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: mscoreei.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: powrprof.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: vcruntime140d.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: msxml6.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: umpdc.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: sourceFile.Path: C:\Users\jason\git\INF1015_TD_A24\TD2_A24\ListeDeveloppeurs.cpp.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: rpcrt4.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: ole32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: win32u.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: msvcp_win.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: ucrtbase.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: version.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: mscoree.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: combase.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: advapi32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: gdi32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: msvcp140d.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: kernelbase.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: bcryptprimitives.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: crypt32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: imm32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.662 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: gdi32full.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: ntdll.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: user32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: oleaut32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: kernel32.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: ucrtbased.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: kernel.appcore.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: vcruntime140_1d.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: msvcrt.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: sechost.dll, skipReason: no_symbols.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModulesSkippedStream: skippedModule: cryptbase.dll, skipReason: path_is_excluded.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: sourceFile.Path: C:\Users\jason\git\INF1015_TD_A24\TD2_A24\Developpeur.cpp.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: sourceFile.Path: C:\Users\jason\git\INF1015_TD_A24\TD2_A24\main.cpp.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: sourceFile.Path: C:\Users\jason\git\INF1015_TD_A24\TD2_A24\ListeJeux.hpp.
+2024-09-29 20:35:37.663 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = augmenterCapacite, blockCount: 13.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = compterJeux, blockCount: 14.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = afficher, blockCount: 12.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static void afficherListeJeux(const struct ListeJeux & const), blockCount: 13.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = main, blockCount: 42.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = lireType<unsigned char>, blockCount: 5.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = basic_string<char,std::char_traits<char>,std::allocator<char> > lireString(class std::basic_istream<char,std::char_traits<char> > & const), blockCount: 13.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = actualiserJeux, blockCount: 20.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = ~Developpeur, blockCount: 21.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = ~ListeDeveloppeurs, blockCount: 17.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = ajouterJeu, blockCount: 8.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = testDeveloppeur, blockCount: 18.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = viderJeux, blockCount: 14.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = retirerDeveloppeur, blockCount: 17.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = enleverJeu, blockCount: 17.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static void afficherJeu(const struct Jeu & const), blockCount: 21.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = lireType<unsigned short>, blockCount: 5.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = augmenterCapacite, blockCount: 14.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = testListeDeveloppeurs, blockCount: 77.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = testAfficherJeux, blockCount: 60.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = detruireDeveloppeur, blockCount: 12.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = span<Concepteur *,-1> spanListeConcepteurs(const struct ListeConcepteurs & const), blockCount: 3.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static struct Jeu * lireJeu(class std::basic_istream<char,std::char_traits<char> > & const, struct ListeJeux & const), blockCount: 42.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = obtenirNom, blockCount: 3.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static void detruireConcepteur(struct Concepteur *), blockCount: 16.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = testObtenirNom, blockCount: 42.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static void afficherConcepteur(const struct Concepteur & const), blockCount: 10.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = lireType<unsigned int>, blockCount: 5.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = ajouterDeveloppeur, blockCount: 8.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = afficherJeux, blockCount: 30.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static unsigned __int64 lireUintTailleVariable(class std::basic_istream<char,std::char_traits<char> > & const), blockCount: 18.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static struct Concepteur * lireConcepteur(class std::basic_istream<char,std::char_traits<char> > & const, const struct ListeJeux & const), blockCount: 38.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = span, blockCount: 3.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static void detruireJeu(struct Jeu *), blockCount: 30.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = ListeDeveloppeurs, blockCount: 3.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = Developpeur, blockCount: 10.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static struct Concepteur * trouverConcepteur(const class std::basic_string<char,std::char_traits<char>,std::allocator<char> > & const, const struct ListeJeux & const), blockCount: 24.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = testViderJeux, blockCount: 89.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static struct ListeJeux creerListeJeux(const class std::basic_string<char,std::char_traits<char>,std::allocator<char> > & const), blockCount: 35.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = testActualiserJeux, blockCount: 84.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static bool concepteurParticipeJeu(const struct Concepteur & const), blockCount: 5.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = obtenirJeux, blockCount: 2.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = static void detruireListeJeux(struct ListeJeux), blockCount: 18.
+2024-09-29 20:35:37.664 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = testCompterJeux, blockCount: 117.
+2024-09-29 20:35:37.665 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = span, blockCount: 3.
+2024-09-29 20:35:37.665 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: function.Name = span, blockCount: 3.
+2024-09-29 20:35:37.665 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: enlever_des_blocs_alloues(void *, bool).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator()(const char *, const char *, struct _iobuf *, unsigned long, class std::basic_ios<char,std::char_traits<char> > & const).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator()(unsigned int).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _get_startup_commit_mode.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: notre_operator_new.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator new.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator new.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator new.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: activerCouleursAnsi.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_blocs_alloues_lock.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static void failwithmessage(void *, int, int, const char *).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _guard_dispatch_icall_nop.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_blocs_alloues_tries(bool, unsigned __int64).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static struct _IMAGE_SECTION_HEADER * find_pe_section(unsigned char *, const unsigned __int64).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: a_numero_ligne.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _RTC_StackFailure.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: catch$1().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: compte_allocations.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: initialiserGoogleTest.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _RTC_Initialize.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static unsigned __int64 _strlen_priv(const char *).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _RTC_GetErrorFunc.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _get_startup_thread_locale_mode.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remise_a_zero_verification.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: span<Jeu *,-1><-1,0>(struct Jeu * *, unsigned __int64).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: span<Developpeur *,-1><-1,0>(class Developpeur * *, unsigned __int64).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: catch$1().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_blocs_alloues.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: locales_a_essayer().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remet().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_end().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: RemplaceRemet<`bibliotheque_cours::remplaceConsoleOutputCP'::`2'::<lambda_1>,unsigned int &><unsigned int &>(class bibliotheque_cours::remplaceConsoleOutputCP::__l2::<lambda_1>, unsigned int & const).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: RangeIterData<unsigned __int64,0>.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: tous_les_new_ont_un_delete.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator()().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator()<std::array<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,1> >(class std::array<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,1>).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: span<char const *,-1><2,0>([2] & const).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: activer_verification_allocation.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: est_dans_phase_apres_main.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: to_const_char(const class std::basic_string<char,std::char_traits<char>,std::allocator<char> > & const).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: to_const_char(const char *).
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~type_info.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Smtx_unlock_exclusive.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Smtx_unlock_shared.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_message_erreur_delete.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: end.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: filt$0().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remise_a_zero_compteurs_allocation.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~S().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _guard_xfg_dispatch_icall_nop.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: terminate.
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_begin().
+2024-09-29 20:35:37.666 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: catch$0().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_begin().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static bool DebuggerRuntime(unsigned long, int, void *, const wchar_t *).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remplir_bloc_verification_corruption_a.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: tester_tous_blocs_alloues.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: RemplaceRemet<`bibliotheque_cours::remplaceConsoleInputCP'::`2'::<lambda_1>,unsigned int &><unsigned int &>(class bibliotheque_cours::remplaceConsoleInputCP::__l2::<lambda_1>, unsigned int & const).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: catch$0().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _initialize_denormal_control.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static void notify_debugger(const struct tagEXCEPTION_VISUALCPP_DEBUG_INFO & const).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_blocs_alloues_mutex.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: atexit.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: debogage_allocation_est_actif.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: fin$0().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static int invoke_main().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator==.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator!=.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_info_bloc_memoire(void *).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator delete.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator delete.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator delete.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _RTC_Terminate.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remplaceCLocale(int, class gsl::span<char const *,-1>).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: tester_bloc_verification_corruption_a.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static int ArrayUnwindFilter(struct _EXCEPTION_POINTERS *).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~dbgbuf.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: storage_type<gsl::details::extent_type<-1> ><unsigned __int64>.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: overflow.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ouvrirUneConsoleSiTestAvecDebogueur.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _get_startup_file_mode.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator delete[].
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator delete[].
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator delete[].
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator[](unsigned __int64).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _RTC_GetErrorFuncW.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: size().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: RemplaceRemet<`bibliotheque_cours::remplaceCLocale'::`2'::<lambda_1>,gsl::span<char const *,-1> &><gsl::span<char const *,-1> &>(class bibliotheque_cours::remplaceCLocale::__l2::<lambda_1>, class gsl::span<char const *,-1> & const).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: mainCRTStartup.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: span<Concepteur *,-1><-1,0>(struct Concepteur * *, unsigned __int64).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: dbgbuf.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator<<.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: storage_type<gsl::details::extent_type<-1> ><unsigned __int64>(struct Jeu * *, unsigned __int64).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_blocs_alloues_shared_lock.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: size().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_begin().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: size().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_end().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: repond_aux_criteres.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_end().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: NtCurrentTeb.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: `dynamic initializer for 'blocs_alloues''().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: set_breakpoint_sur_allocations.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _should_initialize_environment.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~SansVerifierAllocations.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static int pre_c_initialization().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: Iterator.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: extent_type<-1><2>.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static bool DebuggerProbe(unsigned long).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _matherr.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Init_thread_wait_v2.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _get_startup_new_mode.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: begin.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: desactiver_verification_allocation.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~RemplaceRemet<`bibliotheque_cours::remplaceConsoleInputCP'::`2'::<lambda_1>,unsigned int &>().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_begin().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~VerifierFuitesAllocations.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static bool is_potentially_valid_image_base(void *).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: range<unsigned __int64>.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~RemplaceRemet<`bibliotheque_cours::remplaceCLocale'::`2'::<lambda_1>,gsl::span<char const *,-1> &>().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _initialize_invalid_parameter_handler.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: storage_type<gsl::details::extent_type<-1> ><unsigned __int64>(class Developpeur * *, unsigned __int64).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: InitConsole.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remplaceConsoleOutputCP(unsigned int).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _get_startup_argv_mode.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator!=.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: mettre_verification_corruption_sur_allocation.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator[](unsigned __int64).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: not_equal_to_end.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: size().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: dbgstream.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: extent_type<-1>.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: wmemset.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator()<gsl::span<char const *,-1> >(class gsl::span<char const *,-1>).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remplaceConsoleInputCP(unsigned int).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: get_marqueur_verification_allocation.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: SansVerifierAllocations.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static void capture_previous_context(struct _CONTEXT *).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: afficher_fuites.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: fin$0().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static struct HINSTANCE__ * GetPdbDllFromInstallPath().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Init_thread_unlock.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static void pre_cpp_initialization().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Init_thread_abort.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator()<std::pair<void * const,bibliotheque_cours::InfoBlocMemoire>,std::pair<void * const,bibliotheque_cours::InfoBlocMemoire> >(struct std::pair<void * const,bibliotheque_cours::InfoBlocMemoire> *, struct std::pair<void * const,bibliotheque_cours::InfoBlocMemoire> *).
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _RTC_CheckStackVars.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: value.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: sync.
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: `dynamic initializer for 'cdbg''().
+2024-09-29 20:35:37.667 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: assurer_taille_allocation_possible.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _guard_check_icall_nop.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator()(unsigned int).
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: filt$0().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~RemplaceRemet<`bibliotheque_cours::remplaceConsoleOutputCP'::`2'::<lambda_1>,unsigned int &>().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: storage_type<gsl::details::extent_type<-1> ><gsl::details::extent_type<2> >(struct gsl::span<char const *,-1>::KnownNotNull, class gsl::details::extent_type<2>).
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _RTC_GetSrcLine.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: not_equal_to_impl.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: size.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Init_thread_notify.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Init_thread_footer.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remet().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: `dynamic initializer for '_initConsole''().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: `dynamic initializer for '_initConsole''().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_end.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: taille_allocation_selon_verification_corruption.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: est_depuis.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static int GetPdbDllPathFromFilePath(const wchar_t *, wchar_t *, unsigned __int64).
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static struct HINSTANCE__ * GetPdbDll().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: filt$0().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: pointeur_octets.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: displayDebugString(const class std::basic_string<char,std::char_traits<char>,std::allocator<char> > & const).
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_end().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: storage_type<gsl::details::extent_type<-1> ><unsigned __int64>(struct Concepteur * *, unsigned __int64).
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: executerGoogleTest.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Init_thread_header.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: notre_operator_delete.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator new[].
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator new[].
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: dump_blocs_alloues.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: flushMessageBuffer.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: initialisation_juste_avant_variables_globales().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: size.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: remet().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator*.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: VerifierFuitesAllocations.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: tester_verification_corruption_sur_allocation.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: data().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: size.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Smtx_lock_shared.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _onexit.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: Range<unsigned __int64>.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: etait_deja_actif.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: lancer_erreur_delete(bibliotheque_cours::SorteErreurDelete, const struct bibliotheque_cours::InfoBlocMemoire & const).
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: inc.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: operator++.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: static int post_pgo_initialization().
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: activerEncodageLocale.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: <lambda_1>(const int & const).
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Smtx_lock_exclusive.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Unchecked_begin.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: ~VerifierALaFin.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: span<unsigned __int64,-1><-1,0>.
+2024-09-29 20:35:37.668 -04:00 [VRB] CoverageMessagesWriter.WriteModuleDataStream: skippedFunction.Name: _Init_thread_lock.
+2024-09-29 20:35:37.670 -04:00 [INF] CoverageFileWriter.WriteFile: schema: 1, modules: True, skippedFunctions: True, skippedModules: True, snapshot: True
+2024-09-29 20:35:37.671 -04:00 [INF] Report generator: DefaultReportGenerator, output file: couveture2024-09-29_20_35_35.58.coverage
+2024-09-29 20:35:37.673 -04:00 [VRB] PipeConnection.Stop: 2dc35939-a7fd-4049-811f-70c75c5e11ac finished
+2024-09-29 20:35:37.673 -04:00 [VRB] PipeConnection.Stop: e36443a8-5efb-4625-9f4c-65cf5c38c8ee finished
+2024-09-29 20:35:37.673 -04:00 [VRB] PipeConnection.Stop: 37b1f068-ee16-4db0-90a2-5d5d91481920 finished
+2024-09-29 20:35:37.673 -04:00 [VRB] PipeConnection.Stop: 4064a7ee-115b-451c-b6c0-a4e3972b87a2 finished
+2024-09-29 20:35:37.673 -04:00 [VRB] PipeConnection.Stop: c64bfb24-0003-4fd1-938a-f6d062026426 finished
+2024-09-29 20:35:37.673 -04:00 [VRB] PipeConnection.Stop: 595a2786-5672-4680-92b8-6da48223f372 finished
+2024-09-29 20:35:37.673 -04:00 [VRB] PipeConnection.Stop: 1ad033f9-a4c6-4002-ab25-9daddfcf5c68 finished
+2024-09-29 20:35:37.676 -04:00 [INF] LoggerBase.OnShutdown: Logger is shutting down.
+2024-09-29 20:35:37.677 -04:00 [VRB] PipeConnection.Stop: 2dc35939-a7fd-4049-811f-70c75c5e11ac finished
+2024-09-29 20:35:37.677 -04:00 [VRB] PipeConnection.Stop: e36443a8-5efb-4625-9f4c-65cf5c38c8ee finished
+2024-09-29 20:35:37.677 -04:00 [VRB] PipeConnection.Stop: 37b1f068-ee16-4db0-90a2-5d5d91481920 finished
+2024-09-29 20:35:37.677 -04:00 [VRB] PipeConnection.Stop: 4064a7ee-115b-451c-b6c0-a4e3972b87a2 finished
+2024-09-29 20:35:37.677 -04:00 [VRB] PipeConnection.Stop: c64bfb24-0003-4fd1-938a-f6d062026426 finished
+2024-09-29 20:35:37.677 -04:00 [VRB] PipeConnection.Stop: 595a2786-5672-4680-92b8-6da48223f372 finished
+2024-09-29 20:35:37.677 -04:00 [VRB] PipeConnection.Stop: 1ad033f9-a4c6-4002-ab25-9daddfcf5c68 finished
+2024-09-29 20:35:37.678 -04:00 [VRB] PipeConnection.Stop: 2dc35939-a7fd-4049-811f-70c75c5e11ac finished
+2024-09-29 20:35:37.678 -04:00 [VRB] PipeConnection.Stop: e36443a8-5efb-4625-9f4c-65cf5c38c8ee finished
+2024-09-29 20:35:37.682 -04:00 [VRB] PipeConnection.Stop: 37b1f068-ee16-4db0-90a2-5d5d91481920 finished
+2024-09-29 20:35:37.682 -04:00 [VRB] PipeConnection.Stop: 4064a7ee-115b-451c-b6c0-a4e3972b87a2 finished
+2024-09-29 20:35:37.682 -04:00 [VRB] PipeConnection.Stop: c64bfb24-0003-4fd1-938a-f6d062026426 finished
+2024-09-29 20:35:37.682 -04:00 [VRB] PipeConnection.Stop: 595a2786-5672-4680-92b8-6da48223f372 finished
+2024-09-29 20:35:37.682 -04:00 [VRB] PipeConnection.Stop: 1ad033f9-a4c6-4002-ab25-9daddfcf5c68 finished
+2024-09-29 20:35:37.683 -04:00 [INF] PipeConnection.OnClientConnected: 4064a7ee-115b-451c-b6c0-a4e3972b87a2 connection was not made. Exception: Cannot access a closed pipe.
+2024-09-29 20:35:37.683 -04:00 [VRB] PipeConnection.OnClientConnected: 4064a7ee-115b-451c-b6c0-a4e3972b87a2 finished
+2024-09-29 20:35:37.683 -04:00 [INF] PipeConnection.OnClientConnected: 37b1f068-ee16-4db0-90a2-5d5d91481920 connection was not made. Exception: Cannot access a closed pipe.
+2024-09-29 20:35:37.683 -04:00 [VRB] PipeConnection.OnClientConnected: 37b1f068-ee16-4db0-90a2-5d5d91481920 finished
+2024-09-29 20:35:37.683 -04:00 [INF] PipeConnection.OnClientConnected: c64bfb24-0003-4fd1-938a-f6d062026426 connection was not made. Exception: Cannot access a closed pipe.
+2024-09-29 20:35:37.683 -04:00 [INF] PipeConnection.OnClientConnected: 595a2786-5672-4680-92b8-6da48223f372 connection was not made. Exception: Cannot access a closed pipe.
+2024-09-29 20:35:37.683 -04:00 [VRB] PipeConnection.OnClientConnected: c64bfb24-0003-4fd1-938a-f6d062026426 finished
+2024-09-29 20:35:37.683 -04:00 [VRB] PipeConnection.OnClientConnected: 595a2786-5672-4680-92b8-6da48223f372 finished
+2024-09-29 20:35:37.683 -04:00 [INF] PipeConnection.OnClientConnected: 1ad033f9-a4c6-4002-ab25-9daddfcf5c68 connection was not made. Exception: Cannot access a closed pipe.
+2024-09-29 20:35:37.683 -04:00 [VRB] PipeConnection.OnClientConnected: 1ad033f9-a4c6-4002-ab25-9daddfcf5c68 finished
+2024-09-29 20:35:37.687 -04:00 [VRB] Cleanup session directory folder 'C:\Users\jason\AppData\Local\Temp\f1a3b998-c0fe-48c0-8161-ef02b1dbbfb3'

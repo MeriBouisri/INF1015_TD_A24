@@ -4,7 +4,7 @@ public:
 	Liste() = default;
 
 
-	void ajouter(shared_ptr<T> nouvelElement) {
+	void ajouter(const shared_ptr<T>& nouvelElement) {
 		if (nElements_ == capacite_)
 			changerCapacite(max(size_t(1), capacite_ * 2));
 		elements_[nElements_++] = nouvelElement;
@@ -41,7 +41,7 @@ private:
 	void changerCapacite(std::size_t nouvelleCapacite) {
 		// Copie du code de changerTailleListeJeux, ajusté pour la classe.
 		assert(nouvelleCapacite >= nElements_); // On ne demande pas de supporter les réductions de nombre d'éléments.
-		unique_ptr<shared_ptr<T>[]> nouvelleListe = make_unique<shared_ptr<T>[]>(nouvelleCapacite);
+		auto nouvelleListe = make_unique<shared_ptr<T>[]>(nouvelleCapacite);
 		// Pas nécessaire de tester si liste.elements est nullptr puisque si c'est le cas, nElements est nécessairement 0.
 		for (size_t i : iter::range(nElements_)) {
 			nouvelleListe[i] = move(elements_[i]);

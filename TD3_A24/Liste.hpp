@@ -1,12 +1,24 @@
-template <typename T>
-class Liste {
+#include "cppitertools/range.hpp"
+#include <algorithm>
+#include <cassert>
+#include <cstddef>
+#include <gsl/span>
+#include <memory>
+
+using std::shared_ptr;
+using std::unique_ptr;
+using std::make_unique;
+using std::size_t;
+
+#pragma once
+template <typename T> class Liste {
 public:
 	Liste() = default;
 
 
-	void ajouter(const shared_ptr<T>& nouvelElement) {
+	void ajouter(shared_ptr<T> nouvelElement) {
 		if (nElements_ == capacite_)
-			changerCapacite(max(size_t(1), capacite_ * 2));
+			changerCapacite(std::max(size_t(1), capacite_ * 2));
 		elements_[nElements_++] = nouvelElement;
 	}
 
@@ -23,20 +35,12 @@ public:
 	}
 
 
-	void afficher() const {
-		for (const auto& element : enSpan()) {
-			element->afficher();
-		}
-	}
+	//void afficher() const {
+	//	for (const auto& element : enSpan()) {
+	//		element->afficher();
+	//	}
+	//}
 
-
-private:
-	size_t capacite_ = 0, nElements = 0;	// Pas besoin de déclarer explicitement un corps de constructeur avec ces initialisations.
-	unique_ptr<shared_ptr<T>[]> elements_ = nullptr;
-
-	//TODO: En faire une classe qui suit les principes OO.
-	//TODO: On veut pouvoir ajouter et enlever un Developpeur* de la liste, avec réallocation dynamique tel que faite pour ListeJeux.
-	//NOTE: Le code sera principalement copié de certaines fonctions écrites pour la partie 1, mais mises dans une classe.
 
 	void changerCapacite(std::size_t nouvelleCapacite) {
 		// Copie du code de changerTailleListeJeux, ajusté pour la classe.
@@ -50,5 +54,29 @@ private:
 		elements_ = move(nouvelleListe);
 		capacite_ = nouvelleCapacite;
 	}  // Pas dit si ça doit être public ou non.
-	gsl::span<shared_ptr<T>> enSpan() const { return { elements_, nElements_ }; }  // Pourrait être public.
+
+
+
+	gsl::span<shared_ptr<T>> enSpan() const {
+		return gsl::span<shared_ptr<T>>(elements_.get(), nElements_);
+	}
+
+	void setNElements(size_t nElements) {
+		nElements_ = nElements;
+	}
+
+
+	size_t getNElements() const {
+		return nElements_;
+	}
+
+
+	void setElements(unique_ptr<shared_ptr<T>[]> elements) {
+		elements_ = move(elements);
+	}
+
+
+private:
+	size_t capacite_ = 0, nElements_ = 0;	// Pas besoin de déclarer explicitement un corps de constructeur avec ces initialisations.
+	unique_ptr<shared_ptr<T>[]> elements_ = {};
 };

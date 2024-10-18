@@ -1,11 +1,12 @@
 ﻿#pragma once
+#include "Concepteur.hpp"
+#include "Liste.hpp"
 #include <string>
-#include "ListeConcepteurs.hpp"
 
 struct Jeu
 {
 	std::string titre;
 	int anneeSortie;
 	std::string developpeur;
-	ListeConcepteurs concepteurs;
+	Liste<Concepteur> concepteurs;
 };

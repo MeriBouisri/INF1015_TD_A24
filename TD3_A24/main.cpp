@@ -1,14 +1,14 @@
-﻿#include "Jeu.hpp"
-#include <iostream>
-#include <fstream>
-#include <cstdint>
-#include <cassert>
+﻿#include "bibliotheque_cours.hpp"
 #include "cppitertools/range.hpp"
-#include "gsl/span"
-#include "bibliotheque_cours.hpp"
-#include "verification_allocation.hpp"
-#include "ListeDeveloppeurs.hpp"
 #include "debogage_memoire.hpp"  //NOTE: Incompatible avec le "placement new", ne pas utiliser cette entête si vous utilisez ce type de "new" dans les lignes qui suivent cette inclusion.
+#include "gsl/span"
+#include "Jeu.hpp"
+#include "ListeDeveloppeurs.hpp"
+#include "verification_allocation.hpp"
+#include <cassert>
+#include <cstdint>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 using namespace iter;
@@ -28,9 +28,9 @@ size_t lireUintTailleVariable(istream& fichier)
 {
 	uint8_t entete = lireType<uint8_t>(fichier);
 	switch (entete) {
-	case enteteTailleVariableDeBase+0: return lireType<uint8_t>(fichier);
-	case enteteTailleVariableDeBase+1: return lireType<uint16_t>(fichier);
-	case enteteTailleVariableDeBase+2: return lireType<uint32_t>(fichier);
+	case enteteTailleVariableDeBase + 0: return lireType<uint8_t>(fichier);
+	case enteteTailleVariableDeBase + 1: return lireType<uint16_t>(fichier);
+	case enteteTailleVariableDeBase + 2: return lireType<uint32_t>(fichier);
 	default:
 		erreurFataleAssert("Tentative de lire un entier de taille variable alors que le fichier contient autre chose à cet emplacement.");
 	}
@@ -92,7 +92,7 @@ Concepteur* lireConcepteur(istream& fichier, ListeJeux& listeJeux)
 
 	//cout << concepteur.nom << endl;  //TODO: Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
 	cout << "\033[92m" << "Allocation en mémoire du concepteur " << concepteur.nom
-				<< "\033[0m" << endl;
+		<< "\033[0m" << endl;
 	return new Concepteur(concepteur); //TODO: Retourner le pointeur vers le concepteur crée.
 }
 
@@ -104,7 +104,7 @@ Concepteur* lireConcepteur(istream& fichier, ListeJeux& listeJeux)
 void changerTailleListeJeux(ListeJeux& liste, size_t nouvelleCapacite)
 {
 	assert(nouvelleCapacite >= liste.nElements); // On ne demande pas de supporter les réductions de nombre d'éléments.
-	Jeu** nouvelleListeJeux = new Jeu* [nouvelleCapacite];
+	Jeu** nouvelleListeJeux = new Jeu * [nouvelleCapacite];
 	// Pas nécessaire de tester si liste.elements est nullptr puisque si c'est le cas, nElements est nécessairement 0.
 	for (size_t i : iter::range(liste.nElements))
 		nouvelleListeJeux[i] = liste.elements[i];
@@ -121,7 +121,7 @@ void changerTailleListeJeux(ListeJeux& liste, size_t nouvelleCapacite)
 // Utilisez la fonction pour changer la taille du tableau écrite plus haut.
 void ajouterJeu(ListeJeux& liste, Jeu* jeu)
 {
-	if(liste.nElements == liste.capacite)
+	if (liste.nElements == liste.capacite)
 		changerTailleListeJeux(liste, max(size_t(1), liste.capacite * 2));  // En C++23, on peut utiliser 1uz au lieu du cast.
 	liste.elements[liste.nElements++] = jeu;
 }
@@ -160,9 +160,9 @@ Jeu* lireJeu(istream& fichier, ListeJeux& listeJeux)
 	// l'allocation du jeu est réussie.
 	Jeu* ptrJeu = new Jeu(jeu);  // Ou allouer directement au début plutôt qu'en faire une copie ici.
 	cout << "\033[96m" << "Allocation en mémoire du jeu " << jeu.titre
-			  << "\033[0m" << endl;
+		<< "\033[0m" << endl;
 	// cout << jeu.titre << endl;  //TODO: Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
-	ptrJeu->concepteurs.elements = new Concepteur* [ptrJeu->concepteurs.nElements];  // On n'a pas demandé de faire une réallocation dynamique pour les designers.
+	ptrJeu->concepteurs.elements = new Concepteur * [ptrJeu->concepteurs.nElements];  // On n'a pas demandé de faire une réallocation dynamique pour les designers.
 	for (Concepteur*& c : spanListeConcepteurs(ptrJeu->concepteurs)) {
 		c = lireConcepteur(fichier, listeJeux);  //TODO: Mettre le concepteur dans la liste des concepteur du jeu.
 		ajouterJeu(c->jeuxConcus, ptrJeu); //TODO: Ajouter le jeu à la liste des jeux auquel a participé le concepteur.
@@ -176,7 +176,7 @@ ListeJeux creerListeJeux(const string& nomFichier)
 	fichier.exceptions(ios::failbit);
 	size_t nElements = lireUintTailleVariable(fichier);
 	ListeJeux listeJeux = {};
-	for([[maybe_unused]] size_t n : iter::range(nElements))
+	for ([[maybe_unused]] size_t n : iter::range(nElements))
 	{
 		ajouterJeu(listeJeux, lireJeu(fichier, listeJeux)); //TODO: Ajouter le jeu à la ListeJeux.
 	}
@@ -189,7 +189,7 @@ ListeJeux creerListeJeux(const string& nomFichier)
 void detruireConcepteur(Concepteur* concepteur)
 {
 	cout << "\033[91m" << "Destruction du concepteur " << concepteur->nom << "\033[0m"
-			  << endl;
+		<< endl;
 	delete[] concepteur->jeuxConcus.elements;
 	delete concepteur;
 }
@@ -215,7 +215,7 @@ void detruireJeu(Jeu* jeu)
 			detruireConcepteur(c);
 	}
 	cout << "\033[31m" << "Destruction du jeu " << jeu->titre << "\033[0m"
-			  << endl;
+		<< endl;
 	delete[] jeu->concepteurs.elements;
 	delete jeu;
 }
@@ -223,7 +223,7 @@ void detruireJeu(Jeu* jeu)
 //TODO: Fonction pour détruire une ListeJeux et tous ses jeux.
 void detruireListeJeux(ListeJeux& liste)
 {
-	for(Jeu* j : spanListeJeux(liste))
+	for (Jeu* j : spanListeJeux(liste))
 		detruireJeu(j);
 	delete[] liste.elements;
 }
@@ -231,7 +231,7 @@ void detruireListeJeux(ListeJeux& liste)
 void afficherConcepteur(const Concepteur& d)
 {
 	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays
-			  << endl;
+		<< endl;
 }
 
 //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
@@ -240,11 +240,11 @@ void afficherJeu(const Jeu& j)
 {
 	cout << "Titre : " << "\033[94m" << j.titre << "\033[0m" << endl;
 	cout << "Parution : " << "\033[94m" << j.anneeSortie << "\033[0m"
-			  << endl;
+		<< endl;
 	cout << "Développeur :  " << "\033[94m" << j.developpeur << "\033[0m"
-			  << endl;
+		<< endl;
 	cout << "Concepteurs du jeu :" << "\033[94m" << endl;
-	for(const Concepteur* c : spanListeConcepteurs(j.concepteurs))
+	for (const Concepteur* c : spanListeConcepteurs(j.concepteurs))
 		afficherConcepteur(*c);
 	cout << "\033[0m";
 }
@@ -255,10 +255,10 @@ void afficherJeu(const Jeu& j)
 void afficherListeJeux(const ListeJeux& listeJeux)
 {
 	static const string ligneSeparation = "\n\033[95m"
-	"══════════════════════════════════════════════════════════════════════════"
-	"\033[0m\n";
+		"══════════════════════════════════════════════════════════════════════════"
+		"\033[0m\n";
 	cout << ligneSeparation << endl;
-	for(const Jeu* j : spanListeJeux(listeJeux))
+	for (const Jeu* j : spanListeJeux(listeJeux))
 	{
 		afficherJeu(*j);
 		cout << ligneSeparation << endl;
@@ -267,12 +267,12 @@ void afficherListeJeux(const ListeJeux& listeJeux)
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
-	#pragma region "Bibliothèque du cours"
+#pragma region "Bibliothèque du cours"
 	// Permet sous Windows les "ANSI escape code" pour changer de couleur
 	// https://en.wikipedia.org/wiki/ANSI_escape_code ; les consoles Linux/Mac
 	// les supportent normalement par défaut.
-	bibliotheque_cours::activerCouleursAnsi(); 
-	#pragma endregion
+	bibliotheque_cours::activerCouleursAnsi();
+#pragma endregion
 
 	//int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
@@ -287,7 +287,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	//TODO: Appel à votre fonction d'affichage de votre liste de jeux.
 	afficherListeJeux(lj);
-	
+
 	//TODO: Faire les appels à toutes vos fonctions/méthodes pour voir qu'elles fonctionnent et avoir 0% de lignes non exécutées dans le programme (aucune ligne rouge dans la couverture de code; c'est normal que les lignes de "new" et "delete" soient jaunes).  Vous avez aussi le droit d'effacer les lignes du programmes qui ne sont pas exécutée, si finalement vous pensez qu'elle ne sont pas utiles.
 
 	ListeDeveloppeurs ld;

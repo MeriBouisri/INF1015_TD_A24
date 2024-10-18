@@ -16,10 +16,10 @@ public:
 	Liste() = default;
 
 
-	void ajouter(shared_ptr<T> nouvelElement) {
+	void ajouter(const shared_ptr<T>& nouvelElement) {
 		if (nElements_ == capacite_)
 			changerCapacite(std::max(size_t(1), capacite_ * 2));
-		elements_[nElements_++] = nouvelElement;
+		elements_[nElements_++] = move(nouvelElement);
 	}
 
 

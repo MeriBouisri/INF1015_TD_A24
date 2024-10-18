@@ -94,11 +94,6 @@ shared_ptr<Concepteur> lireConcepteur(istream& fichier, const Liste<Jeu>& listeJ
 
 shared_ptr<Jeu> lireJeu(istream& fichier, Liste<Jeu>& listeJeux)
 {
-	Jeu jeu = {}; // On initialise une structure vide de type Jeu
-	jeu.titre = lireString(fichier);
-	jeu.anneeSortie = int(lireUintTailleVariable(fichier));
-	jeu.developpeur = lireString(fichier);
-	jeu.concepteurs.setNElements(lireUintTailleVariable(fichier));
 	// Rendu ici, les champs précédents de la structure jeu sont remplis avec la
 	// bonne information.
 
@@ -107,14 +102,18 @@ shared_ptr<Jeu> lireJeu(istream& fichier, Liste<Jeu>& listeJeux)
 	// que contient un jeu. Servez-vous de votre fonction d'ajout de jeu car la
 	// liste de jeux participé est une ListeJeu. Afficher un message lorsque
 	// l'allocation du jeu est réussie.
-	shared_ptr<Jeu> jeuLu = make_shared<Jeu>(move(jeu));  // Ou allouer directement au début plutôt qu'en faire une copie ici.
+	shared_ptr<Jeu> jeuLu = make_shared<Jeu>();  // Ou allouer directement au début plutôt qu'en faire une copie ici.
+	//Jeu jeu = {}; // On initialise une structure vide de type Jeu
+	jeuLu->titre = lireString(fichier);
+	jeuLu->anneeSortie = int(lireUintTailleVariable(fichier));
+	jeuLu->developpeur = lireString(fichier);
 	std::cout << "\033[96m" << "Allocation en mémoire du jeu " << jeuLu->titre
 		<< "\033[0m" << endl;
 	// cout << jeu.titre << endl;  //TODO: Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
 
-	jeuLu->concepteurs.setElements(make_unique<shared_ptr<Concepteur>[]>(jeuLu->concepteurs.getNElements()));
-	for (shared_ptr<Concepteur>& concepteur : jeuLu->concepteurs.enSpan()) {
-		concepteur = lireConcepteur(fichier, listeJeux);  //TODO: Mettre le concepteur dans la liste des concepteur du jeu.
+
+	for ([[maybe_unused]] size_t i : iter::range(lireUintTailleVariable(fichier))) {
+		jeuLu->concepteurs.ajouter(lireConcepteur(fichier, listeJeux));  //TODO: Mettre le concepteur dans la liste des concepteur du jeu.
 	}
 
 	return jeuLu; //TODO: Retourner le pointeur vers le nouveau jeu.

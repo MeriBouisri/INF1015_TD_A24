@@ -87,6 +87,12 @@ public:
 	}
 
 
+	// TODO: Supprimer cette méthode lorsque #4 sera complété.
+	//shared_ptr<T> getElements(size_t index) const {
+	//	return elements_[index];
+	//}
+
+
 private:
 	size_t capacite_ = 0, nElements_ = 0;	// Pas besoin de déclarer explicitement un corps de constructeur avec ces initialisations.
 	unique_ptr<shared_ptr<T>[]> elements_ = {};

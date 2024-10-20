@@ -58,6 +58,16 @@ public:
 	}  // Pas dit si ça doit être public ou non.
 
 
+	shared_ptr<T> chercher(const function<bool(const shared_ptr<T>&)>& critere) const {
+		for (const shared_ptr<T>& element : enSpan()) {
+			if (critere(element)) {
+				return element;
+			}
+		}
+		return nullptr;
+	}
+
+
 	gsl::span<shared_ptr<T>> enSpan() const {
 		return gsl::span<shared_ptr<T>>(elements_.get(), nElements_);
 	}
@@ -75,6 +85,12 @@ public:
 	void setElements(unique_ptr<shared_ptr<T>[]> elements) {
 		elements_ = move(elements);
 	}
+
+
+	// TODO: Supprimer cette méthode lorsque #4 sera complété.
+	//shared_ptr<T> getElements(size_t index) const {
+	//	return elements_[index];
+	//}
 
 
 private:

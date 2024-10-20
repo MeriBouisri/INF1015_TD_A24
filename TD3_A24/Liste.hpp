@@ -58,6 +58,16 @@ public:
 	}  // Pas dit si ça doit être public ou non.
 
 
+	shared_ptr<T> chercher(const function<bool(const shared_ptr<T>&)>& critere) const {
+		for (const shared_ptr<T>& element : enSpan()) {
+			if (critere(element)) {
+				return element;
+			}
+		}
+		return nullptr;
+	}
+
+
 	gsl::span<shared_ptr<T>> enSpan() const {
 		return gsl::span<shared_ptr<T>>(elements_.get(), nElements_);
 	}

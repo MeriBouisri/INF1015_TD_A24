@@ -54,15 +54,14 @@ string lireString(istream& fichier)
 //TODO: Fonction qui cherche un concepteur par son nom dans une ListeJeux.
 // Cette fonction renvoie le pointeur vers le concepteur si elle le trouve dans
 // un des jeux de la ListeJeux. En cas contraire, elle renvoie un pointeur nul.
-shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, string nomConcepteurCherche) {
-	for (const shared_ptr<Jeu>& jeu : listeJeux.enSpan()) {
+shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, const string& nomConcepteurCherche) {
+	for (const auto& jeu : listeJeux.enSpan()) {
 		// Normalement on voudrait retourner un pointeur const, mais cela nous
 		// empêcherait d'affecter le pointeur retourné lors de l'appel de cette
 		// fonction.
-		for (const shared_ptr<Concepteur>& concepteur : jeu->concepteurs.enSpan()) {
-			if (concepteur->nom == nomConcepteurCherche)
-				return concepteur;
-		}
+		auto concepteur = jeu->concepteurs.chercher([&nomConcepteurCherche](auto concepteur) {return concepteur->nom == nomConcepteurCherche; });
+		if (concepteur)
+			return concepteur;
 	}
 	return nullptr;
 }

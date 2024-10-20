@@ -13,5 +13,7 @@ struct Jeu
 	std::string developpeur;
 	Liste<Concepteur> concepteurs;
 
-
+	shared_ptr<Concepteur> chercher(const function<bool(const shared_ptr<Concepteur>&)>& critere) const {
+		return concepteurs.chercher(critere);
+	}
 };

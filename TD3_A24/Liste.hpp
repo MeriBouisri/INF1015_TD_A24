@@ -58,6 +58,16 @@ public:
 	}  // Pas dit si ï¿½a doit ï¿½tre public ou non.
 
 
+	shared_ptr<T> chercher(const function<bool(const shared_ptr<T>&)>& critere) const {
+		for (const shared_ptr<T>& element : enSpan()) {
+			if (critere(element)) {
+				return element;
+			}
+		}
+		return nullptr;
+	}
+
+
 	gsl::span<shared_ptr<T>> enSpan() const {
 		return gsl::span<shared_ptr<T>>(elements_.get(), nElements_);
 	}
@@ -79,6 +89,12 @@ public:
 	shared_ptr<T> operator[](size_t index) const {
 		return elements_[index];
 	}
+
+	// TODO: Supprimer cette méthode lorsque #4 sera complété.
+	//shared_ptr<T> getElements(size_t index) const {
+	//	return elements_[index];
+	//}
+
 
 private:
 	size_t capacite_ = 0, nElements_ = 0;	// Pas besoin de dï¿½clarer explicitement un corps de constructeur avec ces initialisations.

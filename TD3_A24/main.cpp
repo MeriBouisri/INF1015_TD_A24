@@ -54,15 +54,14 @@ string lireString(istream& fichier)
 //TODO: Fonction qui cherche un concepteur par son nom dans une ListeJeux.
 // Cette fonction renvoie le pointeur vers le concepteur si elle le trouve dans
 // un des jeux de la ListeJeux. En cas contraire, elle renvoie un pointeur nul.
-shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, string nomConcepteurCherche) {
-	for (const shared_ptr<Jeu>& jeu : listeJeux.enSpan()) {
+shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, const string& nomConcepteurCherche) {
+	for (const auto& jeu : listeJeux.enSpan()) {
 		// Normalement on voudrait retourner un pointeur const, mais cela nous
 		// empêcherait d'affecter le pointeur retourné lors de l'appel de cette
 		// fonction.
-		for (const shared_ptr<Concepteur>& concepteur : jeu->concepteurs.enSpan()) {
-			if (concepteur->nom == nomConcepteurCherche)
-				return concepteur;
-		}
+		auto concepteur = jeu->concepteurs.chercher([&nomConcepteurCherche](auto concepteur) {return concepteur->nom == nomConcepteurCherche; });
+		if (concepteur)
+			return concepteur;
 	}
 	return nullptr;
 }
@@ -186,9 +185,16 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	Liste<Jeu> lj = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
 
-	// Test enonce 4 (surcharge operateur)
-	cout << "Test #4" << endl;
-	cout << "jeux[2]=" << lj[2]->titre << endl;
-	cout << "concepteurs[1]=" << lj[2]->concepteurs[1]->nom << endl;
+	// TEST #5
+	auto test1 = lj[0]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+	auto test2 = lj[1]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+
+	cout << "Test 1 : " << (test1 ? "trouvé" : "non trouvé") << test1 << test1->anneeNaissance << endl;
+	cout << "Test 2 : " << (test2 ? "trouvé" : "non trouvé") << test2 << test2->anneeNaissance << endl;
+
+	// TEST #4
+
+	cout << "[TEST] Test 4.1 : " << (lj[2]->titre == "Secret of Mana" ? "Reussi" : "Echoue") << endl;
+	cout << "[TEST] Test 4.2 ..." << (lj[2]->concepteurs[1]->nom == "Hiromichi Tanaka" ? "Reussi" : "Echoue") << endl;
 
 }

@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cstddef>
+#include <functional>
 #include <gsl/span>
 #include <memory>
 
@@ -9,6 +10,7 @@ using std::shared_ptr;
 using std::unique_ptr;
 using std::make_unique;
 using std::size_t;
+using std::function;
 
 #pragma once
 template <typename T> class Liste {
@@ -16,7 +18,7 @@ public:
 	Liste() = default;
 
 
-	void ajouter(const shared_ptr<T>& nouvelElement) {
+	void ajouter(shared_ptr<T>&& nouvelElement) {
 		if (nElements_ == capacite_)
 			changerCapacite(std::max(size_t(1), capacite_ * 2));
 		elements_[nElements_++] = move(nouvelElement);
@@ -54,7 +56,6 @@ public:
 		elements_ = move(nouvelleListe);
 		capacite_ = nouvelleCapacite;
 	}  // Pas dit si ça doit être public ou non.
-
 
 
 	gsl::span<shared_ptr<T>> enSpan() const {

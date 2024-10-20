@@ -11,9 +11,11 @@
 #include <iostream>
 #include <typeinfo>
 
+
 using namespace std;
 using namespace iter;
 using namespace gsl;
+using std::function;
 
 #pragma region "Fonctions de base pour vous aider"
 template <typename T>
@@ -48,11 +50,11 @@ string lireString(istream& fichier)
 
 #pragma endregion
 
+
 //TODO: Fonction qui cherche un concepteur par son nom dans une ListeJeux.
 // Cette fonction renvoie le pointeur vers le concepteur si elle le trouve dans
 // un des jeux de la ListeJeux. En cas contraire, elle renvoie un pointeur nul.
-shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, string nomConcepteurCherche) // Enlever les références dans les for loop si une erreur de compilation survient.
-{
+shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, string nomConcepteurCherche) {
 	for (const shared_ptr<Jeu>& jeu : listeJeux.enSpan()) {
 		// Normalement on voudrait retourner un pointeur const, mais cela nous
 		// empêcherait d'affecter le pointeur retourné lors de l'appel de cette
@@ -183,4 +185,5 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 	//int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
 	Liste<Jeu> lj = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
+
 }

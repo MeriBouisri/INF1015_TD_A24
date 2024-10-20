@@ -186,4 +186,9 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	Liste<Jeu> lj = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
 
+	// Test enonce 4 (surcharge operateur)
+	cout << "Test #4" << endl;
+	cout << "jeux[2]=" << lj[2]->titre << endl;
+	cout << "concepteurs[1]=" << lj[2]->concepteurs[1]->nom << endl;
+
 }

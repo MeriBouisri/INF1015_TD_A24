@@ -59,7 +59,7 @@ shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, const stri
 		// Normalement on voudrait retourner un pointeur const, mais cela nous
 		// empêcherait d'affecter le pointeur retourné lors de l'appel de cette
 		// fonction.
-		auto concepteur = jeu->concepteurs.chercher([&nomConcepteurCherche](auto concepteur) {return concepteur->nom == nomConcepteurCherche; });
+		auto concepteur = jeu->concepteurs.trouver([&nomConcepteurCherche](auto concepteur) {return concepteur->nom == nomConcepteurCherche; });
 		if (concepteur)
 			return concepteur;
 	}
@@ -212,8 +212,8 @@ void test04(const Liste<Jeu>& lj) {
 }
 
 void test05(const Liste<Jeu>& lj) {
-	auto test1 = lj[0]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
-	auto test2 = lj[1]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+	auto test1 = lj[0]->trouverConcepteur([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+	auto test2 = lj[1]->trouverConcepteur([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
 
 	cout << "Test 1 : " << (test1 ? "trouvé" : "non trouvé") << test1 << test1->anneeNaissance << endl;
 	cout << "Test 2 : " << (test2 ? "trouvé" : "non trouvé") << test2 << test2->anneeNaissance << endl;
@@ -242,10 +242,10 @@ void test07(const Liste<Jeu>& lj) {
 	assert(copieJeu.concepteurs[0] == lj[2]->concepteurs[0]); // comparer premier concepteur
 
 	// Remplacer 2e concepteur
-	copieJeu.concepteurs[1] = lj[0]->concepteurs[0]; 
+	copieJeu.concepteurs[1] = lj[0]->concepteurs[1]; 
 
 	assert(copieJeu.concepteurs[1] != lj[2]->concepteurs[1]); 
-	assert(copieJeu.concepteurs[1] == lj[0]->concepteurs[0]); 
+	assert(copieJeu.concepteurs[1] == lj[0]->concepteurs[1]); 
 	
 	cout << "[INFO] Modification de la copie" << endl;
 	cout << "[INFO] Original : " << *lj[2] << endl;

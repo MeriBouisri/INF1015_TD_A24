@@ -5,6 +5,7 @@
 #include <functional>
 #include <gsl/span>
 #include <memory>
+#include "verification_allocation.hpp"
 
 using std::shared_ptr;
 using std::unique_ptr;
@@ -65,7 +66,7 @@ public:
 	}  // Pas dit si �a doit �tre public ou non.
 
 
-	shared_ptr<T> chercher(const function<bool(const shared_ptr<T>&)>& critere) const {
+	shared_ptr<T> trouver(const function<bool(const shared_ptr<T>&)>& critere) const {
 		for (const shared_ptr<T>& element : enSpan()) {
 			if (critere(element)) {
 				return element;
@@ -94,6 +95,9 @@ public:
 	}
 
 	shared_ptr<T>& operator[](size_t index) const {
+		if (index >= nElements_) 
+			throw std::out_of_range("Index hors limites");
+		
 		return elements_[index];
 	}
 

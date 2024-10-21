@@ -17,6 +17,13 @@ template <typename T> class Liste {
 public:
 	Liste() = default;
 
+	Liste(const Liste<T>& autre) : capacite_(autre.capacite_), nElements_(autre.nElements_){
+		elements_ = make_unique<shared_ptr<T>[]>(capacite_);
+
+		for (size_t i : iter::range(nElements_)) 
+			elements_[i] = autre.elements_[i];
+	}
+
 
 	void ajouter(shared_ptr<T>&& nouvelElement) {
 		if (nElements_ == capacite_)
@@ -45,17 +52,17 @@ public:
 
 
 	void changerCapacite(std::size_t nouvelleCapacite) {
-		// Copie du code de changerTailleListeJeux, ajusté pour la classe.
-		assert(nouvelleCapacite >= nElements_); // On ne demande pas de supporter les réductions de nombre d'éléments.
+		// Copie du code de changerTailleListeJeux, ajustï¿½ pour la classe.
+		assert(nouvelleCapacite >= nElements_); // On ne demande pas de supporter les rï¿½ductions de nombre d'ï¿½lï¿½ments.
 		auto nouvelleListe = make_unique<shared_ptr<T>[]>(nouvelleCapacite);
-		// Pas nécessaire de tester si liste.elements est nullptr puisque si c'est le cas, nElements est nécessairement 0.
+		// Pas nï¿½cessaire de tester si liste.elements est nullptr puisque si c'est le cas, nElements est nï¿½cessairement 0.
 		for (size_t i : iter::range(nElements_)) {
 			nouvelleListe[i] = move(elements_[i]);
 		}
 
 		elements_ = move(nouvelleListe);
 		capacite_ = nouvelleCapacite;
-	}  // Pas dit si ça doit être public ou non.
+	}  // Pas dit si ï¿½a doit ï¿½tre public ou non.
 
 
 	shared_ptr<T> chercher(const function<bool(const shared_ptr<T>&)>& critere) const {
@@ -86,14 +93,11 @@ public:
 		elements_ = move(elements);
 	}
 
-
-	// TODO: Supprimer cette méthode lorsque #4 sera complété.
-	//shared_ptr<T> getElements(size_t index) const {
-	//	return elements_[index];
-	//}
-
+	shared_ptr<T>& operator[](size_t index) const {
+		return elements_[index];
+	}
 
 private:
-	size_t capacite_ = 0, nElements_ = 0;	// Pas besoin de déclarer explicitement un corps de constructeur avec ces initialisations.
+	size_t capacite_ = 0, nElements_ = 0;	// Pas besoin de dï¿½clarer explicitement un corps de constructeur avec ces initialisations.
 	unique_ptr<shared_ptr<T>[]> elements_ = {};
 };

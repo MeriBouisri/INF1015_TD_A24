@@ -17,6 +17,13 @@ template <typename T> class Liste {
 public:
 	Liste() = default;
 
+	Liste(const Liste<T>& autre) : capacite_(autre.capacite_), nElements_(autre.nElements_){
+		elements_ = make_unique<shared_ptr<T>[]>(capacite_);
+
+		for (size_t i : iter::range(nElements_)) 
+			elements_[i] = autre.elements_[i];
+	}
+
 
 	void ajouter(shared_ptr<T>&& nouvelElement) {
 		if (nElements_ == capacite_)
@@ -86,9 +93,11 @@ public:
 		elements_ = move(elements);
 	}
 
-	shared_ptr<T> operator[](size_t index) const {
+	shared_ptr<T>& operator[](size_t index) const {
 		return elements_[index];
 	}
+
+	
 
 	//friend std::ostream& operator<<(std::ostream& os, const shared_ptr<Liste<T>>& l);
 

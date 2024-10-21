@@ -202,6 +202,42 @@ void afficherListeJeux(const Liste<Jeu>& listeJeux)
 
 
 
+/**
+ * @brief Teste la surcharge de l'operateur []
+ */
+void test04(const Liste<Jeu>& lj) {
+	assert(lj[2]->titre == "Secret of Mana");
+	assert(lj[2]->concepteurs[1]->nom == "Hiromichi Tanaka");	
+}
+
+/**
+ * @brief Teste les fonction de surcharge de l'opérateur <<
+ */
+void test06(const Liste<Jeu>& lj) {
+
+	cout << "[TEST] Test 6.1 : ";
+	ofstream("sortie.txt") << lj;
+
+	assert(ifstream("sortie.txt").good());
+}
+
+void test07(const Liste<Jeu>& lj) {
+	
+	Jeu copieJeu = *lj[2];
+
+	// Verifier la copie
+	assert(&copieJeu != &*lj[2]); 
+	assert(&copieJeu.concepteurs != &lj[2]->concepteurs); 
+	assert(copieJeu.concepteurs[0] == lj[2]->concepteurs[0]); 
+
+	copieJeu.concepteurs[0] = lj[0]->concepteurs[0]; 
+
+	assert(copieJeu.concepteurs[0] != lj[2]->concepteurs[0]); 
+	assert(copieJeu.concepteurs[0] == lj[0]->concepteurs[0]); 
+}
+
+
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
 #pragma region "Bibliothèque du cours"
@@ -225,20 +261,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 	cout << "Test 1 : " << (test1 ? "trouvé" : "non trouvé") << test1 << test1->anneeNaissance << endl;
 	cout << "Test 2 : " << (test2 ? "trouvé" : "non trouvé") << test2 << test2->anneeNaissance << endl;
 
-	// TEST #4
-
-	cout << "[TEST] Test 4.1 : " 
-		<< (lj[2]->titre == "Secret of Mana" ? "Succes" : "Echec") << endl;
-	
-	cout << "[TEST] Test 4.2 : " 
-		<< (lj[2]->concepteurs[1]->nom == "Hiromichi Tanaka" ? "Succes" : "Echec") 
-		<< endl;
-
-	// TEST #6
-
-	cout << "[TEST] Test 6.1 : ";
-	ofstream("sortie.txt") << lj;
-	cout << (ifstream("sortie.txt").good() ? "Succes" : "Echec") << endl;
-
+	test04(lj);
+	test06(lj);
+	test07(lj);
 
 }

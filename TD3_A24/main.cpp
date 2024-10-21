@@ -156,6 +156,38 @@ void afficherJeu(const Jeu& j)
 	cout << "\033[0m";
 }
 
+
+ostream& operator<<(ostream& os, const Concepteur& c) {
+	return os << "[c.nom=" << c.nom 
+		<< ", c.anneeNaissance=" << c.anneeNaissance 
+		<< ", c.pays=" << c.pays << "]";
+}
+
+ostream& operator<<(ostream& os, const Jeu& j) {
+
+	os << "[j.titre=" << j.titre 
+		<< ", j.anneeSortie=" << j.anneeSortie 
+		<< ", j.developpeur=" << j.developpeur 
+		<< ", j.concepteurs=[" << endl;
+
+	for (const auto& c : j.concepteurs.enSpan())
+		os << "\t" << *c << endl;
+
+	os << "]" << endl;
+
+	return os;
+}
+
+ostream& operator<<(ostream& os, const Liste<Jeu>& l) {
+	os << "[listeJeux.elements=[";
+	for (const auto& j : l.enSpan())
+		os << *j;
+
+	os << "]" << endl;
+
+	return os;
+}
+
 //TODO: Fonction pour afficher tous les jeux de ListeJeux, séparés par un ligne.
 // Servez-vous de la fonction d'affichage d'un jeu crée ci-dessus. Votre ligne
 // de séparation doit être différent de celle utilisée dans le main.
@@ -164,13 +196,11 @@ void afficherListeJeux(const Liste<Jeu>& listeJeux)
 	static const string ligneSeparation = "\n\033[95m"
 		"══════════════════════════════════════════════════════════════════════════"
 		"\033[0m\n";
-	cout << ligneSeparation << endl;
-	for (const shared_ptr<Jeu> j : listeJeux.enSpan())
-	{
-		afficherJeu(*j);
-		cout << ligneSeparation << endl;
-	}
+	cout << ligneSeparation << listeJeux << ligneSeparation << endl;
+	
 }
+
+
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
@@ -185,6 +215,9 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	Liste<Jeu> lj = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
 
+	// Avec surcharge operateur <<
+	afficherListeJeux(lj); 
+
 	// TEST #5
 	auto test1 = lj[0]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
 	auto test2 = lj[1]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
@@ -194,7 +227,18 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	// TEST #4
 
-	cout << "[TEST] Test 4.1 : " << (lj[2]->titre == "Secret of Mana" ? "Reussi" : "Echoue") << endl;
-	cout << "[TEST] Test 4.2 ..." << (lj[2]->concepteurs[1]->nom == "Hiromichi Tanaka" ? "Reussi" : "Echoue") << endl;
+	cout << "[TEST] Test 4.1 : " 
+		<< (lj[2]->titre == "Secret of Mana" ? "Succes" : "Echec") << endl;
+	
+	cout << "[TEST] Test 4.2 : " 
+		<< (lj[2]->concepteurs[1]->nom == "Hiromichi Tanaka" ? "Succes" : "Echec") 
+		<< endl;
+
+	// TEST #6
+
+	cout << "[TEST] Test 6.1 : ";
+	ofstream("sortie.txt") << lj;
+	cout << (ifstream("sortie.txt").good() ? "Succes" : "Echec") << endl;
+
 
 }

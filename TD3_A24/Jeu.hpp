@@ -16,4 +16,6 @@ struct Jeu
 	shared_ptr<Concepteur> chercher(const function<bool(const shared_ptr<Concepteur>&)>& critere) const {
 		return concepteurs.chercher(critere);
 	}
+
+	//std::ostream& operator<<(std::ostream& os, const shared_ptr<Jeu>& j);
 };

@@ -1,0 +1,80 @@
+[listeJeux.elements=[[j.titre=Chrono Trigger, j.anneeSortie=1995, j.developpeur=Square, j.concepteurs=[
+	[c.nom=Hironobu Sakaguchi, c.anneeNaissance=1962, c.pays=Japon]
+	[c.nom=Yuji Horii, c.anneeNaissance=1954, c.pays=Japon]
+	[c.nom=Akira Toriyama, c.anneeNaissance=1955, c.pays=Japon]
+	[c.nom=Yoshinori Kitase, c.anneeNaissance=1966, c.pays=Japon]
+	[c.nom=Masato Kato, c.anneeNaissance=1963, c.pays=Japon]
+	[c.nom=Yasunori Mitsuda, c.anneeNaissance=1972, c.pays=Japon]
+]
+[j.titre=Final Fantasy VI (III en Amérique), j.anneeSortie=1994, j.developpeur=Square, j.concepteurs=[
+	[c.nom=Hironobu Sakaguchi, c.anneeNaissance=1962, c.pays=Japon]
+	[c.nom=Yoshinori Kitase, c.anneeNaissance=1966, c.pays=Japon]
+	[c.nom=Nobuo Uematsu, c.anneeNaissance=1959, c.pays=Japon]
+]
+[j.titre=Secret of Mana, j.anneeSortie=1993, j.developpeur=Square, j.concepteurs=[
+	[c.nom=Koichi Ishii, c.anneeNaissance=1964, c.pays=Japon]
+	[c.nom=Hiromichi Tanaka, c.anneeNaissance=1962, c.pays=Japon]
+	[c.nom=Hiroki Kikuta, c.anneeNaissance=1962, c.pays=Japon]
+]
+[j.titre=Super Mario Bros, j.anneeSortie=1985, j.developpeur=Nintendo, j.concepteurs=[
+	[c.nom=Shigeru Miyamoto, c.anneeNaissance=1952, c.pays=Japon]
+	[c.nom=Takashi Tezuka, c.anneeNaissance=1960, c.pays=Japon]
+	[c.nom=Koji Kondo, c.anneeNaissance=1961, c.pays=Japon]
+]
+[j.titre=The Legend of Zelda, j.anneeSortie=1986, j.developpeur=Nintendo, j.concepteurs=[
+	[c.nom=Shigeru Miyamoto, c.anneeNaissance=1952, c.pays=Japon]
+	[c.nom=Takashi Tezuka, c.anneeNaissance=1960, c.pays=Japon]
+	[c.nom=Koji Kondo, c.anneeNaissance=1961, c.pays=Japon]
+]
+[j.titre=Metroid, j.anneeSortie=1986, j.developpeur=Nintendo, j.concepteurs=[
+	[c.nom=Satoru Okada, c.anneeNaissance=1947, c.pays=Japon]
+	[c.nom=Hirokazu Tanaka, c.anneeNaissance=1957, c.pays=Japon]
+]
+[j.titre=Pokémon Red & Blue, j.anneeSortie=1998, j.developpeur=Game Freak, j.concepteurs=[
+	[c.nom=Shigeru Miyamoto, c.anneeNaissance=1952, c.pays=Japon]
+	[c.nom=Satoshi Tajiri, c.anneeNaissance=1965, c.pays=Japon]
+	[c.nom=Junichi Masuda, c.anneeNaissance=1968, c.pays=Japon]
+]
+[j.titre=Minecraft, j.anneeSortie=2011, j.developpeur=Mojang, j.concepteurs=[
+	[c.nom=Markus Alexej Persson, c.anneeNaissance=1979, c.pays=Suède]
+	[c.nom=Jens Peder Bergensten, c.anneeNaissance=1979, c.pays=Suède]
+]
+[j.titre=World of Warcraft, j.anneeSortie=2004, j.developpeur=Blizzard Entertainment, j.concepteurs=[
+	[c.nom=Rob Pardo, c.anneeNaissance=1970, c.pays=États-Unis]
+	[c.nom=Jeffrey Kaplan, c.anneeNaissance=1972, c.pays=États-Unis]
+	[c.nom=Christopher Vincent Metzen, c.anneeNaissance=1973, c.pays=États-Unis]
+]
+[j.titre=Castlevania: Symphony of the Night, j.anneeSortie=1997, j.developpeur=Konami, j.concepteurs=[
+	[c.nom=Koji Igarashi, c.anneeNaissance=1968, c.pays=Japon]
+	[c.nom=Michiru Yamane, c.anneeNaissance=1963, c.pays=Japon]
+]
+[j.titre=The Sims, j.anneeSortie=2000, j.developpeur=Maxis, j.concepteurs=[
+	[c.nom=William Ralph Wright, c.anneeNaissance=1960, c.pays=États-Unis]
+]
+[j.titre=SimCity, j.anneeSortie=1989, j.developpeur=Maxis, j.concepteurs=[
+	[c.nom=William Ralph Wright, c.anneeNaissance=1960, c.pays=États-Unis]
+]
+[j.titre=Metal Gear Solid, j.anneeSortie=1998, j.developpeur=Konami, j.concepteurs=[
+	[c.nom=Hideo Kojima, c.anneeNaissance=1963, c.pays=Japon]
+	[c.nom=Yoji Shinkawa, c.anneeNaissance=1971, c.pays=Japon]
+]
+[j.titre=Half-Life, j.anneeSortie=1998, j.developpeur=Valve, j.concepteurs=[
+	[c.nom=Gabe Logan Newell, c.anneeNaissance=1962, c.pays=États-Unis]
+	[c.nom=Marc Laidlaw, c.anneeNaissance=1960, c.pays=États-Unis]
+]
+[j.titre=Civilization, j.anneeSortie=1991, j.developpeur=MicroProse, j.concepteurs=[
+	[c.nom=Sidney K. Meier, c.anneeNaissance=1954, c.pays=Canada]
+	[c.nom=Dr. Jeffery L. Briggs, c.anneeNaissance=1957, c.pays=États-Unis]
+]
+[j.titre=Sonic the Hedgehog, j.anneeSortie=1991, j.developpeur=Sega, j.concepteurs=[
+	[c.nom=Hirokazu Yasuhara, c.anneeNaissance=1965, c.pays=Japon]
+	[c.nom=Yuji Naka, c.anneeNaissance=1965, c.pays=Japon]
+	[c.nom=Masato Nakamura, c.anneeNaissance=1958, c.pays=Japon]
+]
+[j.titre=Dark Souls, j.anneeSortie=2011, j.developpeur=FromSoftware, j.concepteurs=[
+	[c.nom=Hidetaka Miyazaki, c.anneeNaissance=1975, c.pays=Japon]
+	[c.nom=Motoi Sakuraba, c.anneeNaissance=1965, c.pays=Japon]
+]
+[j.titre=Jeu juste pour la couveture de code, j.anneeSortie=12345678, j.developpeur=Personne, j.concepteurs=[
+]
+]

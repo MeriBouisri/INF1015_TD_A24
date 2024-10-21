@@ -90,10 +90,7 @@ public:
 		return elements_[index];
 	}
 
-	// TODO: Supprimer cette méthode lorsque #4 sera complété.
-	//shared_ptr<T> getElements(size_t index) const {
-	//	return elements_[index];
-	//}
+	//friend std::ostream& operator<<(std::ostream& os, const shared_ptr<Liste<T>>& l);
 
 
 private:

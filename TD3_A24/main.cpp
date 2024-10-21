@@ -135,25 +135,57 @@ Liste<Jeu> creerListeJeux(const string& nomFichier)
 }
 
 
-void afficherConcepteur(const Concepteur& d)
-{
-	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays
-		<< endl;
+// void afficherConcepteur(const Concepteur& d)
+// {
+// 	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays
+// 		<< endl;
+// }
+
+// //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
+// // Servez-vous de la fonction afficherConcepteur ci-dessus.
+// void afficherJeu(const Jeu& j)
+// {
+// 	cout << "Titre : " << "\033[94m" << j.titre << "\033[0m" << endl;
+// 	cout << "Parution : " << "\033[94m" << j.anneeSortie << "\033[0m"
+// 		<< endl;
+// 	cout << "Développeur :  " << "\033[94m" << j.developpeur << "\033[0m"
+// 		<< endl;
+// 	cout << "Concepteurs du jeu :" << "\033[94m" << endl;
+// 	for (const shared_ptr<Concepteur> concepteur : j.concepteurs.enSpan())
+// 		afficherConcepteur(*concepteur);
+// 	cout << "\033[0m";
+// }
+
+
+ostream& operator<<(ostream& os, const Concepteur& c) {
+	return os << "[c.nom=" << c.nom 
+		<< ", c.anneeNaissance=" << c.anneeNaissance 
+		<< ", c.pays=" << c.pays << "]";
 }
 
-//TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
-// Servez-vous de la fonction afficherConcepteur ci-dessus.
-void afficherJeu(const Jeu& j)
-{
-	cout << "Titre : " << "\033[94m" << j.titre << "\033[0m" << endl;
-	cout << "Parution : " << "\033[94m" << j.anneeSortie << "\033[0m"
-		<< endl;
-	cout << "Développeur :  " << "\033[94m" << j.developpeur << "\033[0m"
-		<< endl;
-	cout << "Concepteurs du jeu :" << "\033[94m" << endl;
-	for (const shared_ptr<Concepteur> concepteur : j.concepteurs.enSpan())
-		afficherConcepteur(*concepteur);
-	cout << "\033[0m";
+ostream& operator<<(ostream& os, const Jeu& j) {
+
+	os << "[j.titre=" << j.titre 
+		<< ", j.anneeSortie=" << j.anneeSortie 
+		<< ", j.developpeur=" << j.developpeur 
+		<< ", j.concepteurs=[" << endl;
+
+	for (const auto& c : j.concepteurs.enSpan())
+		os << "\t" << *c << endl;
+
+	os << "]" << endl;
+
+	return os;
+}
+
+ostream& operator<<(ostream& os, const Liste<Jeu>& l) {
+	os << "[listeJeux.elements=[";
+	for (const auto& j : l.enSpan())
+		os << *j;
+
+	os << "]" << endl;
+
+	return os;
 }
 
 //TODO: Fonction pour afficher tous les jeux de ListeJeux, séparés par un ligne.
@@ -164,13 +196,60 @@ void afficherListeJeux(const Liste<Jeu>& listeJeux)
 	static const string ligneSeparation = "\n\033[95m"
 		"══════════════════════════════════════════════════════════════════════════"
 		"\033[0m\n";
-	cout << ligneSeparation << endl;
-	for (const shared_ptr<Jeu> j : listeJeux.enSpan())
-	{
-		afficherJeu(*j);
-		cout << ligneSeparation << endl;
-	}
+	cout << ligneSeparation << listeJeux << ligneSeparation << endl;
+	
 }
+
+
+
+/**
+ * @brief Teste la surcharge de l'operateur []
+ */
+void test04(const Liste<Jeu>& lj) {
+	assert(lj[2]->titre == "Secret of Mana");
+	assert(lj[2]->concepteurs[1]->nom == "Hiromichi Tanaka");	
+	cout << "[SUCCES] Test #4" << endl;
+}
+
+void test05(const Liste<Jeu>& lj) {
+	auto test1 = lj[0]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+	auto test2 = lj[1]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+
+	cout << "Test 1 : " << (test1 ? "trouvé" : "non trouvé") << test1 << test1->anneeNaissance << endl;
+	cout << "Test 2 : " << (test2 ? "trouvé" : "non trouvé") << test2 << test2->anneeNaissance << endl;
+
+	cout << (test1 && test2 ? "[SUCCES] " : "[ECHEC] ") << "Test #5" << endl;
+}
+
+/**
+ * @brief Teste les fonction de surcharge de l'opérateur <<
+ */
+void test06(const Liste<Jeu>& lj) {
+
+	ofstream("sortie.txt") << lj;
+	assert(ifstream("sortie.txt").good());
+
+	cout << "[SUCCES] Test #6" << endl;
+}
+
+void test07(const Liste<Jeu>& lj) {
+	
+	Jeu copieJeu = *lj[2];
+
+	// Verifier la copie
+	assert(&copieJeu != &*lj[2]); 
+	assert(&copieJeu.concepteurs != &lj[2]->concepteurs); 
+	assert(copieJeu.concepteurs[0] == lj[2]->concepteurs[0]); 
+
+	copieJeu.concepteurs[0] = lj[0]->concepteurs[0]; 
+
+	assert(copieJeu.concepteurs[0] != lj[2]->concepteurs[0]); 
+	assert(copieJeu.concepteurs[0] == lj[0]->concepteurs[0]); 
+
+	cout << "[SUCCES] Test #7" << endl;
+}
+
+
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 {
@@ -185,10 +264,14 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	Liste<Jeu> lj = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
 
-	// TEST #5
-	//auto test1 = lj.getElements(0)->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
-	//auto test2 = lj.getElements(1)->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+	// Avec surcharge operateur <<
+	afficherListeJeux(lj); 
 
-	//cout << "Test 1 : " << (test1 ? "trouvé" : "non trouvé") << test1 << test1->anneeNaissance << endl;
-	//cout << "Test 2 : " << (test2 ? "trouvé" : "non trouvé") << test2 << test2->anneeNaissance << endl;
+	// TEST #5
+
+	test04(lj);
+    test05(lj);
+	test06(lj);
+	test07(lj);
+
 }

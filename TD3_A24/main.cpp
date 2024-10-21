@@ -51,7 +51,7 @@ string lireString(istream& fichier)
 #pragma endregion
 
 
-//TODO: Fonction qui cherche un concepteur par son nom dans une ListeJeux.
+// Fonction qui cherche un concepteur par son nom dans une ListeJeux.
 // Cette fonction renvoie le pointeur vers le concepteur si elle le trouve dans
 // un des jeux de la ListeJeux. En cas contraire, elle renvoie un pointeur nul.
 shared_ptr<Concepteur> trouverConcepteur(const Liste<Jeu>& listeJeux, const string& nomConcepteurCherche) {
@@ -76,7 +76,7 @@ shared_ptr<Concepteur> lireConcepteur(istream& fichier, const Liste<Jeu>& listeJ
 	// Rendu ici, les champs précédents de la structure concepteur sont remplis
 	// avec la bonne information.
 
-	//TODO: Ajouter en mémoire le concepteur lu. Il faut revoyer le pointeur créé.
+	// Ajouter en mémoire le concepteur lu. Il faut revoyer le pointeur créé.
 	// Attention, valider si le concepteur existe déjà avant de le créer, sinon
 	// on va avoir des doublons car plusieurs jeux ont des concepteurs en commun
 	// dans le fichier binaire. Pour ce faire, cette fonction aura besoin de
@@ -86,10 +86,10 @@ shared_ptr<Concepteur> lireConcepteur(istream& fichier, const Liste<Jeu>& listeJ
 	if (concepteurExistant != nullptr)
 		return concepteurExistant;
 
-	//cout << concepteur.nom << endl;  //TODO: Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
+	//cout << concepteur.nom << endl;  // Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
 	std::cout << "\033[92m" << "Allocation en mémoire du concepteur " << concepteur.nom
 		<< "\033[0m" << endl;
-	return make_shared<Concepteur>(concepteur); //TODO: Retourner le pointeur vers le concepteur crée.
+	return make_shared<Concepteur>(concepteur); // Retourner le pointeur vers le concepteur crée.
 }
 
 
@@ -188,7 +188,7 @@ ostream& operator<<(ostream& os, const Liste<Jeu>& l) {
 	return os;
 }
 
-//TODO: Fonction pour afficher tous les jeux de ListeJeux, séparés par un ligne.
+//Fonction pour afficher tous les jeux de ListeJeux, séparés par un ligne.
 // Servez-vous de la fonction d'affichage d'un jeu crée ci-dessus. Votre ligne
 // de séparation doit être différent de celle utilisée dans le main.
 void afficherListeJeux(const Liste<Jeu>& listeJeux)
@@ -267,7 +267,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 
 	//int* fuite = new int;  // Pour vérifier que la détection de fuites fonctionne; un message devrait dire qu'il y a une fuite à cette ligne.
 
-	Liste<Jeu> lj = creerListeJeux("jeux.bin"); //TODO: Appeler correctement votre fonction de création de la liste de jeux.
+	Liste<Jeu> lj = creerListeJeux("jeux.bin"); 
 
 	// Avec surcharge operateur <<
 	afficherListeJeux(lj); 

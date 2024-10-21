@@ -97,11 +97,6 @@ public:
 		return elements_[index];
 	}
 
-	
-
-	//friend std::ostream& operator<<(std::ostream& os, const shared_ptr<Liste<T>>& l);
-
-
 private:
 	size_t capacite_ = 0, nElements_ = 0;	// Pas besoin de d�clarer explicitement un corps de constructeur avec ces initialisations.
 	unique_ptr<shared_ptr<T>[]> elements_ = {};

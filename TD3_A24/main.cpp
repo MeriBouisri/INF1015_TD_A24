@@ -208,6 +208,17 @@ void afficherListeJeux(const Liste<Jeu>& listeJeux)
 void test04(const Liste<Jeu>& lj) {
 	assert(lj[2]->titre == "Secret of Mana");
 	assert(lj[2]->concepteurs[1]->nom == "Hiromichi Tanaka");	
+	cout << "[SUCCES] Test #4" << endl;
+}
+
+void test05(const Liste<Jeu>& lj) {
+	auto test1 = lj[0]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+	auto test2 = lj[1]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
+
+	cout << "Test 1 : " << (test1 ? "trouvé" : "non trouvé") << test1 << test1->anneeNaissance << endl;
+	cout << "Test 2 : " << (test2 ? "trouvé" : "non trouvé") << test2 << test2->anneeNaissance << endl;
+
+	cout << (test1 && test2 ? "[SUCCES] " : "[ECHEC] ") << "Test #5" << endl;
 }
 
 /**
@@ -215,10 +226,10 @@ void test04(const Liste<Jeu>& lj) {
  */
 void test06(const Liste<Jeu>& lj) {
 
-	cout << "[TEST] Test 6.1 : ";
 	ofstream("sortie.txt") << lj;
-
 	assert(ifstream("sortie.txt").good());
+
+	cout << "[SUCCES] Test #6" << endl;
 }
 
 void test07(const Liste<Jeu>& lj) {
@@ -234,6 +245,8 @@ void test07(const Liste<Jeu>& lj) {
 
 	assert(copieJeu.concepteurs[0] != lj[2]->concepteurs[0]); 
 	assert(copieJeu.concepteurs[0] == lj[0]->concepteurs[0]); 
+
+	cout << "[SUCCES] Test #7" << endl;
 }
 
 
@@ -255,13 +268,9 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
 	afficherListeJeux(lj); 
 
 	// TEST #5
-	auto test1 = lj[0]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
-	auto test2 = lj[1]->chercher([](const shared_ptr<Concepteur>& c) {return c->nom == "Yoshinori Kitase"; });
-
-	cout << "Test 1 : " << (test1 ? "trouvé" : "non trouvé") << test1 << test1->anneeNaissance << endl;
-	cout << "Test 2 : " << (test2 ? "trouvé" : "non trouvé") << test2 << test2->anneeNaissance << endl;
 
 	test04(lj);
+    test05(lj);
 	test06(lj);
 	test07(lj);
 

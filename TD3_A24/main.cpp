@@ -1,4 +1,14 @@
-﻿#include "bibliotheque_cours.hpp"
+﻿/**
+* TD3 - Automne 2024
+* Implementation du TD precedent avec pointeurs intelligents.
+* \file   main.cpp
+* \author Bouisri et Xa
+* \date   21 octobre 2024
+* Cree le 8 octobre 2024
+*/
+
+
+#include "bibliotheque_cours.hpp"
 #include "cppitertools/range.hpp"
 #include "debogage_memoire.hpp"  //NOTE: Incompatible avec le "placement new", ne pas utiliser cette entête si vous utilisez ce type de "new" dans les lignes qui suivent cette inclusion.
 #include "gsl/span"
@@ -98,7 +108,7 @@ shared_ptr<Jeu> lireJeu(istream& fichier, Liste<Jeu>& listeJeux)
 	// Rendu ici, les champs précédents de la structure jeu sont remplis avec la
 	// bonne information.
 
-	//TODO: Ajouter en mémoire le jeu lu. Il faut revoyer le pointeur créé.
+	//Ajouter en mémoire le jeu lu. Il faut revoyer le pointeur créé.
 	// Attention, il faut aussi créer un tableau dynamique pour les concepteurs
 	// que contient un jeu. Servez-vous de votre fonction d'ajout de jeu car la
 	// liste de jeux participé est une ListeJeu. Afficher un message lorsque
@@ -110,14 +120,14 @@ shared_ptr<Jeu> lireJeu(istream& fichier, Liste<Jeu>& listeJeux)
 	jeuLu->developpeur = lireString(fichier);
 	std::cout << "\033[96m" << "Allocation en mémoire du jeu " << jeuLu->titre
 		<< "\033[0m" << endl;
-	// cout << jeu.titre << endl;  //TODO: Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
+	// cout << jeu.titre << endl;  // Enlever cet affichage temporaire servant à voir que le code fourni lit bien les jeux.
 
 
 	for ([[maybe_unused]] size_t i : iter::range(lireUintTailleVariable(fichier))) {
-		jeuLu->concepteurs.ajouter(lireConcepteur(fichier, listeJeux));  //TODO: Mettre le concepteur dans la liste des concepteur du jeu.
+		jeuLu->concepteurs.ajouter(lireConcepteur(fichier, listeJeux));  //: Mettre le concepteur dans la liste des concepteur du jeu.
 	}
 
-	return jeuLu; //TODO: Retourner le pointeur vers le nouveau jeu.
+	return jeuLu; //Retourner le pointeur vers le nouveau jeu.
 }
 
 Liste<Jeu> creerListeJeux(const string& nomFichier)
@@ -128,10 +138,10 @@ Liste<Jeu> creerListeJeux(const string& nomFichier)
 	Liste<Jeu> listeJeux = {};
 	for ([[maybe_unused]] size_t n : iter::range(nElements))
 	{
-		listeJeux.ajouter(lireJeu(fichier, listeJeux)); //TODO: Ajouter le jeu à la ListeJeux.
+		listeJeux.ajouter(lireJeu(fichier, listeJeux)); //Ajouter le jeu à la ListeJeux.
 	}
 
-	return listeJeux; //TODO: Renvoyer la ListeJeux.
+	return listeJeux; //Renvoyer la ListeJeux.
 }
 
 
@@ -141,7 +151,7 @@ Liste<Jeu> creerListeJeux(const string& nomFichier)
 // 		<< endl;
 // }
 
-// //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
+// //Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
 // // Servez-vous de la fonction afficherConcepteur ci-dessus.
 // void afficherJeu(const Jeu& j)
 // {

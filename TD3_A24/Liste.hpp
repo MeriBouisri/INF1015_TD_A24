@@ -1,3 +1,11 @@
+/**
+* Classe Liste generique
+* \file   Liste.hpp
+* \author Bouisri et Xa
+* \date   21 octobre 2024
+* Cree le 8 octobre 2024
+*/
+
 #include "cppitertools/range.hpp"
 #include <algorithm>
 #include <cassert>
@@ -14,6 +22,7 @@ using std::size_t;
 using std::function;
 
 #pragma once
+
 template <typename T> class Liste {
 public:
 	Liste() = default;

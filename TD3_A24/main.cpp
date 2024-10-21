@@ -135,26 +135,26 @@ Liste<Jeu> creerListeJeux(const string& nomFichier)
 }
 
 
-void afficherConcepteur(const Concepteur& d)
-{
-	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays
-		<< endl;
-}
+// void afficherConcepteur(const Concepteur& d)
+// {
+// 	cout << "\t" << d.nom << ", " << d.anneeNaissance << ", " << d.pays
+// 		<< endl;
+// }
 
-//TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
-// Servez-vous de la fonction afficherConcepteur ci-dessus.
-void afficherJeu(const Jeu& j)
-{
-	cout << "Titre : " << "\033[94m" << j.titre << "\033[0m" << endl;
-	cout << "Parution : " << "\033[94m" << j.anneeSortie << "\033[0m"
-		<< endl;
-	cout << "Développeur :  " << "\033[94m" << j.developpeur << "\033[0m"
-		<< endl;
-	cout << "Concepteurs du jeu :" << "\033[94m" << endl;
-	for (const shared_ptr<Concepteur> concepteur : j.concepteurs.enSpan())
-		afficherConcepteur(*concepteur);
-	cout << "\033[0m";
-}
+// //TODO: Fonction pour afficher les infos d'un jeu ainsi que ses concepteurs.
+// // Servez-vous de la fonction afficherConcepteur ci-dessus.
+// void afficherJeu(const Jeu& j)
+// {
+// 	cout << "Titre : " << "\033[94m" << j.titre << "\033[0m" << endl;
+// 	cout << "Parution : " << "\033[94m" << j.anneeSortie << "\033[0m"
+// 		<< endl;
+// 	cout << "Développeur :  " << "\033[94m" << j.developpeur << "\033[0m"
+// 		<< endl;
+// 	cout << "Concepteurs du jeu :" << "\033[94m" << endl;
+// 	for (const shared_ptr<Concepteur> concepteur : j.concepteurs.enSpan())
+// 		afficherConcepteur(*concepteur);
+// 	cout << "\033[0m";
+// }
 
 
 ostream& operator<<(ostream& os, const Concepteur& c) {

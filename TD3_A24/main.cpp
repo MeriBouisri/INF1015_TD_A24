@@ -238,13 +238,18 @@ void test07(const Liste<Jeu>& lj) {
 
 	// Verifier la copie
 	assert(&copieJeu != &*lj[2]); 
-	assert(&copieJeu.concepteurs != &lj[2]->concepteurs); 
-	assert(copieJeu.concepteurs[0] == lj[2]->concepteurs[0]); 
+	assert(&copieJeu.concepteurs != &lj[2]->concepteurs);
+	assert(copieJeu.concepteurs[0] == lj[2]->concepteurs[0]); // comparer premier concepteur
 
-	copieJeu.concepteurs[0] = lj[0]->concepteurs[0]; 
+	// Remplacer 2e concepteur
+	copieJeu.concepteurs[1] = lj[0]->concepteurs[0]; 
 
-	assert(copieJeu.concepteurs[0] != lj[2]->concepteurs[0]); 
-	assert(copieJeu.concepteurs[0] == lj[0]->concepteurs[0]); 
+	assert(copieJeu.concepteurs[1] != lj[2]->concepteurs[1]); 
+	assert(copieJeu.concepteurs[1] == lj[0]->concepteurs[0]); 
+	
+	cout << "[INFO] Modification de la copie" << endl;
+	cout << "[INFO] Original : " << *lj[2] << endl;
+	cout << "[INFO] Copie : " << copieJeu << endl;
 
 	cout << "[SUCCES] Test #7" << endl;
 }

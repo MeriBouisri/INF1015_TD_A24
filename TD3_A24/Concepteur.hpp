@@ -3,6 +3,7 @@
 #include "Jeu.hpp"
 #include "Liste.hpp"
 #include <string>
+#include "verification_allocation.hpp"
 
 struct Concepteur
 {

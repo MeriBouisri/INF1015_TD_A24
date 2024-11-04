@@ -1,8 +1,10 @@
-﻿#include "lectureBinaire.hpp"
+﻿#include "bibliotheque_cours.hpp"
+#include "lectureBinaire.hpp"
+#include <cassert>
 #include <fstream>
 #include <sstream>
-#include <cassert>
-#include "bibliotheque_cours.hpp"
+#include <vector>
+
 using namespace std;
 
 ifstream ouvrirFichierBinaire(const string& nomFichier)
@@ -22,13 +24,13 @@ void testsPourCouvertureLectureBinaire()
 
 int main()
 {
-	#pragma region "Bibliothèque du cours"
+#pragma region "Bibliothèque du cours"
 	// Permet sous Windows les "ANSI escape code" pour changer de couleur
 	// https://en.wikipedia.org/wiki/ANSI_escape_code ; les consoles Linux/Mac
 	// les supportent normalement par défaut.
 	bibliotheque_cours::activerCouleursAnsi();
-	#pragma endregion
-	
+#pragma endregion
+
 	testsPourCouvertureLectureBinaire();
 
 	// Trait de separation
@@ -38,6 +40,23 @@ int main()
 	// Ouverture des fichiers binaires
 	ifstream fichierHeros = ouvrirFichierBinaire("heros.bin");
 	ifstream fichierVilains = ouvrirFichierBinaire("vilains.bin");
+
+
+
+	while (!fichierHeros.eof()) {
+		lireString(fichierHeros);
+		lireString(fichierHeros);
+		lireString(fichierHeros);
+
+		size_t nAllies = lireUintTailleVariable(fichierHeros);
+		vector<string> allies(nAllies);
+
+		for (int i = 0; i < nAllies; i++) {
+			allies.push_back(lireString(fichierHeros));
+		}
+
+
+	}
 
 	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
 

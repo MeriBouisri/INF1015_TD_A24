@@ -175,6 +175,7 @@
     <None Include="..\doc\Vcpkg.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Affichable.hpp" />
     <ClInclude Include="lectureBinaire.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

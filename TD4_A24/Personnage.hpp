@@ -9,12 +9,13 @@
 #pragma once
 
 #include <string>
+#include "Affichable.hpp"
 
 using namespace std;
 
 
 
-class Personnage {
+class Personnage : public Affichable {
 
     public:
         Personnage() = default;
@@ -27,9 +28,15 @@ class Personnage {
             return jeuParution_;
         }
 
-        friend ostream& operator<<(ostream& os, const Personnage& p) {
-            return os << "Nom : " << p.nom_
-                << "\nParution : " << p.jeuParution_ << endl;
+        // TODO : Move to cpp
+        ostream& afficher(ostream& fluxSortie) override {
+            return fluxSortie << "\nNom : " << nom_
+                << "\nParution : " << jeuParution_ << endl;
+        }
+
+        // TODO : Move to cpp
+        ostream& changerCouleur(ostream& fluxSortie, int theme) override {
+            return fluxSortie;
         }
 
     private:

@@ -2,7 +2,13 @@
 #include <fstream>
 #include <sstream>
 #include <cassert>
+#include <iostream>
 #include "bibliotheque_cours.hpp"
+
+
+#include "Personnage.hpp"
+#include "Heros.hpp"
+#include "Vilain.hpp"
 using namespace std;
 
 ifstream ouvrirFichierBinaire(const string& nomFichier)
@@ -40,5 +46,11 @@ int main()
 	ifstream fichierVilains = ouvrirFichierBinaire("vilains.bin");
 
 	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
+	Vilain p = { "Nom", "Jeu" };
+
+	cout << p << endl;
+
+
+
 
 }

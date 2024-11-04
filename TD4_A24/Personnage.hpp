@@ -24,14 +24,18 @@ class Personnage : public Affichable {
         string getNom() const {
             return nom_;
         }
+        
         string getJeuParution() const {
             return jeuParution_;
         }
+        
 
         // TODO : Move to cpp
         ostream& afficher(ostream& fluxSortie) override {
-            return fluxSortie << "\nNom : " << nom_
+            fluxSortie << "\nNom : " << nom_
                 << "\nParution : " << jeuParution_ << endl;
+
+            return afficherSupplement(fluxSortie);
         }
 
         // TODO : Move to cpp
@@ -39,7 +43,10 @@ class Personnage : public Affichable {
             return fluxSortie;
         }
 
-    private:
+
+    protected:
         string nom_;
         string jeuParution_;
+
+        virtual ostream& afficherSupplement(ostream& os) = 0;
 };

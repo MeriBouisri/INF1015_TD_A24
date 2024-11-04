@@ -9,6 +9,7 @@
 #include "Personnage.hpp"
 #include "Heros.hpp"
 #include "Vilain.hpp"
+#include "VilainHeros.hpp"
 #include <vector>
 
 using namespace std;
@@ -48,7 +49,11 @@ int main()
 	ifstream fichierVilains = ouvrirFichierBinaire("vilains.bin");
 
 	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
+	Heros h = { "Heros", "JeuHeros", "NomEnnemi" };
+	Vilain v = { "Vilain", "JeuVilain", "ObjectifVilain" };
+	VilainHeros vh = { v, h};
 
+	vh.afficher(cout);
 
 
 

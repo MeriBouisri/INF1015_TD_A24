@@ -20,14 +20,21 @@ class Vilain : public Personnage {
         Vilain() = default;
         Vilain(const string& nom, const string& jeuParution, const string& objectif) : Personnage(nom, jeuParution), objectif_(objectif) {}
 
-        // TODO : Move to cpp
-        ostream& afficher(ostream& fluxSortie) override {
-            Personnage::afficher(fluxSortie)
-                << "Objectif : " << objectif_;
-            
-            return fluxSortie;
+        Vilain(const Vilain& vilain) : Personnage(vilain), objectif_(vilain.objectif_) {}
+
+        string getObjectif() const {
+            return objectif_;
         }
 
-    private:
+        ostream& afficher(ostream& fluxSortie) override {
+            return Personnage::afficher(fluxSortie);
+        }
+
+    protected:
         string objectif_;
+
+        ostream& afficherSupplement(ostream& os) override {
+            return os << "Objectif : " << objectif_;
+        }
+
 };

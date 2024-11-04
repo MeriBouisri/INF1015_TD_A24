@@ -17,12 +17,14 @@ using namespace std;
 
 
 class Heros : public Personnage {
-    
+
     public:
         Heros() = default;
         Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi) {
             nomsAllies_= {};
         }
+
+        Heros(const Heros& heros) : Personnage(heros), nomEnnemi_(heros.nomEnnemi_), nomsAllies_(heros.nomsAllies_) {}
 
         string getNomEnnemi() const {
             return nomEnnemi_;
@@ -33,22 +35,23 @@ class Heros : public Personnage {
             return nomsAllies_;
         }
 
-
-        // TODO : Move to cpp
         ostream& afficher(ostream& fluxSortie) override {
-            Personnage::afficher(fluxSortie)
-                << "Ennemi : " << nomEnnemi_
-                << "\nAllies :";
-
-            for (const auto& a : nomsAllies_)
-                fluxSortie << "\t\n" << a << " ";
-            
-            return fluxSortie;
+            return Personnage::afficher(fluxSortie);
         }
 
 
-
-    private:
+    protected:
         vector<string> nomsAllies_; // TODO : maybe not right type
         string nomEnnemi_;
+        
+        ostream& afficherSupplement(ostream& os) override {
+            os << "Ennemi : " << nomEnnemi_
+                << "\nAllies :";
+
+            for (const auto& a : nomsAllies_)
+                os << "\t\n" << a << " ";
+
+            return os << endl;
+        }
+
 };

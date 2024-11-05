@@ -23,12 +23,6 @@ public:
 	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi), nomsAllies_({}) {
 	}
 
-	Heros(const Heros& heros) : Personnage(heros), nomEnnemi_(heros.nomEnnemi_), nomsAllies_(heros.nomsAllies_) {}
-
-	Heros(ifstream& fichier) {
-		// TODO : Lecture fichier heros
-	}
-
 	string getNomEnnemi() const {
 		return nomEnnemi_;
 	}
@@ -46,7 +40,7 @@ public:
 	}
 
 protected:
-	ostream& afficherSupplement(ostream& os) override;
+	ostream& afficherSupplement(ostream& os);
 
 private:
 	vector<string> nomsAllies_; // TODO : maybe not right type

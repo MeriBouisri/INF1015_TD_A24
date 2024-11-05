@@ -38,8 +38,6 @@ public:
 	}
 
 protected:
-	virtual ostream& afficherSupplement(ostream& os) = 0;
-
 	void setNom(const string& nom) {
 		nom_ = nom;
 	}

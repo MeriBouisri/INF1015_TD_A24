@@ -10,7 +10,7 @@
 
 ostream& Vilain::afficher(ostream& os) {
 	Personnage::afficher(os);
-	return afficherSupplement(os);
+	return afficherSupplement(os) << "\n";
 }
 
 ostream& Vilain::afficherSupplement(ostream& os) {

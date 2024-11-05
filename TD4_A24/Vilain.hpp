@@ -21,12 +21,6 @@ public:
 	Vilain() = default;
 	Vilain(const string& nom, const string& jeuParution, const string& objectif) : Personnage(nom, jeuParution), objectif_(objectif) {}
 
-	Vilain(const Vilain& vilain) : Personnage(vilain), objectif_(vilain.objectif_) {}
-
-	Vilain(ifstream& fichier) {
-		// TODO : Lecture fichier vilain
-	}
-
 	string getObjectif() const {
 		return objectif_;
 	}
@@ -37,7 +31,7 @@ public:
 	ostream& changerCouleur(ostream& os, int theme) override;
 
 protected:
-	ostream& afficherSupplement(ostream& os) override;
+	ostream& afficherSupplement(ostream& os);
 
 
 

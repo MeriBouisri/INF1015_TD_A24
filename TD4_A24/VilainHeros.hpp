@@ -9,7 +9,6 @@
 #pragma once
 
 #include "Heros.hpp"
-#include "Personnage.hpp"
 #include "Vilain.hpp"
 #include <string>
 #include <vector>
@@ -33,7 +32,7 @@ public:
 
 
 protected:
-	ostream& afficherSupplement(ostream& os) override;
+	ostream& afficherSupplement(ostream& os);
 
 private:
 	string missionSpeciale_;

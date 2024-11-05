@@ -29,22 +29,6 @@ void testsPourCouvertureLectureBinaire()
 	assert(lireUintTailleVariable(iss) == 0xFEDCBA98);
 }
 
-void test() {
-
-
-	// TODO : Random tests. remove 
-
-	Heros heros = { "nomHeros", "jeuHeros", "nomEnnemi" };
-	Vilain vilain = { "nomVilain", "jeuVilain", "objectif" };
-	VilainHeros vilainHeros = { vilain, heros };
-
-	//heros.afficher(heros.changerCouleur(cout));
-	//vilain.afficher(vilain.changerCouleur(cout));
-	//vilainHeros.afficher(vilainHeros.changerCouleur(cout));
-
-	// terminal back to normal color
-	cout << "\033[0m";
-}
 
 int main()
 {
@@ -68,7 +52,7 @@ int main()
 
 
 	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
-	vector<Heros> heros;
+	vector<Heros> listeHeros;
 	vector<Vilain> vilains;
 	vector<unique_ptr<Personnage>> personnages;
 
@@ -76,38 +60,59 @@ int main()
 	size_t nHeros = lireUintTailleVariable(fichierHeros);
 
 	// Lecture et création des héros
-	for (int i = 0; i < nHeros; i++) {
-		Heros heroLu(lireString(fichierHeros), lireString(fichierHeros), lireString(fichierHeros));
+	for (auto i = 0; i < nHeros; i++) {
+		string nom = lireString(fichierHeros);
+		string jeuParution = lireString(fichierHeros);
+		string ennemi = lireString(fichierHeros);
+		Heros herosLu(nom, jeuParution, ennemi);
 
 		size_t nAllies = lireUintTailleVariable(fichierHeros);
-		for (int j = 0; j < nAllies; j++) {
-			heroLu.ajouterAllie(lireString(fichierHeros));
+		for (auto j = 0; j < nAllies; j++) {
+			herosLu.ajouterAllie(lireString(fichierHeros));
 		}
-		heros.push_back(heroLu);
+		listeHeros.push_back(herosLu);
+		personnages.push_back(move(make_unique<Heros>(herosLu)));
 	}
 
 	// Lecture du nombre de vilains
 	size_t nVilains = lireUintTailleVariable(fichierVilains);
 
 	// Lecture et création des vilains
-	for (int i = 0; i < nVilains; i++) {
-		Vilain vilain(lireString(fichierHeros), lireString(fichierHeros), lireString(fichierHeros));
+	for (auto i = 0; i < nVilains; i++) {
+		string nom = lireString(fichierVilains);
+		string jeuParution = lireString(fichierVilains);
+		string objectif = lireString(fichierVilains);
 
-		size_t nAllies = lireUintTailleVariable(fichierHeros);
-		for (int j = 0; j < nAllies; j++) {
-			h.ajouterAllie(lireString(fichierHeros));
-		}
-		heros.push_back(h);
+		Vilain vilainLu(nom, jeuParution, objectif);
+		vilains.push_back(vilainLu);
+		personnages.push_back(move(make_unique<Vilain>(vilainLu)));
 	}
 
-
-
-	for (auto&& elem : heros) {
+	// Affichage des héros
+	for (auto&& elem : listeHeros) {
 		elem.afficher(cout);
 	}
 
+	// Affichage des vilains
+	for (auto&& elem : vilains) {
+		elem.afficher(cout);
+	}
 
+	// Affichage des personnages
+	for (auto&& elem : personnages) {
+		elem->afficher(cout);
+	}
 
+	// Création d'un VilainHéros
+	VilainHeros vilainHeros(vilains[4], listeHeros[2]);
+	vilainHeros.afficher(cout);
 
-	test();
+	// Vérification de l'affichage adapté
+	personnages.push_back(move(make_unique<VilainHeros>(vilainHeros)));
+
+	// Affichage des personnages
+	for (auto&& elem : personnages) {
+		elem->afficher(cout);
+	}
+
 }

@@ -72,18 +72,41 @@ int main()
 	vector<Vilain> vilains;
 	vector<unique_ptr<Personnage>> personnages;
 
-	size_t tailleHeros = lireUintTailleVariable(fichierHeros);
+	// Lecture du nombre de héros
+	size_t nHeros = lireUintTailleVariable(fichierHeros);
 
-	for (int i = 0; i < tailleHeros; i++) {
-		string nom = lireString(fichierHeros);
-		string
-			cout << lireString(fichierHeros);
-		cout << lireString(fichierHeros);
-		size_t k = lireUintTailleVariable(fichierHeros);
-		for (int j = 0; j < k; j++) {
-			cout << lireString(fichierHeros);
+	// Lecture et création des héros
+	for (int i = 0; i < nHeros; i++) {
+		Heros heroLu(lireString(fichierHeros), lireString(fichierHeros), lireString(fichierHeros));
+
+		size_t nAllies = lireUintTailleVariable(fichierHeros);
+		for (int j = 0; j < nAllies; j++) {
+			heroLu.ajouterAllie(lireString(fichierHeros));
 		}
+		heros.push_back(heroLu);
 	}
+
+	// Lecture du nombre de vilains
+	size_t nVilains = lireUintTailleVariable(fichierVilains);
+
+	// Lecture et création des vilains
+	for (int i = 0; i < nVilains; i++) {
+		Vilain vilain(lireString(fichierHeros), lireString(fichierHeros), lireString(fichierHeros));
+
+		size_t nAllies = lireUintTailleVariable(fichierHeros);
+		for (int j = 0; j < nAllies; j++) {
+			h.ajouterAllie(lireString(fichierHeros));
+		}
+		heros.push_back(h);
+	}
+
+
+
+	for (auto&& elem : heros) {
+		elem.afficher(cout);
+	}
+
+
 
 
 	test();

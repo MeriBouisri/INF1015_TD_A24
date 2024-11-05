@@ -13,6 +13,9 @@
 #include "Personnage.hpp"
 #include "Heros.hpp"
 #include "Vilain.hpp"
+#include "VilainHeros.hpp"
+#include <vector>
+
 using namespace std;
 
 ifstream ouvrirFichierBinaire(const string& nomFichier)
@@ -28,6 +31,23 @@ void testsPourCouvertureLectureBinaire()
 	assert(lireUintTailleVariable(iss) == 0x12);
 	assert(lireUintTailleVariable(iss) == 0x4321);
 	assert(lireUintTailleVariable(iss) == 0xFEDCBA98);
+}
+
+void test() {
+
+
+	// TODO : Random tests. remove 
+
+	Heros heros = { "nomHeros", "jeuHeros", "nomEnnemi" };
+	Vilain vilain = { "nomVilain", "jeuVilain", "objectif" };
+	VilainHeros vilainHeros = {vilain, heros};
+
+	heros.afficher(heros.changerCouleur(cout));
+	vilain.afficher(vilain.changerCouleur(cout));
+	vilainHeros.afficher(vilainHeros.changerCouleur(cout));
+
+	// terminal back to normal color
+	cout << "\033[0m";
 }
 
 int main()
@@ -67,9 +87,11 @@ int main()
 	}
 
 	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
-	Vilain p = { "Nom", "Jeu" };
 
-	cout << p << endl;
+
+	
+	test();
+
 
 
 

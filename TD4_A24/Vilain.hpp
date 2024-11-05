@@ -29,6 +29,10 @@ class Vilain : public Personnage {
         ostream& afficher(ostream& fluxSortie) override {
             return Personnage::afficher(fluxSortie);
         }
+        
+        ostream& changerCouleur(ostream& fluxSortie, int theme = 91) override {
+            return Personnage::changerCouleur(fluxSortie, theme);
+        }
 
     protected:
         string objectif_;

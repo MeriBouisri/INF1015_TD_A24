@@ -29,6 +29,22 @@ void testsPourCouvertureLectureBinaire()
 	assert(lireUintTailleVariable(iss) == 0xFEDCBA98);
 }
 
+void test() {
+
+
+	// TODO : Random tests. remove 
+
+	Heros heros = { "nomHeros", "jeuHeros", "nomEnnemi" };
+	Vilain vilain = { "nomVilain", "jeuVilain", "objectif" };
+	VilainHeros vilainHeros = {vilain, heros};
+
+	heros.afficher(heros.changerCouleur(cout));
+	vilain.afficher(vilain.changerCouleur(cout));
+
+	// terminal back to normal color
+	cout << "\033[0m";
+}
+
 int main()
 {
 	#pragma region "Bibliothèque du cours"
@@ -49,11 +65,9 @@ int main()
 	ifstream fichierVilains = ouvrirFichierBinaire("vilains.bin");
 
 	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
-	Heros h = { "Heros", "JeuHeros", "NomEnnemi" };
-	Vilain v = { "Vilain", "JeuVilain", "ObjectifVilain" };
-	VilainHeros vh = { v, h};
 
-	vh.afficher(cout);
+	
+	test();
 
 
 

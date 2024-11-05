@@ -20,6 +20,7 @@ class Personnage : public Affichable {
     public:
         Personnage() = default;
         Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
+        Personnage(const Personnage& personnage) : nom_(personnage.nom_), jeuParution_(personnage.jeuParution_) {}
 
         string getNom() const {
             return nom_;
@@ -39,8 +40,8 @@ class Personnage : public Affichable {
         }
 
         // TODO : Move to cpp
-        ostream& changerCouleur(ostream& fluxSortie, int theme) override {
-            return fluxSortie;
+        ostream& changerCouleur(ostream& fluxSortie, int theme = 0) override {
+            return fluxSortie << "\033[" << theme << "m";
         }
 
 

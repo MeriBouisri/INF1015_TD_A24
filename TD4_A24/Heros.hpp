@@ -39,6 +39,10 @@ class Heros : public Personnage {
             return Personnage::afficher(fluxSortie);
         }
 
+        ostream& changerCouleur(ostream& fluxSortie, int theme = 94) override {
+            return Personnage::changerCouleur(fluxSortie, theme);
+        }
+
 
     protected:
         vector<string> nomsAllies_; // TODO : maybe not right type
@@ -51,7 +55,7 @@ class Heros : public Personnage {
             for (const auto& a : nomsAllies_)
                 os << "\t\n" << a << " ";
 
-            return os << endl;
+            return os;
         }
 
 };

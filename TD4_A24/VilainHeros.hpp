@@ -34,8 +34,8 @@ class VilainHeros : public Vilain, public Heros {
 
     protected:
         ostream& afficherSupplement(ostream& os) override {
-            Vilain::afficherSupplement(os);
-            Heros::afficherSupplement(os);
+            Vilain::afficherSupplement(os) << endl;
+            Heros::afficherSupplement(os) << endl;
 
             return os << "Mission speciale : " << missionSpeciale_;
         }

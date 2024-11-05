@@ -21,6 +21,7 @@ class VilainHeros : public Vilain, public Heros {
     public:
         VilainHeros() = default;
         VilainHeros(const Vilain& vilain, const Heros& heros) : Vilain(vilain), Heros(heros) {
+            // TODO : changing nom_ here changes Vilain::nom_ too?
             Personnage::nom_ = vilain.getNom() + "-" + heros.getNom();
             Personnage::jeuParution_ = vilain.getJeuParution() + "-" + heros.getJeuParution();
             missionSpeciale_ = vilain.getObjectif() + " dans le monde de " + heros.getJeuParution();

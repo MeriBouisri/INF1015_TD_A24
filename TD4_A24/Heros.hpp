@@ -26,6 +26,10 @@ class Heros : public Personnage {
 
         Heros(const Heros& heros) : Personnage(heros), nomEnnemi_(heros.nomEnnemi_), nomsAllies_(heros.nomsAllies_) {}
 
+        Heros(ifstream& fichier) {
+            // TODO : Lecture fichier heros
+        }
+
         string getNomEnnemi() const {
             return nomEnnemi_;
         }

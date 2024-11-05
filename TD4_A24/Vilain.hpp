@@ -22,6 +22,10 @@ class Vilain : public Personnage {
 
         Vilain(const Vilain& vilain) : Personnage(vilain), objectif_(vilain.objectif_) {}
 
+        Vilain(ifstream& fichier) {
+            // TODO : Lecture fichier vilain
+        }
+
         string getObjectif() const {
             return objectif_;
         }

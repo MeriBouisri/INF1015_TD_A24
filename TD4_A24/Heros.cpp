@@ -25,10 +25,10 @@ ostream& Heros::afficherSupplement(ostream& os) {
 ostream& Heros::changerCouleur(ostream& os, int theme) {
 	switch (theme) {
 	case 0:
-		os << "\033[30m";
+		os << "\033[38;5;214m";
 		break;
-	case 1:
-		os << "\033[17m";
+	default:
+		os << "\033[38;5;37m";
 		break;
 	}
 	return os;

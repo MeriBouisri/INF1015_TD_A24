@@ -7,10 +7,7 @@
 */
 
 #include "VilainHeros.hpp"
-VilainHeros::VilainHeros(const Vilain& vilain, const Heros& heros) : Vilain(vilain), Heros(heros), missionSpeciale_(vilain.getObjectif() + " dans le monde de " + heros.getJeuParution()) {
-	Personnage::setNom(vilain.getNom() + "-" + heros.getNom());
-	Personnage::setJeuParution(vilain.getJeuParution() + "-" + heros.getJeuParution());
-	// TODO : Changer couleur 
+VilainHeros::VilainHeros(const Vilain& vilain, const Heros& heros) : Personnage(vilain.getNom() + "-" + heros.getNom(), vilain.getJeuParution() + "-" + heros.getJeuParution()), Vilain(vilain), Heros(heros), missionSpeciale_(vilain.getObjectif() + " dans le monde de " + heros.getJeuParution()) {
 }
 
 ostream& VilainHeros::afficher(ostream& os) {
@@ -27,10 +24,10 @@ ostream& VilainHeros::afficherSupplement(ostream& os) {
 ostream& VilainHeros::changerCouleur(ostream& os, int theme) {
 	switch (theme) {
 	case 0:
-		os << "\033[15m";
+		os << "\033[38;5;201m";
 		break;
-	case 1:
-		os << "\033[214m";
+	default:
+		os << "\033[38;5;93m";
 		break;
 	}
 	return os;

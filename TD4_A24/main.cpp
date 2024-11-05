@@ -65,14 +65,26 @@ int main()
 	ifstream fichierHeros = ouvrirFichierBinaire("heros.bin");
 	ifstream fichierVilains = ouvrirFichierBinaire("vilains.bin");
 
-	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
 
+
+	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
+	vector<Heros> heros;
+	vector<Vilain> vilains;
+	vector<unique_ptr<Personnage>> personnages;
+
+	size_t tailleHeros = lireUintTailleVariable(fichierHeros);
+
+	for (int i = 0; i < tailleHeros; i++) {
+		string nom = lireString(fichierHeros);
+		string
+			cout << lireString(fichierHeros);
+		cout << lireString(fichierHeros);
+		size_t k = lireUintTailleVariable(fichierHeros);
+		for (int j = 0; j < k; j++) {
+			cout << lireString(fichierHeros);
+		}
+	}
 
 
 	test();
-
-
-
-
-
 }

@@ -21,10 +21,10 @@ ostream& Vilain::afficherSupplement(ostream& os) {
 ostream& Vilain::changerCouleur(ostream& os, int theme) {
 	switch (theme) {
 	case 0:
-		os << "\033[196m";
+		os << "\033[38;5;226m";
 		break;
-	case 1:
-		os << "\033[11m";
+	default:
+		os << "\033[38;5;33m";
 		break;
 	}
 	return os;

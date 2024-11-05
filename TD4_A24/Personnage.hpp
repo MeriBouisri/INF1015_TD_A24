@@ -22,6 +22,7 @@ public:
 	Personnage() = default;
 	Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
 	Personnage(const Personnage& personnage) : nom_(personnage.nom_), jeuParution_(personnage.jeuParution_) {}
+	virtual ~Personnage() = default;
 
 
 	string getJeuParution() const {
@@ -30,9 +31,7 @@ public:
 
 	ostream& afficher(ostream& os) override;
 
-	ostream& changerCouleur(ostream& os, int theme) override {
-		return os;
-	}
+	ostream& changerCouleur(ostream& os, int theme) override;
 
 	string getNom() const {
 		return nom_;

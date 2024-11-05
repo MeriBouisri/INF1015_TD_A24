@@ -15,7 +15,7 @@ using namespace std;
 
 
 
-class Vilain : public Personnage {
+class Vilain : virtual public Personnage {
 
 public:
 	Vilain() = default;

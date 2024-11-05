@@ -11,3 +11,15 @@
 ostream& Personnage::afficher(ostream& os) {
 	return os << "Nom : " << nom_ << "\n" << "Parution : " << jeuParution_ << "\n";
 }
+
+ostream& Personnage::changerCouleur(ostream& os, int theme) {
+	switch (theme) {
+	case 0:
+		os << "\033[38;5;196m";
+		break;
+	default:
+		os << "\033[38;5;34m";
+		break;
+	}
+	return os;
+}

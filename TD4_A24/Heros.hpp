@@ -16,12 +16,11 @@ using namespace std;
 
 
 
-class Heros : public Personnage {
+class Heros : virtual public Personnage {
 
 public:
 	Heros() = default;
-	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi) {
-		nomsAllies_ = {};
+	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi), nomsAllies_({}) {
 	}
 
 	Heros(const Heros& heros) : Personnage(heros), nomEnnemi_(heros.nomEnnemi_), nomsAllies_(heros.nomsAllies_) {}
@@ -34,15 +33,17 @@ public:
 		return nomEnnemi_;
 	}
 
-	// TODO : encapsulation (ajouterAllies)
 	vector<string>& getNomsAllies() {
 		return nomsAllies_;
 	}
 
 	ostream& afficher(ostream& os) override;
 
-	// TODO : theme in constant
 	ostream& changerCouleur(ostream& os, int theme) override;
+
+	void ajouterAllie(const string& nomAllie) {
+		nomsAllies_.push_back(nomAllie);
+	}
 
 protected:
 	ostream& afficherSupplement(ostream& os) override;

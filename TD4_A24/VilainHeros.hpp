@@ -31,6 +31,11 @@ class VilainHeros : public Vilain, public Heros {
             return Personnage::afficher(fluxSortie);
         }
 
+        // TODO : theme in constant
+        ostream& changerCouleur(ostream& fluxSortie, int theme = 35) override {
+            return Personnage::changerCouleur(fluxSortie, theme);
+        }
+
 
     protected:
         ostream& afficherSupplement(ostream& os) override {

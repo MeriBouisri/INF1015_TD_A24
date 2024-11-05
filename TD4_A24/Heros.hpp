@@ -39,6 +39,7 @@ class Heros : public Personnage {
             return Personnage::afficher(fluxSortie);
         }
 
+        // TODO : theme in constant
         ostream& changerCouleur(ostream& fluxSortie, int theme = 94) override {
             return Personnage::changerCouleur(fluxSortie, theme);
         }

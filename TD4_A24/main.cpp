@@ -40,6 +40,7 @@ void test() {
 
 	heros.afficher(heros.changerCouleur(cout));
 	vilain.afficher(vilain.changerCouleur(cout));
+	vilainHeros.afficher(vilainHeros.changerCouleur(cout));
 
 	// terminal back to normal color
 	cout << "\033[0m";

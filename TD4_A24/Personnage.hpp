@@ -39,7 +39,8 @@ class Personnage : public Affichable {
             return afficherSupplement(fluxSortie);
         }
 
-        // TODO : Move to cpp
+        // TODO : MoVve to cpp
+        // TODO : theme in constant
         ostream& changerCouleur(ostream& fluxSortie, int theme = 0) override {
             return fluxSortie << "\033[" << theme << "m";
         }

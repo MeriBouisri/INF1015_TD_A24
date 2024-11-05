@@ -8,8 +8,9 @@
 
 #pragma once
 
-#include <string>
 #include "Affichable.hpp"
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -17,38 +18,38 @@ using namespace std;
 
 class Personnage : public Affichable {
 
-    public:
-        Personnage() = default;
-        Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
-        Personnage(const Personnage& personnage) : nom_(personnage.nom_), jeuParution_(personnage.jeuParution_) {}
-
-        string getNom() const {
-            return nom_;
-        }
-        
-        string getJeuParution() const {
-            return jeuParution_;
-        }
-        
-
-        // TODO : Move to cpp
-        ostream& afficher(ostream& fluxSortie) override {
-            fluxSortie << "\nNom : " << nom_
-                << "\nParution : " << jeuParution_ << endl;
-
-            return afficherSupplement(fluxSortie);
-        }
-
-        // TODO : MoVve to cpp
-        // TODO : theme in constant
-        ostream& changerCouleur(ostream& fluxSortie, int theme = 0) override {
-            return fluxSortie << "\033[" << theme << "m";
-        }
+public:
+	Personnage() = default;
+	Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
+	Personnage(const Personnage& personnage) : nom_(personnage.nom_), jeuParution_(personnage.jeuParution_) {}
 
 
-    protected:
-        string nom_;
-        string jeuParution_;
+	string getJeuParution() const {
+		return jeuParution_;
+	}
 
-        virtual ostream& afficherSupplement(ostream& os) = 0;
+	ostream& afficher(ostream& os) override;
+
+	ostream& changerCouleur(ostream& os, int theme) override {
+		return os;
+	}
+
+	string getNom() const {
+		return nom_;
+	}
+
+protected:
+	virtual ostream& afficherSupplement(ostream& os) = 0;
+
+	void setNom(const string& nom) {
+		nom_ = nom;
+	}
+
+	void setJeuParution(const string& jeuParution) {
+		jeuParution_ = jeuParution;
+	}
+
+private:
+	string nom_;
+	string jeuParution_;
 };

@@ -8,8 +8,8 @@
 
 #pragma once
 
-#include <string>
 #include "Personnage.hpp"
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -18,49 +18,36 @@ using namespace std;
 
 class Heros : public Personnage {
 
-    public:
-        Heros() = default;
-        Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi) {
-            nomsAllies_= {};
-        }
+public:
+	Heros() = default;
+	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi) {
+		nomsAllies_ = {};
+	}
 
-        Heros(const Heros& heros) : Personnage(heros), nomEnnemi_(heros.nomEnnemi_), nomsAllies_(heros.nomsAllies_) {}
+	Heros(const Heros& heros) : Personnage(heros), nomEnnemi_(heros.nomEnnemi_), nomsAllies_(heros.nomsAllies_) {}
 
-        Heros(ifstream& fichier) {
-            // TODO : Lecture fichier heros
-        }
+	Heros(ifstream& fichier) {
+		// TODO : Lecture fichier heros
+	}
 
-        string getNomEnnemi() const {
-            return nomEnnemi_;
-        }
+	string getNomEnnemi() const {
+		return nomEnnemi_;
+	}
 
-        // TODO : encapsulation (ajouterAllies)
-        vector<string>& getNomsAllies() {
-            return nomsAllies_;
-        }
+	// TODO : encapsulation (ajouterAllies)
+	vector<string>& getNomsAllies() {
+		return nomsAllies_;
+	}
 
-        ostream& afficher(ostream& fluxSortie) override {
-            return Personnage::afficher(fluxSortie);
-        }
+	ostream& afficher(ostream& os) override;
 
-        // TODO : theme in constant
-        ostream& changerCouleur(ostream& fluxSortie, int theme = 94) override {
-            return Personnage::changerCouleur(fluxSortie, theme);
-        }
+	// TODO : theme in constant
+	ostream& changerCouleur(ostream& os, int theme) override;
 
+protected:
+	ostream& afficherSupplement(ostream& os) override;
 
-    protected:
-        vector<string> nomsAllies_; // TODO : maybe not right type
-        string nomEnnemi_;
-        
-        ostream& afficherSupplement(ostream& os) override {
-            os << "Ennemi : " << nomEnnemi_
-                << "\nAllies :";
-
-            for (const auto& a : nomsAllies_)
-                os << "\t\n" << a << " ";
-
-            return os;
-        }
-
+private:
+	vector<string> nomsAllies_; // TODO : maybe not right type
+	string nomEnnemi_;
 };

@@ -1,13 +1,13 @@
-﻿#include "lectureBinaire.hpp"
-#include <fstream>
-#include <sstream>
+﻿#include "bibliotheque_cours.hpp"
+#include "lectureBinaire.hpp"
 #include <cassert>
+#include <fstream>
 #include <iostream>
-#include "bibliotheque_cours.hpp"
+#include <sstream>
 
 
-#include "Personnage.hpp"
 #include "Heros.hpp"
+#include "Personnage.hpp"
 #include "Vilain.hpp"
 #include "VilainHeros.hpp"
 #include <vector>
@@ -36,11 +36,11 @@ void test() {
 
 	Heros heros = { "nomHeros", "jeuHeros", "nomEnnemi" };
 	Vilain vilain = { "nomVilain", "jeuVilain", "objectif" };
-	VilainHeros vilainHeros = {vilain, heros};
+	VilainHeros vilainHeros = { vilain, heros };
 
-	heros.afficher(heros.changerCouleur(cout));
-	vilain.afficher(vilain.changerCouleur(cout));
-	vilainHeros.afficher(vilainHeros.changerCouleur(cout));
+	//heros.afficher(heros.changerCouleur(cout));
+	//vilain.afficher(vilain.changerCouleur(cout));
+	//vilainHeros.afficher(vilainHeros.changerCouleur(cout));
 
 	// terminal back to normal color
 	cout << "\033[0m";
@@ -48,13 +48,13 @@ void test() {
 
 int main()
 {
-	#pragma region "Bibliothèque du cours"
+#pragma region "Bibliothèque du cours"
 	// Permet sous Windows les "ANSI escape code" pour changer de couleur
 	// https://en.wikipedia.org/wiki/ANSI_escape_code ; les consoles Linux/Mac
 	// les supportent normalement par défaut.
 	bibliotheque_cours::activerCouleursAnsi();
-	#pragma endregion
-	
+#pragma endregion
+
 	testsPourCouvertureLectureBinaire();
 
 	// Trait de separation
@@ -68,7 +68,7 @@ int main()
 	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
 
 
-	
+
 	test();
 
 

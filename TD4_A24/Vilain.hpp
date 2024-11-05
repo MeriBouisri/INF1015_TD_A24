@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "Personnage.hpp"
 #include <string>
 
 using namespace std;
@@ -15,35 +16,31 @@ using namespace std;
 
 
 class Vilain : public Personnage {
-    
-    public:
-        Vilain() = default;
-        Vilain(const string& nom, const string& jeuParution, const string& objectif) : Personnage(nom, jeuParution), objectif_(objectif) {}
 
-        Vilain(const Vilain& vilain) : Personnage(vilain), objectif_(vilain.objectif_) {}
+public:
+	Vilain() = default;
+	Vilain(const string& nom, const string& jeuParution, const string& objectif) : Personnage(nom, jeuParution), objectif_(objectif) {}
 
-        Vilain(ifstream& fichier) {
-            // TODO : Lecture fichier vilain
-        }
+	Vilain(const Vilain& vilain) : Personnage(vilain), objectif_(vilain.objectif_) {}
 
-        string getObjectif() const {
-            return objectif_;
-        }
+	Vilain(ifstream& fichier) {
+		// TODO : Lecture fichier vilain
+	}
 
-        ostream& afficher(ostream& fluxSortie) override {
-            return Personnage::afficher(fluxSortie);
-        }
-        
-        // TODO : theme in constant
-        ostream& changerCouleur(ostream& fluxSortie, int theme = 91) override {
-            return Personnage::changerCouleur(fluxSortie, theme);
-        }
+	string getObjectif() const {
+		return objectif_;
+	}
 
-    protected:
-        string objectif_;
+	ostream& afficher(ostream& os) override;
 
-        ostream& afficherSupplement(ostream& os) override {
-            return os << "Objectif : " << objectif_;
-        }
+	// TODO : theme in constant
+	ostream& changerCouleur(ostream& os, int theme) override;
 
+protected:
+	ostream& afficherSupplement(ostream& os) override;
+
+
+
+private:
+	string objectif_;
 };

@@ -8,48 +8,35 @@
 
 #pragma once
 
-#include <string>
+#include "Heros.hpp"
 #include "Personnage.hpp"
+#include "Vilain.hpp"
+#include <string>
 #include <vector>
+
+
 
 using namespace std;
 
 
 
 class VilainHeros : public Vilain, public Heros {
-    
-    public:
-        VilainHeros() = default;
-        VilainHeros(const Vilain& vilain, const Heros& heros) : Vilain(vilain), Heros(heros) {
-            // TODO : changing nom_ here changes Vilain::nom_ too?
-            Personnage::nom_ = vilain.getNom() + "-" + heros.getNom();
-            Personnage::jeuParution_ = vilain.getJeuParution() + "-" + heros.getJeuParution();
-            missionSpeciale_ = vilain.getObjectif() + " dans le monde de " + heros.getJeuParution();
-            // TODO : Changer couleur 
-        }
 
-        ostream& afficher(ostream& fluxSortie) override {
-            return Personnage::afficher(fluxSortie);
-        }
+public:
+	VilainHeros() = default;
+	VilainHeros(const Vilain& vilain, const Heros& heros);
 
-        // TODO : theme in constant
-        ostream& changerCouleur(ostream& fluxSortie, int theme = 35) override {
-            return Personnage::changerCouleur(fluxSortie, theme);
-        }
+	ostream& afficher(ostream& os) override;
+
+	// TODO : theme in constant
+	ostream& changerCouleur(ostream& os, int theme) override;
 
 
-    protected:
-        ostream& afficherSupplement(ostream& os) override {
-            Vilain::afficherSupplement(os) << endl;
-            Heros::afficherSupplement(os) << endl;
+protected:
+	ostream& afficherSupplement(ostream& os) override;
 
-            return os << "Mission speciale : " << missionSpeciale_;
-        }
-
-        
-
-    private:
-        string missionSpeciale_;
+private:
+	string missionSpeciale_;
 
 
 };

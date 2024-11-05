@@ -15,8 +15,8 @@ using namespace std;
 
 
 class Heros : public Personnage {
-    
-    public:
-        Heros() = default;
-        Heros(const string& nom, const string& jeuParution) : Personnage(nom, jeuParution) {}
+
+public:
+	Heros() = default;
+	Heros(const string& nom, const string& jeuParution) : Personnage(nom, jeuParution) {}
 };

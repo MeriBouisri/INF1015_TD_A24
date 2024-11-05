@@ -8,31 +8,37 @@
 
 #pragma once
 
+#include "Affichable.hpp"
 #include <string>
 
 using namespace std;
 
+class Personnage : public Affichable {
 
+public:
+	Personnage() = default;
+	Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
 
-class Personnage {
+	virtual ostream& afficher(ostream& fluxSortie) override {
+		return fluxSortie << *this;
+	}
 
-    public:
-        Personnage() = default;
-        Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
+	virtual ostream& changerCouleur(ostream& fluxSortie, int theme) override {
+	}
 
-        string getNom() const {
-            return nom_;
-        }
-        string getJeuParution() const {
-            return jeuParution_;
-        }
+	string getNom() const {
+		return nom_;
+	}
+	string getJeuParution() const {
+		return jeuParution_;
+	}
 
-        friend ostream& operator<<(ostream& os, const Personnage& p) {
-            return os << "Nom : " << p.nom_
-                << "\nParution : " << p.jeuParution_ << endl;
-        }
+	friend ostream& operator<<(ostream& os, const Personnage& p) {
+		return os << "Nom : " << p.nom_
+			<< "\nParution : " << p.jeuParution_ << endl;
+	}
 
-    private:
-        string nom_;
-        string jeuParution_;
+private:
+	string nom_;
+	string jeuParution_;
 };

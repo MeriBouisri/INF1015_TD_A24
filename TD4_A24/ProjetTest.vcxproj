@@ -176,7 +176,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Affichable.hpp" />
+    <ClInclude Include="Heros.hpp" />
     <ClInclude Include="lectureBinaire.hpp" />
+    <ClInclude Include="Personnage.hpp" />
+    <ClInclude Include="Vilain.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

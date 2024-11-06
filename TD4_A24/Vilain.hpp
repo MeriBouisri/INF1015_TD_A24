@@ -10,6 +10,7 @@
 
 #include "Personnage.hpp"
 #include <string>
+#include "verification_allocation.hpp"
 
 using namespace std;
 

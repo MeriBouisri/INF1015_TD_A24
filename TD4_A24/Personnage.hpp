@@ -11,6 +11,7 @@
 #include "Affichable.hpp"
 #include <iostream>
 #include <string>
+#include "verification_allocation.hpp"
 
 using namespace std;
 

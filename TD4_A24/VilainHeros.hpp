@@ -12,6 +12,7 @@
 #include "Vilain.hpp"
 #include <string>
 #include <vector>
+#include "verification_allocation.hpp"
 
 
 

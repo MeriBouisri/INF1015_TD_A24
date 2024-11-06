@@ -1,5 +1,14 @@
-﻿#include "bibliotheque_cours.hpp"
+﻿/**
+* TD4 - Automne 2024
+* Lecture et affichage des objets Personnage.
+* \file   main.cpp
+* \author Bouisri et Xa
+* \date   05 novembre 2024
+* Cree le 04 novembre 2024
+*/
+#include "bibliotheque_cours.hpp"
 #include "lectureBinaire.hpp"
+#include "verification_allocation.hpp"
 #include <cassert>
 #include <fstream>
 #include <iostream>

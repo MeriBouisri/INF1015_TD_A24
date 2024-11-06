@@ -9,7 +9,6 @@
 #include "Vilain.hpp"
 
 ostream& Vilain::afficher(ostream& os) const {
-	//Vilain::changerCouleur(os, 1);
 	Personnage::afficher(os);
 	return afficherSupplement(os) << "\n\n";
 }

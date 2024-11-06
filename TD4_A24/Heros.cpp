@@ -14,7 +14,7 @@ ostream& Heros::afficher(ostream& os) {
 }
 
 ostream& Heros::afficherSupplement(ostream& os) {
-	os << "Ennemi : " << nomEnnemi_ << "\nAlliés :" << "\n";
+	os << "Ennemi : " << nomEnnemi_ << "\nAlliï¿½s :" << "\n";
 	for (const auto& a : nomsAllies_) {
 		os << "\t" << a << "\n";
 	}

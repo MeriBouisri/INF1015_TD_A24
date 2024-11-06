@@ -9,5 +9,6 @@
 #include "Personnage.hpp"
 
 ostream& Personnage::afficher(ostream& os) {
+	this->changerCouleur(os, 1);
 	return os << "Nom : " << nom_ << "\n" << "Parution : " << jeuParution_ << "\n";
 }

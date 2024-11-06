@@ -28,7 +28,6 @@ public:
 
 	ostream& afficher(ostream& os) const override;
 
-	// TODO : theme in constant
 	ostream& changerCouleur(ostream& os, int theme) const override;
 
 protected:

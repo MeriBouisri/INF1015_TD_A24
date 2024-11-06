@@ -60,7 +60,7 @@ int main()
 
 
 
-	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
+	//Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
 	vector<Heros> listeHeros;
 	vector<Vilain> vilains;
 	vector<unique_ptr<Personnage>> personnages;

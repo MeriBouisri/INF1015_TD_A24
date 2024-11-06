@@ -1,11 +1,12 @@
 ﻿/**
 * TD4 - Automne 2024
-* Lecture et affichage des objets Personnage.
+* Lecture et affichage de personnages de jeux vidéo
 * \file   main.cpp
 * \author Bouisri et Xa
-* \date   05 novembre 2024
-* Cree le 04 novembre 2024
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
 */
+
 #include "bibliotheque_cours.hpp"
 #include "lectureBinaire.hpp"
 #include "verification_allocation.hpp"
@@ -58,9 +59,7 @@ int main()
 	ifstream fichierHeros = ouvrirFichierBinaire("heros.bin");
 	ifstream fichierVilains = ouvrirFichierBinaire("vilains.bin");
 
-
-
-	//Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
+	// Création des trois vecteurs
 	vector<Heros> listeHeros;
 	vector<Vilain> vilains;
 	vector<unique_ptr<Personnage>> personnages;
@@ -68,7 +67,7 @@ int main()
 	// Lecture du nombre de héros
 	size_t nHeros = lireUintTailleVariable(fichierHeros);
 
-	// Lecture et création des héros
+	// Lecture, création et ajout des héros
 	for (auto i = 0; i < nHeros; i++) {
 		string nom = lireString(fichierHeros);
 		string jeuParution = lireString(fichierHeros);
@@ -86,7 +85,7 @@ int main()
 	// Lecture du nombre de vilains
 	size_t nVilains = lireUintTailleVariable(fichierVilains);
 
-	// Lecture et création des vilains
+	// Lecture, création et ajout des vilains
 	for (auto i = 0; i < nVilains; i++) {
 		string nom = lireString(fichierVilains);
 		string jeuParution = lireString(fichierVilains);
@@ -119,7 +118,7 @@ int main()
 	cout << TRAIT << "\n\n";
 
 	// Création et affichage d'un VilainHéros
-	VilainHeros vilainHeros(vilains[4], listeHeros[2]);
+	VilainHeros vilainHeros(vilains[8], listeHeros[3]);
 	vilainHeros.afficher(cout);
 
 	// Vérification de l'affichage adapté

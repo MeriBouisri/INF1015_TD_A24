@@ -1,21 +1,19 @@
 /**
-* Classe Personnage
+* Classe représentant un personnage
 * \file   Personnage.hpp
 * \author Bouisri et Xa
-* \date   05 novembre 2024 2024
-* Cree le 24 novembre 2024
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
 */
 
 #pragma once
 
 #include "Affichable.hpp"
+#include "verification_allocation.hpp"
 #include <iostream>
 #include <string>
-#include "verification_allocation.hpp"
 
 using namespace std;
-
-
 
 class Personnage : public Affichable {
 
@@ -28,6 +26,7 @@ public:
 		return jeuParution_;
 	}
 
+
 	ostream& afficher(ostream& os) const override;
 
 
@@ -35,8 +34,10 @@ public:
 		return nom_;
 	}
 
+
 protected:
-	virtual ostream& afficherSupplement(ostream& os) const = 0;
+	virtual string getInformationsSupplementaires() const = 0;
+
 
 private:
 	string nom_;

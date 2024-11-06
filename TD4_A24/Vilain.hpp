@@ -1,38 +1,34 @@
 /**
-* Classe Vilain
+* Classe représentant un vilain
 * \file   Vilain.hpp
 * \author Bouisri et Xa
-* \date   05 novembre 2024 2024
-* Cree le 04 novembre 2024
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
 */
 
 #pragma once
 
 #include "Personnage.hpp"
-#include <string>
 #include "verification_allocation.hpp"
+#include <string>
 
 using namespace std;
 
-
-
 class Vilain : virtual public Personnage {
-
 public:
-	Vilain() = default;
 	Vilain(const string& nom, const string& jeuParution, const string& objectif) : Personnage(nom, jeuParution), objectif_(objectif) {}
+
 
 	string getObjectif() const {
 		return objectif_;
 	}
 
-	ostream& afficher(ostream& os) const override;
 
 	ostream& changerCouleur(ostream& os, int theme) const override;
 
-protected:
-	ostream& afficherSupplement(ostream& os) const override;
 
+protected:
+	string getInformationsSupplementaires() const override;
 
 
 private:

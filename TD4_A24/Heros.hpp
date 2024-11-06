@@ -23,14 +23,6 @@ public:
 	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi), nomsAllies_({}) {
 	}
 
-	string getNomEnnemi() const {
-		return nomEnnemi_;
-	}
-
-	vector<string>& getNomsAllies() {
-		return nomsAllies_;
-	}
-
 	ostream& afficher(ostream& os) override;
 
 	ostream& changerCouleur(ostream& os, int theme) override;

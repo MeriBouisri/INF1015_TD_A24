@@ -22,14 +22,11 @@ using namespace std;
 class VilainHeros : public Vilain, public Heros {
 
 public:
-	VilainHeros() = default;
 	VilainHeros(const Vilain& vilain, const Heros& heros);
 
 	ostream& afficher(ostream& os) override;
 
-	// TODO : theme in constant
 	ostream& changerCouleur(ostream& os, int theme) override;
-
 
 protected:
 	ostream& afficherSupplement(ostream& os);

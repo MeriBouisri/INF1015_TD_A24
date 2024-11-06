@@ -25,13 +25,13 @@ public:
 		return objectif_;
 	}
 
-	ostream& afficher(ostream& os) override;
+	ostream& afficher(ostream& os) const override;
 
 	// TODO : theme in constant
-	ostream& changerCouleur(ostream& os, int theme) override;
+	ostream& changerCouleur(ostream& os, int theme) const override;
 
 protected:
-	ostream& afficherSupplement(ostream& os);
+	ostream& afficherSupplement(ostream& os) const override;
 
 
 

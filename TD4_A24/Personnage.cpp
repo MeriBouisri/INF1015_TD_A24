@@ -8,6 +8,6 @@
 
 #include "Personnage.hpp"
 
-ostream& Personnage::afficher(ostream& os) {
+ostream& Personnage::afficher(ostream& os) const {
 	return os << "Nom : " << nom_ << "\n" << "Parution : " << jeuParution_ << "\n";
 }

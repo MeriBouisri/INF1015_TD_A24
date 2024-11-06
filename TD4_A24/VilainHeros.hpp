@@ -24,12 +24,12 @@ class VilainHeros : public Vilain, public Heros {
 public:
 	VilainHeros(const Vilain& vilain, const Heros& heros);
 
-	ostream& afficher(ostream& os) override;
+	ostream& afficher(ostream& os) const override;
 
-	ostream& changerCouleur(ostream& os, int theme) override;
+	ostream& changerCouleur(ostream& os, int theme) const override;
 
 protected:
-	ostream& afficherSupplement(ostream& os);
+	ostream& afficherSupplement(ostream& os) const override;
 
 private:
 	string missionSpeciale_;

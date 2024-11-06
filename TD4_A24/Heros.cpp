@@ -8,21 +8,20 @@
 
 #include "Heros.hpp"
 
-ostream& Heros::afficher(ostream& os) {
+ostream& Heros::afficher(ostream& os) const {
 	Personnage::afficher(os);
-	return afficherSupplement(os);
+	return afficherSupplement(os) << "\n";
 }
 
-ostream& Heros::afficherSupplement(ostream& os) {
+ostream& Heros::afficherSupplement(ostream& os) const {
 	os << "Ennemi : " << nomEnnemi_ << "\nAlliés :" << "\n";
 	for (const auto& a : nomsAllies_) {
 		os << "\t" << a << "\n";
 	}
-
-	return os << "\n";
+	return os;
 }
 
-ostream& Heros::changerCouleur(ostream& os, int theme) {
+ostream& Heros::changerCouleur(ostream& os, int theme) const {
 	switch (theme) {
 	case 0:
 		os << "\033[38;5;214m";

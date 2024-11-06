@@ -42,7 +42,7 @@ int main()
 	testsPourCouvertureLectureBinaire();
 
 	// Trait de separation
-	static const string trait =
+	static const string TRAIT =
 		"═════════════════════════════════════════════════════════════════════════";
 
 	// Ouverture des fichiers binaires
@@ -93,26 +93,33 @@ int main()
 		elem.afficher(cout);
 	}
 
+	cout << TRAIT << "\n\n";
+
 	// Affichage des vilains
 	for (auto&& elem : vilains) {
 		elem.afficher(cout);
 	}
+
+	cout << TRAIT << "\n\n";
 
 	// Affichage des personnages
 	for (auto&& elem : personnages) {
 		elem->afficher(cout);
 	}
 
-	// Création d'un VilainHéros
+	cout << TRAIT << "\n\n";
+
+	// Création et affichage d'un VilainHéros
 	VilainHeros vilainHeros(vilains[4], listeHeros[2]);
 	vilainHeros.afficher(cout);
 
 	// Vérification de l'affichage adapté
 	personnages.push_back(move(make_unique<VilainHeros>(vilainHeros)));
 
+	cout << TRAIT << "\n\n";
+
 	// Affichage des personnages
 	for (auto&& elem : personnages) {
 		elem->afficher(cout);
 	}
-
 }

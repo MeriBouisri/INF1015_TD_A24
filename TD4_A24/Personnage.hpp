@@ -19,7 +19,6 @@ using namespace std;
 class Personnage : public Affichable {
 
 public:
-	Personnage() = default;
 	Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
 	virtual ~Personnage() = default;
 
@@ -28,11 +27,15 @@ public:
 		return jeuParution_;
 	}
 
-	ostream& afficher(ostream& os) override;
+	ostream& afficher(ostream& os) const override;
+
 
 	string getNom() const {
 		return nom_;
 	}
+
+protected:
+	virtual ostream& afficherSupplement(ostream& os) const = 0;
 
 private:
 	string nom_;

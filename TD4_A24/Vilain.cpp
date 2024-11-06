@@ -8,17 +8,17 @@
 
 #include "Vilain.hpp"
 
-ostream& Vilain::afficher(ostream& os) {
+ostream& Vilain::afficher(ostream& os) const {
 	Personnage::afficher(os);
-	return afficherSupplement(os) << "\n";
+	return afficherSupplement(os) << "\n\n";
 }
 
-ostream& Vilain::afficherSupplement(ostream& os) {
-	return os << "Objectif : " << objectif_ << "\n";
+ostream& Vilain::afficherSupplement(ostream& os) const {
+	return os << "Objectif : " << objectif_;
 }
 
 
-ostream& Vilain::changerCouleur(ostream& os, int theme) {
+ostream& Vilain::changerCouleur(ostream& os, int theme) const {
 	switch (theme) {
 	case 0:
 		os << "\033[38;5;226m";

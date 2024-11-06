@@ -1,0 +1,319 @@
+2024-11-05 19:50:55.879 -05:00 [INF] Starting collection for session id: d85c66cf-b8d6-4091-96b8-3656cbacfd3c
+2024-11-05 19:50:55.923 -05:00 [INF] ReportGenerator.LoadGenerators. OutputType: default
+2024-11-05 19:50:55.923 -05:00 [ERR] ReportGeneratorFactory.CreateGenerator: Invalid outputType: default found. Using DefaultReportGenerator.
+2024-11-05 19:50:55.939 -05:00 [VRB] PrivilegeChecker.IsPrivilegeEnabled number of privileges: 5
+2024-11-05 19:50:55.939 -05:00 [VRB] PrivilegeChecker.IsPrivilegeEnabled number of privileges: 5
+2024-11-05 19:50:55.939 -05:00 [VRB] PrivilegeChecker.IsPrivilegeEnabled number of privileges: 5
+2024-11-05 19:50:55.999 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-11-05 19:50:56.007 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-11-05 19:50:56.007 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-11-05 19:50:56.007 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-11-05 19:50:56.007 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-11-05 19:50:56.007 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-11-05 19:50:56.007 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-11-05 19:50:56.008 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-11-05 19:50:56.008 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-11-05 19:50:56.008 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 0
+2024-11-05 19:50:56.015 -05:00 [VRB] Configuring environment variable key: CODE_COVERAGE_SESSION_NAME, value: d85c66cf-b8d6-4091-96b8-3656cbacfd3c
+2024-11-05 19:50:56.016 -05:00 [VRB] Configuring environment variable key: CODE_COVERAGE_PIPE_COUNT, value: 1
+2024-11-05 19:50:56.016 -05:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_DisableCodeSignatureValidation, value: 1
+2024-11-05 19:50:56.016 -05:00 [VRB] Configuring environment variable key: CODE_COVERAGE_FLAGS, value: 5
+2024-11-05 19:50:56.017 -05:00 [VRB] Configuring environment variable key: CODE_COVERAGE_DATA_PREFIX, value: CodeCoverage.d85c66cf-b8d6-4091-96b8-3656cbacfd3c.
+2024-11-05 19:50:56.017 -05:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_ConfigPath64_VanguardInstrumentationProfiler, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\amd64\VanguardInstrumentationProfiler_x64.config
+2024-11-05 19:50:56.017 -05:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_ConfigPath32_VanguardInstrumentationProfiler, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\VanguardInstrumentationProfiler_x86.config
+2024-11-05 19:50:56.017 -05:00 [VRB] Configuring environment variable key: MicrosoftInstrumentationEngine_ConfigPathARM64_VanguardInstrumentationProfiler, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\arm64\VanguardInstrumentationProfiler_arm64.config
+2024-11-05 19:50:56.023 -05:00 [VRB] Configuring environment variable key: PATH, value: C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-23\bin;C:\Program Files\PowerShell\7\;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\jason\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\jason\AppData\Local\Programs\Python\Python313\;C:\Users\jason\AppData\Local\Microsoft\WindowsApps;C:\Users\jason\AppData\Local\gitkraken\bin;C:\Users\jason\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jason\AppData\Roaming\npm;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\amd64;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\arm64
+2024-11-05 19:50:56.025 -05:00 [VRB] Configuring environment variable key: CORECLR_ENABLE_PROFILING, value: 1
+2024-11-05 19:50:56.026 -05:00 [VRB] Configuring environment variable key: CORECLR_PROFILER_PATH_64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x64\MicrosoftInstrumentationEngine_x64.dll
+2024-11-05 19:50:56.026 -05:00 [VRB] Configuring environment variable key: CORECLR_PROFILER, value: {324F817A-7420-4E6D-B3C1-143FBED6D855}
+2024-11-05 19:50:56.026 -05:00 [VRB] Configuring environment variable key: CORECLR_PROFILER_PATH_32, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x86\MicrosoftInstrumentationEngine_x86.dll
+2024-11-05 19:50:56.026 -05:00 [VRB] Configuring environment variable key: CORECLR_PROFILER_PATH_ARM64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\arm64\MicrosoftInstrumentationEngine_arm64.dll
+2024-11-05 19:50:56.029 -05:00 [VRB] Configuring environment variable key: COR_ENABLE_PROFILING, value: 1
+2024-11-05 19:50:56.029 -05:00 [VRB] Configuring environment variable key: COR_PROFILER_PATH_32, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x86\MicrosoftInstrumentationEngine_x86.dll
+2024-11-05 19:50:56.029 -05:00 [VRB] Configuring environment variable key: COR_PROFILER_PATH_64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\x64\MicrosoftInstrumentationEngine_x64.dll
+2024-11-05 19:50:56.029 -05:00 [VRB] Configuring environment variable key: COR_PROFILER_PATH_ARM64, value: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Platform\InstrumentationEngine\arm64\MicrosoftInstrumentationEngine_arm64.dll
+2024-11-05 19:50:56.029 -05:00 [VRB] Configuring environment variable key: COR_PROFILER, value: {324F817A-7420-4E6D-B3C1-143FBED6D855}
+2024-11-05 19:50:56.032 -05:00 [VRB] ProcessFactoryWithCovrunInjection.Create injecting covrun into new process for session: d85c66cf-b8d6-4091-96b8-3656cbacfd3c
+2024-11-05 19:50:56.033 -05:00 [VRB] ProcessFactory: Starting process: fileName: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Team Tools\Dynamic Code Coverage Tools\amd64\CodeCoverage.exe, arguments: connect /session:d85c66cf-b8d6-4091-96b8-3656cbacfd3c /wait C:\Users\jason\INF1015_TD_A24\TD4_A24\x64\Debug\ProjetTest.exe 
+2024-11-05 19:50:56.041 -05:00 [INF] Started process id: 11380
+2024-11-05 19:50:56.061 -05:00 [INF] PipeConnection.OnClientConnected: b75f5547-1ade-4f11-9e14-afffa2181c7c connected: CodeCoverage.pipe.d85c66cf-b8d6-4091-96b8-3656cbacfd3c
+2024-11-05 19:50:56.061 -05:00 [INF] PipeConnectionsManager.OnClientConnectedEvent: Client connect with pipe: CodeCoverage.pipe.d85c66cf-b8d6-4091-96b8-3656cbacfd3c
+2024-11-05 19:50:56.061 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-11-05 19:50:56.062 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 1
+2024-11-05 19:50:56.071 -05:00 [VRB] PipeConnection.OnClientConnected: b75f5547-1ade-4f11-9e14-afffa2181c7c finished
+2024-11-05 19:50:56.091 -05:00 [INF] LoggerBase.OnClientConnected: processId:11380
+2024-11-05 19:50:56.093 -05:00 [INF] CoveragePipeClient.SendConfiguration[11380]: Sending RegisterClientResponseMessage to client.
+2024-11-05 19:50:56.097 -05:00 [VRB] PipeConnection.ReadMessagesAsync: b75f5547-1ade-4f11-9e14-afffa2181c7c finished
+2024-11-05 19:50:56.121 -05:00 [INF] PipeConnection.OnClientConnected: f9404d86-cd36-4b36-afd0-a2fafdb15ba6 connected: CodeCoverage.pipe.d85c66cf-b8d6-4091-96b8-3656cbacfd3c
+2024-11-05 19:50:56.121 -05:00 [INF] PipeConnectionsManager.OnClientConnectedEvent: Client connect with pipe: CodeCoverage.pipe.d85c66cf-b8d6-4091-96b8-3656cbacfd3c
+2024-11-05 19:50:56.121 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: acquired lock. Creating new connection.
+2024-11-05 19:50:56.122 -05:00 [INF] PipeConnectionsManager.OpenConnectionInternal: Created new connection. Number of connections: 2
+2024-11-05 19:50:56.122 -05:00 [VRB] PipeConnection.OnClientConnected: f9404d86-cd36-4b36-afd0-a2fafdb15ba6 finished
+2024-11-05 19:50:56.122 -05:00 [INF] LoggerBase.OnClientConnected: processId:5948
+2024-11-05 19:50:56.122 -05:00 [INF] CoveragePipeClient.SendConfiguration[5948]: Sending RegisterClientResponseMessage to client.
+2024-11-05 19:50:56.130 -05:00 [INF] LoggerBase.CreateStream[5948]: k:StreamKey { Id = b5170f2c-b5bb-4f26-bd6e-07075cf268f9, Prefix = entrypoint:\ } type:b157a3a4-9542-4546-859b-abd1367a08ed path:C:\Users\jason\INF1015_TD_A24\TD4_A24\x64\Debug\ProjetTest.exe
+2024-11-05 19:50:56.131 -05:00 [INF] StaticStreamCreator.CreateStream: Creating LocalMemoryStream. streamId:0, identifier:00000000-0000-0000-0000-000000000000
+2024-11-05 19:50:56.131 -05:00 [INF] LoggerBase.OnCreateStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:0, bufferHeader:, bufferName:, prefix:entrypoint:\
+2024-11-05 19:50:56.131 -05:00 [INF] CoveragePipeClient.SendCreateStreamResponse[5948]: streamId:0, bufferName:
+2024-11-05 19:50:56.162 -05:00 [INF] LoggerBase.CreateStream[5948]: k:StreamKey { Id = b5170f2c-b5bb-4f26-bd6e-07075cf268f9, Prefix = unmanaged:\ } type:2a4f0f81-6809-4480-87ce-0d772568cfb6 path:C:\Users\jason\INF1015_TD_A24\TD4_A24\x64\Debug\ProjetTest.exe
+2024-11-05 19:50:56.162 -05:00 [INF] StaticStreamCreator.CreateStream: Creating LocalMemoryStream. streamId:1, identifier:00000000-0000-0000-0000-000000000000
+2024-11-05 19:50:56.162 -05:00 [INF] LoggerBase.OnCreateStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:0, bufferHeader:, bufferName:, prefix:unmanaged:\
+2024-11-05 19:50:56.162 -05:00 [INF] CoveragePipeClient.SendCreateStreamResponse[5948]: streamId:1, bufferName:
+2024-11-05 19:50:56.162 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:174
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:304
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:72
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:170
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:142
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:212
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:86
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:76
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:150
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:174
+2024-11-05 19:50:56.178 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:140
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:532
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:138
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:3686
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:158
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:338
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:220
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:152
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:320
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:140
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:160
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:606
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:76
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:414
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:144
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:86
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:624
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:230
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:34
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:168
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:100
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:600
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:80
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:190
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:70
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:36
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:142
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:198
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:308
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:72
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:152
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:132
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:140
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:50
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:290
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:94
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:256
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:682
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:44
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:48
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:110
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:84
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:178
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:150
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:258
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:168
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:84
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:90
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:90
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:164
+2024-11-05 19:50:56.194 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:104
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:64
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:394
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:126
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:228
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:126
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:422
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:98
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:114
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:84
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:190
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:240
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:530
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:116
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:134
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:460
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:132
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:142
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:160
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:78
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:310
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:174
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:588
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:842
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:44
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:68
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:92
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:398
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:478
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:82
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:234
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:108
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:108
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:74
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:188
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:286
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:190
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:40
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:54
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:240
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:314
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:52
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:72
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:118
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:158
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:62
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:222
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:124
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:456
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:114
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:60
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:38
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:258
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:96
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:66
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:102
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:64
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:106
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:42
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:136
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:136
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:58
+2024-11-05 19:50:56.210 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:1, streamType:2a4f0f81-6809-4480-87ce-0d772568cfb6, bufferSize:452
+2024-11-05 19:50:56.228 -05:00 [INF] LoggerBase.OnInstrumentation: path:C:\Users\jason\INF1015_TD_A24\TD4_A24\x64\Debug\ProjetTest.exe, id:b5170f2c-b5bb-4f26-bd6e-07075cf268f9, coverageBufferId:a48a3958-8b1b-4d8a-80d2-756500c7f9d6, isDynamic:True isManaged:False, isMixed:False, isPortablePdb:False, imageSize: 286720, imageLinkTime:1730854142, numberOfMethodsInstrumented:27, numberOfMethodsSkipped: 183, numberOfMethodsFailed:0, elapsed:56ms
+2024-11-05 19:50:56.228 -05:00 [INF] LoggerBase.CreateStream[5948]: k:StreamKey { Id = b5170f2c-b5bb-4f26-bd6e-07075cf268f9, Prefix = unmanaged:\ } type:cb689549-d63e-4a55-b8fa-2a214725cf39 path:C:\Users\jason\INF1015_TD_A24\TD4_A24\x64\Debug\ProjetTest.exe
+2024-11-05 19:50:56.228 -05:00 [INF] StaticStreamCreator.CreateStream: Creating SharedMemoryStream. streamId:2, identifier:a48a3958-8b1b-4d8a-80d2-756500c7f9d6, bufferName:CodeCoverage.d85c66cf-b8d6-4091-96b8-3656cbacfd3c.ba48a3958-8b1b-4d8a-80d2-756500c7f9d6, bufferSize:433
+2024-11-05 19:50:56.232 -05:00 [INF] ReportGenerator.CreateUnmanagedStream[5948]: (StreamKey { Id = b5170f2c-b5bb-4f26-bd6e-07075cf268f9, Prefix = unmanaged:\ }) created new buffer stream with size: 433
+2024-11-05 19:50:56.232 -05:00 [INF] LoggerBase.OnCreateStream: processId:5948, streamId:2, streamType:cb689549-d63e-4a55-b8fa-2a214725cf39, bufferSize:433, bufferHeader:00-00-00-00, bufferName:CodeCoverage.d85c66cf-b8d6-4091-96b8-3656cbacfd3c.ba48a3958-8b1b-4d8a-80d2-756500c7f9d6, prefix:unmanaged:\
+2024-11-05 19:50:56.232 -05:00 [INF] CoveragePipeClient.SendCreateStreamResponse[5948]: streamId:2, bufferName:CodeCoverage.d85c66cf-b8d6-4091-96b8-3656cbacfd3c.ba48a3958-8b1b-4d8a-80d2-756500c7f9d6
+2024-11-05 19:50:56.232 -05:00 [INF] LoggerBase.HandleCacheMessage[5948]: started prefix:unmanaged:\C:\Users\jason\INF1015_TD_A24\TD4_A24\x64\Debug\ProjetTest.exe, key:b5170f2c-b5bb-4f26-bd6e-07075cf268f9, buffers count:2
+2024-11-05 19:50:56.232 -05:00 [INF] CoveragePipeClient.SendSuccessMessage[5948]
+2024-11-05 19:50:56.247 -05:00 [INF] LoggerBase.OnCloseStream: processId:5948, streamId:1, streamSize:34120
+2024-11-05 19:50:56.247 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-11-05 19:50:56.256 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-11-05 19:50:56.258 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:78
+2024-11-05 19:50:56.258 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-11-05 19:50:56.258 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:84
+2024-11-05 19:50:56.261 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:88
+2024-11-05 19:50:56.263 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-11-05 19:50:56.265 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-11-05 19:50:56.265 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-11-05 19:50:56.265 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-11-05 19:50:56.265 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-11-05 19:50:56.265 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-11-05 19:50:56.269 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-11-05 19:50:56.269 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-11-05 19:50:56.271 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-11-05 19:50:56.273 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-11-05 19:50:56.273 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-11-05 19:50:56.275 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-11-05 19:50:56.277 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70
+2024-11-05 19:50:56.281 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-11-05 19:50:56.281 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-11-05 19:50:56.283 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-11-05 19:50:56.285 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:74
+2024-11-05 19:50:56.285 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:72
+2024-11-05 19:50:56.285 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-11-05 19:50:56.289 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:68
+2024-11-05 19:50:56.289 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:76
+2024-11-05 19:50:56.289 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:90
+2024-11-05 19:50:56.289 -05:00 [VRB] LoggerBase.OnWriteStream: processId:5948, streamId:0, streamType:b157a3a4-9542-4546-859b-abd1367a08ed, bufferSize:70

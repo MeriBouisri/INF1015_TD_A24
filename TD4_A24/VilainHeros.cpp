@@ -10,18 +10,18 @@
 VilainHeros::VilainHeros(const Vilain& vilain, const Heros& heros) : Personnage(vilain.getNom() + "-" + heros.getNom(), vilain.getJeuParution() + "-" + heros.getJeuParution()), Vilain(vilain), Heros(heros), missionSpeciale_(vilain.getObjectif() + " dans le monde de " + heros.getJeuParution()) {
 }
 
-ostream& VilainHeros::afficher(ostream& os) {
+ostream& VilainHeros::afficher(ostream& os) const {
 	Personnage::afficher(os);
-	return afficherSupplement(os);
+	return afficherSupplement(os) << "\n\n";
 }
 
-ostream& VilainHeros::afficherSupplement(ostream& os) {
+ostream& VilainHeros::afficherSupplement(ostream& os) const {
 	Vilain::afficherSupplement(os);
 	Heros::afficherSupplement(os);
-	return os << "Mission speciale : " << missionSpeciale_ << "\n";
+	return os << "Mission speciale : " << missionSpeciale_;
 }
 
-ostream& VilainHeros::changerCouleur(ostream& os, int theme) {
+ostream& VilainHeros::changerCouleur(ostream& os, int theme) const {
 	switch (theme) {
 	case 0:
 		os << "\033[38;5;201m";

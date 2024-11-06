@@ -23,18 +23,18 @@ public:
 	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi), nomsAllies_({}) {
 	}
 
-	ostream& afficher(ostream& os) override;
+	ostream& afficher(ostream& os) const override;
 
-	ostream& changerCouleur(ostream& os, int theme) override;
+	ostream& changerCouleur(ostream& os, int theme) const override;
 
 	void ajouterAllie(const string& nomAllie) {
 		nomsAllies_.push_back(nomAllie);
 	}
 
 protected:
-	ostream& afficherSupplement(ostream& os);
+	ostream& afficherSupplement(ostream& os) const override;
 
 private:
-	vector<string> nomsAllies_; // TODO : maybe not right type
+	vector<string> nomsAllies_;
 	string nomEnnemi_;
 };

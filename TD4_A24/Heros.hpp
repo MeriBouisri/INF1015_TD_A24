@@ -1,9 +1,9 @@
 /**
-* Classe Heros
+* Classe représentant un héros
 * \file   Heros.hpp
 * \author Bouisri et Xa
-* \date   05 novembre 2024 2024
-* Cree le 24 novembre 2024
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
 */
 
 #pragma once
@@ -14,27 +14,25 @@
 
 using namespace std;
 
-
-
 class Heros : virtual public Personnage {
-
 public:
-	Heros() = default;
-	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi), nomsAllies_({}) {
+	Heros(const string& nom, const string& jeuParution, const string& nomEnnemi) : Personnage(nom, jeuParution), nomEnnemi_(nomEnnemi), nomAllies_({}) {
 	}
 
-	ostream& afficher(ostream& os) const override;
 
 	ostream& changerCouleur(ostream& os, int theme) const override;
 
+
 	void ajouterAllie(const string& nomAllie) {
-		nomsAllies_.push_back(nomAllie);
+		nomAllies_.push_back(nomAllie);
 	}
 
+
 protected:
-	ostream& afficherSupplement(ostream& os) const override;
+	string getInformationsSupplementaires() const override;
+
 
 private:
-	vector<string> nomsAllies_;
+	vector<string> nomAllies_;
 	string nomEnnemi_;
 };

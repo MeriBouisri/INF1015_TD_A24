@@ -1,4 +1,12 @@
-﻿#pragma once
+﻿/**
+* Interface Affichable pour les classes affichables
+* \file   Affichable.hpp
+* \author Bouisri et Xa
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
+*/
+
+#pragma once
 
 #include <iostream>
 

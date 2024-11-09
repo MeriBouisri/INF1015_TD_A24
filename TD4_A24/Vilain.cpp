@@ -1,30 +1,27 @@
 /**
-* Classe Vilain
+* Implémentation de la classe Vilain
 * \file   Vilain.cpp
 * \author Bouisri et Xa
-* \date   05 novembre 2024 2024
-* Cree le 04 novembre 2024
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
 */
 
 #include "Vilain.hpp"
 
-ostream& Vilain::afficher(ostream& os) const {
-	Personnage::afficher(os);
-	return afficherSupplement(os) << "\n\n";
-}
 
-ostream& Vilain::afficherSupplement(ostream& os) const {
-	return os << "Objectif : " << objectif_;
+string Vilain::getInformationsSupplementaires() const {
+	string chaine = "Objectif : " + objectif_;
+	return chaine;
 }
 
 
 ostream& Vilain::changerCouleur(ostream& os, int theme) const {
 	switch (theme) {
 	case 0:
-		os << "\033[38;5;226m";
+		os << "\033[38;5;209m"; // Ce cas n'est pas couvert, car nous avons choisi le thème par défaut pour l'affichage.
 		break;
 	default:
-		os << "\033[38;5;33m";
+		os << "\033[38;5;214m";
 		break;
 	}
 	return os;

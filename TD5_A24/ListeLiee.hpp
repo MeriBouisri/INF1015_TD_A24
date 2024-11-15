@@ -1,19 +1,60 @@
 ﻿#pragma once
 #include "gsl/gsl_assert"
 #include "gsl/pointers"
+#include <cassert>
+
+
+// Classe testable (ajoutee par etudiant)
+class Testable {
+public:
+	virtual void test() = 0;
+};
+
+
 
 template<typename T> class ListeLiee;
 template<typename T> class Iterateur;
 
 template<typename T>
-struct Noeud
+struct Noeud : public Testable
 {
 	friend class ListeLiee<T>;
 	friend class Iterateur<T>;
 public:
 	//TODO: Constructeur(s).
+	Noeud(const T& element) : element_(element) {}
+
+
+	void test() override {
+		Noeud<int> n0(5);
+
+		assert(n0.element_ == 5);
+		assert(n0.suivant_ == nullptr);
+		assert(n0.precedent_ == nullptr);
+
+		Noeud<int> n1(10);
+		n0.suivant_ = &n1;
+		n1.precedent_ = &n0;
+		assert(n0.suivant_ == &n1);
+		assert(n1.precedent_ == &n0);
+
+		Noeud<int> n2(15);
+		n1.suivant_ = &n2;
+		n2.precedent_ = &n1;
+		assert(n1.suivant_ == &n2);
+		assert(n2.precedent_ == &n1);
+
+		cout << "[TEST] Noeud : succes" << endl;
+	}
+	
+
 private:
 	//TODO: Attributs d'un noeud.
+	Noeud* suivant_ = nullptr;
+	Noeud* precedent_ = nullptr;
+	T element_;
+
+	inline static constexpr Noeud* finListe_ = nullptr;
 };
 
 template<typename T>

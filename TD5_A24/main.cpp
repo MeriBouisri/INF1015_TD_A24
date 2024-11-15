@@ -13,6 +13,7 @@
 #include <memory>
 #include "cppitertools/range.hpp"
 #include "bibliotheque_cours.hpp"
+
 using namespace std;
 using namespace iter;
 
@@ -79,8 +80,14 @@ ListeLiee<T>::iterator trouverParNom(ListeLiee<T>& liste, const string& nom)
 	return fin;
 }
 
+void testAll() {
+	Noeud<int>* n = new Noeud<int>(5);
+	n->test();
+	delete n;
+}
 int main()
 {
+	
 	#pragma region "Bibliothèque du cours"
 	// Permet sous Windows les "ANSI escape code" pour changer de couleur
 	// https://en.wikipedia.org/wiki/ANSI_escape_code ; les consoles Linux/Mac
@@ -122,6 +129,10 @@ int main()
 	#endif
 	//}
 
+	testAll();
+	
+
+
 	//TODO: Transférez les héros du vecteur heros dans une ListeLiee.
 
 	//TODO: Créez un itérateur sur la liste liée à la position du héros Alucard.  Servez-vous de la fonction trouverParNom définie plus haut.
@@ -143,4 +154,5 @@ int main()
 	//TODO: Utilisez un conteneur pour avoir les héros en ordre alphabétique (voir point 2 de l'énoncé).
 
 	//TODO: Assurez-vous de n'avoir aucune ligne non couverte dans les classes pour la liste liée.  Il peut y avoir des lignes non couvertes dans les personnages...
+
 }

@@ -2,9 +2,10 @@
 #include "gsl/gsl_assert"
 #include "gsl/pointers"
 #include <cassert>
+#include "verification_allocation.hpp"
 
 
-// Classe testable (ajoutee par etudiant)
+// AJOUT (etudiant) : Classe testable
 class Testable {
 public:
 	virtual void test() = 0;
@@ -21,16 +22,15 @@ struct Noeud : public Testable
 	friend class ListeLiee<T>;
 	friend class Iterateur<T>;
 public:
-	//TODO: Constructeur(s).
-	Noeud(const T& element) : element_(element) {}
+	//TODO [x]: Constructeur(s).
+	Noeud(const T& donnee) : donnee_(donnee) {}
 
 
 	void test() override {
 		Noeud<int> n0(5);
 
-		assert(n0.element_ == 5);
-		assert(n0.suivant_ == nullptr);
-		assert(n0.precedent_ == nullptr);
+		assert(n0.donnee_ == 5);
+		assert(n0.suivant_ == Noeud::PAST_END);
 
 		Noeud<int> n1(10);
 		n0.suivant_ = &n1;
@@ -49,12 +49,12 @@ public:
 	
 
 private:
-	//TODO: Attributs d'un noeud.
-	Noeud* suivant_ = nullptr;
-	Noeud* precedent_ = nullptr;
-	T element_;
+	//TODO [x]: Attributs d'un noeud.
+	Noeud* suivant_ = Noeud::PAST_END;
+	Noeud* precedent_ = Noeud::PAST_END;
+	T donnee_;
 
-	inline static constexpr Noeud* finListe_ = nullptr;
+	inline static constexpr Noeud* PAST_END = nullptr;
 };
 
 template<typename T>
@@ -62,24 +62,64 @@ class Iterateur
 {
 	friend class ListeLiee<T>;
 public:
-	//TODO: Constructeur(s).
+	//TODO [x]: Constructeur(s).
+	Iterateur(Noeud<T>* position = Noeud<T>::PAST_END) : position_(position) {}
+
 	void avancer()
 	{
-		Expects(position_ != nullptr);
-		//TODO: Changez la position de l'itérateur pour le noeud suivant
+		Expects(position_ != Noeud<T>::PAST_END);
+
+		// TODO [x]: Changez la position de l'itérateur pour le noeud suivant
+		this->position_ = this->position_->suivant_;
 	}
 	void reculer()
 	{
 		//NOTE: On ne demande pas de supporter de reculer à partir de l'itérateur end().
-		Expects(position_ != nullptr);
-		//TODO: Changez la position de l'itérateur pour le noeud précédent
+		Expects(position_ != Noeud<T>::PAST_END);
+
+		// TODO [x] : Changez la position de l'itérateur pour le noeud précédent
+		this->position_ = this->position_->precedent_;
 	}
+
+	Iterateur& operator++() {
+		this->avancer();
+		return *this;
+	}
+
+	Iterateur operator--() {
+		this->reculer();
+		return *this;
+	}
+
 	T& operator*()
 	{
+		Expects(position_ != Noeud<T>::PAST_END);
 		return position_->donnee_;
 	}
-	//TODO: Ajouter ce qu'il manque pour que les boucles sur intervalles fonctionnent sur une ListeLiee.
+	//TODO []: Ajouter ce qu'il manque pour que les boucles sur intervalles fonctionnent sur une ListeLiee.
 	bool operator==(const Iterateur<T>& it) const = default;
+
+	void test() {
+		Noeud<int> n0(5);
+		Noeud<int> n1(10);
+		Noeud<int> n2(15);
+
+		n0.suivant_ = &n1;
+		n1.precedent_ = &n0;
+		n1.suivant_ = &n2;
+		n2.precedent_ = &n1;
+
+		Iterateur<int> it(&n0);
+		assert(*it == 5);
+		it.avancer();
+		assert(*it == 10);
+		it.avancer();
+		assert(*it == 15);
+		it.reculer();
+		assert(*it == 10);
+
+		cout << "[TEST] Iterateur : succes" << endl;
+	}
 private:
 	Noeud<T>* position_;
 };

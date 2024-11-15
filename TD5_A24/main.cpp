@@ -81,10 +81,15 @@ ListeLiee<T>::iterator trouverParNom(ListeLiee<T>& liste, const string& nom)
 }
 
 void testAll() {
-	Noeud<int>* n = new Noeud<int>(5);
-	n->test();
-	delete n;
+	Noeud<int> n0(5);
+	n0.test();
+
+	Iterateur<int> it(&n0);
+	it.test();
+
+
 }
+
 int main()
 {
 	

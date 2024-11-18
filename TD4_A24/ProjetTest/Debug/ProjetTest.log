@@ -1,0 +1,9 @@
+﻿  Vilain.cpp
+  VilainHeros.cpp
+  main.cpp
+C:\Users\jason\INF1015_TD_A24\TD4_A24\main.cpp(79,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jason\INF1015_TD_A24\TD4_A24\main.cpp(86,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jason\INF1015_TD_A24\TD4_A24\main.cpp(97,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+     Creating library C:\Users\jason\INF1015_TD_A24\TD4_A24\Debug\ProjetTest.lib and object C:\Users\jason\INF1015_TD_A24\TD4_A24\Debug\ProjetTest.exp
+  ProjetTest.vcxproj -> C:\Users\jason\INF1015_TD_A24\TD4_A24\Debug\ProjetTest.exe

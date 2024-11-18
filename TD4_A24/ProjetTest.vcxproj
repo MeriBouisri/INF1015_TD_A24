@@ -130,8 +130,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalOptions>/execution-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,11 +161,15 @@
   <ItemGroup>
     <ClCompile Include="bibliotheque_cours\bibliotheque_cours.cpp" />
     <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
+    <ClCompile Include="Heros.cpp" />
     <ClCompile Include="lectureBinaire.cpp">
       <SubType>
       </SubType>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Personnage.cpp" />
+    <ClCompile Include="Vilain.cpp" />
+    <ClCompile Include="VilainHeros.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
@@ -180,6 +184,7 @@
     <ClInclude Include="lectureBinaire.hpp" />
     <ClInclude Include="Personnage.hpp" />
     <ClInclude Include="Vilain.hpp" />
+    <ClInclude Include="VilainHeros.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

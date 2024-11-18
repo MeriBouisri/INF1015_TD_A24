@@ -1,17 +1,23 @@
-﻿#include "bibliotheque_cours.hpp"
+/**
+* TD4 - Automne 2024
+* Lecture et affichage de personnages de jeux vidéo
+* \file   main.cpp
+* \author Bouisri et Xa
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
+*/
+
+#include "bibliotheque_cours.hpp"
 #include "lectureBinaire.hpp"
+#include "verification_allocation.hpp"
 #include <cassert>
 #include <fstream>
-#include <sstream>
-#include <vector>
-
-#include <cassert>
 #include <iostream>
-#include "bibliotheque_cours.hpp"
+#include <sstream>
 
 
-#include "Personnage.hpp"
 #include "Heros.hpp"
+#include "Personnage.hpp"
 #include "Vilain.hpp"
 #include "VilainHeros.hpp"
 #include <vector>
@@ -33,22 +39,6 @@ void testsPourCouvertureLectureBinaire()
 	assert(lireUintTailleVariable(iss) == 0xFEDCBA98);
 }
 
-void test() {
-
-
-	// TODO : Random tests. remove 
-
-	Heros heros = { "nomHeros", "jeuHeros", "nomEnnemi" };
-	Vilain vilain = { "nomVilain", "jeuVilain", "objectif" };
-	VilainHeros vilainHeros = {vilain, heros};
-
-	heros.afficher(heros.changerCouleur(cout));
-	vilain.afficher(vilain.changerCouleur(cout));
-	vilainHeros.afficher(vilainHeros.changerCouleur(cout));
-
-	// terminal back to normal color
-	cout << "\033[0m";
-}
 
 int main()
 {
@@ -62,38 +52,82 @@ int main()
 	testsPourCouvertureLectureBinaire();
 
 	// Trait de separation
-	static const string trait =
+	static const string TRAIT =
 		"═════════════════════════════════════════════════════════════════════════";
 
 	// Ouverture des fichiers binaires
 	ifstream fichierHeros = ouvrirFichierBinaire("heros.bin");
 	ifstream fichierVilains = ouvrirFichierBinaire("vilains.bin");
 
+	// Création des trois vecteurs
+	vector<Heros> listeHeros;
+	vector<Vilain> vilains;
+	vector<unique_ptr<Personnage>> personnages;
 
+	// Lecture du nombre de héros
+	size_t nHeros = lireUintTailleVariable(fichierHeros);
 
-	while (!fichierHeros.eof()) {
-		lireString(fichierHeros);
-		lireString(fichierHeros);
-		lireString(fichierHeros);
+	// Lecture, création et ajout des héros
+	for (auto i = 0; i < nHeros; i++) {
+		string nom = lireString(fichierHeros);
+		string jeuParution = lireString(fichierHeros);
+		string ennemi = lireString(fichierHeros);
+		Heros herosLu(nom, jeuParution, ennemi);
 
 		size_t nAllies = lireUintTailleVariable(fichierHeros);
-		vector<string> allies(nAllies);
-
-		for (int i = 0; i < nAllies; i++) {
-			allies.push_back(lireString(fichierHeros));
+		for (auto j = 0; j < nAllies; j++) {
+			herosLu.ajouterAllie(lireString(fichierHeros));
 		}
-
-
+		listeHeros.push_back(herosLu);
+		personnages.push_back(move(make_unique<Heros>(herosLu)));
 	}
 
-	//TODO: Votre code pour le main commence ici (mais vous pouvez aussi ajouter/modifier du code avant si nécessaire)
+	// Lecture du nombre de vilains
+	size_t nVilains = lireUintTailleVariable(fichierVilains);
 
+	// Lecture, création et ajout des vilains
+	for (auto i = 0; i < nVilains; i++) {
+		string nom = lireString(fichierVilains);
+		string jeuParution = lireString(fichierVilains);
+		string objectif = lireString(fichierVilains);
 
-	
-	test();
+		Vilain vilainLu(nom, jeuParution, objectif);
+		vilains.push_back(vilainLu);
+		personnages.push_back(move(make_unique<Vilain>(vilainLu)));
+	}
 
+	// Affichage des héros
+	for (auto&& elem : listeHeros) {
+		elem.afficher(cout);
+	}
 
+	cout << TRAIT << "\n\n";
 
+	// Affichage des vilains
+	for (auto&& elem : vilains) {
+		elem.afficher(cout);
+	}
 
+	cout << TRAIT << "\n\n";
 
+	// Affichage des personnages
+	for (auto&& elem : personnages) {
+		elem->afficher(cout);
+	}
+
+	cout << TRAIT << "\n\n";
+
+	// Création et affichage d'un VilainHéros
+	VilainHeros vilainHeros(vilains[8], listeHeros[3]);
+	vilainHeros.afficher(cout);
+
+	// Vérification de l'affichage adapté
+	personnages.push_back(move(make_unique<VilainHeros>(vilainHeros)));
+
+	cout << TRAIT << "\n\n";
+
+	// Affichage des personnages
+	for (auto&& elem : personnages) {
+		elem->afficher(cout);
+	}
 }

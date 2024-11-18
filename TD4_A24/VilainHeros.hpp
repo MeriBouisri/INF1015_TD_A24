@@ -1,55 +1,35 @@
 /**
-* Classe VilainHeros
+* Classe représentant un vilain héros
 * \file   VilainHeros.hpp
 * \author Bouisri et Xa
-* \date   05 novembre 2024 2024
-* Cree le 24 novembre 2024
+* \date   5 novembre 2024
+* Créé le 22 octobre 2024
 */
 
 #pragma once
 
+#include "Heros.hpp"
+#include "verification_allocation.hpp"
+#include "Vilain.hpp"
 #include <string>
-#include "Personnage.hpp"
 #include <vector>
+
+
 
 using namespace std;
 
 
 
 class VilainHeros : public Vilain, public Heros {
-    
-    public:
-        VilainHeros() = default;
-        VilainHeros(const Vilain& vilain, const Heros& heros) : Vilain(vilain), Heros(heros) {
-            // TODO : changing nom_ here changes Vilain::nom_ too?
-            Personnage::nom_ = vilain.getNom() + "-" + heros.getNom();
-            Personnage::jeuParution_ = vilain.getJeuParution() + "-" + heros.getJeuParution();
-            missionSpeciale_ = vilain.getObjectif() + " dans le monde de " + heros.getJeuParution();
-            // TODO : Changer couleur 
-        }
 
-        ostream& afficher(ostream& fluxSortie) override {
-            return Personnage::afficher(fluxSortie);
-        }
+public:
+	VilainHeros(const Vilain& vilain, const Heros& heros);
 
-        // TODO : theme in constant
-        ostream& changerCouleur(ostream& fluxSortie, int theme = 35) override {
-            return Personnage::changerCouleur(fluxSortie, theme);
-        }
+	ostream& changerCouleur(ostream& os, int theme) const override;
 
+protected:
+	string getInformationsSupplementaires() const override;
 
-    protected:
-        ostream& afficherSupplement(ostream& os) override {
-            Vilain::afficherSupplement(os) << endl;
-            Heros::afficherSupplement(os) << endl;
-
-            return os << "Mission speciale : " << missionSpeciale_;
-        }
-
-        
-
-    private:
-        string missionSpeciale_;
-
-
+private:
+	string missionSpeciale_;
 };

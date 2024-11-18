@@ -1,59 +1,45 @@
 /**
-* Classe Personnage
+* Classe repr�sentant un personnage
 * \file   Personnage.hpp
 * \author Bouisri et Xa
-* \date   05 novembre 2024 2024
-* Cree le 24 novembre 2024
+* \date   5 novembre 2024
+* Cr�� le 22 octobre 2024
 */
 
 #pragma once
 
 #include "Affichable.hpp"
+#include "verification_allocation.hpp"
+#include <iostream>
 #include <string>
-#include "Affichable.hpp"
 
 using namespace std;
 
 class Personnage : public Affichable {
 
 public:
-	Personnage() = default;
 	Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
-
-class Personnage : public Affichable {
-
-    public:
-        Personnage() = default;
-        Personnage(const string& nom, const string& jeuParution) : nom_(nom), jeuParution_(jeuParution) {}
-        Personnage(const Personnage& personnage) : nom_(personnage.nom_), jeuParution_(personnage.jeuParution_) {}
-
-        string getNom() const {
-            return nom_;
-        }
-        
-        string getJeuParution() const {
-            return jeuParution_;
-        }
-        
-
-        // TODO : Move to cpp
-        ostream& afficher(ostream& fluxSortie) override {
-            fluxSortie << "\nNom : " << nom_
-                << "\nParution : " << jeuParution_ << endl;
-
-            return afficherSupplement(fluxSortie);
-        }
-
-        // TODO : MoVve to cpp
-        // TODO : theme in constant
-        ostream& changerCouleur(ostream& fluxSortie, int theme = 0) override {
-            return fluxSortie << "\033[" << theme << "m";
-        }
+	virtual ~Personnage() = default;
 
 
-    protected:
-        string nom_;
-        string jeuParution_;
+	string getJeuParution() const {
+		return jeuParution_;
+	}
 
-        virtual ostream& afficherSupplement(ostream& os) = 0;
+
+	ostream& afficher(ostream& os) const override;
+
+
+	string getNom() const {
+		return nom_;
+	}
+
+
+protected:
+	virtual string getInformationsSupplementaires() const = 0;
+
+
+private:
+	string nom_;
+	string jeuParution_;
 };

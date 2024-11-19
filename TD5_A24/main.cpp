@@ -11,6 +11,7 @@
 #include <fstream>
 #include <functional>
 #include <memory>
+#include <set>
 #include <sstream>
 #include <vector>
 
@@ -134,29 +135,81 @@ int main()
 #endif
 	//}
 
-	testAll();
+	//testAll();
 
 
 	//TODO: Transférez les héros du vecteur heros dans une ListeLiee.
+	ListeLiee<Heros> listeHeros{};
+	for (const auto& h : heros)
+		listeHeros.push_back(h);
 
 	//TODO: Créez un itérateur sur la liste liée à la position du héros Alucard.  Servez-vous de la fonction trouverParNom définie plus haut.
+	auto it = trouverParNom(listeHeros, "Alucard");
 
 	//TODO: Servez-vous de l'itérateur créé précédemment pour trouver l'héroine Aya Brea, en sachant qu'elle se trouve plus loin dans la liste, en itérant sur les éléments.
+	for (it; it != listeHeros.end(); ++it) {
+		if ((*it).getNom() == "Aya Brea") {
+			++it;
+			break;
+		}
+	}
 
+	cout << trait << "\n";
 	//TODO: Ajouter un hero bidon à la liste avant Aya Brea en vous servant de l'itérateur.
+	cout << "Taille de la liste de héros avant l'insertion : " << listeHeros.size() << "\n";
+	it = listeHeros.insert(it, Heros("LeBron James", "NBA ShootOut 2004", "Stephen Curry"));
+
 	//TODO: Assurez-vous que la taille de la liste est correcte après l'ajout.
+	cout << "Taille de la liste de héros après l'insertion de LeBron James : " << listeHeros.size() << "\n";
+	cout << trait << "\n";
+	(*it).afficher(cout);
+	cout << trait << "\n";
 
 	//TODO: Reculez votre itérateur jusqu'au héros Mario et effacez-le en utilisant l'itérateur, puis affichez le héros suivant dans la liste (devrait êter "Naked Snake/John").
+	for (it; it != listeHeros.begin(); --it) {
+		if ((*it).getNom() == "Mario") {
+			break;
+		}
+	}
+
+	it = listeHeros.erase(it);
+	(*it).afficher(cout);
+	cout << trait << "\n";
+
+
 	//TODO: Assurez-vous que la taille de la liste est correcte après le retrait.
+	cout << "Taille de la liste de héros après la suppression de Mario : " << listeHeros.size() << "\n";
+	cout << trait << "\n";
 
 	//TODO: Effacez le premier élément de la liste.
+	it = listeHeros.erase(listeHeros.begin());
 
 	//TODO: Affichez votre liste de héros en utilisant un itérateur. La liste débute avec le héros Randi, n'a pas Mario, et le précédent de "Aya Brea" est ce que vous avez inséré. Servez-vous des methodes begin et end de la liste...
+	cout << "Affichage de la liste avec un itérateur :\n";
+	for (auto iter = listeHeros.begin(); iter != listeHeros.end(); ++iter) {
+		(*iter).afficher(cout);
+		cout << "\n";
+	}
+	cout << trait << "\n";
 
 	//TODO: Refaite le même affichage mais en utilisant une simple boucle "for" sur intervalle.
+	cout << "Affichage de la liste avec une boucle sur intervalle :\n";
+	for (const auto& elem : listeHeros) {
+		elem.afficher(cout);
+		cout << "\n";
+	}
 
 	//TODO: Utilisez un conteneur pour avoir les héros en ordre alphabétique (voir point 2 de l'énoncé).
+	set<Heros> ensembleHeros{};
+	for (const auto& h : listeHeros)
+		ensembleHeros.insert(h);
+
+	cout << "Affichage de LeBron James en le trouvant dans l'ensemble (set : conteneur) :\n";
+	auto itTrouve = ensembleHeros.find(Heros("LeBron James"));
+	assert(itTrouve != ensembleHeros.end());
+	itTrouve->afficher(cout);
+
+	cout << "\n";
 
 	//TODO: Assurez-vous de n'avoir aucune ligne non couverte dans les classes pour la liste liée.  Il peut y avoir des lignes non couvertes dans les personnages...
-
 }

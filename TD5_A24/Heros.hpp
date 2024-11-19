@@ -11,6 +11,7 @@ using namespace iter;
 class Heros : public virtual Personnage
 {
 public:
+	using Personnage::Personnage;
 	Heros() = default;  // Non nécessaire dans le TD4, pourrait servir dans le TD5.
 
 	Heros(const string& nom, const string& jeu, const string& ennemi)  // Non nécessaire si on construit toujours en lisant du istream (TD4).

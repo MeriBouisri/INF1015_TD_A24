@@ -10,6 +10,8 @@ class Personnage : public Affichable
 public:
 	Personnage() = default;  // Non nécessaire dans le TD4, pourrait servir dans le TD5.
 
+	Personnage(string nom) : nom_(nom), parutionJeu_("") {}
+
 	Personnage(string nom, string jeu) : nom_(nom), parutionJeu_(jeu) {}  // Nécessaire pour la construction du VilainHeros.
 
 	Personnage(istream& fichier) : nom_(lireString(fichier)), parutionJeu_(lireString(fichier)) {}
@@ -30,6 +32,10 @@ public:
 
 	friend bool operator<(const Personnage& l, const Personnage& r) {
 		return l.nom_ < r.nom_;
+	}
+
+	bool operator<(const Personnage& p) {
+		return nom_ < p.nom_;
 	}
 
 	// Les getters sont nécessaires pour la construction du VilainHero (puisque généralement les attributs sont private et non protected):

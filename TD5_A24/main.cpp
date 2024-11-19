@@ -142,19 +142,14 @@ int main()
 #endif
 
 
-	// Transférez les héros du vecteur heros dans une ListeLiee.
 	// Transfert des héros du vecteur heros dans une ListeLiee
 	ListeLiee<Heros> listeHeros{};
 	for (const auto& h : heros)
 		listeHeros.push_back(h);
 
-	// Créez un itérateur sur la liste liée à la position du héros Alucard.  Servez-vous de la
-	// fonction trouverParNom définie plus haut.
 	// Création d'un itérateur de la liste liée à la position du héros Alucard
 	auto it = trouverParNom(listeHeros, "Alucard");
 
-	// Servez-vous de l'itérateur créé précédemment pour trouver l'héroine Aya Brea, en sachant
-	// qu'elle se trouve plus loin dans la liste, en itérant sur les éléments.
 	// Recherche de la héroine Aya Brea en itérant sur les éléments à partir d'un itérateur
 	for (it; it != listeHeros.end(); ++it) {
 		if ((*it).getNom() == "Aya Brea") {
@@ -164,14 +159,12 @@ int main()
 	cout << trait << "\n";
 
 
-	// Ajouter un hero bidon à la liste avant Aya Brea en vous servant de l'itérateur.
 	// Ajout d'un héros à la liste avant Aya Brea avec un itérateur.
 	cout << "Taille de la liste de héros avant l'insertion : " << listeHeros.size() << "\n";
 	it = listeHeros.insert(it, Heros("LeBron James", "NBA ShootOut 2004", "Stephen Curry"));
 	cout << trait << "\n";
 
 
-	// Assurez-vous que la taille de la liste est correcte après l'ajout.
 	// Vérification de la taille de la liste après l'ajout.
 	cout << "Taille de la liste de héros après l'insertion de LeBron James : " << listeHeros.size()
 		<< "\n";
@@ -180,8 +173,6 @@ int main()
 	cout << trait << "\n";
 
 
-	// Reculez votre itérateur jusqu'au héros Mario et effacez-le en utilisant l'itérateur, puis
-	// affichez le héros suivant dans la liste (devrait êter "Naked Snake/John").
 	// Recul de l'itérateur jusqu'à Mario et retrait de Mario en utilisant l'itérateur et affichage du
 	// héros suivant dans la liste.
 	for (it; it != listeHeros.begin(); --it) {
@@ -195,20 +186,15 @@ int main()
 	cout << trait << "\n";
 
 
-	// Assurez-vous que la taille de la liste est correcte après le retrait.
 	// Vérification de la taille de la liste après le retrait.
 	cout << "Taille de la liste de héros après la suppression de Mario : " << listeHeros.size() << "\n";
 	cout << trait << "\n";
 
 
-	// Effacez le premier élément de la liste.
 	// Retrait du premier élément de la liste.
 	it = listeHeros.erase(listeHeros.begin());
 
 
-	// Affichez votre liste de héros en utilisant un itérateur. La liste débute avec le héros Randi,
-	// n'a pas Mario, et le précédent de "Aya Brea" est ce que vous avez inséré. Servez-vous des methodes
-	// begin et end de la liste...
 	// Affichage de la liste de héros en utilisant un itérateur.
 	cout << "Affichage de la liste avec un itérateur :\n";
 	for (auto iter = listeHeros.begin(); iter != listeHeros.end(); ++iter) {
@@ -218,7 +204,6 @@ int main()
 	cout << trait << "\n";
 
 
-	// Refaite le même affichage mais en utilisant une simple boucle "for" sur intervalle.
 	// Affichage de la liste de héros en utilisant une boucle for étendue.
 	cout << "Affichage de la liste avec une boucle sur intervalle :\n";
 	for (const auto& elem : listeHeros) {
@@ -228,7 +213,6 @@ int main()
 	cout << trait << "\n";
 
 
-	// Utilisez un conteneur pour avoir les héros en ordre alphabétique (voir point 2 de l'énoncé).
 	//2.1 Utilisation d'un ensemble comme conteneur pour avoir les héros en ordre alphabétique.
 	set<Heros> ensembleHeros{};
 	for (const auto& h : listeHeros)
@@ -251,6 +235,4 @@ int main()
 	// taille O(log(n)). La complexité d'une recherche dans une liste liée (1) est linéaire à sa taille O
 	// (n).
 
-
-	// Assurez-vous de n'avoir aucune ligne non couverte dans les classes pour la liste liée.  Il peut y avoir des lignes non couvertes dans les personnages...
 }

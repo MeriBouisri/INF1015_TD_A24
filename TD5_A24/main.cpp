@@ -153,19 +153,25 @@ int main()
 			break;
 		}
 	}
-
 	cout << trait << "\n";
+
+
 	//TODO: Ajouter un hero bidon à la liste avant Aya Brea en vous servant de l'itérateur.
+	// Ajout d'un héros à la liste avant Aya Brea avec un itérateur.
 	cout << "Taille de la liste de héros avant l'insertion : " << listeHeros.size() << "\n";
 	it = listeHeros.insert(it, Heros("LeBron James", "NBA ShootOut 2004", "Stephen Curry"));
 
+
 	//TODO: Assurez-vous que la taille de la liste est correcte après l'ajout.
+	// Vérification de la taille de la liste après l'ajout.
 	cout << "Taille de la liste de héros après l'insertion de LeBron James : " << listeHeros.size() << "\n";
 	cout << trait << "\n";
 	(*it).afficher(cout);
 	cout << trait << "\n";
 
+
 	//TODO: Reculez votre itérateur jusqu'au héros Mario et effacez-le en utilisant l'itérateur, puis affichez le héros suivant dans la liste (devrait êter "Naked Snake/John").
+	// Recul de l'itérateur jusqu'à Mario et retrait de Mario en utilisant l'itérateur et affichage du héros suivant dans la liste.
 	for (it; it != listeHeros.begin(); --it) {
 		if ((*it).getNom() == "Mario") {
 			break;
@@ -178,13 +184,18 @@ int main()
 
 
 	//TODO: Assurez-vous que la taille de la liste est correcte après le retrait.
+	// Vérification de la taille de la liste après le retrait.
 	cout << "Taille de la liste de héros après la suppression de Mario : " << listeHeros.size() << "\n";
 	cout << trait << "\n";
 
+
 	//TODO: Effacez le premier élément de la liste.
+	// Retrait du premier élément de la liste.
 	it = listeHeros.erase(listeHeros.begin());
 
+
 	//TODO: Affichez votre liste de héros en utilisant un itérateur. La liste débute avec le héros Randi, n'a pas Mario, et le précédent de "Aya Brea" est ce que vous avez inséré. Servez-vous des methodes begin et end de la liste...
+	// Affichage de la liste de héros en utilisant un itérateur.
 	cout << "Affichage de la liste avec un itérateur :\n";
 	for (auto iter = listeHeros.begin(); iter != listeHeros.end(); ++iter) {
 		(*iter).afficher(cout);
@@ -192,24 +203,33 @@ int main()
 	}
 	cout << trait << "\n";
 
+
 	//TODO: Refaite le même affichage mais en utilisant une simple boucle "for" sur intervalle.
+	// Affichage de la liste de héros en utilisant une boucle for étendue.
 	cout << "Affichage de la liste avec une boucle sur intervalle :\n";
 	for (const auto& elem : listeHeros) {
 		elem.afficher(cout);
 		cout << "\n";
 	}
 
+
 	//TODO: Utilisez un conteneur pour avoir les héros en ordre alphabétique (voir point 2 de l'énoncé).
+	//2.1 Utilisation d'un ensemble comme conteneur pour avoir les héros en ordre alphabétique.
 	set<Heros> ensembleHeros{};
 	for (const auto& h : listeHeros)
 		ensembleHeros.insert(h);
 
+
+	//2.2 Affichage d'un héro en le trouvant par son nom dans l'ensemble (set) en 2.1. La complexité en moyenne de cette recherche est O(log(n)) où n est la taille de l'ensemble puisque la recherche s'effectue à partir d'un arbre binaire ordonné selon le critère de comparaison des clés de l'ensemble.
 	cout << "Affichage de LeBron James en le trouvant dans l'ensemble (set : conteneur) :\n";
 	auto itTrouve = ensembleHeros.find(Heros("LeBron James"));
 	assert(itTrouve != ensembleHeros.end());
 	itTrouve->afficher(cout);
-
 	cout << "\n";
+
+
+	//2.3 Selon nous, lors d'une recherche d'un héros par le nom, l'ensemble (set : conteneur utilisé en 2.1) permet la recherche la plus rapide, puisque la complexité est logarithmique par rapport à sa taille O(log(n)). La complexité d'une recherche dans une liste liée (1) est linéaire à sa taille O(n).
+
 
 	//TODO: Assurez-vous de n'avoir aucune ligne non couverte dans les classes pour la liste liée.  Il peut y avoir des lignes non couvertes dans les personnages...
 }

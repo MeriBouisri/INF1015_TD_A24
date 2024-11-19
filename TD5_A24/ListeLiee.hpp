@@ -29,38 +29,38 @@ struct Noeud : public Testable
 {
 public:
 	//TODO [x]: Constructeur(s).
-	Noeud(const T& donnee) : donnee_(donnee) {}
+	Noeud(const T& donnee) : donnee_(donnee), suivant_(passeFin), precedent_(passeFin) {}
 
 
-	void test() override {
-		/*Noeud<int> n0(5);
+	void test() {
+		//Noeud<int> n0(5);
 
-		assert(n0.donnee_ == 5);
-		assert(n0.suivant_ == Noeud::PAST_END);
+		//assert(n0.donnee_ == 5);
+		//assert(n0.suivant_ == Noeud::passeFin);
 
-		Noeud<int> n1(10);
-		n0.suivant_ = &n1;
-		n1.precedent_ = &n0;
-		assert(n0.suivant_ == &n1);
-		assert(n1.precedent_ == &n0);
+		//Noeud<int> n1(10);
+		//n0.suivant_ = &n1;
+		//n1.precedent_ = &n0;
+		//assert(n0.suivant_ == &n1);
+		//assert(n1.precedent_ == &n0);
 
-		Noeud<int> n2(15);
-		n1.suivant_ = &n2;
-		n2.precedent_ = &n1;
-		assert(n1.suivant_ == &n2);
-		assert(n2.precedent_ == &n1);
+		//Noeud<int> n2(15);
+		//n1.suivant_ = &n2;
+		//n2.precedent_ = &n1;
+		//assert(n1.suivant_ == &n2);
+		//assert(n2.precedent_ == &n1);
 
-		cout << "[TEST] Noeud : succes" << endl;*/
+		//cout << "[TEST] Noeud : succes" << endl;
 	}
 
 
 private:
 	//TODO [x]: Attributs d'un noeud.
-	Noeud* suivant_ = Noeud::PASSE_FIN;
-	Noeud* precedent_ = Noeud::PASSE_FIN;
+	Noeud* suivant_;
+	Noeud* precedent_;
 	T donnee_;
 
-	inline static constexpr Noeud* PASSE_FIN = nullptr;
+	inline static constexpr Noeud* passeFin = nullptr;
 	friend class ListeLiee<T>;
 	friend class Iterateur<T>;
 };
@@ -71,11 +71,11 @@ class Iterateur
 	friend class ListeLiee<T>;
 public:
 	//TODO [x]: Constructeur(s).
-	Iterateur(Noeud<T>* position = Noeud<T>::PASSE_FIN) : position_(position) {}
+	Iterateur(Noeud<T>* position = Noeud<T>::passeFin) : position_(position) {}
 
 	void avancer()
 	{
-		Expects(position_ != Noeud<T>::PASSE_FIN);
+		Expects(position_ != Noeud<T>::passeFin);
 
 		// TODO [x]: Changez la position de l'itérateur pour le noeud suivant
 		this->position_ = this->position_->suivant_;
@@ -83,7 +83,7 @@ public:
 	void reculer()
 	{
 		//NOTE: On ne demande pas de supporter de reculer à partir de l'itérateur end().
-		Expects(position_ != Noeud<T>::PASSE_FIN);
+		Expects(position_ != Noeud<T>::passeFin);
 
 		// TODO [x] : Changez la position de l'itérateur pour le noeud précédent
 		this->position_ = this->position_->precedent_;
@@ -101,14 +101,14 @@ public:
 
 	T& operator*()
 	{
-		Expects(position_ != Noeud<T>::PASSE_FIN);
+		Expects(position_ != Noeud<T>::passeFin);
 		return position_->donnee_;
 	}
 	//TODO []: Ajouter ce qu'il manque pour que les boucles sur intervalles fonctionnent sur une ListeLiee.
 	bool operator==(const Iterateur<T>& it) const = default;
 
 	void test() {
-		/*Noeud<int> n0(5);
+		Noeud<int> n0(5);
 		Noeud<int> n1(10);
 		Noeud<int> n2(15);
 
@@ -126,7 +126,7 @@ public:
 		it.reculer();
 		assert(*it == 10);
 
-		cout << "[TEST] Iterateur : succes" << endl;*/
+		cout << "[TEST] Iterateur : succes" << endl;
 	}
 private:
 	Noeud<T>* position_;
@@ -140,14 +140,14 @@ public:
 	using iterator = Iterateur<T>;  // Définit un alias au type, pour que ListeLiee<T>::iterator corresponde au type de son itérateur.
 
 	//TODO: La construction par défaut doit créer une liste vide valide.
-	ListeLiee() : tete_(Noeud<T>::PASSE_FIN), queue_(Noeud<T>::PASSE_FIN), taille_(0) {};
+	ListeLiee() : tete_(Noeud<T>::passeFin), queue_(Noeud<T>::passeFin), taille_(0) {};
 	~ListeLiee()
 	{
 		//TODO: Enlever la tête à répétition jusqu'à ce qu'il ne reste aucun élément.
 		// Pour enlever la tête, 
 		// 1. La tête doit devenir le suivant de la tête actuelle.
 		// 2. Ne pas oublier de désallouer le noeud de l'ancienne tête (si pas fait automatiquement).
-		while (tete_ != Noeud<T>::PASSE_FIN) {
+		while (tete_ != Noeud<T>::passeFin) {
 			auto temp = tete_;
 			tete_ = tete_->suivant_;
 			delete temp;
@@ -197,7 +197,7 @@ public:
 		//    (précédent de l'itérateur) afin qu'il point vers le noeud créé.
 		// 5. Incrémentez la taille de la liste.
 		// 6. Retournez un nouvel itérateur initialisé au nouveau noeud.
-		if (it.position_ == Noeud<T>::PASSE_FIN) {
+		if (it.position_ == Noeud<T>::passeFin) {
 			push_back(item);
 			return Iterateur<T>(queue_);
 		}
@@ -210,7 +210,7 @@ public:
 		nouveauNoeud->precedent_ = avant;
 
 		apres->precedent_ = nouveauNoeud;
-		if (avant == Noeud<T>::PASSE_FIN)
+		if (avant == Noeud<T>::passeFin)
 			tete_ = nouveauNoeud;
 		else
 			avant->suivant_ = nouveauNoeud;
@@ -243,14 +243,14 @@ public:
 		Noeud<T>* avant = effacer->precedent_;
 		Noeud<T>* apres = effacer->suivant_;
 
-		if (avant != Noeud<T>::PASSE_FIN) {
+		if (avant != Noeud<T>::passeFin) {
 			avant->suivant_ = apres;
 		}
 		else {
 			tete_ = apres;
 		}
 
-		if (apres != Noeud<T>::PASSE_FIN) {
+		if (apres != Noeud<T>::passeFin) {
 			apres->precedent_ = avant;
 		}
 		else {

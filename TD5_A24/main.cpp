@@ -92,7 +92,7 @@ ListeLiee<T>::iterator trouverParNom(ListeLiee<T>& liste, const string& nom)
 		if ((*pos).getNom() == nom)
 			return pos;
 	}
-	return fin;
+	return fin; // On n'atteint pas la fin dans les tests de recherche.
 }
 
 void testAll() {
@@ -101,8 +101,6 @@ void testAll() {
 
 	Iterateur<int> it(&n0);
 	it.test();
-
-
 }
 
 int main()
@@ -151,7 +149,7 @@ int main()
 #endif
 	//}
 
-	//testAll();
+	testAll();
 
 
 	//TODO: Transférez les héros du vecteur heros dans une ListeLiee.

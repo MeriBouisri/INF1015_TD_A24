@@ -33,7 +33,7 @@ size_t lireUintTailleVariable(istream& fichier)
 	case enteteTailleVariableDeBase + 1: return lireType<uint16_t>(fichier);
 	case enteteTailleVariableDeBase + 2: return lireType<uint32_t>(fichier);
 	default:
-		erreurFataleAssert("Tentative de lire un entier de taille variable alors que le fichier contient autre chose à cet emplacement.");
+		erreurFataleAssert("Tentative de lire un entier de taille variable alors que le fichier contient autre chose à cet emplacement."); // Non couvert puisque les tentatives de lecture sont toutes valides
 	}
 }
 

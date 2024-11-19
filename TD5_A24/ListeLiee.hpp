@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "gsl/gsl_assert"
 #include "gsl/pointers"
-#include <cassert>
 #include "verification_allocation.hpp"
+#include <cassert>
 
 
 // AJOUT (etudiant) : Classe testable
@@ -46,7 +46,7 @@ public:
 
 		cout << "[TEST] Noeud : succes" << endl;
 	}
-	
+
 
 private:
 	//TODO [x]: Attributs d'un noeud.
@@ -132,31 +132,48 @@ public:
 	using iterator = Iterateur<T>;  // Définit un alias au type, pour que ListeLiee<T>::iterator corresponde au type de son itérateur.
 
 	//TODO: La construction par défaut doit créer une liste vide valide.
+	ListeLiee() : tete_(Noeud<T>::PAST_END), queue_(Noeud<T>::PAST_END), taille_(0) {};
 	~ListeLiee()
 	{
 		//TODO: Enlever la tête à répétition jusqu'à ce qu'il ne reste aucun élément.
 		// Pour enlever la tête, 
 		// 1. La tête doit devenir le suivant de la tête actuelle.
 		// 2. Ne pas oublier de désallouer le noeud de l'ancienne tête (si pas fait automatiquement).
+		while (tete_ != Noeud<T>::PAST_END) {
+			auto temp = tete_;
+			tete_ = tete_->suivant_;
+			delete temp;
+		}
 	}
 
-	bool estVide() const  { return taille_ == 0; }
+	bool estVide() const { return taille_ == 0; }
 	unsigned size() const { return taille_; }
 	//NOTE: to_address (C++20) permet que ce même code fonctionne que vous utilisiez des pointeurs bruts ou intelligents (ça prend le pointeur brut associé au pointeur intelligent, s'il est intelligent).
-	iterator begin()  { return {to_address(tete_)}; }
-	iterator end()    { return {to_address(queue_->suivant_)}; }
+	iterator begin() { return { to_address(tete_) }; }
+	iterator end() { return { to_address(queue_->suivant_) }; }
 
-	// Ajoute à la fin de la liste.
+	// Ajoute à la fin de la liste
+	// Adapté à partir de l'exemple dans les notes de cours : [1] F.-R. Boyer, M. Bellaïche, S. Kadoury, Complexité et conteneur non contigu. Montreal, QC  : Département de génie informatique et génie logiciel, 2021. [En ligne].
 	void push_back(const T& item)
 	{
 		//TODO: Vous devez créer un nouveau noeud en mémoire.
 		//TODO: Si la liste était vide, ce nouveau noeud est la tête et la queue;
 		// autrement, ajustez la queue et pointeur(s) adjacent(s) en conséquence.
+		Noeud<T>* nouveauNoeud = new Noeud<T>(item);
+		if (tete_ == Noeud<T>::PAST_END && queue_ == Noeud<T>::PAST_END && taille_ <= 0)
+			tete_ = nouveauNoeud;
+		else {
+			queue_->suivant_ = nouveauNoeud;
+			nouveauNoeud->precedent_ = queue_;
+		}
+		queue_ = nouveauNoeud;
 	}
 
 	// Insère avant la position de l'itérateur.
+
 	iterator insert(iterator it, const T& item)
 	{
+
 		//NOTE: Pour simplifier, vous n'avez pas à supporter l'insertion à la fin (avant "past the end"),
 		// ni l'insertion au début (avant la tête), dans cette méthode.
 		//TODO:
@@ -191,9 +208,9 @@ public:
 		//NOTE: On ne demande pas de supporter d'effacer le dernier élément (c'est similaire au cas pour enlever le premier).
 	}
 
-private:
-	gsl::owner<Noeud<T>*> tete_;  //NOTE: Vous pouvez changer le type si vous voulez.
+	//private:
+	gsl::owner<Noeud<T>*> tete_ = Noeud::PAST_END;  //NOTE: Vous pouvez changer le type si vous voulez.
 
-	Noeud<T>* queue_;
-	unsigned taille_;
+	Noeud<T>* queue_ = Noeud::PAST_END;
+	unsigned taille_ = 0;
 };

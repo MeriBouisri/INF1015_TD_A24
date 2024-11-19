@@ -1,18 +1,18 @@
-﻿#include "Personnage.hpp"
+﻿#include "bibliotheque_cours.hpp"
+#include "cppitertools/range.hpp"
 #include "Heros.hpp"
+#include "lectureBinaire.hpp"
+#include "lireVectorDuFichier.hpp"
+#include "ListeLiee.hpp"
+#include "Personnage.hpp"
 #include "Vilain.hpp"
 #include "VilainHeros.hpp"
-#include "lireVectorDuFichier.hpp"
-#include "lectureBinaire.hpp"
-#include "ListeLiee.hpp"
-#include <fstream>
-#include <sstream>
 #include <cassert>
-#include <vector>
+#include <fstream>
 #include <functional>
 #include <memory>
-#include "cppitertools/range.hpp"
-#include "bibliotheque_cours.hpp"
+#include <sstream>
+#include <vector>
 
 using namespace std;
 using namespace iter;
@@ -42,7 +42,7 @@ const Affichable& versReferenceAffichable(const unique_ptr<T>& p) { return *p; }
 
 // Trait de separation
 static const string trait =
-	"═════════════════════════════════════════════════════════════════════════";
+"═════════════════════════════════════════════════════════════════════════";
 
 // On ne demande pas particulièrement la surcharge de << dans ce TD.
 template <typename T>
@@ -50,7 +50,7 @@ void afficherAffichables(const vector<T>& affichables, Theme theme)
 {
 	static const string separateurElements = "\033[33m" + trait + "\n";
 	Affichable::changerCouleurTexteFond(cout, Affichable::Couleur::blancGris, (theme == Theme::clair) ? Affichable::Couleur::blancIntense : Affichable::Couleur::noir);
-	
+
 	for (auto&& a : affichables) {
 		cout << separateurElements;
 		auto& x = versReferenceAffichable(a);
@@ -92,16 +92,16 @@ void testAll() {
 
 int main()
 {
-	
-	#pragma region "Bibliothèque du cours"
+
+#pragma region "Bibliothèque du cours"
 	// Permet sous Windows les "ANSI escape code" pour changer de couleur
 	// https://en.wikipedia.org/wiki/ANSI_escape_code ; les consoles Linux/Mac
 	// les supportent normalement par défaut.
 	bibliotheque_cours::activerCouleursAnsi();
-	#pragma endregion
-	
+#pragma endregion
+
 	testsPourCouvertureLectureBinaire();
-	
+
 	static const string separateurSections = "\033[95m" + trait + "\n";
 
 	//{ Solutionnaire du TD4:
@@ -109,7 +109,7 @@ int main()
 	vector<Vilain> vilains = lireVectorDuFichier<Vilain>("vilains.bin");
 	vector<unique_ptr<Personnage>> peronnages;  // Doit être des pointeurs pour le polymorphisme, l'énoncé ne force pas les unique_ptr.
 
-	#if 1 //TODO: Vous n'avez pas à conserver ces affichages pour le TD5, ils sont pour le solutionnaire du TD4:
+#if 1 //TODO: Vous n'avez pas à conserver ces affichages pour le TD5, ils sont pour le solutionnaire du TD4:
 	cout << separateurSections << "Heros:" << endl;
 	afficherAffichables(heros, Theme::sombre);
 
@@ -129,13 +129,12 @@ int main()
 
 	cout << separateurSections << "Affichage avec un autre thème de couleurs:" << endl;
 	afficherAffichables(peronnages, Theme::clair);
-	
+
 	Affichable::changerCouleurTexteFond(cout, Affichable::Couleur::blancGris, Affichable::Couleur::noir);
-	#endif
+#endif
 	//}
 
 	testAll();
-	
 
 
 	//TODO: Transférez les héros du vecteur heros dans une ListeLiee.

@@ -178,6 +178,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="lireVectorDuFichier.hpp" />
     <ClInclude Include="ListeLiee.hpp" />
     <ClInclude Include="Personnage.hpp" />
     <ClInclude Include="Vilain.hpp" />

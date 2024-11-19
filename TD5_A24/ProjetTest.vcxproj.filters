@@ -63,5 +63,8 @@
     <ClInclude Include="ListeLiee.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="lireVectorDuFichier.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

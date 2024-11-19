@@ -152,6 +152,7 @@ public:
 	iterator begin() { return { to_address(tete_) }; }
 	iterator end() { return { to_address(queue_->suivant_) }; }
 
+
 	// Ajoute à la fin de la liste
 	// Adapté à partir de l'exemple dans les notes de cours : [1] F.-R. Boyer, M. Bellaïche, S. Kadoury, Complexité et conteneur non contigu. Montreal, QC  : Département de génie informatique et génie logiciel, 2021. [En ligne].
 	void push_back(const T& item)
@@ -167,13 +168,14 @@ public:
 			nouveauNoeud->precedent_ = queue_;
 		}
 		queue_ = nouveauNoeud;
+		++taille_;
 	}
 
+
 	// Insère avant la position de l'itérateur.
-
-	iterator insert(iterator it, const T& item)
+	// Adapté à partir de l'exemple dans les notes de cours : [1] F.-R. Boyer, M. Bellaïche, S. Kadoury, Complexité et conteneur non contigu. Montréal, QC  : Département de génie informatique et génie logiciel, 2021. [En ligne].
+	iterator insert(const iterator& it, const T& item) // Enlever le const & si jamais un problème de compatibilité survient (iterator it originalement)
 	{
-
 		//NOTE: Pour simplifier, vous n'avez pas à supporter l'insertion à la fin (avant "past the end"),
 		// ni l'insertion au début (avant la tête), dans cette méthode.
 		//TODO:
@@ -187,10 +189,32 @@ public:
 		//    (précédent de l'itérateur) afin qu'il point vers le noeud créé.
 		// 5. Incrémentez la taille de la liste.
 		// 6. Retournez un nouvel itérateur initialisé au nouveau noeud.
+		if (it.position_ == Noeud<T>::PAST_END) {
+			push_back(item);
+			return Iterateur<T>(it);
+		}
+
+		Noeud<T>* apres = it.position_;
+		Noeud<T>* avant = apres->precedent_;
+
+		Noeud<T>* nouveauNoeud = new Noeud<T>(item);
+		nouveauNoeud->suivant_ = apres;
+		nouveauNoeud->precedent_ = avant;
+
+		apres->precedent_ = nouveauNoeud;
+		if (avant == Noeud<T>::PAST_END)
+			tete_ = nouveauNoeud;
+		else
+			avant->suivant_ = nouveauNoeud;
+
+		++taille_;
+
+		return Iterateur<T>(nouveauNoeud);
 	}
 
+
 	// Enlève l'élément à la position it et retourne un itérateur vers le suivant.
-	iterator erase(iterator it)
+	iterator erase(const iterator& it) // Enlever le const & si jamais un problème de compatibilité survient (iterator it originalement)
 	{
 		//TODO: Enlever l'élément à la position de l'itérateur.
 		//  1. Le pointeur vers le Noeud à effacer est celui dans l'itérateur.
@@ -206,6 +230,30 @@ public:
 		//  donc en 2. il se peut qu'il n'y ait pas de précédent et alors c'est
 		//  la tête de liste qu'il faut ajuster.
 		//NOTE: On ne demande pas de supporter d'effacer le dernier élément (c'est similaire au cas pour enlever le premier).
+
+		Noeud<T>* effacer = it.position_;
+		Noeud<T>* avant = effacer->precedent_;
+		Noeud<T>* apres = effacer->suivant_;
+
+		if (avant != Noeud<T>::PAST_END) {
+			avant->suivant_ = apres;
+		}
+		else {
+			tete_ = apres;
+		}
+
+		if (apres != Noeud<T>::PAST_END) {
+			apres->precedent_ = avant;
+		}
+		else {
+			queue_ = avant;
+		}
+
+		delete effacer;
+
+		--taille_;
+
+		return Iterateur<T>(apres);
 	}
 
 	//private:

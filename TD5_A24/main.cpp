@@ -1,4 +1,12 @@
-﻿#include "bibliotheque_cours.hpp"
+﻿/**
+* Utilisation de conteneurs, algorithmes et itérateurs pour manipuler des personnages de jeux vidéos
+* \file   main.cpp
+* \author Bouisri, Département de génie informatique et génie logiciel et Xa
+* \date   19 novembre 2024
+* Créé le 5 novembre 2024
+*/
+
+#include "bibliotheque_cours.hpp"
 #include "cppitertools/range.hpp"
 #include "Heros.hpp"
 #include "lectureBinaire.hpp"

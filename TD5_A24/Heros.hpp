@@ -1,4 +1,12 @@
-﻿#pragma once
+﻿/**
+* Classe représentant un héros
+* \file   Hero.hpp
+* \author Département de génie informatique et génie logiciel
+* \date   19 novembre 2024
+* Créé le 5 novembre 2024
+*/
+
+#pragma once
 #include "cppitertools/range.hpp"
 #include "lireVectorDuFichier.hpp"
 #include "Personnage.hpp"

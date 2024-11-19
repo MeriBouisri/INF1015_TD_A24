@@ -1,14 +1,22 @@
-﻿#pragma once
+﻿/**
+* Classe représentant un vilain
+* \file   Vilain.hpp
+* \author Département de génie informatique et génie logiciel
+* \date   19 novembre 2024
+* Créé le 5 novembre 2024
+*/
+
+#pragma once
 #include "Personnage.hpp"
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Vilain : public virtual Personnage
 {
 public:
 	// Vilain() = default;  // Non nécessaire.
-	
+
 	//Vilain(const string& nom, const string& jeu, const string& objectif)  // Non nécessaire si on construit toujour en lisant du istream.
 	//	: Personnage(nom, jeu), objectif_(objectif) {}
 
@@ -23,8 +31,8 @@ public:
 	}
 	void changerCouleur(ostream& os, Theme theme) const override {
 		switch (theme) {
-		case Theme::clair : changerCouleurTexteFond(os, Couleur::rouge, Couleur::blancIntense); break;
-		default :           changerCouleurTexteFond(os, Couleur::rougeIntense, Couleur::noir); break;
+		case Theme::clair: changerCouleurTexteFond(os, Couleur::rouge, Couleur::blancIntense); break;
+		default:           changerCouleurTexteFond(os, Couleur::rougeIntense, Couleur::noir); break;
 		}
 	}
 

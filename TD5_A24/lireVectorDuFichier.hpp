@@ -1,9 +1,17 @@
-﻿#pragma once
+﻿/**
+* Classe permettant de lire un vecteur d'éléments d'un fichier.
+* \file   lireVectorDuFichier.hpp
+* \author Département de génie informatique et génie logiciel
+* \date   19 novembre 2024
+* Créé le 5 novembre 2024
+*/
+
+#pragma once
+#include "cppitertools/range.hpp"
 #include "lectureBinaire.hpp"
 #include <iostream>
-#include <vector>
 #include <string>
-#include "cppitertools/range.hpp"
+#include <vector>
 using namespace std;
 using namespace iter;
 

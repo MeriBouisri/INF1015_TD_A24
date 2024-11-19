@@ -1,4 +1,12 @@
-﻿#pragma once
+﻿/**
+* Classes servant à implémenter une liste à liens doubles à partir de noeuds et itérateurs.
+* \file   ListeLiee.hpp
+* \author Bouisri, Département de génie informatique et génie logiciel et Xa
+* \date   19 novembre 2024
+* Créé le 5 novembre 2024
+*/
+
+#pragma once
 #include "gsl/gsl_assert"
 #include "gsl/pointers"
 #include "verification_allocation.hpp"

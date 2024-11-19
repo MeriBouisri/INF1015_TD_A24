@@ -1,4 +1,12 @@
-﻿#pragma once
+﻿/**
+* Interface Affichable pour les classes affichables
+* \file   Affichable.hpp
+* \author Département de génie informatique et génie logiciel
+* \date   19 novembre 2024
+* Créé le 5 novembre 2024
+*/
+
+#pragma once
 #include <array>
 #include <iostream>
 using namespace std;

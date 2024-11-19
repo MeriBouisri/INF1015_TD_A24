@@ -1,4 +1,12 @@
-﻿#pragma once
+﻿/**
+* Classe représentant un personnage
+* \file   Personnage.hpp
+* \author Bouisri, Département de génie informatique et génie logiciel et Xa
+* \date   19 novembre 2024
+* Créé le 5 novembre 2024
+*/
+
+#pragma once
 #include "Affichable.hpp"
 #include "lectureBinaire.hpp"
 #include <iostream>

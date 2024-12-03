@@ -1,7 +1,13 @@
-﻿// Le Modèle pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
+﻿/**
+* Modèle pour une caisse enregistreuse
+* \file   Caisse.cpp
+* \author Bouisri et Xa
+* \date   19 novembre 2024
+* Créé le 3 décembre 2024
+*/
 
 #include "Caisse.h"
+using namespace espaceModele;
 
 // slots:
 
@@ -22,7 +28,7 @@ void Caisse::ajouterChiffre(int chiffre) {
 	changerValeur(valeur_ * 10 + chiffre);
 }
 
-void Caisse::changerOperation(const function<int(int, int)>& operation) {
+void Caisse::changerOperation(const std::function<int(int, int)>& operation) {
 	if (!estResultat_)
 		effectuerOperation();
 	operation_ = operation;
@@ -36,6 +42,10 @@ void Caisse::effectuerOperation() {
 	resultatPrecedent_ = operation_(resultatPrecedent_, valeur_);
 	estResultat_ = true;
 	changerValeur(resultatPrecedent_);
+}
+
+double Caisse::calculerTotal() const {
+	return std::accumulate(articles_.cbegin(), articles_.cend(), sousTotal_, [](double sommeAccumulee, const Article& article) {return sommeAccumulee + (article.taxable ? article.price * tauxTaxation_ : 0.0); });
 }
 
 // Fonctions pour l'opération:

@@ -1,4 +1,12 @@
-﻿#include "CaisseWindow.h"
+﻿/**
+* Vue et controlleur pour une caisse enregistreuse
+* \file   CaisseWindow.cpp
+* \author Bouisri et Xa
+* \date   19 novembre 2024
+* Créé le 3 décembre 2024
+*/
+
+#include "CaisseWindow.h"
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QHBoxLayout>
 #include <QPushButton>

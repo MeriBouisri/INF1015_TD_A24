@@ -1,4 +1,12 @@
-﻿#pragma once
+﻿/**
+* Vue et controlleur pour une caisse enregistreuse
+* \file   CaisseWindow.h
+* \author Bouisri et Xa
+* \date   19 novembre 2024
+* Créé le 3 décembre 2024
+*/
+
+#pragma once
 
 #include "Caisse.h"
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
@@ -15,6 +23,7 @@
 #include <QString>
 #pragma pop()
 
+using namespace espaceModele;
 
 class CaisseWindow : public QMainWindow
 {

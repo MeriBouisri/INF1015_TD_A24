@@ -1,4 +1,12 @@
-﻿#include "Calc.hpp"
+﻿/**
+* Application graphique simulant une caisse enregistreuse
+* \file   main.cpp
+* \author Bouisri et Xa
+* \date   19 novembre 2024
+* Créé le 3 décembre 2024
+*/
+
+#include "Calc.hpp"
 #include "CalcWindow.hpp"
 #include "Caisse.h"
 #include "CaisseWindow.h"
@@ -42,6 +50,4 @@ int main(int argc, char *argv[])
 	CaisseWindow caisseWindow;
 	caisseWindow.show();
 	return app.exec();
-
-
 }

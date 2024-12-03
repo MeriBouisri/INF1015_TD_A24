@@ -10,19 +10,15 @@
 
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QObject>
-#pragma pop()
-#include <functional>
+#include "Article.h"
+#include "ExceptionsPersonnalisees.h"
 #include <unordered_set>
+#pragma pop()
 
 namespace espaceModele {
-	struct Article {
-		std::string description;
-		double price;
-		bool taxable;
-	};
+
 class Caisse : public QObject {
 	Q_OBJECT
-
 
 public:
 	Caisse() = default;
@@ -38,7 +34,10 @@ public slots:
 	void operationMoins();
 	void operationEgal();
 	void effectuerOperation();
+
 	double calculerTotal() const;
+	void retirerArticle(const Article& article);
+	void ajouterArticle(std::string description, double prix, bool taxable);
 
 signals:
 	void valeurChangee(int valeur);
@@ -53,7 +52,7 @@ private:
 	int resultatPrecedent_ = 0;
 	std::function<int(int, int)> operation_ = egal;
 
-	std::vector<Article> articles_ = {};
+	std::unordered_set<Article> articles_ = {};
 	double sousTotal_ = 0.0;
 	static constexpr auto tauxTaxation_ = 0.14975;
 };

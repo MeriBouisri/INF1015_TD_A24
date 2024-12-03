@@ -131,6 +131,10 @@
     <QtMoc Include="Caisse.h" />
     <QtMoc Include="CaisseWindow.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Article.h" />
+    <ClInclude Include="ExceptionsPersonnalisees.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

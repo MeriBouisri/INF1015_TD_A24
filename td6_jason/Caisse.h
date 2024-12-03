@@ -23,37 +23,18 @@ class Caisse : public QObject {
 public:
 	Caisse() = default;
 
-	int obtenirValeur() { return valeur_; }
-
 public slots:
-	void changerValeur(int valeur);
-	void effacer();
-	void ajouterChiffre(int chiffre);
-	void changerOperation(const std::function<int(int, int)>& operation);
-	void operationPlus();
-	void operationMoins();
-	void operationEgal();
-	void effectuerOperation();
 
-	double calculerTotal() const;
 	void retirerArticle(const Article& article);
 	void ajouterArticle(std::string description, double prix, bool taxable);
 
 signals:
-	void valeurChangee(int valeur);
-
+	void articleModifie();
 private:
-	static int plus(int x, int y);
-	static int moins(int x, int y);
-	static int egal(int, int y);
-
-	bool estResultat_ = true;
-	int valeur_ = 0;
-	int resultatPrecedent_ = 0;
-	std::function<int(int, int)> operation_ = egal;
-
 	std::unordered_set<Article> articles_ = {};
 	double sousTotal_ = 0.0;
 	static constexpr auto tauxTaxation_ = 0.14975;
+
+	double calculerTotal() const;
 };
 }

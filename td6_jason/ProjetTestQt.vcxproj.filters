@@ -43,12 +43,24 @@
     <ClCompile Include="TestCalc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Caisse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CaisseWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Calc.hpp">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="CalcWindow.hpp">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Caisse.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CaisseWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

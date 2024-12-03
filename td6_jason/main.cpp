@@ -1,5 +1,8 @@
 ﻿#include "Calc.hpp"
 #include "CalcWindow.hpp"
+#include "Caisse.h"
+#include "CaisseWindow.h"
+
 
 #include <QApplication>
 
@@ -34,7 +37,11 @@ int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 	initialiserBibliothequeCours(argc, argv);
 
-	CalcWindow calcWindow;
-	calcWindow.show();
+	//CalcWindow calcWindow;
+	//calcWindow.show();
+	CaisseWindow caisseWindow;
+	caisseWindow.show();
 	return app.exec();
+
+
 }

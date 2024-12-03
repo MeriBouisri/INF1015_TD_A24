@@ -1,44 +1,69 @@
-cmake_minimum_required(VERSION 3.10)
-# set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_MESSAGE_LOG_LEVEL VERBOSE)
-include(cmake_cours.cmake)  # Certaines fonctions de configuration de compilation pour ce cours.
+cmake_minimum_required(VERSION 3.16)
 
-# Le nom du projet.
-project(ProjetTest CXX)
+project(TD6_A24 VERSION 0.1 LANGUAGES CXX)
 
-afficher_infos_generateur()  # Doit être après "project( )".
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
-set(BILIOTHEQUE_COURS
-	"bibliotheque_cours/bibliotheque_cours.cpp"
-	"include/bibliotheque_cours.hpp"
-	"include/CodeCoverage_bugfix.h"
-	"bibliotheque_cours/verification_allocation.cpp"
-	"include/verification_allocation.hpp"
-	"include/debogage_memoire.hpp"
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+
+set(PROJECT_SOURCES
+        main.cpp
+        mainwindow.cpp
+        mainwindow.h
 )
 
-# On met les fichiers sources (incluant les entêtes)
-file(GLOB ALL_FILES
-	*.cpp
-	*.hpp
-	${BILIOTHEQUE_COURS}
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_add_executable(TD6_A24
+        MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
+    )
+# Define target properties for Android with Qt 6 as:
+#    set_property(TARGET TD6_A24 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
+# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
+else()
+    if(ANDROID)
+        add_library(TD6_A24 SHARED
+            ${PROJECT_SOURCES}
+        )
+# Define properties for Android with Qt 5 after find_package() calls as:
+#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+    else()
+        add_executable(TD6_A24
+            ${PROJECT_SOURCES}
+        )
+    endif()
+endif()
+
+target_link_libraries(TD6_A24 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
+# If you are developing for iOS or macOS you should consider setting an
+# explicit, fixed bundle identifier manually though.
+if(${QT_VERSION} VERSION_LESS 6.1.0)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.TD6_A24)
+endif()
+set_target_properties(TD6_A24 PROPERTIES
+    ${BUNDLE_ID_OPTION}
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
 )
 
-configurer_options_compilation_globales()  # Doit être avant le "add_executable".
-configurer_Qt_auto_tout()                  # Doit être avant le "add_executable".
-add_executable(${PROJECT_NAME} ${ALL_FILES})
+include(GNUInstallDirs)
+install(TARGETS TD6_A24
+    BUNDLE DESTINATION .
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
 
-find_package(Qt6 COMPONENTS Core Widgets REQUIRED)  # Mettre ici ce qui est requis de Qt (et mettre Qt5 ou Qt6 selon la version que vous avez).
-afficher_version_Qt()  # Doit être après le "find_package(Qt...".
-target_link_libraries(${PROJECT_NAME} Qt6::Core Qt6::Widgets)  # Doit être après le "add_executable" et lui passer le même nom.  Mettre encore ici ce qui est requis de Qt.
-configurer_GoogleTest(${PROJECT_NAME})  # Doit être après le "add_executable" et lui passer le même nom.
-
-ajouter_target_couverture(${PROJECT_NAME})  # Doit être après le "add_executable" et lui passer le même nom. Ajoute un cible ${PROJECT_NAME}_couverture pour obtenir la couverture de code avec gcov (si on trouve gcov).
-
-# On ajoute le dossier include/ fourni, comme des fichiers d'inclusion du système.
-target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE "include")
-
-
-# Tous les package Vcpkg. Pour savoir quoi mettre, on fait "vcpkg install <le package>", puis on met ce qu'ils disent de mettre dans le CMakeLists.
-# find_package(cppitertools CONFIG REQUIRED)  # On pourrait prendre le cppitertools de vcpkg au lieu de celui fourni dans include/
-# find_package(Microsoft.GSL CONFIG  REQUIRED)  # Et GSL, noter que son nom de package est "ms-gsl" (le package "gsl" dans vcpkg est le "GNU Scientific Library" et non le "Guidelines Support Library").
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(TD6_A24)
+endif()

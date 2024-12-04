@@ -1,55 +1,69 @@
 ﻿/**
-* Modèle pour une caisse enregistreuse
-* \file   Caisse.h
-* \author Bouisri et Xa
-* \date   4 décembre 2024
-* Créé le 19 novembre 2024
-*/
+ * Modèle pour une caisse enregistreuse
+ * \file   Caisse.h
+ * \author Bouisri et Xa
+ * \date   4 décembre 2024
+ * Créé le 19 novembre 2024
+ */
 
 #pragma once
 
 #pragma warning(push, 0) // Sinon Qt soulève des avertissements à /W4.
 #include <QObject>
+
 #include "Article.h"
+
 #include "ExceptionsPersonnalisees.h"
+
 #include <unordered_set>
+
 #pragma pop()
 
 namespace espaceModele {
 
-class Caisse : public QObject {
-	Q_OBJECT
+    class Caisse : public QObject {
+        Q_OBJECT
 
-public:
-	Caisse() = default;
+    public:
+        Caisse() =
+            default;
 
-	// Getters pour les tests
-	const std::unordered_set<Article>& getArticles() const { return articles_; }
-	double getSousTotal() const { return sousTotal_; }
-	double getTaxes() const { return taxes_; }
-	double getTotal() const { return total_; }
+        // Getters pour les tests
+        const std::unordered_set < Article >& getArticles() const {
+            return articles_;
+        }
+        double getSousTotal() const {
+            return sousTotal_;
+        }
+        double getTaxes() const {
+            return taxes_;
+        }
+        double getTotal() const {
+            return total_;
+        }
 
-public slots:
-	void ajouterArticle(std::string description, double prix, bool taxable);
-	void retirerArticle(const Article& article);
+    public slots:
+        void ajouterArticle(std::string description, double prix, bool taxable);
+        void retirerArticle(const Article& article);
+        void reinitialiser();
 
-signals:
-	void articleModifie(const std::unordered_set<Article>& articles);
-	void sousTotalModifie(double sousTotal);
-	void taxesModifiees(double taxes);
-	void totalModifie(double total);
+    signals:
+        void articleModifie(const std::unordered_set < Article >& articles);
+        void sousTotalModifie(double sousTotal);
+        void taxesModifiees(double taxes);
+        void totalModifie(double total);
 
-private:
-	// Propriétés
-	std::unordered_set<Article> articles_ = {};
-	double sousTotal_ = 0.0;
-	double taxes_ = 0.0;
-	double total_ = 0.0;
-	static constexpr auto tauxTaxation_ = 0.14975;
+    private:
+        // Propriétés
+        std::unordered_set < Article > articles_ = {};
+        double sousTotal_ = 0.0;
+        double taxes_ = 0.0;
+        double total_ = 0.0;
+        static constexpr auto tauxTaxation_ = 0.14975; // Taux de taxation de 14.975%
 
-	// Méthodes
-	void calculerTaxes();
-	void calculerTotal();
-	void caisseModifiee();
-};
+        // Méthodes
+        void calculerTaxes();
+        void calculerTotal();
+        void caisseModifiee();
+    };
 }

@@ -1,28 +1,37 @@
 ﻿/**
-* Vue et controlleur pour une caisse enregistreuse
-* \file   CaisseWindow.cpp
-* \author Bouisri et Xa
-* \date   4 décembre 2024
-* Créé le 19 novembre 2024
-*/
+ * Vue et controlleur pour une caisse enregistreuse
+ * \file   CaisseWindow.cpp
+ * \author Bouisri et Xa
+ * \date   4 décembre 2024
+ * Créé le 19 novembre 2024
+ */
 
 #include "CaisseWindow.h"
+
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QHBoxLayout>
+
 #include <QPushButton>
+
 #include <QButtonGroup>
+
 #include <QLabel>
+
 #include <QString>
+
 #include <QVariant>
+
 #pragma pop()
+
 #include <iostream>
+
 #include <type_traits>
+
 #include <cppitertools/range.hpp><
 
 using iter::range;
 
-CaisseWindow::CaisseWindow(QWidget* parent)
-    : QMainWindow(parent) {
+CaisseWindow::CaisseWindow(QWidget* parent) : QMainWindow(parent) {
     this->inputPrice_ = new QLineEdit(this);
     this->inputDescription_ = new QLineEdit(this);
     this->cboxTaxable_ = new QCheckBox("Taxable", this);
@@ -78,25 +87,25 @@ void CaisseWindow::setupUI() {
 void CaisseWindow::connectSignals() {
     // Buttons
     this->connect(
-        this->btnAdd_,
-        &QPushButton::clicked, this,
-        &CaisseWindow::addArticle);
+        this->btnAdd_, &
+        QPushButton::clicked, this, &
+        CaisseWindow::addArticle);
 
     this->connect(
-        this->btnRemove_,
-        &QPushButton::clicked, this,
-        &CaisseWindow::removeArticle);
+        this->btnRemove_, &
+        QPushButton::clicked, this, &
+        CaisseWindow::removeArticle);
 
     this->connect(
-        this->btnReset_,
-        &QPushButton::clicked, this,
-        &CaisseWindow::reset);
+        this->btnReset_, &
+        QPushButton::clicked, this, &
+        CaisseWindow::reset);
 
     //
     this->connect(
-        this->listArticles_,
-        &QListWidget::itemSelectionChanged, this,
-        &CaisseWindow::updateButtons);
+        this->listArticles_, &
+        QListWidget::itemSelectionChanged, this, &
+        CaisseWindow::updateButtons);
 
     // this->connect(
     //     &model_,

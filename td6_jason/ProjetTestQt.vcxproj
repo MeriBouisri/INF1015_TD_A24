@@ -119,7 +119,6 @@
     <ClCompile Include="CaisseWindow.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TestCaisse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Caisse.h" />

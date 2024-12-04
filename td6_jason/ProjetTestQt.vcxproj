@@ -121,6 +121,7 @@
     <ClCompile Include="CalcWindow.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestCaisse.cpp" />
     <ClCompile Include="TestCalc.cpp" />
   </ItemGroup>
   <ItemGroup>

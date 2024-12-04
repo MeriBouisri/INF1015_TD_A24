@@ -1,3 +1,11 @@
+/**
+* Structure pour un article
+* \file   Article.h
+* \author Bouisri et Xa
+* \date   19 novembre 2024
+* Créé le 3 décembre 2024
+*/
+
 #pragma once
 
 #pragma warning(push, 0)
@@ -6,7 +14,7 @@
 #include <boost/functional/hash.hpp>
 #pragma pop()
 
-
+namespace espaceModele {
     struct Article {
         std::string description;
         double prix;
@@ -14,7 +22,9 @@
 
         bool operator==(const Article&) const = default;
     };
+}
 
+using namespace espaceModele;
     namespace std {
         template<> struct hash<Article> {
             size_t operator()(const Article& article) const {

@@ -1,6 +1,6 @@
 /**
-* Modèle pour une caisse enregistreuse
-* \file   Caisse.h
+* Exceptions personnalisées
+* \file   ExceptionsPersonnalisees.h
 * \author Bouisri et Xa
 * \date   19 novembre 2024
 * Créé le 3 décembre 2024

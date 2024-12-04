@@ -23,6 +23,11 @@ class Caisse : public QObject {
 public:
 	Caisse() = default;
 
+	const std::unordered_set<Article>& getArticles() const { return articles_; }
+	double getSousTotal() const { return sousTotal_; }
+	double getTaxes() const { return taxes_; }
+	double getTotal() const { return total_; }
+
 public slots:
 	void retirerArticle(const Article& article);
 	void ajouterArticle(std::string description, double prix, bool taxable);

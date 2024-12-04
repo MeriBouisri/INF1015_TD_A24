@@ -54,6 +54,10 @@ void Caisse::calculerTotal() {
 void Caisse::caisseModifiee() {
 	emit articleModifie(articles_);
 	emit sousTotalModifie(sousTotal_);
+
+	calculerTaxes();
 	emit taxesModifiees(taxes_);
+
+	calculerTotal();
 	emit totalModifie(total_);
 };

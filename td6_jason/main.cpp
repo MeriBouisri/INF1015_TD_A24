@@ -11,7 +11,6 @@
 #include "Caisse.h"
 #include "CaisseWindow.h"
 
-
 #include <QApplication>
 
 #if __has_include("bibliotheque_cours.hpp")

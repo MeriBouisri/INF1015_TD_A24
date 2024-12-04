@@ -24,17 +24,24 @@ public:
 	Caisse() = default;
 
 public slots:
-
 	void retirerArticle(const Article& article);
 	void ajouterArticle(std::string description, double prix, bool taxable);
 
 signals:
-	void articleModifie();
+	void articleModifie(const std::unordered_set<Article>& articles);
+	void sousTotalModifie(double sousTotal);
+	void taxesModifiees(double taxes);
+	void totalModifie(double total);
+
 private:
 	std::unordered_set<Article> articles_ = {};
 	double sousTotal_ = 0.0;
+	double taxes_ = 0.0;
+	double total_ = 0.0;
 	static constexpr auto tauxTaxation_ = 0.14975;
 
-	double calculerTotal() const;
+	void calculerTaxes();
+	void calculerTotal();
+	void caisseModifiee();
 };
 }

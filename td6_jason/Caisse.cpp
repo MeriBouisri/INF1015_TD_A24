@@ -11,9 +11,7 @@ using namespace espaceModele;
 
 // slots:
 
-double Caisse::calculerTotal() const {
-	return std::accumulate(articles_.cbegin(), articles_.cend(), sousTotal_, [](double sommeAccumulee, const Article& article) {return sommeAccumulee + (article.taxable ? article.prix * tauxTaxation_ : 0.0); });
-}
+
 
 void Caisse::retirerArticle(const Article& article) {
 	auto it = std::find(articles_.cbegin(), articles_.cend(), article);
@@ -21,6 +19,7 @@ void Caisse::retirerArticle(const Article& article) {
 		articles_.erase(it);
 		sousTotal_ -= article.prix;
 	}
+	caisseModifiee();
 }
 
 void Caisse::ajouterArticle(std::string description, double prix, bool taxable) {
@@ -39,4 +38,22 @@ void Caisse::ajouterArticle(std::string description, double prix, bool taxable) 
 
 	articles_.insert(std::move(Article(description, prix, taxable)));
 	sousTotal_ += prix;
+
+	caisseModifiee();
 }
+
+void Caisse::calculerTaxes() {
+	taxes_ = std::accumulate(articles_.cbegin(), articles_.cend(), 0.0, [](double sommeAccumulee, const Article& article) {return sommeAccumulee + (article.taxable ? article.prix * tauxTaxation_ : 0.0); });
+
+}
+
+void Caisse::calculerTotal() {
+	total_ = sousTotal_ + taxes_;
+}
+
+void Caisse::caisseModifiee() {
+	emit articleModifie(articles_);
+	emit sousTotalModifie(sousTotal_);
+	emit taxesModifiees(taxes_);
+	emit totalModifie(total_);
+};

@@ -28,20 +28,6 @@ namespace espaceModele {
         Caisse() =
             default;
 
-        // Getters pour les tests
-        const std::unordered_set < Article >& getArticles() const {
-            return articles_;
-        }
-        double getSousTotal() const {
-            return sousTotal_;
-        }
-        double getTaxes() const {
-            return taxes_;
-        }
-        double getTotal() const {
-            return total_;
-        }
-
     public slots:
         void ajouterArticle(std::string description, double prix, bool taxable);
         void retirerArticle(const Article& article);

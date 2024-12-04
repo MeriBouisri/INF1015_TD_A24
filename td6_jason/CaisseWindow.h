@@ -2,8 +2,8 @@
 * Vue et controlleur pour une caisse enregistreuse
 * \file   CaisseWindow.h
 * \author Bouisri et Xa
-* \date   19 novembre 2024
-* Créé le 3 décembre 2024
+* \date   4 décembre 2024
+* Créé le 19 novembre 2024
 */
 
 #pragma once
@@ -61,8 +61,5 @@ private:
 
     void setupUI();
     void connectSignals();
-
-
-
 
 };

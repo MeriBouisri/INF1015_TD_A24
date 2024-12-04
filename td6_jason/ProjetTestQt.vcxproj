@@ -117,16 +117,9 @@
     <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
     <ClCompile Include="Caisse.cpp" />
     <ClCompile Include="CaisseWindow.cpp" />
-    <ClCompile Include="Calc.cpp" />
-    <ClCompile Include="CalcWindow.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestCaisse.cpp" />
-    <ClCompile Include="TestCalc.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="Calc.hpp" />
-    <QtMoc Include="CalcWindow.hpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Caisse.h" />

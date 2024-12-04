@@ -1,16 +1,14 @@
 /**
-* Structure pour un article
+* Structure d'un article d'une caisse enregistreuse
 * \file   Article.h
 * \author Bouisri et Xa
-* \date   19 novembre 2024
-* Créé le 3 décembre 2024
+* \date   4 décembre 2024
+* Créé le 19 novembre 2024
 */
 
 #pragma once
 
-#pragma warning(push, 0)
-#include <QObject>
-#include <string>
+#pragma warning(push, 0) // Sinon Qt soulève des avertissements à /W4.
 #include <boost/functional/hash.hpp>
 #pragma pop()
 
@@ -20,10 +18,12 @@ namespace espaceModele {
         double prix;
         bool taxable;
 
-        bool operator==(const Article&) const = default;
+        bool operator==(const Article&) const = default; // Opérateur de comparaison pour les algorithmes de recherce.
     };
 }
 
+
+// Redéfinition de la fonction de hachage pour les articles
 using namespace espaceModele;
     namespace std {
         template<> struct hash<Article> {

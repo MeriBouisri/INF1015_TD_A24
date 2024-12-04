@@ -1,3 +1,11 @@
+﻿/**
+* Modèle pour une caisse enregistreuse
+* \file   Caisse.cpp
+* \author Bouisri et Xa
+* \date   4 décembre 2024
+* Créé le 19 novembre 2024
+*/
+
 #include "Caisse.h"
 #include "Article.h"
 #include "gtest/gtest.h"

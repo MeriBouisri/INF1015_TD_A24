@@ -2,12 +2,10 @@
 * Application graphique simulant une caisse enregistreuse
 * \file   main.cpp
 * \author Bouisri et Xa
-* \date   19 novembre 2024
-* Créé le 3 décembre 2024
+* \date   4 décembre 2024
+* Créé le 19 novembre 2024
 */
 
-#include "Calc.hpp"
-#include "CalcWindow.hpp"
 #include "Caisse.h"
 #include "CaisseWindow.h"
 
@@ -44,8 +42,6 @@ int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 	initialiserBibliothequeCours(argc, argv);
 
-	//CalcWindow calcWindow;
-	//calcWindow.show();
 	CaisseWindow caisseWindow;
 	caisseWindow.show();
 	return app.exec();

@@ -2,26 +2,14 @@
 * Modèle pour une caisse enregistreuse
 * \file   Caisse.cpp
 * \author Bouisri et Xa
-* \date   19 novembre 2024
-* Créé le 3 décembre 2024
+* \date   4 décembre 2024
+* Créé le 19 novembre 2024
 */
 
 #include "Caisse.h"
 using namespace espaceModele;
 
-// slots:
-
-
-
-void Caisse::retirerArticle(const Article& article) {
-	auto it = std::find(articles_.cbegin(), articles_.cend(), article);
-	if (it != articles_.cend()){
-		articles_.erase(it);
-		sousTotal_ -= article.prix;
-	}
-	caisseModifiee();
-}
-
+// Slots 
 void Caisse::ajouterArticle(std::string description, double prix, bool taxable) {
 	static constexpr auto epsilon = 1e-6;
 	auto estDescriptionVide = description.empty();
@@ -29,7 +17,8 @@ void Caisse::ajouterArticle(std::string description, double prix, bool taxable) 
 
 	if (estDescriptionVide && estPrixNul) {
 		throw std::invalid_argument("Erreur : Le nom de l'article ne peut pas être vide et le prix ne peut pas être zéro.");
-	} else if (estDescriptionVide){
+	}
+	else if (estDescriptionVide) {
 		throw ExceptionDescriptionVide("Erreur : Le nom de l'article ne peut pas être vide.");
 	}
 	else if (estPrixNul) {
@@ -42,14 +31,28 @@ void Caisse::ajouterArticle(std::string description, double prix, bool taxable) 
 	caisseModifiee();
 }
 
+
+void Caisse::retirerArticle(const Article& article) {
+	auto it = std::find(articles_.cbegin(), articles_.cend(), article);
+	if (it != articles_.cend()){
+		articles_.erase(it);
+		sousTotal_ -= article.prix;
+	}
+	caisseModifiee();
+}
+
+
+// Méthodes privées
 void Caisse::calculerTaxes() {
 	taxes_ = std::accumulate(articles_.cbegin(), articles_.cend(), 0.0, [](double sommeAccumulee, const Article& article) {return sommeAccumulee + (article.taxable ? article.prix * tauxTaxation_ : 0.0); });
 
 }
 
+
 void Caisse::calculerTotal() {
 	total_ = sousTotal_ + taxes_;
 }
+
 
 void Caisse::caisseModifiee() {
 	emit articleModifie(articles_);
